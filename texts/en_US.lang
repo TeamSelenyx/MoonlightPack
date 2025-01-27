@@ -1,0 +1,125 @@
+## Pack Info
+global.pack.name=Moonlight Pack	#
+global.pack.name_bold=§lMoonlight Pack	#
+global.pack.name_boldItalic=§l§oMoonlight Pack	#
+global.pack_info.name=§hMoonlight Pack	#
+global.pack_info.made_by.title=Made By:	#
+global.pack_info.made_by=§dNeroLuna	#
+global.pack_info.made_by.team=§7Moonlight Team(TrueToneTeam)	#
+global.pack_info.support_language.title=Support Language	#
+global.pack_info.support_language.english=English	#
+global.pack_info.support_language.korean=Korean	#
+global.pack_info.editor.title=Editor:	#
+global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
+global.pack_info.licenses.title=Licenses:	#
+global.pack_info.licenses.1=* The resource pack is an open-source project by the Moonlight Team (TrueToneTeam) that can be modified and redistributed by anyone.	#
+global.pack_info.licenses.2=* However, the contents of the tab and the display of the original creator and team name cannot be modified or removed. Secondary modifiers can be distributed by adding a name to the Modifier item.	#
+
+
+## Setting Screen
+options.category.beta=Beta	#
+options.category.custom=Custom	#
+options.category.support=Support	#
+options.category.visual=Visual	#
+options.category.files=Files	#
+options.category.profile=Profile	#
+options.category.setting=Setting	#
+
+options.view=View	#
+options.viewTitle=View Setting	#
+options.particleRenderDistance=Particle Render Distance	#
+options.crossPlatformPlay=Cross Platform Play	#
+options.creditsHeader=Credits & Attribution	#
+options.advanced_video_options=Advanced Video	#
+options.myResourcePacks=My Resource Packs	#
+options.minecraftInfo=Minecraft Info	#
+options.creator.copyCoordinate=Coordinate Copy Setting	#
+
+controls_section.contorl_title=Control	#
+controls_section.sensitivity_and_vibration_title=Sensitivity & Vibration	#
+controls_section.button_title=Button	#
+controls_section.controls.classic=Classic	#
+controls_section.controls.touch=Touch	#
+controls_section.controls.crosshair=Crosshair	#
+
+video_section.frame_title=Frame	#
+video_section.graphic_and_rendering_title=Graphic & Rendering	#
+video_section.vr_title=VR	#
+video_section.render_dragon_title=Render Dragon	#
+
+view_section.play_title=Play	#
+view_section.uiAgui_title=UI & GUI	#
+view_section.splitscreen_title=Splitscreen	#
+
+general_section.effect_title=Effect	#
+general_section.text_title=Text	#
+general_section.storage_management_title=Storage Management	#
+general_section.safe_zone_setting_title=Safe Zone Setting	#
+
+world_section.multiplay_title=Multiplay	#
+world_section.experimental_title=Experimental	#
+
+settingScreen.quick_settings=Quick Settings	#
+
+settingScreen.creator.warning_text=If you turn on the content log after applying that resource pack, you might see various error logs.	#
+
+info_section.pack_info=Pack Info	#
+
+etc_section.etc=ETC	#
+etc_section.etcTitle=ETC Setting	#
+etc_section.beta.title=Beta	#
+etc_section.beta.info=These functions are test functions, not official functions, and can cause bugs when used.	#
+etc_section.drag_dwell.info=After dividing the item, you can set the delay to move the item.	#
+etc_section.stack_splitting.info=You can set the delay for the item segmentation function to operate.	#
+
+
+## Play Screen
+playScreen.title=Play	#
+playScreen.tab.all_worlds=All Worlds	#
+playScreen.tab.multiplay=Multiplay	#
+playScreen.tab.server=Server	#
+playScreen.tab.debug=Debug	#
+
+playScreen.search_world.name=Search world name...	#
+
+playScreen.not_local_world.title=No worlds have been created.	#
+playScreen.not_local_world.lore=Click the ‘Create New World’ or ‘Quick Play’ button to create a new world.	#
+
+playScreen.side_menu.friends.title=Friends	#
+playScreen.side_menu.friends.player_search=Search for players	#
+playScreen.side_menu.friends.not_friends.title=Oh! I don't have any friends playing right now...	#
+playScreen.side_menu.friends.not_friends.lore=Ask your friend to play with you, or use the 'Search Player' feature to find new friends!	#
+
+playScreen.category.realms_plus.title=Realms Plus	#
+playScreen.category.lan.title=LAN Server	#
+
+playScreen.switch_to_new_ui=Switch to new UI	#
+
+playScreen.additional_server.lore=Additional servers are servers run by different people than the official servers provided by Mojang. Additional servers allow you to enjoy different genres with different people.	#
+
+
+## Other
+addExternalServerScreen.add_warning_text=External servers cannot guarantee a stable playing environment. Always play with this in mind.	#
+
+createWorldScreen.beta.settings=Beta Settings	#
+createWorldScreen.classroom.settings=Classroom Settings	#
+
+networkWorld.join_network_server=Network Server Join	#
+networkWorld.join_third_party_server=Third Party Server Join	#
+networkWorld.no_lan_game=There are currently no players playing Minecraft on the same network.	#
+
+selectWorld.import=Import World	#
+selectWorld.quick_play=Quick Play	#
+
+button.modify_control_layouts=Modify Control Layouts	#
+button.accept.text=§lAccept	#
+
+gui.upload=Upload	#
+
+chat.setting_text=Chat Setting	#
+
+
+## Screenshot Save Path
+screenshot.save_path.ios=Save Location: §sFile App\(My iPhone) or (My iPad)\Minecraft\screenshots\00000000-0000-0000-0000-000000000000\photos	#
+screenshot.save_path.android=Save Location: §sFile\Android\data\com.mojang.minecraftpe\files\screenshots\00000000-0000-0000-0000-000000000000\photos	#
+screenshot.save_path.windows=Save Location: §sC:\Users\(User Name)\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\Screenshots	#

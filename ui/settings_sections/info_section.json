@@ -1,0 +1,681 @@
+{
+  "namespace": "info_section",
+
+  // Pack Info Settings Button & Section
+  "pack_info_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "pack_info_button_toggle",
+    "$glyph_texture": "textures/ui/pack_info_glyph",
+    "$glyph_color_texture": "textures/ui/pack_info_glyph_color",
+    "$glyph_size": [ 16, 16 ],
+    "$button_text": "info_section.pack_info",
+    "$toggle_property_bag": {
+      "#panel_title": "global.pack.name_bold"
+    }
+  },
+
+  "pack_info_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "pack_info_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "pack_icon_panel": {
+          "type": "panel",
+          "size": [ "100%", "20%x" ],
+          "controls": [
+           {
+             "pack_icon": {
+               "type": "image",
+               "size": [ "100%y - 2px", "100% - 2px" ],
+               "anchor_from": "center",
+               "anchor_to": "center",
+               "texture": "textures/ui/pack_info_glyph_color"
+             }
+           },
+           {
+             "outline": {
+               "type": "image",
+               "size": [ "100%y", "100%" ],
+               "anchor_from": "center",
+               "anchor_to": "center",
+               "texture": "textures/ui/border_line"
+             }
+           }
+         ]
+        }
+      },
+
+      { "packInfo_void_panel@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "pack_name": {
+          "type": "label",
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "color": "$sub_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "global.pack_info.name",
+          "text_alignment": "center"
+        }
+      },
+      {
+        "pack_version_build": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%cm" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "horizontal",
+          "controls": [
+            { "start_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } },
+            {
+              "pack_version": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "color": [ 0.043, 0.984, 0.953 ],
+                "shadow": true,
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.2,
+                "text": "$pack_version",
+                "text_alignment": "center"
+              }
+            },
+            {
+              "line_text": { "type": "label", "text": "  -  ", "shadow": true, "font_type": "MinecraftTen", "font_scale_factor": 1.2 }
+            },
+            {
+              "pack_build": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "color": "$pack_type_text_color",
+                "$pack_type_text|default": "$pack_type",
+                "$pack_type_text_color|default": "$pack_type_color",
+                "variables": [
+                  {
+                    "requires": "($pack_is_developer_mode",
+                    "$pack_type_text": "Developer",
+                    "$pack_type_text_color": [ 0.635, 0.478, 0.522 ]
+                  }
+                ],
+                "shadow": true,
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.2,
+                "text": "$pack_type_text",
+                "text_alignment": "center"
+              }
+            },
+            { "end_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } }
+          ]
+        }
+      },
+
+      { "pack_madeBy_supportLanguage_light_line@settings_common.light_line_panel": {} },
+      {
+        "pack_madeBy_supportLanguage": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%cm" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "pack_made_by_label@info_text_base": {
+                "size": [ "fill", "100%c" ],
+                "$title_text": "global.pack_info.made_by.title",
+                "$data_texts": [
+                  { "made_by@data_label_base": { "$data_text": "global.pack_info.made_by", "$data_text_color": [ 0.827, 0.592, 0.831 ] } },
+                  { "made_by_team@data_label_base": { "$data_text": "global.pack_info.made_by.team", "$data_text_color": [ 0.337, 0.694, 0.78 ] } }
+                ]
+              }
+            },
+            { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+            {
+              "pack_support_language@info_text_base": {
+                "size": [ "fill", "100%c" ],
+                "$title_text": "global.pack_info.support_language.title",
+                "$data_texts": [
+                  { "english@data_label_base": { "$data_text": "global.pack_info.support_language.english", "$data_text_color": [ 0.855, 0.914, 0.89 ] } },
+                  { "korean@data_label_base": { "$data_text": "global.pack_info.support_language.korean", "$data_text_color": [ 0.855, 0.914, 0.89 ] } }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
+      { "packInfo_void_panel@common.empty_panel": { "visible": false, "size": [ "100%", 4 ] } },
+      {
+        "pack_editor_label@info_text_base": {
+          "visible": false,
+          "$title_text": "global.pack_info.editor.title",
+          "$data_text": "global.pack_info.editor"
+        }
+      },
+
+      { "pack_licenses_label_light_line@settings_common.light_line_panel": {} },
+      {
+        "pack_licenses_label@info_text_base": {
+          "$title_text": "global.pack_info.licenses.title",
+          "$data_texts": [
+            { "pack_licenses_1@data_label_base": { "$data_text": "global.pack_info.licenses.1" } },
+            { "pack_licenses_2@data_label_base": { "$data_text": "global.pack_info.licenses.2" } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "info_text_base": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$title_text|default": "unknow",
+    "$data_text|default": "unknow",
+    "$data_text_color|default": [ 1.0, 1.0, 1.0 ],
+    "$data_text_font_type|default": "default",
+    "controls": [
+      {
+        "title_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "$title_text",
+          "font_scale_factor": 1.3
+        }
+      },
+      {
+        "data_label": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "$data_texts|default": [
+            { "data_label@data_label_base": { "text": "$data_text", "color": "$data_text_color" } }
+          ],
+          "controls": "$data_texts"
+        }
+      },
+      {
+        "void_panel": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      }
+    ]
+  },
+
+  "data_label_base": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "label": {
+          "type": "label",
+          "size": [ "100% - 6px", "default" ],
+          "max_size": [ "100% - 6px", "default" ],
+          "offset": [ 6, 0 ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$data_text_color",
+          "text": "$data_text",
+          "text_alignment": "left",
+          "font_type": "$data_text_font_type"
+        }
+      }
+    ]
+  },
+
+
+  // Minecraft Info Settings Button & Section
+  "minecraft_info_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "minecraft_info_button_toggle",
+    "$glyph_texture": "textures/ui/minecraft_info_glyph",
+    "$glyph_color_texture": "textures/ui/minecraft_info_glyph_color",
+    "$glyph_size": [ 16, 16 ],
+    "$toggle_property_bag": {
+      "#panel_title": "options.minecraftInfo"
+    }
+  },
+
+  "minecraft_info_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "minecraft_info_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "$minecraft_logo_texture|default": "textures/ui/minecraft_logo",
+    "$minecraft_edition_text|default": "Minecraft",
+    "variables": [
+      {
+        "requires": "($pre_release and not $google_os)",
+        "$minecraft_logo_texture": "textures/ui/minecraft_preview_logo",
+        "$minecraft_edition_text": "Minecraft Preview"
+      },
+      {
+        "requires": "($pre_release and $google_os)",
+        "$minecraft_logo_texture": "textures/ui/minecraft_preview_logo",
+        "$minecraft_edition_text": "Minecraft Beta"
+      }
+    ],
+    "controls": [
+      {
+        "minecraft_info_stack_panel@custom_common.stack_panel_base": {
+          "size": [ "100%", 60 ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "logo_panel@custom_common.panel_base": {
+                "size": [ "100%y", "100%" ],
+                "controls": [
+                  {
+                    "logo@custom_common.image_base": {
+                      "size": [ "90%", "90%" ],
+                      "texture": "$minecraft_logo_texture"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "other_stack_panel@custom_common.stack_panel_base": {
+                "size": [ "fill", "100%" ],
+                "orientation": "vertical",
+                "controls": [
+                  { "start_void_panel@custom_common.panel_base": { "size": [ "100%", "fill" ] } },
+                  {
+                    "edition_text_panel@custom_common.panel_base": {
+                      "size": [ "100%", "100%c" ],
+                      "controls": [
+                        {
+                          "edition_text@custom_common.label_base": {
+                            "size": [ "100%", "default" ],
+                            "max_size": [ "100%", "default" ],
+                            "text": "$minecraft_edition_text",
+                            "text_alignment": "left",
+                            "font_type": "MinecraftTen",
+                            "font_scale_factor": 1.5
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "version_info_text_stack_panel@custom_common.stack_panel_base": {
+                      "size": [ "100%", "100%c" ],
+                      "orientation": "vertical",
+                      "controls": [
+                        {
+                          "version_text@custom_common.label_base": {
+                            "size": [ "100%", "default" ],
+                            "max_size": [ "100%", "default" ],
+                            "text": "#version",
+                            "text_alignment": "left",
+                            "font_type": "smooth",
+                            "color": [ 0.7, 0.7, 0.7 ],
+                            "bindings": [
+                              {
+                                "binding_name": "#version"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "protocol_text@custom_common.label_base": {
+                            "size": [ "100%", "default" ],
+                            "max_size": [ "100%", "default" ],
+                            "text": "#protocol_version",
+                            "text_alignment": "left",
+                            "font_type": "smooth",
+                            "color": [ 0.7, 0.7, 0.7 ],
+                            "bindings": [
+                              {
+                                "binding_name": "#protocol_version"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  { "end_void_panel@custom_common.panel_base": { "size": [ "100%", "fill" ] } }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "minecraft_build_info_void_panel@common.empty_panel": { "size": [ "100%", 4 ] } },
+      {
+        "build_id_text@custom_common.label_base": {
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "text": "#build_id",
+          "text_alignment": "left",
+          "font_type": "smooth",
+          "color": [ 0.7, 0.7, 0.7 ],
+          "bindings": [
+            {
+              "binding_name": "#build_id"
+            }
+          ]
+        }
+      },
+      {
+        "build_date_text@custom_common.label_base": {
+          "visible": false,
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "text": "#build_date",
+          "text_alignment": "left",
+          "font_type": "smooth",
+          "color": [ 0.7, 0.7, 0.7 ],
+          "bindings": [
+            {
+              "binding_name": "#build_date"
+            }
+          ]
+        }
+      },
+      {
+        "network_info_text@custom_common.label_base": {
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "text": "#network_info",
+          "text_alignment": "left",
+          "font_type": "smooth",
+          "color": [ 0.7, 0.7, 0.7 ],
+          "bindings": [
+            {
+              "binding_name": "#network_info"
+            },
+            {
+              "binding_name": "#network_info_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+
+      { "termsNConditions_light_line_panel@settings_common.light_line_panel": {} },
+      {
+        "termsNConditions_label_header": {
+          "type": "label",
+          "color": "$sub_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "options.creditsHeader"
+        }
+      },
+
+      {
+        "ffTermsNConditions": {
+          "ignored": "($is_holographic or $fire_tv or not $thirdpartyconsole)",
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "terms_and_conditions_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or not $thirdpartyconsole)",
+          "$button_text": "options.termsAndConditions",
+          "bindings": [
+            {
+              "binding_name": "#terms_and_conditions_hyperlink",
+              "binding_name_override": "#hyperlink",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingTermsNConditionsPopUp": {
+          "ignored": "((not $is_holographic and not $fire_tv) or not $thirdpartyconsole)",
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "terms_and_conditions_content_popup_button@settings_common.action_button": {
+          "ignored": "((not $is_holographic and not $fire_tv) or not $thirdpartyconsole)",
+          "$pressed_button_name": "button.terms_and_conditions_popup",
+          "$button_text": "options.termsAndConditions"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingCreditsButton": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "credits_button@settings_common.action_button": {
+          "$pressed_button_name": "button.credits",
+          "$button_text": "options.credits"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingAttribution": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "attribution_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv)",
+          "$button_text": "options.attribution",
+          "variables": [
+            {
+              "requires": "(not $nx_os)",
+              "$attribution_button_url": "https://www.minecraft.net/attribution/?hideChrome"
+            },
+            {
+              "requires": "($nx_os)",
+              "$attribution_button_url": "https://aka.ms/switchattribution"
+            }
+          ],
+          "property_bag": {
+            "#hyperlink": "$attribution_button_url"
+          }
+        }
+      },
+      {
+        "attribution_popup_button@settings_common.action_button": {
+          "ignored": "(not $is_holographic and not $fire_tv)",
+          "$pressed_button_name": "button.attribution_popup",
+          "$button_text": "options.attribution"
+        }
+      },
+
+      { "dividerLicenses@settings_common.light_line_panel": {} },
+      {
+        "licenses_label_header": {
+          "type": "label",
+          "color": "$sub_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "options.licenses"
+        }
+      },
+
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingLicensedContent": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "licensed_content_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or $education_edition)",
+          "$button_text": "options.licensed_content",
+          "variables": [
+            {
+              "requires": "(not $nx_os)",
+              "$licensed_content_button_url": "https://www.minecraft.net/licensed-content/?hideChrome"
+            },
+            {
+              "requires": "($nx_os)",
+              "$licensed_content_button_url": "https://aka.ms/switchcontent"
+            }
+          ],
+          "property_bag": {
+            "#hyperlink": "$licensed_content_button_url"
+          }
+        }
+      },
+      {
+        "licensed_content_popup_button@settings_common.action_button": {
+          "ignored": "(not $is_holographic and not $fire_tv)",
+          "$pressed_button_name": "button.licensed_content_popup",
+          "$button_text": "options.licensed_content",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingFontLicense": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "font_license_popup_button@settings_common.action_button": {
+          "$pressed_button_name": "button.font_license_popup",
+          "$button_text": "options.font_license",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "third_party_copyright_info_label_panel": {
+          "ignored": "(not $display_copyright_info)",
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "spacer_0": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "copyright_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "text": "thirdPartyConsole.copyright"
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "copyright_icon": {
+                "type": "image",
+                "size": [ 117, 41 ],
+                "texture": "textures/ui/third_party_copyright"
+              }
+            }
+          ]
+        }
+      },
+
+      { "dividerBuildInfo@settings_common.light_line_panel": {} },
+      {
+        "build_info_label_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "treatment_ids_label": {
+                "visible": "(not $education_edition)",
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "size": [ "100%", "default" ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#treatment_ids",
+                "bindings": [
+                  {
+                    "binding_name": "#treatment_ids"
+                  }
+                ]
+              }
+            },
+            {
+              "build_date_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#build_date",
+                "bindings": [
+                  {
+                    "binding_name": "#build_date"
+                  }
+                ]
+              }
+            },
+            {
+              "world_converter_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#world_conversion_version",
+                "bindings": [
+                  {
+                    "binding_name": "#world_conversion_version"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

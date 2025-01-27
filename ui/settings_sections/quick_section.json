@@ -1,0 +1,127 @@
+{
+  "namespace": "quick_section",
+
+  // Quick Settings
+  "quick_settings_content": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "content": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "layer": 30,
+          "controls": [
+            {
+              "void_spacer": {
+                "type": "panel",
+                "size": [ "100%", 6 ]
+              }
+            },
+            {
+              "camera_option_label@settings_common.selector_group_label": {
+                "size": [ "100%", "default" ],
+                "text": "options.thirdperson"
+              }
+            },
+            {
+              "camera_option_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 24 ],
+                "controls": [
+                  {
+                    "firstperson_button@settings_common.no_image_section_toggle_base": {
+                      "size": [ "fill", 24 ],
+                      "$toggle_name": "#thirdperson_radio_first",
+                      "$unchecked_control": "common_toggles.toggle_unchecked",
+                      "$checked_control": "common_toggles.toggle_unchecked",
+                      "$button_text": "options.thirdperson.firstperson",
+                      "bindings": [
+                        { "binding_name": "#thirdperson_radio_first" },
+                        { 
+                          "binding_name": "(not #thirdperson_radio_first)",
+                          "binding_name_override": "#enabled"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "thirdpersonback_button@settings_common.no_image_section_toggle_base": {
+                      "size": [ "fill", 24 ],
+                      "$toggle_name": "#thirdperson_radio_third_back",
+                      "$unchecked_control": "common_toggles.toggle_unchecked",
+                      "$checked_control": "common_toggles.toggle_unchecked",
+                      "$button_text": "options.thirdperson.thirdpersonback",
+                      "bindings": [
+                        { "binding_name": "#thirdperson_radio_third_back" },
+                        { 
+                          "binding_name": "(not #thirdperson_radio_third_back)",
+                          "binding_name_override": "#enabled"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "thirdpersonfront_button@settings_common.no_image_section_toggle_base": {
+                      "size": [ "fill", 24 ],
+                      "$toggle_name": "#thirdperson_radio_third_front",
+                      "$unchecked_control": "common_toggles.toggle_unchecked",
+                      "$checked_control": "common_toggles.toggle_unchecked",
+                      "$button_text": "options.thirdperson.thirdpersonfront",
+                      "bindings": [
+                        { "binding_name": "#thirdperson_radio_third_front" },
+                        { 
+                          "binding_name": "(not #thirdperson_radio_third_front)",
+                          "binding_name_override": "#enabled"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            { "spacer_quick_spacer": { "type": "panel", "size": [ "100%", 8 ] } },
+            {
+              "hideHUDandHand_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 16 ],
+                "controls": [
+                  {
+                    "option_toggle_hidehud@settings_common.option_toggle": {
+                      "size": [ "fill", "100%" ],
+                      "$option_label": "options.hidehud",
+                      "$option_binding_name": "#hide_hud",
+                      "$option_enabled_binding_name": "#hide_hud_enabled",
+                      "$toggle_name": "hide_hud"
+                    }
+                  },
+                  {
+                    "option_toggle_hidehand@settings_common.option_toggle": {
+                      "size": [ "fill", "100%" ],
+                      "$option_label": "options.hidehand",
+                      "$option_binding_name": "#hide_hand",
+                      "$option_enabled_binding_name": "#hide_hand_enabled",
+                      "$toggle_name": "hide_hand"
+                    }
+                  },
+                  {
+                    "option_toggle_vrhidehand@settings_common.option_toggle": {
+                      "ignored": "(not $is_holographic)",
+                      "size": [ "fill", "100%" ],
+                      "$option_label": "options.vrHideHand",
+                      "$option_binding_name": "#vr_hide_hand",
+                      "$option_enabled_binding_name": "#vr_hide_hand_enabled",
+                      "$toggle_name": "vr_hide_hand"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
