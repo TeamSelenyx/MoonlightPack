@@ -2,37 +2,561 @@
   "namespace": "button_content_preset",
 
   // Other Content
+  "text_content_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+
+    "$text_size|default": [ "100%", "100%" ],
+    "$text_max_size|default": [ "100%", "100%" ],
+    "$text_offset|default": [ 0, 0 ],
+    "$text|default": "",
+    "$text_color|default": [ 1.0, 1.0, 1.0 ],
+
+    "$content_pressed|default": true,
+    "$content_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "($content_pressed and $pressed_state)",
+        "$content_offset": [ 0, 2 ]
+      }
+    ],
+    "controls": [
+      {
+        "content_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "offset": "$content_offset",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "text": {
+                "type": "label",
+                "size": "$text_size",
+                "max_size": "$text_max_size",
+                "offset": "$text_offset",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "text": "$text",
+                "color": "$text_color"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "image_content_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
+
+    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_offset|default": [ 0, 0 ],
+    "$icon_path|default": "",
+    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+
+    "$content_pressed|default": true,
+    "$content_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "($content_pressed and $pressed_state)",
+        "$content_offset": [ 0, 2 ]
+      }
+    ],
     "controls": [
-      { "image": { "type": "image", "size": "$image_size", "texture": "$image_path", "anchor_from": "center", "anchor_to": "center" } }
+      {
+        "content_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "offset": "$content_offset",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "image": {
+                "type": "image",
+                "size": "$icon_size",
+                "offset": "$icon_offset",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "$icon_path",
+                "color": "$icon_color"
+              }
+            }
+          ]
+        }
+      }
     ]
   },
 
   "image_text_content_panel": {
-    "type": "stack_panel",
+    "type": "panel",
     "size": [ "100%c", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
-    "orientation": "horizontal",
+
+    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_offset|default": [ 0, 0 ],
+    "$icon_path|default": "",
+    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+    "$text|default": "",
+    "$text_color|default": [ 1.0, 1.0, 1.0 ],
+    "$void_panel_size|default": [ 4, "100%" ],
+
+    "$content_pressed|default": true,
+    "$content_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "($content_pressed and $pressed_state)",
+        "$content_offset": [ 0, 2 ]
+      }
+    ],
+
     "controls": [
       {
-        "image_panel@custom_common.panel_base": {
-          "size": [ "100%y", "100%" ],
+        "content_panel": {
+          "type": "stack_panel",
+          "size": [ "100%c", "100%" ],
+          "offset": "$content_offset",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "horizontal",
           "controls": [
-            { "image": { "type": "image", "size": "$image_size", "texture": "$image_path", "anchor_from": "center", "anchor_to": "center" } }
+            {
+              "image_panel": {
+                "type": "panel",
+                "size": [ "100%y", "100%" ],
+                "controls": [
+                  { "image": { "type": "image", "size": "$icon_size", "offset": "$icon_offset", "texture": "$icon_path", "color": "$icon_color", "anchor_from": "center", "anchor_to": "center" } }
+                ]
+              }
+            },
+            { "void_panel@common.empty_panel": { "size": "$void_panel_size" } },
+            {
+              "text_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  { "text": { "type": "label", "size": [ "default", "default" ], "max_size": [ "default", "100%" ], "text": "$text", "text_alignment": "center", "color": "$text_color", "anchor_from": "center", "anchor_to": "center" } }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "image_with_hover_text_content_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+
+    "$content_pressed|default": true,
+
+    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_offset|default": [ 0, -1 ],
+    "$icon_path|default": "",
+    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+    "$button_text|default": "",
+
+    "$content_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "($content_pressed and $pressed_state)",
+        "$content_offset": [ 0, 2 ]
+      }
+    ],
+
+    "controls": [
+      {
+        "image_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "offset": "$content_offset",
+          "controls": [
+            { "image": { "type": "image", "size": "$icon_size", "offset": "$icon_offset", "texture": "$icon_path", "color": "$icon_color", "anchor_from": "center", "anchor_to": "center" } }
           ]
         }
       },
-      { "void_panel@custom_common.panel_base": { "size": [ 4, "100%" ] } },
       {
-        "text_panel@custom_common.panel_base": {
-          "size": [ "100%c", "100%" ],
+        "hover_text@common.hover_text": {
+          "visible": "($hover_state or $pressed_state)",
+          "property_bag": {
+            "#hover_text": "$button_text"
+          }
+        }
+      }
+    ]
+  },
+
+
+  // Sidebar Icon
+  "sidebar_icon_button_content_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "orientation": "horizontal",
+
+    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_offset|default": [ 0, 0 ],
+    "$icon_path|default": "",
+    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+    "$text|default": "",
+    "$text_color|default": [ 1.0, 1.0, 1.0 ],
+
+    "controls": [
+      {
+        "icon_panel": {
+          "type": "panel",
+          "size": [ "100%y", "100%" ],
           "controls": [
-            { "text": { "type": "label", "size": [ "default", "default" ], "max_size": [ "fill", "100%" ], "text": "$text", "text_alignment": "center", "color": "$text_color", "anchor_from": "center", "anchor_to": "center" } }
+            {
+              "icon": {
+                "type": "image",
+                "size": "$icon_size",
+                "offset": "$icon_offset",
+                "texture": "$icon_path",
+                "color": "$icon_color",
+                "anchor_from": "center",
+                "anchor_to": "center"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text_panel": {
+          "type": "panel",
+          "size": [ "fill", "100%" ],
+          "controls": [
+            {
+              "text": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "100%", "100%" ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "text": "$text",
+                "text_alignment": "left",
+                "color": "$text_color",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  // Dynamic Upgrade Button Content
+  "dynamic_upgrade_button_background_base": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "fill": true,
+    "texture": "$button_background_image"
+  },
+
+  "binding_dynamic_upgrade_button_background_base": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "fill": true,
+    "$texture_path|default": "",
+    "$texture_file_system|default": "",
+    "bindings": [
+      {
+        "binding_name": "$texture_path",
+        "binding_name_override": "#texture"
+      },
+      {
+        "binding_name": "$texture_file_system",
+        "binding_name_override": "#texture_file_system"
+      }
+    ]
+  },
+
+  "profile_image_dynamic_upgrade_button_background_base": {
+    "type": "custom",
+    "size": [ "100%", "100%" ],
+    "renderer": "profile_image_renderer",
+    "bindings": [
+      {
+        "binding_name": "#profile_image_options"
+      }
+    ]
+  },
+
+  "dynamic_upgrade_button_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$button_background_image|default": "textures/ui/CreateNewWorld",
+    "controls": [
+      {
+        "content_panel": {
+          "layer": 30,
+          "type": "image",
+          "size": [ "100%", "100%" ],
+          "fill": true,
+          "texture": "$button_background_image",
+          "controls": [
+            {
+              "text_panel": {
+                "visible": "($default_state or $locked_state)",
+                "layer": 20,
+                "type": "custom",
+                "size": [ "100%", "100%" ],
+
+                "renderer": "gradient_renderer",
+                "gradient_direction": "vertical",
+                "color1": [ 0, 0, 0, 0.2 ],
+                "color2": [ 0, 0, 0, 0.75 ],
+
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 20,
+                      "type": "panel",
+                      "size": [ "100%", "100%c + 6px" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "bottom_left",
+                      "anchor_to": "bottom_left",
+                      "controls": [
+                        {
+                          "button_text@common_buttons.new_ui_binding_button_label": {
+                            "layer": 21,
+                            "$button_font_scale_factor": 1.1,
+                            "$text_alignment": "left",
+                            "$button_text_size": [ "100% - 4px", "default" ],
+                            "$button_text_max_size": [ "100% - 4px", "default" ],
+
+                            "$button_text_binding_type|default": "none",
+                            "$button_binding_condition|default": "none",
+                            "$button_text_grid_collection_name|default": ""
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "hover_pressed_content": {
+          "visible": "(not $default_state and not $locked_state)",
+          "layer": 21,
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          /*"type": "custom",
+          "size": [ "100%", "100%" ],
+
+          "renderer": "gradient_renderer",
+          "gradient_direction": "vertical",
+          "color1": "$border_texture_color_1",
+          "color2": "$border_texture_color_2",*/
+
+          "controls": [
+            {
+              "text_panel": {
+                "layer": 23,
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "texture": "textures/ui/control",
+                "alpha": 0.7,
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 25,
+                      "type": "stack_panel",
+                      "size": [ "100%", "100%" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "controls": [
+                        { "start_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } },
+                        {
+                          "button_icon_image_panel": {
+                            "layer": 26,
+                            "type": "panel",
+                            "size": [ "100%", "50%" ],
+                            "controls": [
+                              { "button_icon@$button_icon_content": { "size": [ "100%y - 4px", "100% - 4px" ], "anchor_from": "center", "anchor_to": "center" } }
+                            ]
+                          }
+                        },
+                        {
+                          "button_text@common_buttons.new_ui_binding_button_label": {
+                            "layer": 26,
+                            "$button_font_scale_factor": 1.2,
+                            "$text_alignment": "center",
+                            "$button_text_size": [ "100%", "default" ],
+                            "$button_text_max_size": [ "100%", "default" ],
+
+                            "$button_text_binding_type|default": "none",
+                            "$button_binding_condition|default": "none",
+                            "$button_text_grid_collection_name|default": ""
+                          }
+                        },
+                        { "end_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "horizontal_dynamic_upgrade_button_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$button_background_image|default": "textures/ui/CreateNewWorld",
+    "$button_background_base|default": "button_content_preset.dynamic_upgrade_button_background_base",
+    "controls": [
+      {
+        "content_panel@$button_background_base": {
+          "layer": 30,
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "text_panel": {
+                "visible": "($default_state or $locked_state)",
+                "layer": 20,
+                "type": "custom",
+                "size": [ "100%", "100%" ],
+
+                "renderer": "gradient_renderer",
+                "gradient_direction": "vertical",
+                "color1": [ 0, 0, 0, 0.2 ],
+                "color2": [ 0, 0, 0, 0.75 ],
+
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 20,
+                      "type": "panel",
+                      "size": [ "100%", "100%c + 6px" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "bottom_left",
+                      "anchor_to": "bottom_left",
+                      "controls": [
+                        {
+                          "button_text@common_buttons.new_ui_binding_button_label": {
+                            "layer": 21,
+                            "$button_font_scale_factor": 1.1,
+                            "$text_alignment": "left",
+                            "$button_text_size": [ "100% - 4px", "default" ],
+                            "$button_text_max_size": [ "100% - 4px", "default" ],
+
+                            "$button_text_binding_type|default": "none",
+                            "$button_binding_condition|default": "none",
+                            "$button_text_grid_collection_name|default": ""
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "hover_pressed_content": {
+          "visible": "(not $default_state and not $locked_state)",
+          "layer": 21,
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+
+          "controls": [
+            {
+              "text_panel": {
+                "layer": 23,
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "texture": "textures/ui/control",
+                "alpha": 0.7,
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 25,
+                      "type": "stack_panel",
+                      "size": [ "100%", "100%" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "controls": [
+                        { "start_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } },
+                        {
+                          "content_panel": {
+                            "layer": 25,
+                            "type": "stack_panel",
+                            "size": [ "100%", "100% - 12px" ],
+                            "offset": [ 0, 0 ],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "orientation": "horizontal",
+                            "controls": [
+                              { "start_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } },
+                              {
+                                "button_icon_image_panel": {
+                                  "layer": 26,
+                                  "type": "panel",
+                                  "size": [ "65%y", "100%" ],
+                                  "controls": [
+                                    { "button_icon@$button_icon_content": { "size": [ "100%", "100%x" ], "anchor_from": "center", "anchor_to": "center" } }
+                                  ]
+                                }
+                              },
+                              { "void_panel@common.empty_panel": { "size": [ 2, 0 ] } },
+                              {
+                                "button_text_panel": {
+                                  "layer": 26,
+                                  "type": "panel",
+                                  "size": [ "100%c", "100%" ],
+                                  "controls": [
+                                    {
+                                      "button_text@common_buttons.new_ui_binding_button_label": {
+                                        "layer": 26,
+                                        "$anchor": "center",
+                                        "$text_alignment": "center",
+                                        "$button_text_size": [ "default", "default" ],
+                                        "$button_text_max_size": [ "default", "100%" ],
+                                        "shadow": true,
+
+                                        "$button_text_binding_type|default": "none",
+                                        "$button_binding_condition|default": "none",
+                                        "$button_text_grid_collection_name|default": ""
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              { "end_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } }
+                            ]
+                          }
+                        },
+                        { "end_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
           ]
         }
       }

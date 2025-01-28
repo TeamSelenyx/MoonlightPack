@@ -1,6 +1,8 @@
 {
   "namespace": "custom_common",
 
+  // 추후 버전에서 삭제 예정.
+
   //Type Base
   "panel_base": {
     "type": "panel",
@@ -58,7 +60,7 @@
   },
 
 
-  //Color Background
+  // Color Background
   "color_background_panel": {
     "$panel_size|default": [ "100%", "100%" ],
     "$panel_controls|default": [],
@@ -74,7 +76,7 @@
   },
 
 
-  //Light Line
+  // Light Line
   "light_line_vertical_panel": {
     "type": "panel",
     "size": [ 20, "100%" ],
@@ -130,7 +132,7 @@
           "anchor_from": "center",
           "anchor_to": "center",
           "controls": [
-            { "bottom_divider@custom_common.light_line_horizontal_panel": { "size": [ "99%", "100%c" ], "$line_color": [ 0.3, 0.3, 0.3 ] } }
+            { "bottom_divider@custom_common.light_line_horizontal_panel": { "size": [ "100%", "100%c" ], "$line_color": [ 0.3, 0.3, 0.3 ] } }
           ]		
         }
       }
@@ -138,7 +140,7 @@
   },
 
 
-  //Void Panel
+  // Void Panel
   "visible_void_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],
@@ -153,7 +155,7 @@
   },
 
 
-  //Button Content
+  // Button Content
   "button_text_content_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],

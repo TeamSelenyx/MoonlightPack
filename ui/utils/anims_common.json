@@ -1,0 +1,160 @@
+{
+  "namespace": "anims_common",
+
+  // Offset
+  "exit_animation_push_offset": {
+    "$animation_easing|default": "out_cubic",
+    "$animation_duration|default": "$transition_time_push",
+    "$animation_from|default": [ 0, "-50%" ],
+    "$animation_to|default": [ 0, 0 ],
+
+    "anim_type": "offset",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "exit_animation_pop_offset": {
+    "$animation_easing|default": "out_cubic",
+    "$animation_duration|default": "$transition_time_pop",
+    "$animation_from|default": [ 0, "-50%" ],
+    "$animation_to|default": [ 0, 0 ],
+
+    "anim_type": "offset",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "entrance_animation_push_offset": {
+    "$animation_easing|default": "out_cubic",
+    "$animation_duration|default": "$transition_time_push",
+    "$animation_from|default": [ 0, 0 ],
+    "$animation_to|default": [ 0, "-50%" ],
+
+    "anim_type": "offset",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "entrance_animation_pop_offset": {
+    "$animation_easing|default": "out_cubic",
+    "$animation_duration|default": "$transition_time_pop",
+    "$animation_from|default": [ 0, 0 ],
+    "$animation_to|default": [ 0, "-50%" ],
+
+    "anim_type": "offset",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+
+  // Top -> Bottom
+  "screen_exit_animation_push_topBottom@anims_common.exit_animation_push_offset": {
+    "$animation_duration": "$container_transition_time_push",
+    "$animation_from": [ 0, "-50%" ],
+    "$animation_to": [ 0, 0 ]
+  },
+
+  "screen_exit_animation_pop_topBottom@anims_common.exit_animation_pop_offset": {
+    "$animation_duration": "$container_transition_time_pop",
+    "$animation_from": [ 0, "-50%" ],
+    "$animation_to": [ 0, 0 ]
+  },
+
+  "screen_entrance_animation_push_topBottom@anims_common.entrance_animation_push_offset": {
+    "$animation_duration": "$container_transition_time_push",
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ 0, "-50%" ]
+  },
+
+  "screen_entrance_animation_pop_topBottom@anims_common.entrance_animation_pop_offset": {
+    "$animation_duration": "$container_transition_time_pop",
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ 0, "-50%" ]
+  },
+
+
+  // Bottom -> Top
+  "screen_exit_animation_push_bottomTop@anims_common.exit_animation_push_offset": {
+    "$animation_duration": "$container_transition_time_push",
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ 0, "50%" ]
+  },
+
+  "screen_exit_animation_pop_bottomTop@anims_common.exit_animation_pop_offset": {
+    "$animation_duration": "$container_transition_time_pop",
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ 0, "50%" ]
+  },
+
+  "screen_entrance_animation_push_bottomTop@anims_common.entrance_animation_push_offset": {
+    "$animation_duration": "$container_transition_time_push",
+    "$animation_from": [ 0, "50%" ],
+    "$animation_to": [ 0, 0 ]
+  },
+
+  "screen_entrance_animation_pop_bottomTop@anims_common.entrance_animation_pop_offset": {
+    "$animation_duration": "$container_transition_time_pop",
+    "$animation_from": [ 0, "50%" ],
+    "$animation_to": [ 0, 0 ]
+  },
+
+
+  // Left -> Right
+  "screen_exit_animation_push_leftRight@anims_common.exit_animation_push_offset": {
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ "-25%", 0 ]
+  },
+
+  "screen_exit_animation_pop_leftRight@anims_common.exit_animation_pop_offset": {
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ "-25%", 0 ]
+  },
+
+  "screen_entrance_animation_push_leftRight@anims_common.entrance_animation_push_offset": {
+    "$animation_from": [ "-25%", 0 ],
+    "$animation_to": [ 0, 0 ]
+  },
+
+  "screen_entrance_animation_pop_leftRight@anims_common.entrance_animation_pop_offset": {
+    "$animation_from": [ "-25%", 0 ],
+    "$animation_to": [ 0, 0 ]
+  },
+
+
+  // Right -> Left
+  "screen_exit_animation_push_rightLeft@anims_common.exit_animation_push_offset": {
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ "25%", 0 ]
+  },
+
+  "screen_exit_animation_pop_rightLeft@anims_common.exit_animation_pop_offset": {
+    "$animation_from": [ 0, 0 ],
+    "$animation_to": [ "25%", 0 ]
+  },
+
+  "screen_entrance_animation_push_rightLeft@anims_common.entrance_animation_push_offset": {
+    "$animation_from": [ "25%", 0 ],
+    "$animation_to": [ 0, 0 ]
+  },
+
+  "screen_entrance_animation_pop_rightLeft@anims_common.entrance_animation_pop_offset": {
+    "$animation_from": [ "25%", 0 ],
+    "$animation_to": [ 0, 0 ]
+  }
+}

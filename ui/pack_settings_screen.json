@@ -1,0 +1,81 @@
+{
+  "namespace": "pack_settings",
+
+  "screen@common.base_screen": {
+    "force_render_below": true,
+    "$fill_alpha": 1.0,
+    "$screen_content": "pack_settings.main_screen_content",
+    "$screen_bg_content": "pack_settings.background",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]
+  },
+
+  "main_screen_content@common_dialogs.main_panel_no_buttons": {
+    "size": [ "70%", "50%" ],
+    "max_size": [ "70%", "50%" ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "$child_control": "pack_settings.pack_scroll_panel",
+    "$text_name": "#pack_settings_title",
+    "$title_text_binding_type": "global",
+    "layer": 2
+  },
+
+  "scrolling_content": {
+    "type": "stack_panel",
+    "size": [ "100% - 4px", "100%c" ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "content_tiering_panel@pack_settings.content_tiering_panel": {}
+      },
+      {
+        "generated_form@common_ore.generated_contents": {}
+      }
+    ]
+  },
+
+  "content_tiering_panel/slider_panel/content_tier_slider": {
+    "$slider_box_size": [ 16, 16 ],
+
+    "$slider_box_layout|default": "common_ore.ore_slider_button_layout",
+    "$slider_box_hover_layout|default": "common_ore.ore_slider_button_hover_layout",
+    "$slider_box_locked_layout|default": "common_ore.ore_slider_button_locked_layout",
+    "$slider_box_indent_layout|default": "common_ore.ore_slider_button_indent_layout",
+
+    "$slider_step_factory_control_ids": {
+      "slider_step": "@common_ore.ore_slider_step_progress",
+      "slider_step_hover": "@common_ore.ore_slider_step_progress_hover",
+      "slider_step_progress": "@common_ore.ore_slider_step",
+      "slider_step_progress_hover": "@common_ore.ore_slider_step_hover"
+    },
+    "controls": [
+      {
+        "slider_box@common_ore.ore_slider_box": {
+          "$slider_box_layout": "$slider_box_layout",
+          "$slider_box_size": "$slider_box_size",
+          "$slider_track_button": "$slider_name"
+        }
+      },
+      {
+        "slider_bar_default@common_ore.ore_slider_bar_default": {}
+      },
+      {
+        "slider_bar_hover@common_ore.ore_slider_bar_hover": {
+          "visible": false
+        }
+      }
+    ]
+  }
+}
