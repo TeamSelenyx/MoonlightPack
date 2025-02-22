@@ -36,13 +36,13 @@
                       "controls": [
                         {
                           "file_storage_dropdown@settings_common.ore_option_dropdown": {
-                            "$option_label": "options.filelocation.title",
                             "ignored": "($is_holographic and $is_reality_mode)",
                             "visible": "(not $gear_vr)",
+                            "$option_label": "options.filelocation.title",
                             "enabled": "$storage_location_switch_enabled",
                             "anchor_from": "center",
                             "anchor_to": "center",
-                            "$option_dropdown_size": [ "100%", 20 ],
+                            "$option_dropdown_size": [ "100%", 24 ],
                             "$dropdown_content": "storage_management.file_storage_location_upgrade_dropdown_content",
                             "$dropdown_area": "content_area",
                             "$dropdown_name": "file_storage_location",

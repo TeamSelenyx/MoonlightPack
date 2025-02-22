@@ -22,6 +22,7 @@
           },
           {
             "item_renderer": {
+              "visible": "$show_hud_function_items",
               "type": "stack_panel",
               "orientation": "horizontal",
               "size": [ "100%c", "100%cm" ],
@@ -54,7 +55,7 @@
     "anim_type": "offset",
     "easing": "in_out_cubic",
     "duration": 1,
-    "from": [ -200, 0 ],
+    "from": [ "-100%", 0 ],
     "to": [ 0, 0 ],
     "next": "@hud.anim_chat_item_wait"
   },
@@ -70,7 +71,7 @@
     "easing": "in_out_cubic",
     "duration": 1,
     "from": [ 0, 0 ],
-    "to": [ -200, 0 ],
+    "to": [ "-100%", 0 ],
     "destroy_at_end": "chat_grid_item"
   },
 
@@ -203,6 +204,42 @@
           ]
         }
       }
+    ]
+  },
+
+
+  // Hotbar
+  "hotbar_elipses_panel_right_art": {
+    "type": "panel",
+    "$hotbar_elipses_panel_right_art_size|default": [ 20, 22 ],
+    "size": "$hotbar_elipses_panel_right_art_size",
+    "layer": 4,
+    "controls": [
+      {
+        "slot@hud.hotbar_slot_image": {
+          "$hotbar_slot_image_size": "$hotbar_elipses_panel_right_art_size",
+          "layer": 2,
+          "texture": "textures/ui/hotbar"
+        }
+      },
+      { "button@hud.hotbar_elipses_button": {} }
+    ]
+  },
+
+  "hotbar_elipses_panel_left_art": {
+    "type": "panel",
+    "$hotbar_elipses_panel_left_art_size|default": [ 20, 22 ],
+    "size": "$hotbar_elipses_panel_left_art_size",
+    "layer": 4,
+    "controls": [
+      {
+        "slot@hud.hotbar_slot_image": {
+          "layer": 2,
+          "$hotbar_slot_image_size": "$hotbar_elipses_panel_left_art_size",
+          "texture": "textures/ui/hotbar"
+        }
+      },
+      { "button@hud.hotbar_elipses_button": {} }
     ]
   }
 }

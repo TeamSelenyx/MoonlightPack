@@ -147,6 +147,280 @@
     }
   },
 
+  "keyboard_and_mouse_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "$keymapping_grid_dimension": "#keyboard_standard_grid_dimension",
+    "$keymapping_collection": "keyboard_standard_collection",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "keyboard_and_mouse_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "title_header@settings_common.title_header": {
+          "$title": "controls_section.sensitivity_and_control_title"
+        }
+      },
+      {
+        "title_header_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
+      },
+      {
+        "option_slider_0@settings_common.ore_option_slider": {
+          "$option_label": "#keyboard_mouse_sensitivity_slider_label",
+          "$slider_name": "keyboard_mouse_sensitivity",
+          "$slider_value_binding_name": "#keyboard_mouse_sensitivity",
+          "$slider_tts_text_value": "#keyboard_mouse_sensitivity_text_value",
+          "$option_enabled_binding_name": "#keyboard_mouse_sensitivity_enabled",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "option_slider_damen@settings_common.ore_option_slider": {
+          "$option_label": "#spyglass_mouse_dampening_slider_label",
+          "$slider_name": "spyglass_mouse_dampening",
+          "$slider_value_binding_name": "#spyglass_mouse_dampening",
+          "$slider_tts_text_value": "#spyglass_mouse_dampening_text_value",
+          "$option_enabled_binding_name": "#keyboard_mouse_sensitivity_enabled",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "option_slider_1@settings_common.ore_option_slider": {
+          "ignored": "(not $is_holographic)",
+          "$option_label": "#vr_ui_mouse_sensitivity_slider_label",
+          "$slider_name": "vr_ui_mouse_sensitivity",
+          "$slider_value_binding_name": "#vr_ui_mouse_sensitivity",
+          "$slider_tts_text_value": "#vr_ui_mouse_sensitivity_text_value",
+          "$option_enabled_binding_name": "#vr_ui_mouse_sensitivity_enabled",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "invertYAxis_autoJump_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle_0@settings_common.ore_option_toggle": {
+                "$option_label": "options.invertYAxis",
+                "$option_binding_name": "#keyboard_mouse_invert_y_axis",
+                "$option_enabled_binding_name": "#keyboard_mouse_invert_y_axis_enabled",
+                "$toggle_name": "keyboard_mouse_invert_y_axis",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_toggle_1@settings_common.ore_option_toggle": {
+                "$option_label": "options.autojump",
+                "$option_binding_name": "#keyboard_mouse_autojump",
+                "$option_enabled_binding_name": "#keyboard_mouse_autojump_enabled",
+                "$toggle_name": "keyboard_mouse_autojump",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "showKeyboardPrompts_showLearningPrompts_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle_show_keyboard_prompts@settings_common.ore_option_toggle": {
+                "ignored": "(not $education_edition)",
+                "$option_label": "options.showKeyboardPrompts",
+                "$option_binding_name": "#show_keyboard_prompts",
+                "$option_enabled_binding_name": "#hint_toggles_enabled",
+                "$toggle_name": "show_keyboard_prompts",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_toggle_show_learning_prompts@settings_common.ore_option_toggle": {
+                "ignored": "(not $education_edition)",
+                "$option_label": "options.showLearningPrompts",
+                "$option_binding_name": "#show_learning_prompts",
+                "$option_enabled_binding_name": "#hint_toggles_enabled",
+                "$toggle_name": "show_learning_prompts",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "option_toggle_full_keyboard_gameplay@settings_common.ore_option_toggle": {
+          "$option_label": "options.fullKeyboardGameplay",
+          "$option_binding_name": "#keyboard_show_full_keyboard_options",
+          "$option_enabled_binding_name": "#keyboard_show_full_keyboard_options_enabled",
+          "$toggle_name": "keyboard_show_full_keyboard_options",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "option_toggle_2@settings_common.ore_option_toggle": {
+          "ignored": true, // Remove this line when Options::TOGGLE_CROUCH actually affects crouch behavior (User Story 30117)
+          "$option_label": "options.toggleCrouch",
+          "$option_binding_name": "#keyboard_mouse_toggle_crouch",
+          "$option_enabled_binding_name": "#keyboard_mouse_toggle_crouch_enabled",
+          "$toggle_name": "keyboard_mouse_toggle_crouch"
+        }
+      },
+
+      {
+        "keyboard_light_line_panel@settings_common.light_line_panel": {}
+      },
+      {
+        "keyboard_section": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "bindings": [
+            {
+              "binding_name": "#keyboard_show_standard_keyboard_options",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "keyboard_layout_title_header@settings_common.title_header": {
+                "$title": "options.keyboardLayout"
+              }
+            },
+            {
+              "keyboard_layout_title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
+            },
+            {
+              "keyboard_keymapping_grid@controls_section.keymapping_grid": {}
+            },
+            {
+              "control_alt_chords_standard_keyboard_section": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "bindings": [
+                  {
+                    "binding_name": "#show_standard_copy_coordinates_keys",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "option_group_label@settings_common.option_group_label": {
+                      "$text": "options.control_alt_keybinds_section"
+                    }
+                  },
+                  {
+                    "control_alt_chord_keymapping_grid@controls_section.keymapping_grid": {
+                      "$keymapping_grid_dimension": "#keyboard_standard_control_alt_chord_grid_dimension",
+                      "$keymapping_collection": "keyboard_standard_control_alt_chord_collection"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "full_keyboard_section": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "bindings": [
+            {
+              "binding_name": "#keyboard_show_full_keyboard_options",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "full_keyboard_layout_title_header@settings_common.title_header": {
+                "$title": "options.fullKeyboardLayout"
+              }
+            },
+            {
+              "full_keyboard_layout_title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
+            },
+            {
+              "option_slider_smooth_rotation_speed@settings_common.ore_option_slider": {
+                "$option_label": "#keyboard_smooth_rotation_speed_slider_label",
+                "$slider_name": "keyboard_smooth_rotation_speed",
+                "$slider_value_binding_name": "#keyboard_smooth_rotation_speed",
+                "$slider_tts_text_value": "#keyboard_smooth_rotation_speed_text_value",
+                "$option_enabled_binding_name": "#keyboard_smooth_rotation_speed_enabled",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
+            },
+            {
+              "keyboard_full_keymapping_grid@controls_section.full_keymapping_grid": {}
+            },
+            {
+              "control_alt_chords_full_keyboard_section": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "bindings": [
+                  {
+                    "binding_name": "#show_full_copy_coordinates_keys",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "option_group_label@settings_common.option_group_label": {
+                      "$text": "options.control_alt_keybinds_section"
+                    }
+                  },
+                  {
+                    "control_alt_chord_keymapping_grid@controls_section.keymapping_grid": {
+                      "$keymapping_grid_dimension": "#keyboard_full_control_alt_chord_grid_dimension",
+                      "$keymapping_collection": "keyboard_full_control_alt_chord_collection"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
+
+      {
+        "reset_light_line_panel@settings_common.light_line_panel": {}
+      },
+      {
+        "reset_button@settings_common.ore_action_button": {
+          "$pressed_button_name": "button.reset_keyboard_bindings",
+          "$button_text": "controllerLayoutScreen.resetAllBindings",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      }
+    ]
+  },
+
 
   // Controller button & section
   "controller_ore_tab_button@settings_common.ore_tab_section_toggle_base": {
@@ -158,6 +432,318 @@
     "$toggle_property_bag": {
       "#panel_title": "$panel_title"
     }
+  },
+
+  "controller_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$keymapping_grid_dimension": "#gamepad_grid_dimension",
+    "$keymapping_collection": "gamepad_collection",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "controller_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "title_header@settings_common.title_header": {
+          "$title": "controls_section.sensitivity_and_control_title"
+        }
+      },
+      {
+        "title_header_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
+      },
+      {
+        "option_slider_0@settings_common.ore_option_slider": {
+          "ignored": "($is_holographic and not $is_living_room_mode)",
+          "$option_label": "#controller_sensitivity_slider_label",
+          "$slider_name": "controller_sensitivity",
+          "$slider_value_binding_name": "#controller_sensitivity",
+          "$slider_tts_text_value": "#controller_sensitivity_text_value",
+          "$option_enabled_binding_name": "#controller_sensitivity_enabled",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "option_slider_damen@settings_common.ore_option_slider": {
+          "$option_label": "#spyglass_gamepad_dampening_slider_label",
+          "$slider_name": "spyglass_gamepad_dampening",
+          "$slider_value_binding_name": "#spyglass_gamepad_dampening",
+          "$slider_tts_text_value": "#spyglass_gamepad_dampening_text_value",
+          "$option_enabled_binding_name": "#keyboard_mouse_sensitivity_enabled",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "option_slider_1@settings_common.ore_option_slider": {
+          "ignored": "($is_living_room_mode or not $is_holographic)",
+          "$option_label": "#vr_sensitivity_slider_label",
+          "$slider_name": "vr_sensitivity",
+          "$slider_value_binding_name": "#vr_sensitivity",
+          "$slider_tts_text_value": "#vr_sensitivity_text_value",
+          "$option_enabled_binding_name": "#vr_sensitivity_enabled",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "option_slider_2@settings_common.ore_option_slider": {
+          "$option_label": "#vr_roll_turn_sensitivity_slider_label",
+          "$slider_name": "vr_roll_turn_sensitivity",
+          "$slider_value_binding_name": "#vr_roll_turn_sensitivity",
+          "$slider_tts_text_value": "#vr_roll_turn_sensitivity_text_value",
+          "$option_enabled_binding_name": "#vr_roll_turn_sensitivity_enabled",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#vr_roll_turn_sensitivity_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "invertYAxis_autoJump_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle_0@settings_common.ore_option_toggle": {
+                "$option_label": "options.invertYAxis",
+                "$option_binding_name": "#controller_invert_y_axis",
+                "$option_enabled_binding_name": "#controller_invert_y_axis_enabled",
+                "$toggle_name": "controller_invert_y_axis",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_toggle_1@settings_common.ore_option_toggle": {
+                "ignored": "($is_holographic and not $is_living_room_mode)",
+                "$option_label": "options.autojump",
+                "$option_binding_name": "#controller_autojump",
+                "$option_enabled_binding_name": "#controller_autojump_enabled",
+                "$toggle_name": "controller_autojump",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "clearHotbar_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle_11@settings_common.ore_option_toggle": {
+                "$option_label": "options.clearhotbar",
+                "$option_binding_name": "#controller_clear_hotbar",
+                "$option_enabled_binding_name": "#controller_clear_hotbar_enabled",
+                "$toggle_name": "controller_clear_hotbar",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ],
+          "$options_2": []
+        }
+      },
+      {
+        "option_toggle_2@settings_common.ore_option_toggle": {
+          "ignored": "($is_living_room_mode or not $is_holographic)",
+          "$option_label": "options.vrAutojump",
+          "$option_binding_name": "#vr_autojump",
+          "$option_enabled_binding_name": "#vr_autojump_enabled",
+          "$toggle_name": "vr_autojump",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "option_toggle_3@settings_common.ore_option_toggle": {
+          "ignored": true, // Remove this line when Options::TOGGLE_CROUCH actually affects crouch behavior (User Story 30117)
+          "$option_label": "options.toggleCrouch",
+          "$option_binding_name": "#controller_toggle_crouch",
+          "$option_enabled_binding_name": "#controller_toggle_crouch_enabled",
+          "$toggle_name": "controller_toggle_crouch",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "option_toggle_4@settings_common.ore_option_toggle": {
+          "ignored": true, // TODO: Remove this line when we add in haptic feedback (User Story 41617)
+          "$option_label": "options.destroyvibration",
+          "$option_binding_name": "#controller_destroy_vibration",
+          "$option_enabled_binding_name": "#controller_destroy_vibration_enabled",
+          "$toggle_name": "controller_destroy_vibration",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "option_toggle_5@settings_common.ore_option_toggle": {
+          "ignored": true, // TODO: Remove this line when we add in haptic feedback (User Story 41617)
+          "$option_label": "options.splitvibration",
+          "$option_binding_name": "#controller_split_vibration",
+          "$option_enabled_binding_name": "#controller_split_vibration_enabled",
+          "$toggle_name": "controller_split_vibration",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+
+
+      {
+        "controller_title_header_light_line_panel@settings_common.light_line_panel": {}
+      },
+      {
+        "controller_title_header@settings_common.title_header": {
+          "$title": "controls_section.controller"
+        }
+      },
+      {
+        "controller_title_header_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
+      },
+      {
+        "gamepad_cursor_sensitivity_option_slider@settings_common.ore_option_slider": {
+          "$option_label": "#gamepad_cursor_sensitivity_slider_label",
+          "$slider_name": "gamepad_cursor_sensitivity",
+          "$slider_value_binding_name": "#gamepad_cursor_sensitivity",
+          "$slider_tts_text_value": "#gamepad_cursor_sensitivity_text_value",
+          "$option_enabled_binding_name": "#gamepad_cursor_sensitivity_enabled",
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "gamepadSwapAB_gamepadSwapXY_hideHand_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "gamepad_swap_ab@settings_common.ore_option_toggle": {
+                "$option_label": "#swap_gamepad_ab",
+                "$option_binding_name": "#swap_gamepad_ab_buttons",
+                "$option_enabled_binding_name": "#swap_gamepad_ab_buttons_enabled",
+                "$toggle_name": "swap_gamepad_ab_buttons",
+                "$toggle_tts_header": "#swap_gamepad_ab_tts",
+                "$toggle_tts_header_binding_type": "global",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  },
+                  {
+                    "binding_name": "#swap_gamepad_ab_tts"
+                  }
+                ]
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "gamepad_swap_xy@settings_common.ore_option_toggle": {
+                "$option_label": "#swap_gamepad_xy",
+                "$option_binding_name": "#swap_gamepad_xy_buttons",
+                "$option_enabled_binding_name": "#swap_gamepad_xy_buttons_enabled",
+                "$toggle_name": "swap_gamepad_xy_buttons",
+                "$toggle_tts_header": "#swap_gamepad_xy_tts",
+                "$toggle_tts_header_binding_type": "global",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  },
+                  {
+                    "binding_name": "#swap_gamepad_xy_tts"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "hideTooltips_hideGamepadCursor_hideHand_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle9@settings_common.ore_option_toggle": {
+                "$option_label": "options.hidetooltips",
+                "$option_binding_name": "#hide_tooltips",
+                "$option_enabled_binding_name": "#hint_toggles_enabled",
+                "$toggle_name": "hide_tooltips",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_toggle10@settings_common.ore_option_toggle": {
+                "$option_label": "options.hidegamepadcursor",
+                "$option_binding_name": "#hide_gamepad_cursor",
+                "$option_enabled_binding_name": "#hide_gamepad_cursor_enabled",
+                "$toggle_name": "hide_gamepad_cursor",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            }
+          ]
+        }
+      },
+
+
+      {
+        "controller_layout_light_line_panel@settings_common.light_line_panel": {
+          "ignored": "$ignore_controller_layout"
+        }
+      },
+      {
+        "controller_layout_title_header@settings_common.title_header": {
+          "ignored": "$ignore_controller_layout",
+          "$title": "options.controllerLayout"
+        }
+      },
+      {
+        "controller_layout_title_void_panel@common.empty_panel": {
+          "ignored": "$ignore_controller_layout",
+          "size": [ 0, 4 ]
+        }
+      },
+      {
+        "gamepad_keymapping_grid@controls_section.gamepad_mapping_grid": {
+          "ignored": "$ignore_controller_layout"
+        }
+      },
+
+
+      {
+        "reset_light_line_panel@settings_common.light_line_panel": {}
+      },
+      {
+        "reset_button@settings_common.ore_action_button": {
+          "$pressed_button_name": "button.reset_gamepad_bindings",
+          "$button_text": "controllerLayoutScreen.resetAllBindings",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      }
+    ]
   },
 
 
@@ -188,18 +774,139 @@
     ],
     "controls": [
       {
+        "sensitivity_and_vibration_title_header@settings_common.title_header": {
+          "$title": "controls_section.sensitivity_and_vibration_title"
+        }
+      },
+      { "sensitivity_and_vibration_void@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "option_slider_0@settings_common.ore_option_slider": {
+          "$option_label": "#touch_sensitivity_slider_label",
+          "$slider_name": "touch_sensitivity",
+          "$slider_value_binding_name": "#touch_sensitivity",
+          "$slider_tts_text_value": "#touch_sensitivity_text_value",
+          "$option_enabled_binding_name": "#touch_sensitivity_enabled",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "option_slider_damen@settings_common.ore_option_slider": {
+          "$option_label": "#spyglass_touch_dampening_slider_label",
+          "$slider_name": "spyglass_touch_dampening",
+          "$slider_value_binding_name": "#spyglass_touch_dampening",
+          "$slider_tts_text_value": "#spyglass_touch_dampening_text_value",
+          "$option_enabled_binding_name": "#touch_sensitivity_enabled",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "invertYAxis_splitVibration_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle_invert_y@settings_common.ore_option_toggle": {
+                "$option_label": "options.invertYAxis",
+                "$option_binding_name": "#touch_invert_y_axis",
+                "$option_enabled_binding_name": "#touch_invert_y_axis_enabled",
+                "$toggle_name": "touch_invert_y_axis"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_toggle_split_vibration@settings_common.ore_option_toggle": {
+                "$option_label": "options.splitvibration",
+                "$option_binding_name": "#touch_split_vibration",
+                "$option_enabled_binding_name": "#touch_split_vibration_enabled",
+                "$toggle_name": "touch_split_vibration"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "desroyVibration_creativeDelayedBlockBreaking_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle_destroy_vibration@settings_common.ore_option_toggle": {
+                "$option_label": "options.destroyvibration",
+                "$option_binding_name": "#touch_destroy_vibration",
+                "$option_enabled_binding_name": "#touch_destroy_vibration_enabled",
+                "$toggle_name": "touch_destroy_vibration"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_creative_delayed_block_breaking@settings_common.ore_option_toggle": {
+                "$option_label": "options.creativeDelayedBlockBreaking",
+                "$option_binding_name": "#creative_delayed_block_breaking",
+                "$option_enabled_binding_name": "#creative_delayed_block_breaking_enabled",
+                "$toggle_name": "creative_delayed_block_breaking",
+                "bindings": [
+                  {
+                    "binding_name": "(not #crosshair_action_button_on)",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
+
+      {
+        "touch_controls_light_line_panel@settings_common.light_line_panel": {}
+      },
+      {
+        "classic_title_label_header@settings_common.title_header": {
+          "$title": "controls_section.controls.classic",
+          "bindings": [
+            {
+              "binding_name": "#classic_selected",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "touch_title_label_header@settings_common.title_header": {
+          "$title": "controls_section.controls.touch",
+          "bindings": [
+            {
+              "binding_name": "#touch_selected",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "crosshair_title_label_header@settings_common.title_header": {
+          "$title": "controls_section.controls.crosshair",
+          "bindings": [
+            {
+              "binding_name": "#crosshair_selected",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "control_title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
+      },
+      {
         "touch_controls_stack_panel": {
           "type": "stack_panel",
           "size": [ "100%", "100%c" ],
           "controls": [
-			{
-			  "contorl_title_header@settings_common.title_header": {
-                "$title": "controls_section.contorl_title"
-			  }
-		    },
-		    {
-			  "control_title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
-		    },
             {
               "control_scheme_section": {
                 "type": "stack_panel",
@@ -218,7 +925,7 @@
                         {
                           "images": {
                             "type": "panel",
-                            "size": [ "59%", "50%x" ],
+                            "size": [ "49%", "50%x" ],
                             "controls": [
                               {
                                 "touch_image": {
@@ -263,7 +970,7 @@
                         {
                           "scheme_button_section": {
                             "type": "panel",
-                            "size": [ "40%", "100%sm" ],
+                            "size": [ "fill", "100%sm" ],
                             "controls": [
                               {
                                 "caption": {
@@ -334,14 +1041,7 @@
                                             }
                                           },
                                           {
-                                            "customize_tooltip_option@controls_section.customize_tooltip_option": {
-                                              "bindings": [
-                                                {
-                                                  "binding_name": "(not #modify_layout_enabled)",
-                                                  "binding_name_override": "#visible"
-                                                }
-                                              ]
-                                            }
+                                            "customize_tooltip_option@controls_section.customize_tooltip_option": {}
                                           }
                                         ],
                                         "bindings": [
@@ -365,116 +1065,20 @@
                 ]
               }
             },
-		    { "resizable_ui_void@common.empty_panel": { "size": [ 0, 4 ] } },
+		    { "resizable_ui_void@common.empty_panel": { "visible": false, "size": [ 0, 4 ] } },
             {
               "option_resizable_ui@settings_common.ore_option_toggle": {
+                "visible": false,
                 "$option_label": "options.resizableUI",
                 "$option_binding_name": "#resizable_ui",
                 "$option_enabled_binding_name": "#resizable_ui_enabled",
                 "$toggle_name": "resizable_ui"
               }
-            },
-
-            {
-			  "sensitivity_and_vibration_light_line_panel@settings_common.light_line_panel": {}
-			},
-			{
-			  "sensitivity_and_vibration_title_header@settings_common.title_header": {
-                "$title": "controls_section.sensitivity_and_vibration_title"
-			  }
-		    },
-		    { "sensitivity_and_vibration_void@common.empty_panel": { "size": [ 0, 4 ] } },
-			{
-              "option_slider_0@settings_common.ore_option_slider": {
-                "$option_label": "#touch_sensitivity_slider_label",
-                "$slider_name": "touch_sensitivity",
-                "$slider_value_binding_name": "#touch_sensitivity",
-                "$slider_tts_text_value": "#touch_sensitivity_text_value",
-                "$option_enabled_binding_name": "#touch_sensitivity_enabled",
-                "$label_bindings": [
-                  {
-                    "binding_name": "$option_label"
-                  }
-                ]
-              }
-            },
-            {
-              "option_slider_damen@settings_common.ore_option_slider": {
-                "$option_label": "#spyglass_touch_dampening_slider_label",
-                "$slider_name": "spyglass_touch_dampening",
-                "$slider_value_binding_name": "#spyglass_touch_dampening",
-                "$slider_tts_text_value": "#spyglass_touch_dampening_text_value",
-                "$option_enabled_binding_name": "#touch_sensitivity_enabled",
-                "$label_bindings": [
-                  {
-                    "binding_name": "$option_label"
-                  }
-                ]
-              }
             }
           ]
         }
       },
-      {
-        "invertYAxis_splitVibration_options@settings_common.new_options_design_base": {
-          "$options_1": [
-            {
-              "option_toggle_invert_y@settings_common.ore_option_toggle": {
-                "$option_label": "options.invertYAxis",
-                "$option_binding_name": "#touch_invert_y_axis",
-                "$option_enabled_binding_name": "#touch_invert_y_axis_enabled",
-                "$toggle_name": "touch_invert_y_axis"
-              }
-            }
-          ],
-          "$options_2": [
-            {
-              "option_toggle_split_vibration@settings_common.ore_option_toggle": {
-                "$option_label": "options.splitvibration",
-                "$option_binding_name": "#touch_split_vibration",
-                "$option_enabled_binding_name": "#touch_split_vibration_enabled",
-                "$toggle_name": "touch_split_vibration"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "desroyVibration_creativeDelayedBlockBreaking_options@settings_common.new_options_design_base": {
-          "$options_1": [
-            {
-              "option_toggle_destroy_vibration@settings_common.ore_option_toggle": {
-                "$option_label": "options.destroyvibration",
-                "$option_binding_name": "#touch_destroy_vibration",
-                "$option_enabled_binding_name": "#touch_destroy_vibration_enabled",
-                "$toggle_name": "touch_destroy_vibration"
-              }
-            }
-          ],
-          "$options_2": [
-            {
-              "option_creative_delayed_block_breaking@settings_common.ore_option_toggle": {
-                "$option_label": "options.creativeDelayedBlockBreaking",
-                "$option_binding_name": "#creative_delayed_block_breaking",
-                "$option_enabled_binding_name": "#creative_delayed_block_breaking_enabled",
-                "$toggle_name": "creative_delayed_block_breaking",
-                "bindings": [
-                  {
-                    "binding_name": "(not #crosshair_action_button_on)",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-
-
-      {
-        "touch_controls_light_line_panel@settings_common.light_line_panel": {}
-      },
-      { "touch_void@common.empty_panel": { "size": [ "100%", 4 ] } },
+      { "void_panel@common.empty_panel": { "size": [ 0, 6 ] } },
       {
         "classic@classic_controls_section": {
           "bindings": [
@@ -626,12 +1230,6 @@
     "anchor_to": "top_left",
     "controls": [
       {
-        "title_label_header@settings_common.title_header": {
-          "$title": "controls_section.controls.classic"
-        }
-      },
-      { "title_header_padding": { "type": "panel", "size": [ "100%", 4 ] } },
-      {
         "option_slider_1@settings_common.ore_option_slider": {
           "$option_label": "#button_size_slider_label",
           "$slider_name": "button_size",
@@ -720,12 +1318,6 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "controls": [
-      {
-        "title_label_header@settings_common.title_header": {
-          "$title": "controls_section.controls.touch"
-        }
-      },
-      { "title_header_padding": { "type": "panel", "size": [ "100%", 4 ] } },
       {
         "sneak_joystickVisibility_options@settings_common.new_options_design_base": {
           "$options_1": [
@@ -828,49 +1420,35 @@
     "anchor_to": "top_left",
     "controls": [
       {
-        "title_label_header@settings_common.title_header": {
-          "$title": "controls_section.controls.crosshair"
+        "sneak_dropdown@settings_common.ore_option_dropdown": {
+          "$option_label": "options.sneakOption",
+          "$dropdown_content": "controls_section.sneak_upgrade_dropdown_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "sneak_dropdown",
+          "$option_enabled_binding_name": "#sneak_dropdown_enabled",
+          "$options_dropdown_toggle_label_binding": "#sneak_dropdown_toggle_label",
+          "$dropdown_scroll_content_size": [ "100%", "145%" ],
+          "bindings": [
+            {
+              "binding_name": "#touch_controls_v2",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
-      { "title_header_padding": { "type": "panel", "size": [ "100%", 4 ] } },
       {
-        "sneak_joystickVisibility_options@settings_common.new_options_design_base": {
-          "$options_1": [
+        "joystick_visibility_dropdown@settings_common.ore_option_dropdown": {
+          "$option_label": "options.joystickVisibilityOption",
+          "$dropdown_content": "controls_section.joystick_visibility_upgrade_dropdown_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "joystick_visibility_dropdown",
+          "$option_enabled_binding_name": "#joystick_visibility_dropdown_enabled",
+          "$options_dropdown_toggle_label_binding": "#joystick_visibility_dropdown_toggle_label",
+          "$dropdown_scroll_content_size": [ "100%", "200%" ],
+          "bindings": [
             {
-              "sneak_dropdown@settings_common.ore_option_dropdown": {
-                "$option_label": "options.sneakOption",
-                "$dropdown_content": "controls_section.sneak_upgrade_dropdown_content",
-                "$dropdown_area": "content_area",
-                "$dropdown_name": "sneak_dropdown",
-                "$option_enabled_binding_name": "#sneak_dropdown_enabled",
-                "$options_dropdown_toggle_label_binding": "#sneak_dropdown_toggle_label",
-                "$dropdown_scroll_content_size": [ "100%", "145%" ],
-                "bindings": [
-                  {
-                    "binding_name": "#touch_controls_v2",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
-          ],
-          "$options_2": [
-            {
-              "joystick_visibility_dropdown@settings_common.ore_option_dropdown": {
-                "$option_label": "options.joystickVisibilityOption",
-                "$dropdown_content": "controls_section.joystick_visibility_upgrade_dropdown_content",
-                "$dropdown_area": "content_area",
-                "$dropdown_name": "joystick_visibility_dropdown",
-                "$option_enabled_binding_name": "#joystick_visibility_dropdown_enabled",
-                "$options_dropdown_toggle_label_binding": "#joystick_visibility_dropdown_toggle_label",
-                "$dropdown_scroll_content_size": [ "100%", "200%" ],
-                "bindings": [
-                  {
-                    "binding_name": "#touch_controls_v2",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
+              "binding_name": "#touch_controls_v2",
+              "binding_name_override": "#visible"
             }
           ]
         }

@@ -3,30 +3,44 @@
 
   // Button
   "ore_button_base@common_buttons.light_text_button": {
+    "$button_text_max_size": [ "100%", "100%" ],
+    "$font_type|default": "default",
+    "$button_font_scale_factor|default": 1.0,
+
+    "$button_pressed_offset|default": [ 0, 2 ],
+
+    "$border_visible": false,
+
     "$default_button_texture": "textures/ui/ore/button_borderless_light",
     "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
     "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
     "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
 
-    "$button_text_max_size": [ "100%", "100%" ],
     "$default_text_color": "$light_button_default_text_color",
     "$hover_text_color": "$light_button_default_text_color",
     "$pressed_text_color": "$light_button_default_text_color",
-    "$locked_text_color": "$light_button_default_text_color",
-
-    "$border_visible": false,
-
-    "$button_pressed_offset|default": [ 0, 3 ]
-  },
-
-  "color_ore_button@button_preset.light_ore_button": {
-    "$image_color|default": [ 0.89, 0.831, 0.82 ],
-    "$button_image_color": "$image_color"
+    "$locked_text_color": "$light_button_default_text_color"
   },
 
   "light_ore_button@button_preset.ore_button_base": {
-    "$font_type|default": "default",
-    "$button_font_scale_factor|default": 1.0
+    // Same by ore_button_base
+  },
+
+  "dark_ore_button@button_preset.ore_button_base": {
+    "$default_button_texture": "textures/ui/ore/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_darkpressed",
+    "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
+
+    "$default_text_color": "$light_button_hover_text_color",
+    "$hover_text_color": "$light_button_hover_text_color",
+    "$pressed_text_color": "$light_button_hover_text_color",
+    "$locked_text_color": "$light_button_hover_text_color"
+  },
+
+  "color_ore_button@button_preset.ore_button_base": {
+    "$image_color|default": [ 0.89, 0.831, 0.82 ],
+    "$button_image_color": "$image_color"
   },
 
   "green_ore_button@button_preset.ore_button_base": {
@@ -35,9 +49,6 @@
     "$pressed_button_texture": "textures/ui/ore/button_borderless_greenpressed",
 
     "sound_name": "click_on.ore_button_click",
-
-    "$font_type|default": "default",
-    "$button_font_scale_factor|default": 1.0,
 
     "$default_text_color": "$light_button_hover_text_color",
     "$hover_text_color": "$light_button_hover_text_color",
@@ -127,7 +138,7 @@
     "$default_border_visible": false,
     "$hover_border_visible": false,
 
-    "$button_pressed_offset|default": [ 0, 3 ],
+    "$button_pressed_offset|default": [ 0, 2 ],
 
     "$button_text_binding_type|default": "none",
     "$button_binding_condition|default": "none",
@@ -304,7 +315,7 @@
     "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
     "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
 
-    "$button_pressed_offset|default": [ 0, 3 ]
+    "$button_pressed_offset|default": [ 0, 2 ]
   },
 
   "transparent_icon_button@button_preset.icon_button_base": {

@@ -2,12 +2,14 @@
   /// Pack Info ///
   "$pack_type": "Alpha",
   "$pack_type_color": [ 0.882, 0.816, 0.969 ],
-  "$pack_version": "v2.0",
+  "$pack_version": "v2.1",
 
 
   /// Pack Option ///
   "$pack_is_custom": false, // 팩이 커스텀되어 있을 경우 true
   "$pack_is_developer_mode": false, // 개발 버전일 경우
+
+  "$show_hud_function_items": true, // Hud에서 나침반, 시계 표시 여부
 
 
   /// Pack Type Text Color Base ///

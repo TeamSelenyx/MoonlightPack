@@ -372,48 +372,78 @@
       {
         "toggle_light_line_panel@settings_common.light_line_panel": {}
       },
+      {
+        "paddingPause": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding",
+          "bindings": [
+            {
+              "binding_name": "#pause_toggle_enabled",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "passcodeRequired_autoAttach_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "only_allow_trusted_skins_toggle@settings_common.ore_option_toggle": {
+                "$option_label": "options.onlyTrustedSkinsAllowed",
+                "$option_binding_name": "#only_trusted_skins_allowed",
+                "$option_enabled_binding_name": "#only_trusted_skins_allowed_enabled",
+                "$toggle_name": "only_trusted_skins_allowed"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "pause_toggle@settings_common.ore_option_toggle": {
+                "$option_label": "options.pauseHint",
+                "$option_binding_name": "#pause_option_toggle",
+                "$toggle_name": "pause_option_toggle",
+                "bindings": [
+                  {
+                    "binding_name": "#pause_toggle_enabled",
+                    "binding_name_override": "#enabled"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
 
       {
-        "paddingCellularData": {
-          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition)",
+        "paddingUseRemoteConnect": {
+          "ignored": "(((not $google_os) and (not $is_ios)) or ($education_edition))",
           "type": "panel",
           "size": "$spatialPatternsPadding"
         }
       },
       {
-        "mobile_data_option_toggle@settings_common.ore_option_toggle": {
-          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition)",
-          "$option_label": "options.allowCellularData",
-          "$option_binding_name": "#allow_cellular_data",
-          "$option_enabled_binding_name": "#allow_cellular_data_enabled",
-          "$toggle_name": "allow_cellular_data",
-          "$has_option_description": true,
-          "$option_description": "options.allowCellularData.message"
+        "remote_connect_toggle@settings_common.ore_option_toggle": {
+          "ignored": "(((not $google_os) and (not $is_ios)) or ($education_edition))",
+          "$option_label": "options.useRemoteConnect",
+          "$option_binding_name": "#use_remote_connect",
+          "$option_enabled_binding_name": "#use_remote_connect_enabled",
+          "$toggle_name": "use_remote_connect"
         }
       },
 
       {
-        "paddingTrustedSkins": { "type": "panel", "size": "$spatialPatternsPadding" }
-      },
-      {
-        "only_allow_trusted_skins_toggle@settings_common.ore_option_toggle": {
-          "$option_label": "options.onlyTrustedSkinsAllowed",
-          "$option_binding_name": "#only_trusted_skins_allowed",
-          "$option_enabled_binding_name": "#only_trusted_skins_allowed_enabled",
-          "$toggle_name": "only_trusted_skins_allowed"
+        "paddingUseSSO": {
+          "ignored": "$ignore_profile_sso_toggle",
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
         }
       },
-
       {
-        "paddingWebsocket": { "type": "panel", "size": "$spatialPatternsPadding" }
-      },
-      {
-        "websocket_option_toggle@settings_common.ore_option_toggle": {
-          "ignored": "($console_edition)",
-          "$option_label": "options.websocketEncryption",
-          "$option_binding_name": "#websocket_encryption",
-          "$option_enabled_binding_name": "#websocket_encryption_enabled",
-          "$toggle_name": "websocket_encryption"
+        "use_edu_remember_me@settings_common.option_toggle": {
+          "ignored": "$ignore_profile_sso_toggle",
+          "$option_label": "options.adEduRememberMe",
+          "$option_binding_name": "#ad_edu_remember_me",
+          "$toggle_name": "ad_edu_remember_me"
         }
       },
 
@@ -483,68 +513,6 @@
               "binding_name_override": "#visible"
             }
           ]
-        }
-      },
-
-      {
-        "paddingEcoMode": { "type": "panel", "size": "$spatialPatternsPadding" }
-      },
-      {
-        "ecomode_enabled_toggle@settings_common.ore_option_toggle": {
-          "$option_label": "options.enableEcoMode",
-          "$option_binding_name": "#ecomode_toggle",
-          "$option_enabled_binding_name": "#ecomode_toggle_enabled",
-          "$toggle_name": "ecomode_toggle"
-        }
-      },
-
-      {
-        "paddingUseSSO": {
-          "ignored": "$ignore_profile_sso_toggle",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-      {
-        "use_edu_remember_me@settings_common.option_toggle": {
-          "ignored": "$ignore_profile_sso_toggle",
-          "$option_label": "options.adEduRememberMe",
-          "$option_binding_name": "#ad_edu_remember_me",
-          "$toggle_name": "ad_edu_remember_me"
-        }
-      },
-
-      {
-        "paddingCrossPlatform": {
-          "ignored": "(not $supports_cross_platform_play_toggle)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-      {
-        "cross_platform_enabled_toggle@settings_common.ore_option_toggle": {
-          "ignored": "(not $supports_cross_platform_play_toggle)",
-          "$option_label": "options.crossPlatformPlay",
-          "$option_binding_name": "#crossplatform_toggle",
-          "$option_enabled_binding_name": "#crossplatform_toggle_enabled",
-          "$toggle_name": "crossplatform_toggle"
-        }
-      },
-
-      {
-        "paddingUseRemoteConnect": {
-          "ignored": "((not $google_os) and (not $is_ios))",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-      {
-        "remote_connect_toggle@settings_common.ore_option_toggle": {
-          "ignored": "((not $google_os) and (not $is_ios))",
-          "$option_label": "options.useRemoteConnect",
-          "$option_binding_name": "#use_remote_connect",
-          "$option_enabled_binding_name": "#use_remote_connect_enabled",
-          "$toggle_name": "use_remote_connect"
         }
       },
 

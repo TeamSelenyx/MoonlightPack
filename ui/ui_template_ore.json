@@ -48,6 +48,129 @@
   },
 
 
+  // Dropdown
+  "radio_visuals_unchecked@common_ore.radio_visuals": {
+    "$radio_texture": "textures/ui/radio_off"
+  },
+
+  "radio_visuals_checked@common_ore.radio_visuals": {
+    "$radio_texture": "textures/ui/radio_on",
+    "$selected": true
+  },
+
+  "radio_visuals_unchecked_locked@common_ore.radio_visuals": {
+    "$radio_texture": "textures/ui/radio_off",
+    "$alpha": 0.5
+  },
+
+  "radio_visuals_checked_locked@common_ore.radio_visuals": {
+    "$radio_texture": "textures/ui/radio_on",
+    "$alpha": 0.5,
+    "$selected": true
+  },
+
+  "radio_visuals_unchecked_hover@common_ore.radio_visuals": {
+    "$radio_texture": "textures/ui/radio_off_hover",
+    "$hovered": true
+  },
+
+  "radio_visuals_checked_hover@common_ore.radio_visuals": {
+    "$radio_texture": "textures/ui/radio_on_hover",
+    "$hovered": true
+  },
+
+  "radio_visuals": {
+    "type": "panel",
+    "size": [ "100%", 16 ],
+    "$alpha|default": 1.0,
+    "$radio_label_bindings|default": [],
+    "$radio_label_color|default": "$main_header_text_color",
+    "$radio_label_font_type|default": "default",
+    "$no_label|default": false,
+    "$selected|default": false,
+    "$hovered|default": false,
+    "variables": [
+      {
+        "requires": "$selected",
+        "$highlight_image": "textures/ui/dropDownSelectBG"
+      },
+      {
+        "requires": "$hovered",
+        "$highlight_image": "textures/ui/dropDownHoverBG"
+      }
+    ],
+    "controls": [
+      {
+        "radio_image": {
+          "type": "image",
+          "texture": "$radio_texture",
+          "alpha": "$alpha",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 10, 10 ],
+          "layer": 2
+        }
+      },
+      {
+        "radio_label": {
+          "ignored": "($no_label)",
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "text": "$radio_label_text",
+          "text_alignment": "center",
+          "font_type": "$radio_label_font_type",
+          "color": "$radio_label_color",
+          "offset": [ 16, 0.5 ],
+          "size": [ "100% - 16px", "default" ],
+          "alpha": "$alpha",
+          "bindings": "$radio_label_bindings",
+          "layer": 2
+        }
+      },
+      {
+        "accessibility_selection_highlight": {
+          "type": "image",
+          "$selection_highlight_size|default": [ "100% + 4px", "100% + 2px" ],
+          "size": "$selection_highlight_size",
+          "$selection_highlight_offset|default": [ 0, 0 ],
+          "offset": "$selection_highlight_offset",
+          "ignored": "(not $selected and not $hovered)",
+          "$highlight_image|default": "",
+          "texture": "$highlight_image",
+          "tiled": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "radio_with_label_core@common.radio_toggle": {
+    "$unchecked_control|default": "common_ore.radio_visuals_unchecked",
+    "$checked_control|default": "common_ore.radio_visuals_checked",
+    "$unchecked_hover_control|default": "common_ore.radio_visuals_unchecked_hover",
+    "$checked_hover_control|default": "common_ore.radio_visuals_checked_hover",
+    "$unchecked_locked_control|default": "common_ore.radio_visuals_unchecked_locked",
+    "$unchecked_locked_hover_control|default": "common_ore.radio_visuals_unchecked_locked",
+    "$checked_locked_control|default": "common_ore.radio_visuals_checked_locked",
+    "$checked_locked_hover_control|default": "common_ore.radio_visuals_checked_locked",
+    "$radio_toggle_group": true,
+    "size": [ "100%", "100%c" ],
+    "$toggle_name|default": "$toggle_state_binding_name",
+    "$toggle_enabled_binding_name": "$option_enabled_binding_name",
+
+    "enabled": "$enabled",
+    "$toggle_enabled_binding_type": "global",
+    "variables": [
+      {
+        "requires": "(not $option_enabled_binding_name or not $enabled)",
+        "$toggle_enabled_binding_name": "#not_data_bound",
+        "$toggle_enabled_binding_type": "none"
+      }
+    ]
+  },
+
+
   // Slider
   "ore_slider_button_state": {
     "layer": 2,
@@ -394,7 +517,7 @@
         "dropdown@settings_common.option_dropdown": {
           "$option_label": "#custom_text",
           "$dropdown_content": "common_ore.custom_dropdown_content",
-          "$dropdown_area": "generated_form",
+          "$dropdown_area": "inside_header_panel",
           "$dropdown_name": "custom_dropdown",
           "$toggle_binding_type": "collection",
           "$toggle_grid_collection_name": "custom_form",

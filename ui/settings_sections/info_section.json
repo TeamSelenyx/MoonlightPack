@@ -959,7 +959,7 @@
         "minecraft_version_panel": {
           "type": "stack_panel",
           "size": [ "100%", "100%c" ],
-          "$base_protocol": "766", // v1.21.50
+          "$base_protocol": "776", // v1.21.60
           "controls": [
             {
               "no_problem@settings_common.icon_with_text_border_base": {

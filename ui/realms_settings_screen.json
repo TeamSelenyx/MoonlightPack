@@ -3,10 +3,9 @@
 
   "selector_panel": {
     "type": "stack_panel",
-    "orientation": "vertical",
+    "size": [ "100%", "100%c" ],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [ "100%", "100%c" ],
     "$default_selector_toggle_index": 1,
     "$world_toggle_index|default": 1,
     "$members_toggle_index|default": 2,
@@ -36,7 +35,7 @@
               }
             ]
           },
-          "size": [ "100%", 24 ],
+          "size": [ "100%", "30px" ],
           "default_focus_precedence": 1,
           "$focus_override_up": "FOCUS_OVERRIDE_STOP",
           "$button_text": "createWorldScreen.create",
@@ -53,10 +52,10 @@
         }
       },
       {
-        "disabled_play_button@settings_common.action_button": {
+        "disabled_play_button@settings_common.ore_action_button": {
           "$button_text": "realmsSettingsScreen.playDisabledRealmButton",
           "$pressed_button_name": "play_world_button",
-          "size": [ "100%", 24 ],
+          "size": [ "100%", "30px" ],
           "bindings": [
             {
               "binding_name": "#disabled_play_button_visible",
@@ -70,10 +69,10 @@
         }
       },
       {
-        "expired_play_button@settings_common.action_button": {
+        "expired_play_button@settings_common.ore_action_button": {
           "$button_text": "realmsSettingsScreen.playExpiredRealmButton",
           "$pressed_button_name": "play_world_button",
-          "size": [ "100%", 24 ],
+          "size": [ "100%", "30px" ],
           "bindings": [
             {
               "binding_name": "#is_realm_expired",
@@ -87,39 +86,26 @@
         }
       },
       {
-        "padding": {
-          "type": "panel",
-          "size": [ "100%", 6 ],
-          "bindings": [
+        "padding": { "type": "panel", "size": [ "100%", 6 ] }
+      },
+      {
+        "selector_group_label@settings_common.group_label_base": {
+          "layer": 2,
+          "$group_text|default": "realmsSettingsScreen.selectorSectionLabelRealm",
+          "variables": [
             {
-              "binding_name": "(#play_button_visible or #create_button_visible or #disabled_play_button_visible or #is_realm_expired)",
-              "binding_name_override": "#visible"
+              "requires": "$is_realm_slot",
+              "$group_text": "realmsSettingsScreen.worldSectionTitle"
             }
           ]
         }
       },
       {
-        "selector_group_label@settings_common.selector_group_label": {
-          "size": [ "100%", 24 ],
-          "$group_label_text|default": "realmsSettingsScreen.selectorSectionLabelRealm",
-          "variables": [
-            {
-              "requires": "$is_realm_slot",
-              "$group_label_text": "realmsSettingsScreen.worldSectionTitle"
-            }
-          ],
-          "text": "$group_label_text",
-          "offset": [ 2, 0 ],
-          "layer": 2
-        }
-      },
-      {
-        "world_button@settings_common.section_toggle_base": {
+        "world_button@settings_common.ore_section_toggle_base": {
           "variables": {
             "requires": "$is_realm_slot",
             "$button_text": "realmsSlotsScreen.gamesettings"
           },
-          "size": [ "100%", 24 ],
           "$toggle_view_binding_name": "world_button_toggle",
           "$toggle_group_forced_index": "$world_toggle_index",
           "$glyph_texture": "textures/ui/world_glyph",
@@ -133,9 +119,36 @@
         }
       },
       {
-        "members_button@settings_common.section_toggle_base": {
+        "advanced_button@settings_common.ore_section_toggle_base": {
+          "layer": 4,
+          "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
+          "$toggle_view_binding_name": "advanced_button_toggle",
+          "$toggle_group_forced_index": 800,
+          "$glyph_color_texture": "textures/ui/ore/icon_advanced",
+          "$glyph_size": [ 17, 17 ],
+          "$button_text": "world_section.advanced",
+          "$toggle_property_bag": {
+            "#panel_title": "$button_text"
+          }
+        }
+      },
+      {
+        "cheats_button@settings_common.ore_section_toggle_base": {
+          "layer": 4,
+          "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
+          "$toggle_view_binding_name": "cheats_button_toggle",
+          "$toggle_group_forced_index": 801,
+          "$glyph_color_texture": "textures/ui/ore/icon_cheats",
+          "$glyph_size": [ 17, 17 ],
+          "$button_text": "world_section.cheats",
+          "$toggle_property_bag": {
+            "#panel_title": "$button_text"
+          }
+        }
+      },
+      {
+        "members_button@settings_common.ore_section_toggle_base": {
           "ignored": "$is_realm_slot",
-          "size": [ "100%", 24 ],
           "$toggle_view_binding_name": "members_button_toggle",
           "$toggle_group_forced_index": "$members_toggle_index",
           "$glyph_texture": "textures/ui/multiplayer_glyph",
@@ -149,9 +162,8 @@
         }
       },
       {
-        "subscription_button@settings_common.section_toggle_base": {
+        "subscription_button@settings_common.ore_section_toggle_base": {
           "ignored": "$is_realm_slot",
-          "size": [ "100%", 24 ],
           "$toggle_view_binding_name": "subscription_button_toggle",
           "$toggle_group_forced_index": "$subscription_toggle_index",
           "$glyph_texture": "textures/ui/subscription_glyph",
@@ -165,9 +177,8 @@
         }
       },
       {
-        "backup_button@settings_common.section_toggle_base": {
+        "backup_button@settings_common.ore_section_toggle_base": {
           "ignored": "$realm_no_world_edit",
-          "size": [ "100%", 24 ],
           "$toggle_view_binding_name": "backup_button_toggle",
           "$toggle_group_forced_index": "$backup_toggle_index",
           "$glyph_texture": "textures/ui/backup_outline",
@@ -181,9 +192,8 @@
         }
       },
       {
-        "dev_options_button@settings_common.section_toggle_base": {
+        "dev_options_button@settings_common.ore_section_toggle_base": {
           "ignored": "($non_config_realms_env or $realm_no_world_edit)",
-          "size": [ "100%", 24 ],
           "$toggle_view_binding_name": "dev_options_button_toggle",
           "$toggle_group_forced_index": "$dev_options_toggle_index",
           "$glyph_texture": "textures/ui/dev_glyph",
@@ -197,9 +207,8 @@
         }
       },
       {
-        "invite_links_button@settings_common.section_toggle_base": {
+        "invite_links_button@settings_common.ore_section_toggle_base": {
           "ignored": "$is_realm_slot",
-          "size": [ "100%", 24 ],
           "$toggle_view_binding_name": "invite_links_button_toggle",
           "$toggle_group_forced_index": "$invite_links_toggle_index",
           "$glyph_texture": "textures/ui/share_google_glyph",
@@ -213,10 +222,81 @@
         }
       },
       {
-        "addons_selector_panel@world_section.addons_selector_panel": {
+        "level_texture_pack_button@world_section.level_texture_pack_ore_button": {
           "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
-          "$level_texture_pack_toggle_index": "$level_texture_pack_index",
-          "$addon_toggle_index": "$addon_index"
+          "$toggle_group_forced_index": "$level_texture_pack_index"
+        }
+      },
+      {
+        "addon_button@world_section.addon_ore_button": {
+          "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
+          "$toggle_group_forced_index": "$addon_index"
+        }
+      }
+    ]
+  },
+
+
+  "section_content_panels": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "world_section@realms_settings.generic_section_wrapper": {
+          "$section_button_name|default": "world_button_toggle",
+          "$section_content_name|default": "realms_world_section.panel_content"
+        }
+      },
+      {
+        "advanced_section@realms_settings.generic_section_wrapper": {
+          "ignored": "$realm_no_world_edit",
+          "$section_button_name|default": "advanced_button_toggle",
+          "$section_content_name|default": "realms_world_section.advanced_section"
+        }
+      },
+      {
+        "cheats_section@realms_settings.generic_section_wrapper": {
+          "ignored": "$realm_no_world_edit",
+          "$section_button_name|default": "cheats_button_toggle",
+          "$section_content_name|default": "realms_world_section.cheats_section"
+        }
+      },
+      {
+        "players_section@realms_settings.generic_section_wrapper": {
+          "ignored": "$is_realm_slot",
+          "$section_button_name|default": "members_button_toggle",
+          "$section_content_name|default": "realms_allowlist.friends_containing_panel",
+          "$friend_panel_size": [ "100%", "100%c" ]
+        }
+      },
+      {
+        "subscription_section@realms_settings.generic_section_wrapper": {
+          "ignored": "$is_realm_slot",
+          "$section_button_name|default": "subscription_button_toggle",
+          "$section_content_name|default": "realms_settings.subscriptions_section"
+        }
+      },
+      {
+        "invite_links_section@realms_settings.generic_section_wrapper": {
+          "ignored": "$is_realm_slot",
+          "$section_button_name|default": "invite_links_button_toggle",
+          "$section_content_name|default": "realms_settings.invite_links_section"
+        }
+      },
+      {
+        "dev_options_section@realms_settings.generic_section_wrapper": {
+          "ignored": "($non_config_realms_env or $realm_no_world_edit)",
+          "$section_button_name|default": "dev_options_button_toggle",
+          "$section_content_name|default": "branch_section"
+        }
+      },
+      {
+        "backup_section@realms_settings.generic_section_wrapper": {
+          "ignored": "$realm_no_world_edit",
+          "$section_button_name|default": "backup_button_toggle",
+          "$section_content_name|default": "backup_section"
         }
       }
     ]

@@ -1,8 +1,107 @@
 {
   "namespace": "anims_common",
 
+  // Size
+  "exit_animation_push_size_base": {
+    "$animation_easing|default": "out_cubic",
+    "$animation_duration|default": "$transition_time_push_size",
+    "$animation_from|default": [ "100%", "100%" ],
+    "$animation_to|default": [ 0, 0 ],
+
+    "anim_type": "size",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end",
+    "reset_event": "screen_animation_reset"
+  },
+
+  "exit_animation_pop_size_base": {
+    "$animation_easing|default": "out_cubic",
+    "$animation_duration|default": "$transition_time_pop_size",
+    "$animation_from|default": [ "100%", "100%" ],
+    "$animation_to|default": [ 0, 0 ],
+
+    "anim_type": "size",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end",
+    "reset_event": "screen_animation_reset"
+  },
+
+  "entrance_animation_push_size_base": {
+    "$animation_easing|default": "out_back",
+    "$animation_duration|default": "$transition_time_push",
+    "$animation_from|default": [ 0, 0 ],
+    "$animation_to|default": [ "100%", "100%" ],
+
+    "anim_type": "size",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end",
+    "resettable": true
+  },
+
+  "entrance_animation_pop_size_base": {
+    "$animation_easing|default": "out_back",
+    "$animation_duration|default": "$transition_time_pop",
+    "$animation_from|default": [ 0, 0 ],
+    "$animation_to|default": [ "100%", "100%" ],
+
+    "anim_type": "size",
+    "easing": "$animation_easing",
+    "duration": "$animation_duration",
+    "from": "$animation_from",
+    "to": "$animation_to",
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end",
+    "resettable": true
+  },
+
+
+  // Size(Default)
+  "screen_exit_animation_push_size_default@anims_common.exit_animation_push_size_base": {},
+
+  "screen_exit_animation_pop_size_default@anims_common.exit_animation_pop_size_base": {},
+
+  "screen_entrance_animation_push_size_default@anims_common.entrance_animation_push_size_base": {},
+
+  "screen_entrance_animation_pop_size_default@anims_common.entrance_animation_pop_size_base": {},
+
+
+  // Size(Dynamic)
+  "screen_exit_animation_push_size_dynamic@anims_common.exit_animation_push_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "150%", "150%" ]
+  },
+
+  "screen_exit_animation_pop_size_dynamic@anims_common.exit_animation_pop_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "150%", "150%" ]
+  },
+
+  "screen_entrance_animation_push_size_dynamic@anims_common.entrance_animation_push_size_base": {
+    "$animation_from": [ "150%", "150%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+  "screen_entrance_animation_pop_size_dynamic@anims_common.entrance_animation_pop_size_base": {
+    "$animation_from": [ "150%", "150%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+
+
   // Offset
-  "exit_animation_push_offset": {
+  "exit_animation_push_offset_base": {
     "$animation_easing|default": "out_cubic",
     "$animation_duration|default": "$transition_time_push",
     "$animation_from|default": [ 0, "-50%" ],
@@ -17,7 +116,7 @@
     "end_event": "screen.exit_end"
   },
 
-  "exit_animation_pop_offset": {
+  "exit_animation_pop_offset_base": {
     "$animation_easing|default": "out_cubic",
     "$animation_duration|default": "$transition_time_pop",
     "$animation_from|default": [ 0, "-50%" ],
@@ -32,7 +131,7 @@
     "end_event": "screen.exit_end"
   },
 
-  "entrance_animation_push_offset": {
+  "entrance_animation_push_offset_base": {
     "$animation_easing|default": "out_cubic",
     "$animation_duration|default": "$transition_time_push",
     "$animation_from|default": [ 0, 0 ],
@@ -47,7 +146,7 @@
     "end_event": "screen.entrance_end"
   },
 
-  "entrance_animation_pop_offset": {
+  "entrance_animation_pop_offset_base": {
     "$animation_easing|default": "out_cubic",
     "$animation_duration|default": "$transition_time_pop",
     "$animation_from|default": [ 0, 0 ],
@@ -64,25 +163,25 @@
 
 
   // Top -> Bottom
-  "screen_exit_animation_push_topBottom@anims_common.exit_animation_push_offset": {
+  "screen_exit_animation_push_offset_topBottom@anims_common.exit_animation_push_offset_base": {
     "$animation_duration": "$container_transition_time_push",
     "$animation_from": [ 0, "-50%" ],
     "$animation_to": [ 0, 0 ]
   },
 
-  "screen_exit_animation_pop_topBottom@anims_common.exit_animation_pop_offset": {
+  "screen_exit_animation_pop_offset_topBottom@anims_common.exit_animation_pop_offset_base": {
     "$animation_duration": "$container_transition_time_pop",
     "$animation_from": [ 0, "-50%" ],
     "$animation_to": [ 0, 0 ]
   },
 
-  "screen_entrance_animation_push_topBottom@anims_common.entrance_animation_push_offset": {
+  "screen_entrance_animation_push_offset_topBottom@anims_common.entrance_animation_push_offset_base": {
     "$animation_duration": "$container_transition_time_push",
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ 0, "-50%" ]
   },
 
-  "screen_entrance_animation_pop_topBottom@anims_common.entrance_animation_pop_offset": {
+  "screen_entrance_animation_pop_offset_topBottom@anims_common.entrance_animation_pop_offset_base": {
     "$animation_duration": "$container_transition_time_pop",
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ 0, "-50%" ]
@@ -90,25 +189,25 @@
 
 
   // Bottom -> Top
-  "screen_exit_animation_push_bottomTop@anims_common.exit_animation_push_offset": {
+  "screen_exit_animation_push_offset_bottomTop@anims_common.exit_animation_push_offset_base": {
     "$animation_duration": "$container_transition_time_push",
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ 0, "50%" ]
   },
 
-  "screen_exit_animation_pop_bottomTop@anims_common.exit_animation_pop_offset": {
+  "screen_exit_animation_pop_offset_bottomTop@anims_common.exit_animation_pop_offset_base": {
     "$animation_duration": "$container_transition_time_pop",
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ 0, "50%" ]
   },
 
-  "screen_entrance_animation_push_bottomTop@anims_common.entrance_animation_push_offset": {
+  "screen_entrance_animation_push_offset_bottomTop@anims_common.entrance_animation_push_offset_base": {
     "$animation_duration": "$container_transition_time_push",
     "$animation_from": [ 0, "50%" ],
     "$animation_to": [ 0, 0 ]
   },
 
-  "screen_entrance_animation_pop_bottomTop@anims_common.entrance_animation_pop_offset": {
+  "screen_entrance_animation_pop_offset_bottomTop@anims_common.entrance_animation_pop_offset_base": {
     "$animation_duration": "$container_transition_time_pop",
     "$animation_from": [ 0, "50%" ],
     "$animation_to": [ 0, 0 ]
@@ -116,44 +215,44 @@
 
 
   // Left -> Right
-  "screen_exit_animation_push_leftRight@anims_common.exit_animation_push_offset": {
+  "screen_exit_animation_push_offset_leftRight@anims_common.exit_animation_push_offset_base": {
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ "-25%", 0 ]
   },
 
-  "screen_exit_animation_pop_leftRight@anims_common.exit_animation_pop_offset": {
+  "screen_exit_animation_pop_offset_leftRight@anims_common.exit_animation_pop_offset_base": {
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ "-25%", 0 ]
   },
 
-  "screen_entrance_animation_push_leftRight@anims_common.entrance_animation_push_offset": {
+  "screen_entrance_animation_push_offset_leftRight@anims_common.entrance_animation_push_offset_base": {
     "$animation_from": [ "-25%", 0 ],
     "$animation_to": [ 0, 0 ]
   },
 
-  "screen_entrance_animation_pop_leftRight@anims_common.entrance_animation_pop_offset": {
+  "screen_entrance_animation_pop_offset_leftRight@anims_common.entrance_animation_pop_offset_base": {
     "$animation_from": [ "-25%", 0 ],
     "$animation_to": [ 0, 0 ]
   },
 
 
   // Right -> Left
-  "screen_exit_animation_push_rightLeft@anims_common.exit_animation_push_offset": {
+  "screen_exit_animation_push_offset_rightLeft@anims_common.exit_animation_push_offset_base": {
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ "25%", 0 ]
   },
 
-  "screen_exit_animation_pop_rightLeft@anims_common.exit_animation_pop_offset": {
+  "screen_exit_animation_pop_offset_rightLeft@anims_common.exit_animation_pop_offset_base": {
     "$animation_from": [ 0, 0 ],
     "$animation_to": [ "25%", 0 ]
   },
 
-  "screen_entrance_animation_push_rightLeft@anims_common.entrance_animation_push_offset": {
+  "screen_entrance_animation_push_offset_rightLeft@anims_common.entrance_animation_push_offset_base": {
     "$animation_from": [ "25%", 0 ],
     "$animation_to": [ 0, 0 ]
   },
 
-  "screen_entrance_animation_pop_rightLeft@anims_common.entrance_animation_pop_offset": {
+  "screen_entrance_animation_pop_offset_rightLeft@anims_common.entrance_animation_pop_offset_base": {
     "$animation_from": [ "25%", 0 ],
     "$animation_to": [ 0, 0 ]
   }

@@ -224,6 +224,25 @@
     ]
   },
 
+  "group_label_base": {
+    "type": "panel",
+    "size": [ "100%", "100%c + 2px" ],
+    "$group_text|default": "",
+    "controls": [
+      {
+        "label": {
+          "type": "label",
+          "size": [ "100% - 6px", "default" ],
+          "max_size": [ "100% - 6px", "default" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "text": "$group_text",
+          "text_alignment": "left"
+        }
+      }
+    ]
+  },
+
 
 
   // Ore UI Design Options
@@ -654,7 +673,7 @@
     ]
   },
 
-  "upgrade_radio_with_label_core@settings_common.radio_with_label_core": {
+  "upgrade_radio_with_label_core@common_ore.radio_with_label_core": {
     "size": [ "100%", "100%" ],
 
     "$unchecked_control|default": "common_radios.upgrade_radio_unchecked",
@@ -745,8 +764,8 @@
     "$hover_checked_text_color": "$f_color_format",
 
     "$default_texture": "textures/ui/empty",
-    "$hover_texture": "textures/ui/ore/button_flat_darkhover",
-    "$pressed_texture": "textures/ui/ore/button_flat_darkpressed",
+    "$hover_texture": "textures/ui/ore/button_flat_darkpressednohover",
+    "$pressed_texture": "textures/ui/ore/button_flat_darkhover",
     "$pressed_no_hover_texture": "textures/ui/ore/button_flat_darkpressed"
   },
 
@@ -1076,7 +1095,13 @@
 
   // Settings Screen Dialog
   "dynamic_dialog_screen": {
-    "$fill_alpha": 0.0
+    "$fill_alpha": 0.3,
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ]
   },
 
   "settings_content": {
@@ -1161,7 +1186,7 @@
       {
         "pack_notification_button_panel@common.horizontal_stack_panel": {
           "ignored": "$ignore_global_resources_section",
-          "visible": "($is_global_texture_packs_visible and not $include_world_section)",
+          "visible": "($is_global_texture_packs_visible and not $include_world_section and not $include_realm_section)",
           "size": [ "350%y", "100% - 2px" ],
           "controls": [
             { "bar@settings_common.light_line_vertical_panel": { "$line_offset": [ 0.5, 0 ], "$panel_size": [ 1, "100%" ], "$line_size": [ 1, "65%" ], "$line_color": [ 0.5, 0.5, 0.5 ] } },
@@ -1177,7 +1202,7 @@
       {
         "info_button_panel@common.horizontal_stack_panel": {
           "ignored": "$ignore_global_resources_section",
-          "visible": "($is_global_texture_packs_visible and not $include_world_section)",
+          "visible": "($is_global_texture_packs_visible and not $include_world_section and not $include_realm_section)",
           "size": [ "350%y", "100% - 2px" ],
           "controls": [
             { "bar@settings_common.light_line_vertical_panel": { "$line_offset": [ 0.5, 0 ], "$panel_size": [ 1, "100%" ], "$line_size": [ 1, "65%" ], "$line_color": [ 0.5, 0.5, 0.5 ] } },

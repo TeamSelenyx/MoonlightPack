@@ -80,24 +80,6 @@
         "touch_controls@quick_section.touch_controls_options": {
           "visible": "($touch)"
         }
-      },
-
-      {
-        "rtx@quick_section.rtx_options": {
-          "ignored": "$new_video_settings",
-          "bindings": [
-            {
-              "binding_name": "#raytracing_enabled",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-
-      {
-        "render_dragon@quick_section.render_dragon_options": {
-          "ignored": "(not $new_video_settings)"
-        }
       }
     ]
   },

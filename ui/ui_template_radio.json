@@ -22,6 +22,7 @@
     "$radio_icon_hover_visible|default": false,
     "$radio_icon_hover|default": "",
     "$radio_label_text|default": "",
+    "$radio_label_text_alignment|default": "center",
     "$radio_label_size|default": [ "default", "default" ],
     "$radio_label_max_size|default": [ "100% - 8px", "100% - 8px" ],
     "$radio_label_color|default": [ 1.0, 1.0, 1.0 ],
@@ -41,6 +42,7 @@
           "offset": "$content_offset",
           "color": "$radio_label_color",
           "text": "$radio_label_text",
+          "text_alignment": "$radio_label_text_alignment",
           "font_type": "$radio_label_font_type",
           "bindings": "$radio_label_bindings"
         }
@@ -107,6 +109,7 @@
                       "offset": "$content_offset",
                       "color": "$radio_label_color",
                       "text": "$radio_label_text",
+                      "text_alignment": "$radio_label_text_alignment",
                       "bindings": "$radio_label_bindings"
                     }
                   }

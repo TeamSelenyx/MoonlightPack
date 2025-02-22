@@ -643,12 +643,21 @@
   // Game Info
   "game_info_panel": {
     "type": "stack_panel",
-    "size": [ "100%", "100%cm" ],
+    "size": [ "100%cm", "100%c" ],
+
+    "animation_reset_name": "screen_animation_reset",
+    "anims": [
+      "@anims_common.screen_exit_animation_push_offset_rightLeft",
+      "@anims_common.screen_exit_animation_pop_offset_rightLeft",
+      "@anims_common.screen_entrance_animation_push_offset_rightLeft",
+      "@anims_common.screen_entrance_animation_pop_offset_rightLeft"
+    ],
+
     "controls": [
       {
         "copyright_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c" ],
+          "size": [ "100%sm", "100%c" ],
           "controls": [
             {
               "copyright@start.game_info_label_base": {
@@ -664,7 +673,7 @@
       {
         "game_version_panel": {
           "type": "panel",
-          "size": [ "100%", "100%s" ],
+          "size": [ "100%c", "100%s" ],
           "controls": [
             {
               "game_version@start.game_version_info": { "offset": [ 2, 0 ], "anchor_from": "right_middle", "anchor_to": "right_middle" }
@@ -821,8 +830,13 @@
     "anchor_from": "center",
     "anchor_to": "center",
 
+    "propagate_alpha": true,
     "animation_reset_name": "screen_animation_reset",
     "anims": [
+      "@anims_common.screen_exit_animation_push_size_dynamic",
+      "@anims_common.screen_exit_animation_pop_size_dynamic",
+      "@anims_common.screen_entrance_animation_push_size_dynamic",
+      "@anims_common.screen_entrance_animation_pop_size_dynamic",
       "@common.screen_exit_animation_push_fade",
       "@common.screen_exit_animation_pop_fade",
       "@common.screen_entrance_animation_push_fade",
@@ -1015,6 +1029,28 @@
     ],
     "controls": [
       {
+        "top_content@start.top_content_panel": {}
+      },
+      {
+        "title_panel": {
+          "type": "panel",
+          "size": [ "45%", 32 ],
+          "offset": [ 0, "3%" ],
+          "anchor_to": "top_middle",
+          "anchor_from": "top_middle",
+          "controls": [
+            {
+              "minecraft_title@common_art.title_panel_content": {
+                "size": [ "100%", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "$splash_text_visible": false
+              }
+            }
+          ]
+        }
+      },
+      {
         "start_content_panel": {
           "type": "panel",
           "size": [ "200%y", "65%" ],
@@ -1064,28 +1100,6 @@
                 ]
               }
 		    }
-          ]
-        }
-      },
-      {
-        "top_content@start.top_content_panel": {}
-      },
-      {
-        "title_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%" ],
-          "anchor_to": "center",
-          "anchor_from": "center",
-          "controls": [
-            {
-              "minecraft_title@common_art.title_panel_content": {
-                "size": [ "45%", 28 ],
-                "offset": [ 0, "8%" ],
-                "anchor_from": "top_middle",
-                "anchor_to": "top_middle",
-                "$splash_text_visible": false
-              }
-            }
           ]
         }
       },

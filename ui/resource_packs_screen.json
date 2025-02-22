@@ -36,29 +36,6 @@
     "controls": [
       { "void_panel@common.empty_panel": { "size": [ 0, 2 ] } },
       {
-        "auto_update_enabled_toggle@settings_common.ore_option_toggle": {
-          "ignored": "((not $is_console and not $is_settopbox and not $win10_edition and not $osx_edition) or $nx_os)",
-          "$option_label": "options.autoUpdateEnabled",
-          "$option_binding_name": "#auto_update_enabled",
-          "$toggle_name": "auto_update_enabled"
-        }
-      },
-      {
-        "auto_update_mode_dropdown@settings_common.ore_option_dropdown": {
-          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition)",
-          "$option_label": "options.autoUpdateMode",
-          "$dropdown_content": "general_section.auto_update_mode_upgrade_dropdown_content",
-          "$dropdown_area": "content_area",
-          "$dropdown_name": "auto_update_mode_dropdown",
-          "$options_dropdown_toggle_label_binding": "#auto_update_mode_dropdown_toggle_label",
-          "$dropdown_scroll_content_size": [ "100%", "200%" ]
-        }
-      },
-      {
-        "auto_update_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
-      },
-
-      {
         "world_template_option_lock_panel": {
           "ignored": "(not $is_world_create and not $is_template_create and not $is_world_edit)",
           "type": "panel",
@@ -2495,8 +2472,8 @@
     "$hover_checked_text_color": "$f_color_format",
 
     "$default_texture": "textures/ui/empty",
-    "$hover_texture": "textures/ui/ore/button_flat_darkhover",
-    "$pressed_texture": "textures/ui/ore/button_flat_darkpressed",
+    "$hover_texture": "textures/ui/ore/button_flat_darkpressednohover",
+    "$pressed_texture": "textures/ui/ore/button_flat_darkhover",
     "$pressed_no_hover_texture": "textures/ui/ore/button_flat_darkpressed"
   }
 }
