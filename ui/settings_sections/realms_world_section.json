@@ -131,7 +131,7 @@
   },
 
 
-  "difficulty_dropdown@settings_common.ore_option_dropdown": {
+  "difficulty_dropdown@settings_common.ore_upgrade_option_dropdown": {
     "ignored": "$realm_no_world_edit",
     "$option_label": "options.difficulty",
     "$dropdown_content": "world_section.world_difficulty_upgrade_dropdown_content",
@@ -142,7 +142,7 @@
     "$dropdown_scroll_content_size": [ "100%", "260%" ]
   },
 
-  "game_mode_dropdown@settings_common.ore_option_dropdown": {
+  "game_mode_dropdown@settings_common.ore_upgrade_option_dropdown": {
     "ignored": "$realm_no_world_edit",
     "$option_label": "createWorldScreen.gameMode",
     "$dropdown_content": "realms_world_section.world_game_mode_upgrade_dropdown_content",
@@ -154,7 +154,7 @@
     "$enabled": "$is_pregame"
   },
 
-  "advanced_section": {
+  "world_advanced_section": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
     "$education_ios": "($education_edition and $is_ios)",
@@ -320,7 +320,7 @@
     ]
   },
 
-  "cheats_section": {
+  "world_cheats_section": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
     "$education_ios": "($education_edition and $is_ios)",

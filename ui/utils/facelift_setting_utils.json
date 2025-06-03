@@ -1,0 +1,164 @@
+{
+  "namespace": "facelift_setting_utils",
+
+  "void_panel": {
+    "type": "panel",
+    "size": [ 0, 0 ],
+    "controls": []
+  },
+
+  "content_background_base": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "texture": "textures/ui/hud_tip_text_background",
+    "alpha": 0.6
+  },
+
+  "settings_content_background_base@facelift_setting_utils.content_background_base": {
+    "$content_background_size|default": [ "100%", "100%c" ],
+    "$content_panel_size|default": [ "100% - 8px", "100%c + 12px" ],
+    "$content_controls|default": [],
+    "$content_bindings|default": [],
+
+    "size": "$content_background_size",
+    "controls": [
+      {
+        "settings_content": {
+          "layer": 5,
+          "type": "panel",
+          "size": "$content_panel_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": "$content_controls"
+        }
+      }
+    ],
+    "bindings": "$content_bindings"
+  },
+
+  "content_scrolling_panel_base@common.scrolling_panel": {
+    "size": [ "100% - 4px", "100% - 4px" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "$show_background": false,
+    "$scrolling_pane_size": [ "100% - 4px", "100% - 4px" ],
+    "$scrolling_pane_offset": [ 2, 2 ],
+    "$scroll_size": [ 5, "100% - 4px" ],
+    "$scroll_bar_right_padding_size": [ 0, 0 ]
+  },
+
+  "facelift_content_panel_base": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "$show_content_background|default": true,
+    "$content_background_size|default": [ "100% - 8px", "100% - 4px" ],
+    "$use_section_content_scrolling|default": true,
+    "$section_panel_size|default": [ "100% - 16px", "100% - 12px" ],
+    "$section_header_content|default": "facelift_setting_utils.void_panel",
+    "$section_content|default": "facelift_setting_utils.void_panel",
+    "$section_footer_content|default": "facelift_setting_utils.void_panel",
+
+    "$section_content_size|default": [ "100%", "100%" ],
+    "$section_scrolling_pane_size|default": [ "100%", "100%" ],
+    "$section_scrolling_pane_offset|default": [ 0, 0 ],
+
+    "$compact_mode|default": false,
+    "variables": [
+      {
+        "requires": "$compact_mode",
+        "$content_background_size": [ "100%", "100%" ],
+        "$section_panel_size": [ "100% - 4px", "100%" ],
+        "$section_content_size": [ "100% - 4px", "100% - 4px" ],
+        "$section_scrolling_pane_size": [ "100% - 4px", "100% - 4px" ],
+        "$section_scrolling_pane_offset": [ 2, 2 ]
+      }
+    ],
+
+    "controls": [
+      {
+        "background@facelift_setting_utils.content_background_base": {
+          "visible": "$show_content_background",
+          "size": "$content_background_size"
+        }
+      },
+      {
+        "content_stack_panel": {
+          "type": "stack_panel",
+          "size": "$section_panel_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "section_header_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "section_header@$section_header_content": {}
+                  }
+                ]
+              }
+            },
+            {
+              "section_panel": {
+                "ignored": "($use_section_content_scrolling)",
+                "type": "panel",
+                "size": [ "100%", "fill" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "content@$section_content": { "size": "$section_content_size" }
+                  }
+                ]
+              }
+            },
+            {
+              "section_scrolling_panel": {
+                "ignored": "(not $use_section_content_scrolling)",
+                "type": "panel",
+                "size": [ "100%", "fill" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "section_scrolling@common.scrolling_panel": {
+                      "size": [ "100%", "100%" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$show_background": false,
+                      "$scrolling_content": "$section_content",
+                      "$scrolling_pane_size": "$section_scrolling_pane_size",
+                      "$scrolling_pane_offset": "$section_scrolling_pane_offset",
+                      "$scroll_bar_left_padding_size": [ 0, 0 ],
+                      "$scroll_bar_right_padding_size": [ 0, 0 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section_footer_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "section_footer@$section_footer_content": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -119,10 +119,10 @@
         }
       },
       {
-        "advanced_button@settings_common.ore_section_toggle_base": {
+        "world_advanced_button@settings_common.ore_section_toggle_base": {
           "layer": 4,
           "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
-          "$toggle_view_binding_name": "advanced_button_toggle",
+          "$toggle_view_binding_name": "world_advanced_button_toggle",
           "$toggle_group_forced_index": 800,
           "$glyph_color_texture": "textures/ui/ore/icon_advanced",
           "$glyph_size": [ 17, 17 ],
@@ -133,16 +133,31 @@
         }
       },
       {
-        "cheats_button@settings_common.ore_section_toggle_base": {
+        "world_cheats_button@settings_common.ore_section_toggle_base": {
           "layer": 4,
           "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
-          "$toggle_view_binding_name": "cheats_button_toggle",
+          "$toggle_view_binding_name": "world_cheats_button_toggle",
           "$toggle_group_forced_index": 801,
           "$glyph_color_texture": "textures/ui/ore/icon_cheats",
           "$glyph_size": [ 17, 17 ],
           "$button_text": "world_section.cheats",
           "$toggle_property_bag": {
             "#panel_title": "$button_text"
+          }
+        }
+      },
+      {
+        "advanced_button@settings_common.ore_section_toggle_base": {
+          "ignored": "$is_realm_slot",
+          "$toggle_view_binding_name": "advanced_button_toggle",
+          "$toggle_group_forced_index": "$advanced_toggle_index",
+          "$glyph_texture": "textures/ui/advanced_glyph",
+          "$glyph_color_texture": "textures/ui/advanced_glyph_color",
+          "$glyph_size": [ 16, 16 ],
+          "layer": 6,
+          "$button_text": "realmsSettingsScreen.advancedSectionTitle",
+          "$toggle_property_bag": {
+            "#panel_title": "realmsSettingsScreen.advancedSectionTitle"
           }
         }
       },
@@ -250,17 +265,24 @@
         }
       },
       {
-        "advanced_section@realms_settings.generic_section_wrapper": {
+        "world_advanced_section@realms_settings.generic_section_wrapper": {
           "ignored": "$realm_no_world_edit",
-          "$section_button_name|default": "advanced_button_toggle",
-          "$section_content_name|default": "realms_world_section.advanced_section"
+          "$section_button_name|default": "world_advanced_button_toggle",
+          "$section_content_name|default": "realms_world_section.world_advanced_section"
         }
       },
       {
-        "cheats_section@realms_settings.generic_section_wrapper": {
+        "world_cheats_section@realms_settings.generic_section_wrapper": {
           "ignored": "$realm_no_world_edit",
-          "$section_button_name|default": "cheats_button_toggle",
-          "$section_content_name|default": "realms_world_section.cheats_section"
+          "$section_button_name|default": "world_cheats_button_toggle",
+          "$section_content_name|default": "realms_world_section.world_cheats_section"
+        }
+      },
+      {
+        "advanced_section@realms_settings.generic_section_wrapper": {
+          "ignored": "$is_realm_slot",
+          "$section_button_name|default": "advanced_button_toggle",
+          "$section_content_name|default": "realms_settings.advanced_section"
         }
       },
       {
@@ -298,7 +320,151 @@
           "$section_button_name|default": "backup_button_toggle",
           "$section_content_name|default": "backup_section"
         }
+      },
+      {
+        "packs_sections": {
+          "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            { "level_texture_pack_section@world_section.level_texture_pack_section": {} },
+            { "addon_section@world_section.addon_section": {} }
+          ]
+        }
       }
     ]
+  },
+
+
+  // advanced tab content
+  "advanced_section": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "loading_view": {
+          "type": "label",
+          "color": "$body_text_color",
+          "size": [ "default", "80px" ],
+          "offset": [ 0, 10 ],
+          "text": "realmsSettingsScreen.advancedLoading",
+          "bindings": [
+            {
+              "binding_name": "#realms_advanced_loading_message_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "loading_failed_view": {
+          "type": "label",
+          "color": "$body_text_color",
+          "size": [ "default", "80px" ],
+          "offset": [ 0, 10 ],
+          "text": "realmsSettingsScreen.advancedLoadingFailed",
+          "bindings": [
+            {
+              "binding_name": "#realms_advanced_loading_failed_message_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "loaded_view": {
+          "type": "stack_panel",
+          "controls": [
+            {
+              "spacing_gap_0": {
+                "type": "panel",
+                "size": [ "100%", 8 ]
+              }
+            },
+            {
+              "server_preference@settings_common.option_icon_label": {
+                "$option_label": "realmsSettingsScreen.serverRegionPreferenceTitle",
+                "$button_tts_header": "realmsSettingsScreen.serverRegionPreferenceTitle",
+                "$container_text_binding_name": "#realm_selected_preference",
+                "$container_icon_binding_name": "#realm_selected_preference_icon",
+                "$container_tts_binding_name": "#realm_selected_preference_tts"
+              }
+            },
+            {
+              "set_region_content@realms_settings.set_region_ore_dropdown": {}
+            },
+            {
+              "changes_not_applied_panel": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "changes_not_applied_label": {
+                      "type": "label",
+                      "color": "$light_button_secondary_default_text_color",
+                      "size": [ "100%", "default" ],
+                      "text": "realmsSettingsScreen.changesNotApplied"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "spacing_gap_1": {
+                "type": "panel",
+                "size": [ "100%", 16 ]
+              }
+            },
+            {
+              "region_help_button@common_buttons.light_content_button": {
+                "$pressed_button_name": "region_help_button",
+                "size": [ "100%", 30 ],
+                "$button_content": "realms_settings.region_help_button_content",
+
+                "$light_button_hover_text_color": "$light_button_default_text_color",
+                "$light_button_pressed_text_color": "$light_button_default_text_color",
+                "$light_button_locked_text_color": "$light_button_default_text_color",
+
+                "$light_glyph_hover_color": "$light_glyph_default_color",
+                "$light_glyph_pressed_color": "$light_glyph_default_color",
+                "$light_glyph_locked_color": "$light_glyph_default_color",
+
+                "$button_pressed_offset": [ 0, 2 ],
+
+                "$default_state_border_visible": false,
+                "$hover_state_border_visible": false,
+                "$pressed_state_border_visible": false,
+                "$locked_state_border_visible": false,
+
+                "$default_button_texture": "textures/ui/ore/button_borderless_light",
+                "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+                "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+                "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder"
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#realms_advanced_info_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "set_region_ore_dropdown@settings_common.ore_option_dropdown": {
+    "$dropdown_content": "realms_settings.region_dropdown_content",
+    "$dropdown_area": "content_area",
+    "$dropdown_name": "preferred_region_dropdown",
+    "$toggle_binding_type": "collection",
+    "$toggle_grid_collection_name": "region_collection",
+    "$options_dropdown_toggle_label_binding": "#dropdown_option_text",
+    "$options_dropdown_toggle_label_binding_type": "collection",
+    "$options_dropdown_toggle_label_binding_collection_name": "region_collection",
+    "$dropdown_scroll_content_size": [ "100%", "400%" ],
+    "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+    "$tts_override_control_value": "#dropdown_option_text_tts"
   }
 }

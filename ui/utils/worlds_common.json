@@ -640,7 +640,7 @@
           "fill": true,
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "texture": "textures/ui/ore/create_new_world_image"
+          "texture": "textures/ui/thumbnail/create_new_world"
         }
       }
     ]

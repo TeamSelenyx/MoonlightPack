@@ -2,6 +2,12 @@
   "namespace": "how_to_play",
 
   "how_to_play_screen": {
-    "$fill_alpha": 0.9
+    "$fill_alpha": 0.5,
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ]
   }
 }

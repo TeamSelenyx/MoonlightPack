@@ -166,7 +166,20 @@
     ]
   },
 
-  "chat_settings_fitting_button@common_buttons.light_text_button": {
+  "chat_settings_fitting_button@common_buttons.light_content_button": {
+    "size": [ "100%c", 18 ],
+    "$button_state_panel": "common_buttons.new_ui_form_fitting_button_panel",
+    "$button_size_override": [ "100%c", "100%" ],
+    "$focus_border_size_override": [ "100%c", "100%" ],
+    "$button_image_size_override": [ "100%c", "100%" ],
+    "$button_content_size_override": [ "100%c + 6px", "100%" ],
+    "$focus_border_texture": "textures/ui/empty",
+    "$anchor": "center",
+
+    "$button_type_panel": "button_content_preset.image_with_text_content_panel",
+    "$content_pressed": false,
+    "$use_fit_button_content": true,
+
     "$pressed_button_name": "button.open_chat_settings",
 
     "$border_visible": false,
@@ -175,13 +188,11 @@
     "$pressed_button_texture": "textures/ui/dark_gray_transparent",
     "$locked_button_texture": "textures/ui/empty",
 
-    "$button_type_panel": "button_content_preset.image_text_content_panel",
-    "$content_pressed": false,
-
     "$text": "chat.setting_text",
-    "$icon_size": [ "90%", "90%" ],
+    "$icon_size": [ "80%", "80%" ],
     "$icon_color": [ 0.3, 0.3, 0.3 ],
-    "$icon_path": "textures/ui/icon_settings"
+    "$use_icon_hover_color": true,
+    "$icon_path": "textures/ui/icons/icon_settings"
   },
 
   "chat_settings_dark_button@chat.dark_small_button": {
@@ -870,7 +881,6 @@
                 "controls": [
                   {
                     "chat_settings@chat.chat_settings_fitting_button": {
-                      "size": [ "350%y", 18 ],
                       "offset": [ -2, -1.5 ],
                       "anchor_from": "right_middle",
                       "anchor_to": "right_middle"

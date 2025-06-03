@@ -1,159 +1,168 @@
 ## Pack Info
-global.pack.name=Moonlight Pack	#
-global.pack.name_bold=§lMoonlight Pack	#
-global.pack.name_boldItalic=§l§oMoonlight Pack	#
-global.pack_info.name=Moonlight Pack	#
-global.pack_info.made_by.title=제작자:	#
-global.pack_info.made_by=NeroLuna	#
-global.pack_info.made_by.team=Team Selenyx	#
-global.pack_info.editor.title=수정자:	#
-global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
-global.pack_info.licenses=라이선스: AGPL 3.0	#
-global.pack_info.licenses.title=라이선스	#
-global.pack_info.licenses.1=* 해당 리소스 팩은 Team Selenyx의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.	#
-global.pack_info.licenses.2=* 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.	#
+global.pack.name=Moonlight Pack
+global.pack.name_bold=§lMoonlight Pack
+global.pack.name_boldItalic=§l§oMoonlight Pack
+global.pack_info.name=Moonlight Pack
+global.pack_info.made_by.title=제작:
+global.pack_info.made_by=NeroLuna
+global.pack_info.made_by.team=Team Selenyx
+global.pack_info.version.title=버전:
+global.pack_info.build.title=빌드:
+global.pack_info.editor.title=수정:
+global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]
+global.pack_info.github=Github: https://github.com/TeamSelenyx/MoonlightPack
+global.pack_info.licenses=라이선스: AGPL 3.0
+global.pack_info.licenses.title=라이선스
+global.pack_info.licenses.1=* 해당 리소스 팩은 Team Selenyx의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.
+global.pack_info.licenses.2=* 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.
 
 
 ## Setting Screen
-options.category.beta=베타	#
-options.category.custom=커스텀	#
-options.category.support=도움	#
-options.category.visual=시각 표현	#
-options.category.files=파일	#
-options.category.profile=프로필	#
-options.category.setting=설정	#
+options.category.beta=베타
+options.category.custom=커스텀
+options.category.support=도움
+options.category.visual=시각 표현
+options.category.files=파일
+options.category.profile=프로필
+options.category.setting=설정
+options.category.sound_language=오디오 & 언어
+options.category.world=월드
+options.category.debug=디버그
 
-options.particleRenderDistance=파티클 렌더링 거리	#
-options.crossPlatformPlay=크로스 플렛폼 플레이	#
-options.creditsHeader=제작진 & 권한 정보	#
-options.advanced_video_options=고급 비디오	#
-options.myResourcePacks=나의 리소스 팩	#
-options.creator.copyCoordinate=좌표 복사 설정	#
+options.particleRenderDistance=파티클 렌더링 거리
+options.crossPlatformPlay=크로스 플렛폼 플레이
+options.creditsHeader=제작진 & 권한 정보
+options.advanced_video_options=고급 비디오
+options.myResourcePacks=나의 리소스 팩
+options.creator.copyCoordinate=좌표 복사 설정
 
-controls_section.controls=조작	#
-controls_section.controls.classic=조작 - 클래식	#
-controls_section.controls.touch=조작 - 터치	#
-controls_section.controls.crosshair=조작 - 포인터	#
-controls_section.contorl_title=조작	#
-controls_section.controller=컨트롤러	#
-controls_section.sensitivity_title=감도	#
-controls_section.sensitivity_and_control_title=감도 & 조작	#
-controls_section.sensitivity_and_vibration_title=감도 & 진동	#
-controls_section.button_title=버튼	#
-controls_section.drag.title=드래그	#
-controls_section.drag.drag_dwell.info=아이템 분할 후 해당 아이템을 움직일 수 있는 딜레이를 설정할 수 있습니다.	#
-controls_section.drag.stack_splitting.info=아이템 분할 기능이 작동되는 딜레이를 설정할 수 있습니다.	#
+controls_section.controls=조작
+controls_section.controls.classic=조작 - 클래식
+controls_section.controls.touch=조작 - 터치
+controls_section.controls.crosshair=조작 - 포인터
+controls_section.contorl_title=조작
+controls_section.controller=컨트롤러
+controls_section.sensitivity_title=감도
+controls_section.sensitivity_and_control_title=감도 & 조작
+controls_section.sensitivity_and_vibration_title=감도 & 진동
+controls_section.button_title=버튼
+controls_section.drag.title=드래그
+controls_section.drag.drag_dwell.info=아이템 분할 후 해당 아이템을 움직일 수 있는 딜레이를 설정할 수 있습니다.
+controls_section.drag.stack_splitting.info=아이템 분할 기능이 작동되는 딜레이를 설정할 수 있습니다.
 
-general_section.effect_title=효과	#
-general_section.text_title=텍스트	#
-general_section.storage_management_title=저장 공간 관리	#
-general_section.safe_zone_setting_title=안전 영역 설정	#
-general_section.language.info=언어 번역은 100% 정확하지 않을 수 있습니다	#
-general_section.language.highlight=자주 쓰는 언어	#
-general_section.network=네트워크	#
-general_section.networkTitle=네트워크 설정	#
+general_section.effect_title=효과
+general_section.text_title=텍스트
+general_section.storage_management_title=저장 공간 관리
+general_section.safe_zone_setting_title=안전 영역 설정
+general_section.language.highlight=자주 쓰는 언어
+general_section.etc=기타
+general_section.etcTitle=기타 설정
 
-world_section.multiplay_title=멀티 플레이	#
-world_section.general=일반	#
-world_section.advanced=고급	#
-world_section.cheats=치트	#
-world_section.experimental_features=실험 기능	#
+world_section.multiplay_title=멀티 플레이
+world_section.general=일반
+world_section.advanced=고급
+world_section.cheats=치트
+world_section.experimental_features=실험 기능
 
-quick_section.quick_setting=빠른 설정	#
-quick_section.camera=카메라	#
-quick_section.camera.first_person=1인칭	#
-quick_section.camera.first_person.info=본인의 손만 보이는 시점으로, 건축이나 PVP에서 주로 최적화된 시점입니다.	#
-quick_section.camera.third_person_back=3인칭 후방	#
-quick_section.camera.third_person_back.info=더 넓은 시야로 건축물의 사이즈를 가늠할 때 주로 사용합니다.	#
-quick_section.camera.third_person_front=3인칭 전방	#
-quick_section.camera.third_person_front.info=더 넓은 시야를 유지하면서 촬영하거나 방송할 때 최적화된 시점입니다.	#
+quick_section.quick_setting=빠른 설정
+quick_section.camera=카메라
+quick_section.camera.first_person=1인칭
+quick_section.camera.first_person.info=본인의 손만 보이는 시점으로, 건축이나 PVP에서 주로 최적화된 시점입니다.
+quick_section.camera.third_person_back=3인칭 후방
+quick_section.camera.third_person_back.info=더 넓은 시야로 건축물의 사이즈를 가늠할 때 주로 사용합니다.
+quick_section.camera.third_person_front=3인칭 전방
+quick_section.camera.third_person_front.info=더 넓은 시야를 유지하면서 촬영하거나 방송할 때 최적화된 시점입니다.
 
-graphics_section.graphics=그래픽	#
-graphics_section.graphicsTitle=그래픽 설정	#
-graphics_section.view=표현	#
-graphics_section.advanced_graphics_title=고급 그래픽	#
-graphics_section.frame_title=프레임	#
-graphics_section.graphic_and_rendering_title=그래픽 & 렌더링	#
-graphics_section.vr=VR	#
-graphics_section.play=플레이	#
-graphics_section.uiAgui_title=UI & GUI	#
-graphics_section.splitscreen_title=분할 화면	#
+graphics_section.graphics=그래픽
+graphics_section.graphicsTitle=그래픽 설정
+graphics_section.view=표현
+graphics_section.advanced_graphics=고급 그래픽
+graphics_section.frame_title=프레임
+graphics_section.graphic_and_rendering_title=그래픽 & 렌더링
+graphics_section.vr=VR
+graphics_section.play=플레이
+graphics_section.uiAgui_title=UI & GUI
+graphics_section.splitscreen_title=분할 화면
 
-info_section.info=정보	#
-info_section.packInfo=팩 정보	#
-info_section.minecraftInfo=Minecraft 정보	#
-info_section.minecraftInfo.detail=Minecraft 세부 정보	#
-info_section.packNotification=팩 알림	#
+info_section.info=정보
+info_section.packInfo=팩 정보
+info_section.minecraftInfo=Minecraft 정보
+info_section.minecraftInfo.detail=Minecraft 세부 정보
+info_section.packNotification=팩 알림
 
-settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.	#
+settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.
+
+
+## Experimental
+experimental.export_template=템플릿 기능은 실험적이며, 문제가 생길 수 있습니다.
 
 
 ## Notification
-notification.title=알림	#
-notification.title.bug=알려진 버그	#
-notification.pack_is_developer=개발 단계의 팩을 사용하고 있습니다. 심각한 버그나 문제가 생길 수 있습니다. 개발 중인 내용을 외부로 유출하지 마세요!	#
-notification.pack_is_beta=현재 BETA 버전의 팩을 사용하고 있습니다. 다양한 버그나 문제가 생길 수 있습니다.	#
-notification.pack_is_preview=사전 체험 버전을 사용하고 있습니다. 사용해보시고 문제점과 개선할 점을 찾아서 알려주세요!	#
-notification.pack_is_custom=커스텀 버전을 사용하고 있습니다.	#
-notification.minecraft_version.no_problem=팩에서 지원하는 [ Minecraft 버전 ]과 플레이 중인 [ Minecraft 버전 ]이 일치합니다.	#
-notification.minecraft_version.problem=팩에서 지원하는 [ Minecraft 버전 ]과 현재 플레이 중인 [ Minecraft 버전 ]이 일치하지 않습니다. 버그가 발생하거나 오류가 나타날 수 있습니다.	#
+notification.title=알림
+notification.title.bug=알려진 버그
+notification.pack_is_developer=개발 버전 팩 사용 중(외부 유출 금지)
+notification.pack_is_beta=BETA 버전 팩 사용 중
+notification.pack_is_preview=사전 체험 팩 사용 중
+notification.pack_is_custom=커스텀 버전 사용 중
+notification.minecraft_version.no_problem=호환되는 [ Minecraft 버전 ] 사용 중
+notification.minecraft_version.problem=호환되지 않는 [ Minecraft 버전 ] 사용 중
 
 
 ## Play Screen
-playScreen.title=플레이	#
-playScreen.tab.worlds=월드	#
-playScreen.tab.multiplay=멀티 플레이	#
-playScreen.tab.server=서버	#
-playScreen.tab.debug=디버그	#
+playScreen.title=플레이
+playScreen.tab.worlds=월드
+playScreen.tab.multiplay=멀티 플레이
+playScreen.tab.server=서버
+playScreen.tab.debug=디버그
 
-playScreen.server.description=서버 설명	#
-playScreen.server.activities=활동	#
-playScreen.server.news=뉴스	#
-playScreen.server.games=게임	#
-playScreen.server.screenshots=스크린샷	#
-playScreen.server.warning.high_ping.title=높은 지연 시간 경고	#
-playScreen.server.warning.high_ping.text=이 서버는 지연 시간이 높습니다. 플레이에 영향이 있을 수 있습니다.	#
-playScreen.server.warning.very_high_ping.title=매우 높은 지연 시간 경고	#
-playScreen.server.warning.very_high_ping.text=이 서버는 지연 시간이 매우 높습니다. 플레이가 어려울 수 있습니다.	#
+playScreen.server.description=서버 설명
+playScreen.server.activities=활동
+playScreen.server.news=뉴스
+playScreen.server.games=게임
+playScreen.server.screenshots=스크린샷
+playScreen.server.warning.high_ping.title=높은 지연 시간 경고
+playScreen.server.warning.high_ping.text=이 서버는 지연 시간이 높습니다. 플레이에 영향이 있을 수 있습니다.
+playScreen.server.warning.very_high_ping.title=매우 높은 지연 시간 경고
+playScreen.server.warning.very_high_ping.text=이 서버는 지연 시간이 매우 높습니다. 플레이가 어려울 수 있습니다.
 
-playScreen.search_world.place_holder=월드 이름 검색...	#
-playScreen.search_world.warning=현재 월드 검색이 제대로 되지 않는 버그가 있습니다.	#
+playScreen.search_world.place_holder=월드 이름 검색...
+playScreen.search_world.warning=현재 월드 검색이 제대로 되지 않는 버그가 있습니다.
 
-playScreen.not_local_world.title=생성된 월드가 없습니다.	#
-playScreen.not_local_world.lore='새로운 월드 만들기' 또는 '빠른 플레이' 버튼을 눌러서 새로운 월드를 생성해보세요.	#
+playScreen.not_local_world.title=생성된 월드가 없습니다.
+playScreen.not_local_world.lore='새로운 월드 만들기' 또는 '빠른 플레이' 버튼을 눌러서 새로운 월드를 생성해보세요.
 
-playScreen.friends.title=친구	#
-playScreen.friends.player_search=플레이어 검색	#
-playScreen.friends.not_friends.title=앗! 현재 플레이 중인 친구가 없습니다...	#
-playScreen.friends.not_friends.lore=친구에게 같이 플레이 하자고 하거나, '플레이어 검색' 기능을 이용해서 새로운 친구를 찾아보세요!	#
+playScreen.friends.title=친구
+playScreen.friends.player_search=플레이어 검색
+playScreen.friends.not_friends.title=앗! 현재 플레이 중인 친구가 없습니다...
+playScreen.friends.not_friends.lore=친구에게 같이 플레이 하자고 하거나, '플레이어 검색' 기능을 이용해서 새로운 친구를 찾아보세요!
 
-playScreen.category.realms_plus.title=Realms Plus	#
-playScreen.category.lan.title=LAN 서버	#
-playScreen.category.lan.not_lan_list=열려있는 LAN 서버를 찾을 수 없습니다.	#
+playScreen.category.realms_plus.title=Realms Plus
+playScreen.category.lan.title=LAN 서버
+playScreen.category.lan.not_lan_list=열려있는 LAN 서버를 찾을 수 없습니다.
 
-playScreen.switch_to_new_ui=새 UI로 전환	#
+playScreen.switch_to_new_ui=새 UI로 전환
 
-playScreen.additional_server.lore=외부 서버는 Mojang이 제공하는 공식 서버와는 다른 사람들이 운영하는 서버입니다. 외부 서버에서는 여러 사람들과 같이 다양한 장르를 즐기실 수 있습니다.	#
+playScreen.additional_server.lore=외부 서버는 Mojang이 제공하는 공식 서버와는 다른 사람들이 운영하는 서버입니다. 외부 서버에서는 여러 사람들과 같이 다양한 장르를 즐기실 수 있습니다.
 
 
 ## Other
-chat.text_edit_box.description=보낼 내용을 입력해주세요.	#
+chat.text_edit_box.description=보낼 내용을 입력해주세요.
 
-addExternalServerScreen.add_warning_text=외부 서버는 안정적인 플레이 환경을 보장할 수 없습니다. 항상 이 점을 유의하면서 플레이하세요.	#
+addExternalServerScreen.add_warning_text=외부 서버는 안정적인 플레이 환경을 보장할 수 없습니다. 항상 이 점을 유의하면서 플레이하세요.
 
-createWorldScreen.beta.settings=베타 설정	#
-createWorldScreen.classroom.settings=클래스 설정	#
+createWorldScreen.beta.settings=베타 설정
+createWorldScreen.classroom.settings=클래스 설정
 
-networkWorld.join_network_server=외부 서버 접속	#
-networkWorld.join_third_party_server=추천 서버 접속	#
-networkWorld.no_lan_game=현재 같은 네트워크에서 Minecraft를 플레이 중인 플레이어가 없습니다.	#
+networkWorld.join_network_server=외부 서버 접속
+networkWorld.join_third_party_server=추천 서버 접속
+networkWorld.no_lan_game=현재 같은 네트워크에서 Minecraft를 플레이 중인 플레이어가 없습니다.
 
-selectWorld.import=월드 불러오기	#
-selectWorld.quick_play=빠른 플레이	#
+selectWorld.import=월드 불러오기
+selectWorld.quick_play=빠른 플레이
 
-button.modify_control_layouts=컨트롤 레이아웃 수정	#
-button.accept.text=§l수락	#
+button.modify_control_layouts=컨트롤 레이아웃 수정
+button.accept.text=§l수락
 
-gui.upload=업로드	#
+gui.upload=업로드
 
-chat.setting_text=채팅 설정	#
+chat.setting_text=채팅 설정

@@ -1,106 +1,6 @@
 {
   "namespace": "gamma_calibration",
 
-
-  "stack_panel_centering_panel": {
-    "type": "panel",
-    "$control_name|default": "common.empty_panel",
-    "controls": [
-      {
-        "child@$control_name": {
-          "anchor_from": "center",
-          "anchor_to": "center"
-        }
-      }
-    ]
-  },
-
-  "image_panel": {
-    "type": "stack_panel",
-    "orientation": "vertical",
-    "size": [ "33.3333% - 10.66667px", "100%c" ],
-    "$image_label|default": "",
-    "controls": [
-      {
-        "centering_panel": {
-          "type": "panel",
-          "size": [ "100%", 30 ],
-          "controls": [
-            {
-              "image_label": {
-                "type": "label",
-                "size": [ "default", "default" ],
-                "max_size": [ "100%", "100%" ],
-                "text": "$image_label",
-                "color": "$body_text_color"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "image": {
-          "type": "image",
-          "texture": "$texture_name",
-          "size": [ "100%", "100%x" ],
-          "color_corrected": true
-        }
-      }
-    ]
-  },
-
-  "horizontal_padding": {
-    "type": "panel",
-    "size": [ 16, 0 ]
-  },
-
-  "image_stack": {
-    "type": "stack_panel",
-    "size": "$image_panel_size",
-    "orientation": "horizontal",
-    "controls": [
-      {
-        "not_visible_image@gamma_calibration.image_panel": {
-          "$image_label": "options.brightness.notVisible",
-          "$texture_name": "textures/ui/not_visible_creeper"
-        }
-      },
-      {
-        "padding_0@gamma_calibration.horizontal_padding": {}
-      },
-      {
-        "barely_visible_image@gamma_calibration.image_panel": {
-          "$image_label": "options.brightness.barelyVisible",
-          "$texture_name": "textures/ui/barely_visible_creeper"
-        }
-      },
-      {
-        "padding_1@gamma_calibration.horizontal_padding": {}
-      },
-      {
-        "easily_visible_image@gamma_calibration.image_panel": {
-          "$image_label": "options.brightness.easilyVisible",
-          "$texture_name": "textures/ui/easily_visible_creeper"
-        }
-      }
-    ]
-  },
-
-  "message_panel": {
-    "type": "panel",
-    "controls": [
-      {
-        "message_label": {
-          "size": [ "default", "default" ],
-          "max_size": [ "100%", "100%" ],
-          "type": "label",
-          "color": "$body_text_color",
-          "text": "options.adjustBrightness"
-        }
-      }
-    ]
-  },
-
   "calibration_slider": {
     "type": "stack_panel",
     "size": [ "50%", "100%c" ],
@@ -140,7 +40,37 @@
                 "$slider_select_on_hover": true,
                 "$slider_tts_header": "$slider_header",
                 "$slider_tts_name": "",
-                "$slider_tts_text_value": "#gamma_calibration_text_value"
+                "$slider_tts_text_value": "#gamma_calibration_text_value",
+
+                // Ore UI Design
+                "$slider_box_layout|default": "common_ore.ore_slider_button_layout",
+                "$slider_box_hover_layout|default": "common_ore.ore_slider_button_hover_layout",
+                "$slider_box_locked_layout|default": "common_ore.ore_slider_button_locked_layout",
+                "$slider_box_indent_layout|default": "common_ore.ore_slider_button_indent_layout",
+
+                "$slider_step_factory_control_ids": {
+                  "slider_step": "@common_ore.ore_slider_step_progress",
+                  "slider_step_hover": "@common_ore.ore_slider_step_progress_hover",
+                  "slider_step_progress": "@common_ore.ore_slider_step",
+                  "slider_step_progress_hover": "@common_ore.ore_slider_step_hover"
+                },
+                "controls": [
+                  {
+                    "slider_box@common_ore.ore_slider_box": {
+                      "$slider_box_layout": "$slider_box_layout",
+                      "$slider_box_size": "$slider_box_size",
+                      "$slider_track_button": "$slider_name"
+                    }
+                  },
+                  {
+                    "slider_bar_default@common_ore.ore_slider_bar_default": {}
+                  },
+                  {
+                    "slider_bar_hover@common_ore.ore_slider_bar_hover": {
+                      "visible": false
+                    }
+                  }
+                ]
               }
             }
           ]
@@ -149,97 +79,34 @@
     ]
   },
 
-
-
   "continue_button@common_buttons.light_text_button": {
     "size": [ "20%", 30 ],
     "$pressed_button_name": "button.continue",
-    "$button_text": "gui.continue"
-  },
+    "$button_text": "gui.continue",
 
-  "main_panel": {
-    "type": "stack_panel",
-    "orientation": "vertical",
-    "size": [ "100%", "100%c" ],
-    "layer": 1,
-    "variables": [
-      {
-        "requires": "($pocket_screen or $is_holographic)",
-        "$padding_between_button_size": [ "100%", 2 ]
-      },
-      {
-        "requires": "$desktop_screen",
-        "$padding_between_button_size": [ "100%", 16 ]
-      }
-    ],
-    "controls": [
-      {
-        "hdr_message_panel@gamma_calibration.stack_panel_centering_panel": {
-          "$control_name": "gamma_calibration.message_panel",
-          "size": [ "100%", 30 ]
-        }
-      },
-      {
-        "image_stack_panel@gamma_calibration.stack_panel_centering_panel": {
-          "$control_name": "gamma_calibration.image_stack",
-          "size": [ "100%", "100%c" ],
-          "variables": [
-            {
-              "requires": "($pocket_screen or $is_holographic)",
-              "$image_panel_size": [ 192, "33.3333%c" ]
-            },
-            {
-              "requires": "$desktop_screen",
-              "$image_panel_size": [ 248, "33.3333%c" ]
-            }
-          ]
-        }
-      },
-      {
-        "padding_0": {
-          "type": "panel",
-          "size": [ "100%", 16 ]
-        }
-      },
-      {
-        "slider_panel@gamma_calibration.stack_panel_centering_panel": {
-          "$control_name": "gamma_calibration.calibration_slider",
-          "size": [ "100%", "100%c" ],
-          "variables": [
-            {
-              "requires": "($pocket_screen or $is_holographic)",
-              "$slider_size": [ 162, 10 ]
-            },
-            {
-              "requires": "$desktop_screen",
-              "$slider_size": [ 218, 10 ]
-            }
-          ]
-        }
-      },
-      {
-        "padding_1": {
-          "type": "panel",
-          "size": "$padding_between_button_size"
-        }
-      },
-      {
-        "continue_button_panel@gamma_calibration.stack_panel_centering_panel": {
-          "$control_name": "gamma_calibration.continue_button",
-          "size": [ "100%", 30 ]
-        }
-      }
-    ]
+    "$button_pressed_offset|default": [ 0, 2 ],
+
+    "$border_visible": false,
+
+    "$default_button_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
+
+    "$default_text_color": "$light_button_default_text_color",
+    "$hover_text_color": "$light_button_default_text_color",
+    "$pressed_text_color": "$light_button_default_text_color",
+    "$locked_text_color": "$light_button_default_text_color"
   },
 
   "black_background": {
     "type": "image",
-    "texture": "textures/ui/realms_text_background"
+    "texture": "textures/ui/realms_text_background",
+    "alpha": 0.5
   },
 
   "gamma_calibration_screen@common.base_screen": {
     "$screen_content": "gamma_calibration.main_panel",
     "$screen_bg_content": "gamma_calibration.black_background"
   }
-
 }

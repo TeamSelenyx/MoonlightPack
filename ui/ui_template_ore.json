@@ -3,9 +3,9 @@
 
   // Highlight Icon
   "icon_highlight": {
-    "type": "image",
-    "texture": "textures/ui/ore/icon-highlight-spritesheet",
     "layer": 3,
+    "type": "image",
+    "texture": "textures/ui/ore/icon_highlight_spritesheet",
     "size": [ 12, 12 ],
     "uv_size": [ 24, 24 ],
     "uv": "@common_ore.icon_highlight_uv_animation",
@@ -49,6 +49,258 @@
 
 
   // Dropdown
+  "dropdown_background": {
+    "layer": 1,
+    "type": "image",
+    "texture": "textures/ui/dropdown_background"
+  },
+
+  "dropdown": {
+    "type": "panel",
+
+    "$dropdown_content|default": "common.empty_panel",
+    "$dropdown_toggle|default": "common.checkbox",
+    "$dropdown_name|default": "dropdown_control",
+    "$dropdown_scroll_content_size|default": [ "100%", "500%" ],
+    "$dropdown_toggle_name|default": "($dropdown_name + '_toggle')",
+    "$dropdown_background|default": "common_ore.dropdown_background",
+
+    "controls": [
+      {
+        "$dropdown_name@$dropdown_toggle": {
+          "type": "dropdown",
+          "$toggle_view_binding_name": "$dropdown_name",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "dropdown_name": "$dropdown_name",
+          "dropdown_content_control": "dropdown_content",
+          "dropdown_area": "$dropdown_area",
+          "$toggle_name": "$dropdown_name",
+          "$toggle_state_binding_name": "('#' + $dropdown_name)",
+          "$toggle_tts_name": "accessibility.dropdown.tts.title",
+          "$toggle_tts_toggle_on_text": "",
+          "$toggle_tts_toggle_off_text": "",
+          "tts_control_type_order_priority": -1 // This should happen before labels whose default starts at 0
+        }
+      },
+      {
+        "dropdown_content": {
+          "type": "input_panel",
+          // we really want this on top of everything
+          "layer": 42,
+          "size": "$dropdown_scroll_content_size",
+          "offset": [ -2, 0 ],
+          "$anchor_dropdown_content_from|default": "top_left",
+          "$anchor_dropdown_content_to|default": "top_left",
+          "anchor_from": "$anchor_dropdown_content_from",
+          "anchor_to": "$anchor_dropdown_content_to",
+          "modal": true,
+          "property_bag": {
+            "#is_dropdown": true
+          },
+          "ttsSectionContainer": true,
+          "$dropdown_content_controls|default": [
+            {
+              "scroll@common.scrolling_panel": {
+                "layer": 2,
+                "size": [ "100%", "100%" ],
+                "offset": [ 0, -3 ],
+                "$scrolling_pane_size": [ "100%", "100%" ],
+                "$scrolling_content": "$dropdown_content",
+                "$scroll_view_port_size": [ "100% - 4px", "100% - 4px" ],
+                "$scroll_view_port_size_touch": [ "100% - 4px", "100% - 4px" ],
+                "$scroll_view_port_offset": [ 2, 2 ],
+                "$scroll_view_port_offset_touch": [ 2, 2 ],
+                "$scroll_size": [ 5, "100% - 2px" ],
+                "$scroll_size_touch": [ 5, "100% - 2px" ],
+                "$scroll_background_image_control": "$dropdown_background",
+                "$background_size": [ "100%", "100%" ],
+                "$background_size_touch": [ "100%", "100%" ],
+                "$show_background": true,
+                "$scroll_bar_contained": true,
+                "$scroll_bar_contained_touch": true
+              }
+            }
+          ],
+          "controls": "$dropdown_content_controls",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "($dropdown_name)",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible",
+              "resolve_sibling_scope": true
+            }
+          ],
+          "button_mappings": [
+            {
+              "from_button_id": "button.menu_cancel",
+              "to_button_id": "button.dropdown_exit",
+              "mapping_type": "global"
+            },
+            {
+              "from_button_id": "button.menu_ok",
+              "to_button_id": "button.dropdown_exit",
+              "mapping_type": "global"
+            },
+            {
+              "from_button_id": "button.menu_select",
+              "to_button_id": "button.dropdown_exit",
+              "mapping_type": "global"
+            },
+            {
+              "from_button_id": "button.menu_up",
+              "to_button_id": "button.menu_up",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            {
+              "from_button_id": "button.menu_down",
+              "to_button_id": "button.menu_down",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            {
+              "from_button_id": "button.menu_left",
+              "to_button_id": "button.menu_left",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            {
+              "from_button_id": "button.menu_right",
+              "to_button_id": "button.menu_right",
+              "mapping_type": "global",
+              "scope": "view"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "ore_radio_visuals_unchecked@common_ore.ore_radio_visuals": {
+    "$radio_texture": "textures/ui/radio_off"
+  },
+
+  "ore_radio_visuals_checked@common_ore.ore_radio_visuals": {
+    "$radio_texture": "textures/ui/radio_on",
+    "$selected": true
+  },
+
+  "ore_radio_visuals_unchecked_locked@common_ore.ore_radio_visuals": {
+    "$radio_texture": "textures/ui/radio_off",
+    "$alpha": 0.5
+  },
+
+  "ore_radio_visuals_checked_locked@common_ore.ore_radio_visuals": {
+    "$radio_texture": "textures/ui/radio_on",
+    "$alpha": 0.5,
+    "$selected": true
+  },
+
+  "ore_radio_visuals_unchecked_hover@common_ore.ore_radio_visuals": {
+    "$radio_texture": "textures/ui/radio_off_hover",
+    "$hovered": true
+  },
+
+  "ore_radio_visuals_checked_hover@common_ore.ore_radio_visuals": {
+    "$radio_texture": "textures/ui/radio_on_hover",
+    "$hovered": true
+  },
+
+  "ore_radio_visuals": {
+    "type": "panel",
+    "size": [ "100%", 26 ],
+    "$alpha|default": 1.0,
+    "$radio_label_bindings|default": [],
+    "$radio_label_color|default": "$main_header_text_color",
+    "$radio_label_font_type|default": "default",
+    "$no_label|default": false,
+    "$selected|default": false,
+    "$hovered|default": false,
+    "variables": [
+      {
+        "requires": "$selected",
+        "$highlight_image": "textures/ui/dropDownSelectBG"
+      },
+      {
+        "requires": "$hovered",
+        "$highlight_image": "textures/ui/dropDownHoverBG"
+      }
+    ],
+    "controls": [
+      {
+        "radio_image": {
+          "type": "image",
+          "texture": "$radio_texture",
+          "alpha": "$alpha",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 10, 10 ],
+          "layer": 2
+        }
+      },
+      {
+        "radio_label": {
+          "ignored": "($no_label)",
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "text": "$radio_label_text",
+          "text_alignment": "left",
+          "font_type": "$radio_label_font_type",
+          "color": "$radio_label_color",
+          "offset": [ 16, 0.5 ],
+          "size": [ "100% - 16px", "default" ],
+          "alpha": "$alpha",
+          "bindings": "$radio_label_bindings",
+          "layer": 2
+        }
+      },
+      {
+        "accessibility_selection_highlight": {
+          "type": "image",
+          "$selection_highlight_size|default": [ "100% + 4px", "100% + 2px" ],
+          "size": "$selection_highlight_size",
+          "$selection_highlight_offset|default": [ 0, 0 ],
+          "offset": "$selection_highlight_offset",
+          "ignored": "(not $selected and not $hovered)",
+          "$highlight_image|default": "",
+          "texture": "$highlight_image",
+          "tiled": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "ore_radio_with_label_core@common.radio_toggle": {
+    "$unchecked_control|default": "common_ore.ore_radio_visuals_unchecked",
+    "$checked_control|default": "common_ore.ore_radio_visuals_checked",
+    "$unchecked_hover_control|default": "common_ore.ore_radio_visuals_unchecked_hover",
+    "$checked_hover_control|default": "common_ore.ore_radio_visuals_checked_hover",
+    "$unchecked_locked_control|default": "common_ore.ore_radio_visuals_unchecked_locked",
+    "$unchecked_locked_hover_control|default": "common_ore.ore_radio_visuals_unchecked_locked",
+    "$checked_locked_control|default": "common_ore.ore_radio_visuals_checked_locked",
+    "$checked_locked_hover_control|default": "common_ore.ore_radio_visuals_checked_locked",
+    "$radio_toggle_group": true,
+    "size": [ "100%", "100%c" ],
+    "$toggle_name|default": "$toggle_state_binding_name",
+    "$toggle_enabled_binding_name": "$option_enabled_binding_name",
+
+    "enabled": "$enabled",
+    "$toggle_enabled_binding_type": "global",
+    "variables": [
+      {
+        "requires": "(not $option_enabled_binding_name or not $enabled)",
+        "$toggle_enabled_binding_name": "#not_data_bound",
+        "$toggle_enabled_binding_type": "none"
+      }
+    ]
+  },
+
+
+  // Dropdown - Upgrade
   "radio_visuals_unchecked@common_ore.radio_visuals": {
     "$radio_texture": "textures/ui/radio_off"
   },

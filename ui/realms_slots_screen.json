@@ -1,0 +1,83 @@
+{
+  "namespace": "realms_slots",
+
+  //---------------------------------------------------------------------------
+  // Buttons
+  //---------------------------------------------------------------------------
+  "play_button@common_buttons.dark_text_button": {
+    "size": [ "fill", "100%" ],
+    "$pressed_button_name": "button.play_realm",
+    "$button_text": "menu.play",
+    "$button_text_binding_type": "none",
+
+    "$border_visible": false,
+    "$button_pressed_offset": [ 0, 2 ],
+
+    "$default_button_texture": "textures/ui/ore/button_borderless_purple",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_purplehover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_purplepressed",
+    "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder"
+  },
+
+  "edit_realm_button@common_buttons.light_text_button": {
+    "size": [ "fill", "100%" ],
+    "$pressed_button_name": "button.edit_realm",
+    "$button_text": "realmsSlotsScreen.editRealm",
+    "$button_text_binding_type": "none",
+
+    "$border_visible": false,
+    "$button_pressed_offset": [ 0, 2 ],
+
+    "$default_button_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
+
+    "$default_text_color": "$light_button_default_text_color",
+    "$hover_text_color": "$light_button_default_text_color",
+    "$pressed_text_color": "$light_button_default_text_color",
+    "$locked_text_color": "$light_button_default_text_color"
+  },
+
+  "realms_feed_button@common_buttons.light_glyph_button": {
+    "$pressed_button_name": "button.view_feed",
+    "$button_content": "realms_slots.realms_stories_icon_glyph",
+    "$button_tts_header": "#realms_feed_button_tts_header",
+    "bindings": [
+      {
+        "binding_name": "#realms_feed_button_tts_header",
+        "binding_collection_name": "world_slots",
+        "binding_type": "collection"
+      }
+    ],
+    "size": [ "100%y", "100%" ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+
+    "$border_visible": false,
+    "$button_pressed_offset": [ 0, 2 ],
+
+    "$default_button_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
+
+    "$default_text_color": "$light_button_default_text_color",
+    "$hover_text_color": "$light_button_default_text_color",
+    "$pressed_text_color": "$light_button_default_text_color",
+    "$locked_text_color": "$light_button_default_text_color"
+  },
+
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+  "realms_slots_screen": {
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ]
+  }
+}

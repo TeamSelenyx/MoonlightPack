@@ -2,6 +2,12 @@
   "namespace": "hud",
 
   "hud_content": {
+    "$hud_bindings|default": [
+      {
+        "binding_name": "#hud_visible",
+        "binding_name_override": "#visible"
+      }
+    ],
     "modifications": [
       {
         "array_name": "controls",
@@ -17,7 +23,8 @@
               "layer": 30,
               "controls": [
                 { "chat_panel@hud.bottom_chat_panel": { "$max_size": [ "40%", "100%c" ] } }
-              ]
+              ],
+              "bindings": "$hud_bindings"
             }
           },
           {
@@ -36,12 +43,7 @@
                 { "clock_item": { "type": "custom", "size": "$icon_size", "renderer": "inventory_item_renderer", "property_bag": { "#item_id_aux": 22740992 } } },
                 { "recovery_compass_item": { "visible": false, "type": "custom", "size": "$icon_size", "renderer": "inventory_item_renderer", "property_bag": { "#item_id_aux": 42795008 } } }
               ],
-              "bindings": [
-                {
-                  "binding_name": "#hud_visible",
-                  "binding_name_override": "#visible"
-                }
-              ]
+              "bindings": "$hud_bindings"
             }
           }
         ]

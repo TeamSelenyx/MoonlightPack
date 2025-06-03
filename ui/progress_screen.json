@@ -65,21 +65,81 @@
     "controls": [
       { "mobile_data_icon@progress.mobile_data_icon": {} },
       {
-        "realms_title_image": {
-          "type": "image",
-          "size": [ 220, "30%x" ],
-          "offset": [ 0, -7 ],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "texture": "textures/ui/realms_title"
+        "progress_content_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "world_modal_progress_panel@progress.progress_design_base": {
+                "$logo_title_size": [ 330, "20%x" ],
+                "$logo_title_texutre": "textures/ui/realms_title",
+                "$panel_type": "progress.modal_button_panel"
+              }
+            }
+          ]
         }
       },
+      { "popup_dialog_factory@progress.popup_dialog_factory": {} },
       {
-        "world_modal_progress_panel@progress.world_modal_progress_panel": {
-          "$modal_button_panel_type": "progress.modal_button_panel"
+        "server_region_connected": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "offset": [ 0, 30 ],
+          "size": [ "100%c", "100%c" ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "controls": [
+            {
+              "server_region_label": {
+                "type": "label",
+                "text": "progressScreen.label.serverRegion",
+                "color": "$loading_text_color",
+                "size": [ "default", 35 ]
+              }
+            },
+            {
+              "server_region_connected_text": {
+                "type": "label",
+                "text": "#server_region_text",
+                "color": "$loading_text_color",
+                "size": [ "default", 35 ],
+                "bindings": [
+                  {
+                    "binding_name": "#server_region_text"
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 8, 0 ]
+              }
+            },
+            {
+              "server_region_ping_icon": {
+                "type": "image",
+                "texture": "#server_region_ping_icon",
+                "size": [ 8, 8 ],
+                "bindings": [
+                  {
+                    "binding_name": "#server_region_ping_icon",
+                    "binding_name_override": "#texture"
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#server_region_connected_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
-      },
-      { "popup_dialog_factory@progress.popup_dialog_factory": {} }
+      }
     ]
   },
 
@@ -111,6 +171,7 @@
     "size": [ "100%", "100%c" ],
     "anchor_from": "center",
     "anchor_to": "center",
+    "$logo_title_size|default": [ "85%", "10%x" ],
     "$logo_title_texutre|default": "textures/ui/title",
     "$panel_type|default": "common.empty_panel",
     "$unused_auto_save_animation|default": true,
@@ -162,7 +223,7 @@
                                 "logo_title": {
                                   "layer": 5,
                                   "type": "image",
-                                  "size": [ "85%", "10%x" ],
+                                  "size": "$logo_title_size",
                                   "anchor_from": "center",
                                   "anchor_to": "center",
                                   "texture": "$logo_title_texutre"
@@ -387,6 +448,7 @@
           "text_alignment": "center",
           "font_scale_factor": 1.4,
           "shadow": true,
+          "color": [ 1.0, 1.0, 1.0 ],
           "bindings": [
             { "binding_name": "#title_text" }
           ]
@@ -400,6 +462,7 @@
           "text": "#progress_text",
           "text_alignment": "center",
           "shadow": true,
+          "color": [ 1.0, 1.0, 1.0 ],
           "bindings": [
             { "binding_name": "#progress_text" }
           ]

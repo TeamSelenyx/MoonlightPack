@@ -78,7 +78,7 @@
     ]
   },
 
-  "typeface_dropdown@settings_common.ore_option_dropdown": {
+  "typeface_dropdown@settings_common.upgrade_option_dropdown": {
     "$option_label": "chat.settings.font",
     "$dropdown_area": "chat_settings_content_area",
     "$dropdown_name": "chat_typeface_dropdown",

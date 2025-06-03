@@ -1,51 +1,123 @@
 {
   "namespace": "button_content_preset",
 
+  // Button Content Base
+  "pressed_button_content_base": {
+    "$content_controls|default": [],
+    "$content_pressed|default": true,
+    "$content_panel_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "($content_pressed and $pressed_state)",
+        "$content_panel_offset": [ 0, 2 ]
+      }
+    ],
+
+    "type": "panel",
+    "offset": "$content_panel_offset",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": "$content_controls"
+  },
+
+  "button_content_label_base@button_content_preset.pressed_button_content_base": {
+    "$label_content_panel_size|default": [ "100%", "100%" ],
+    "size": "$label_content_panel_size",
+    "$content_controls": [
+      {
+        "text": {
+          "$text_size|default": [ "100%", "default" ],
+          "$text_max_size|default": [ "100%", "100%" ],
+          "$text_offset|default": [ 0, 0 ],
+          "$text_anchor|default": "center",
+          "$text|default": "",
+          "$text_alignment|default": "center",
+          "$text_color|default": [ 1.0, 1.0, 1.0 ],
+
+          "$button_text_collection_details|default": "none",
+          "$button_text_collection_prefix|default": "",
+          "$button_text_binding_type|default": "none",
+          "$button_binding_condition|default": "none",
+          "$button_text_grid_collection_name|default": "",
+          "$text_bindings|default": [],
+
+          "$use_text_bindings": true,
+          "variables": [
+            {
+              "requires": "($use_text_bindings)",
+              "$text_bindings": [
+                {
+                  "binding_type": "$button_text_collection_details",
+                  "binding_collection_name": "$button_text_grid_collection_name",
+                  "binding_collection_prefix": "$button_text_collection_prefix"
+                },
+                {
+                  "binding_type": "$button_text_binding_type",
+                  "binding_condition": "$button_binding_condition",
+                  "binding_collection_name": "$button_text_grid_collection_name",
+                  "binding_name": "$text",
+                  "binding_name_override": "$text"
+                }
+              ]
+            }
+          ],
+
+          "type": "label",
+          "size": "$text_size",
+          "max_size": "$text_max_size",
+          "offset": "$text_offset",
+          "anchor_from": "$text_anchor",
+          "anchor_to": "$text_anchor",
+          "text": "$text",
+          "text_alignment": "$text_alignment",
+          "color": "$text_color",
+          "bindings": "$text_bindings"
+        }
+      }
+    ]
+  },
+
+  "button_content_image_base@button_content_preset.pressed_button_content_base": {
+    "$image_content_panel_size|default": [ "100%y", "100%" ],
+    "size": "$image_content_panel_size",
+    "$content_controls": [
+      {
+        "icon": {
+          "$icon_size|default": [ "100%", "100%" ],
+          "$icon_offset|default": [ 0, -0.5 ],
+          "$icon_anchor|default": "center",
+          "$icon_path|default": "textures/ui/empty",
+          "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+
+          "$use_icon_hover_color|default": false,
+          "variables": [
+            {
+              "requires": "($use_icon_hover_color and ($hover_state or $pressed_state))",
+              "$icon_color": [ 1.0, 1.0, 1.0 ]
+            }
+          ],
+
+          "type": "image",
+          "size": "$icon_size",
+          "offset": "$icon_offset",
+          "anchor_from": "$icon_anchor",
+          "anchor_to": "$icon_anchor",
+          "texture": "$icon_path",
+          "color": "$icon_color"
+        }
+      }
+    ]
+  },
+
+
   // Other Content
   "text_content_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
-
-    "$text_size|default": [ "100%", "100%" ],
-    "$text_max_size|default": [ "100%", "100%" ],
-    "$text_offset|default": [ 0, 0 ],
-    "$text|default": "",
-    "$text_color|default": [ 1.0, 1.0, 1.0 ],
-
-    "$content_pressed|default": true,
-    "$content_offset|default": [ 0, 0 ],
-    "variables": [
-      {
-        "requires": "($content_pressed and $pressed_state)",
-        "$content_offset": [ 0, 2 ]
-      }
-    ],
     "controls": [
-      {
-        "content_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%" ],
-          "offset": "$content_offset",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "controls": [
-            {
-              "text": {
-                "type": "label",
-                "size": "$text_size",
-                "max_size": "$text_max_size",
-                "offset": "$text_offset",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "text": "$text",
-                "color": "$text_color"
-              }
-            }
-          ]
-        }
-      }
+      { "text_content@button_content_preset.button_content_label_base": {} }
     ]
   },
 
@@ -54,61 +126,99 @@
     "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
+    "controls": [
+      { "image_content@button_content_preset.button_content_image_base": {} }
+    ]
+  },
 
-    "$icon_size|default": [ "100%", "100%" ],
-    "$icon_offset|default": [ 0, 0 ],
-    "$icon_path|default": "",
-    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+  "image_with_text_content_panel": {
+    "$panel_size|default": [ "100%", "100%" ],
+    "$panel_max_size|default": [ "100%", "100%" ],
 
-    "$content_pressed|default": true,
-    "$content_offset|default": [ 0, 0 ],
+    "$image_content_panel_size": [ "100%y", "100%" ],
+    "$icon_size": [ "85%", "85%" ],
+
+    "$label_content_panel_size": [ "fill", "100%" ],
+    "$text_size": [ "default", "default" ],
+    "$text_max_size": [ "100%", "100%" ],
+
+    "$content_padding_size|default": [ 4, 0 ],
+
+    "$use_fit_button_content|default": false,
+    "$use_all_fit_button_content|default": false,
     "variables": [
       {
-        "requires": "($content_pressed and $pressed_state)",
-        "$content_offset": [ 0, 2 ]
+        "requires": "$use_fit_button_content",
+        "$panel_size": [ "100%c", "100%" ],
+        "$panel_max_size": [ "100%c", "100%" ],
+        "$label_content_panel_size": [ "100%c", "100%" ],
+        "$text_size": [ "default", "default" ],
+        "$text_max_size": [ "default", "100%" ]
+      },
+      {
+        "requires": "$use_all_fit_button_content",
+        "$panel_size": [ "100%c", "100%cm" ],
+        "$panel_max_size": [ "100%c", "100%cm" ],
+        "$image_content_panel_size": [ "100%y", "100%sm" ],
+        "$label_content_panel_size": [ "100%c", "100%c" ],
+        "$text_size": [ "default", "default" ],
+        "$text_max_size": [ "default", "default" ]
       }
     ],
+
+    "type": "stack_panel",
+    "size": "$panel_size",
+    "max_size": "$panel_max_size",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "orientation": "horizontal",
     "controls": [
+      { "image_content@button_content_preset.button_content_image_base": { "size": "$image_content_panel_size" } },
+      { "void_panel@common.empty_panel": { "size": "$content_padding_size" } },
+      { "text_panel@button_content_preset.button_content_label_base": { "size": "$label_content_panel_size" } }
+    ]
+  },
+
+  "image_with_hover_text_content_panel": {
+    "$hover_text|default": "",
+
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      { "image_content@button_content_preset.button_content_image_base": {} },
       {
-        "content_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%" ],
-          "offset": "$content_offset",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "controls": [
-            {
-              "image": {
-                "type": "image",
-                "size": "$icon_size",
-                "offset": "$icon_offset",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "texture": "$icon_path",
-                "color": "$icon_color"
-              }
-            }
-          ]
+        "hover_text@common.hover_text": {
+          "visible": "($hover_state or $pressed_state)",
+          "property_bag": {
+            "#hover_text": "$hover_text"
+          }
         }
       }
     ]
   },
 
-  "image_text_content_panel": {
+
+  // Facelift Toggle
+  "facelift_toggle_content_panel": {
     "type": "panel",
-    "size": [ "100%c", "100%" ],
+    "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
 
-    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_size|default": [ "80%", "80%" ],
     "$icon_offset|default": [ 0, 0 ],
-    "$icon_path|default": "",
-    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
-    "$text|default": "",
-    "$text_color|default": [ 1.0, 1.0, 1.0 ],
-    "$void_panel_size|default": [ 4, "100%" ],
+    "$icon_path|default": "textures/ui/empty",
+    "$icon_color|default": [ 0.85, 0.85, 0.85 ],
 
-    "$content_pressed|default": true,
+    "$text_size|default": [ "100%", "default" ],
+    "$text_max_size|default": [ "100%", "100%" ],
+    "$text|default": "",
+    "$text_alignment|default": "left",
+    "$text_color|default": [ 1.0, 1.0, 1.0 ],
+
+    "$content_pressed|default": false,
     "$content_offset|default": [ 0, 0 ],
     "variables": [
       {
@@ -121,7 +231,7 @@
       {
         "content_panel": {
           "type": "stack_panel",
-          "size": [ "100%c", "100%" ],
+          "size": [ "100%", "100%" ],
           "offset": "$content_offset",
           "anchor_from": "center",
           "anchor_to": "center",
@@ -132,65 +242,53 @@
                 "type": "panel",
                 "size": [ "100%y", "100%" ],
                 "controls": [
-                  { "image": { "type": "image", "size": "$icon_size", "offset": "$icon_offset", "texture": "$icon_path", "color": "$icon_color", "anchor_from": "center", "anchor_to": "center" } }
+                  {
+                    "image_border": {
+                      "$icon_border_color|default": [ 0.5, 0.5, 0.5 ],
+                      "variables": [
+                        {
+                          "requires": "($toggle_checked or $toggle_checked_hover)",
+                          "$icon_border_color": [ 1.0, 1.0, 1.0 ],
+                          "$icon_color": [ 0.2, 0.2, 0.2 ]
+                        }
+                      ],
+                      "type": "image",
+                      "size": [ "95%", "95%" ],
+                      "offset": "$icon_offset",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "texture": "textures/ui/facelift_button",
+                      "color": "$icon_border_color",
+                      "alpha": 0.75,
+                      "controls": [
+                        {
+                          "image": {
+                            "type": "image",
+                            "size": "$icon_size",
+                            "offset": [ 0.25, 0 ],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "texture": "$icon_path",
+                            "color": "$icon_color"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 ]
               }
             },
-            { "void_panel@common.empty_panel": { "size": "$void_panel_size" } },
+            { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
             {
               "text_panel": {
                 "type": "panel",
-                "size": [ "100%c", "100%" ],
+                "size": [ "fill", "100%" ],
                 "controls": [
-                  { "text": { "type": "label", "size": [ "default", "default" ], "max_size": [ "default", "100%" ], "text": "$text", "text_alignment": "center", "color": "$text_color", "anchor_from": "center", "anchor_to": "center" } }
+                  { "text": { "type": "label", "size": "$text_size", "max_size": "$text_max_size", "text": "$text", "text_alignment": "$text_alignment", "color": "$text_color", "anchor_from": "center", "anchor_to": "center" } }
                 ]
               }
             }
           ]
-        }
-      }
-    ]
-  },
-
-  "image_with_hover_text_content_panel": {
-    "type": "panel",
-    "size": [ "100%", "100%" ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-
-    "$content_pressed|default": true,
-
-    "$icon_size|default": [ "100%", "100%" ],
-    "$icon_offset|default": [ 0, -1 ],
-    "$icon_path|default": "",
-    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
-    "$button_text|default": "",
-
-    "$content_offset|default": [ 0, 0 ],
-    "variables": [
-      {
-        "requires": "($content_pressed and $pressed_state)",
-        "$content_offset": [ 0, 2 ]
-      }
-    ],
-
-    "controls": [
-      {
-        "image_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%" ],
-          "offset": "$content_offset",
-          "controls": [
-            { "image": { "type": "image", "size": "$icon_size", "offset": "$icon_offset", "texture": "$icon_path", "color": "$icon_color", "anchor_from": "center", "anchor_to": "center" } }
-          ]
-        }
-      },
-      {
-        "hover_text@common.hover_text": {
-          "visible": "($hover_state or $pressed_state)",
-          "property_bag": {
-            "#hover_text": "$button_text"
-          }
         }
       }
     ]
@@ -248,6 +346,65 @@
                 "text_alignment": "left",
                 "color": "$text_color",
                 "shadow": true
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  // New Dynamic Start Button Content
+  "new_ui_form_fitting_button_panel": {
+    "layer": 1,
+    "type": "panel",
+    "size": "$button_size_override",
+    "$button_size_override|default": [ "100%c", "100%c" ],
+    "$border_visible|default": true,
+    "$focus_border_size_override|default": [ "100%c + 2px", "100%c + 2px" ],
+    "$button_image_size_override|default": [ "100%c + 2px", "100%c + 2px" ],
+    "$button_content_size_override|default": [ "100%c + 6px", "100%c + 6px" ],
+
+    "$content_alpha|default": 1,
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "controls": [
+      {
+        "border@common_buttons.focus_border": {
+          "visible": "$border_visible",
+          "layer": "$border_layer",
+          "size": [ "100%sm", "100%sm" ],
+          "color": "$border_color"
+        }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "size": "$focus_border_size_override",
+          "$button_image|default": "common_buttons.button_image",
+          "controls": [
+            {
+              "$button_image@$button_image": {
+                "size": "$button_image_size_override",
+                "$form_fitting_min_size|default": [ 0, 0 ],
+                "min_size": "$form_fitting_min_size",
+                "layer": 1,
+                "controls": [
+                  {
+                    "button_content": {
+                      "type": "panel",
+                      "size": "$button_content_size_override",
+                      "controls": [
+                        {
+                          "$button_type_panel@$button_type_panel": {
+                            "layer": 3
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
           ]

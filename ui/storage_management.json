@@ -1,6 +1,74 @@
 {
   "namespace": "storage_management",
 
+  "storage_management_setting_section": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "storage_management_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "section_content": {
+          "type": "stack_panel",
+          "size": [ "100% - 8px", "100% - 4px" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "sidebar_panel": {
+                "type": "image",
+                "size": [ "32.5%", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "textures/ui/hud_tip_text_background",
+                "alpha": 0.6,
+                "controls": [
+                  {
+                    "sidebar@facelift_setting_utils.facelift_content_panel_base": {
+                      "$show_content_background": false,
+                      "$section_panel_size": [ "100% - 8px", "100% - 8px" ],
+                      "$section_content": "storage_management.storage_sidebar_panel"
+                    }
+                  }
+                ]
+              }
+            },
+			{ "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+            {
+              "content_panel": {
+                "type": "image",
+                "size": [ "fill", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "textures/ui/hud_tip_text_background",
+                "alpha": 0.6,
+                "controls": [
+                  {
+                    "storage_management_setting_section@facelift_setting_utils.facelift_content_panel_base": {
+                      "$show_content_background": false,
+                      "$section_panel_size": [ "100% - 8px", "100% - 8px" ],
+                      "$section_header_content": "storage_management.storage_header_panel",
+                      "$section_content": "storage_management.storage_main_panel",
+                      "$section_footer_content": "storage_management.storage_footer_panel"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
   "storage_main_panel": {
     "type": "panel",
     "size": [ "100% - 1px", "100%c" ],
@@ -8,6 +76,168 @@
     "controls": [
       {
         "scroll_content@storage_management.storage_scroll_pane": {}
+      }
+    ]
+  },
+
+  "storage_sidebar_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "controls": [
+      {
+        "header_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "controls": [
+            {
+              "file_storage_dropdown@settings_common.ore_option_dropdown": {
+                "ignored": "($is_holographic and $is_reality_mode)",
+                "visible": "(not $gear_vr)",
+                "$option_label": "options.filelocation.title",
+                "enabled": "$storage_location_switch_enabled",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "$option_dropdown_size": [ "100%", 28 ],
+                "$dropdown_content": "storage_management.file_storage_location_ore_dropdown_content",
+                "$dropdown_area": "content_area",
+                "$dropdown_name": "file_storage_location",
+                "$option_enabled_binding_name": "#file_storage_location_enabled",
+                "$options_dropdown_toggle_label_binding": "#file_storage_location_toggle_label",
+                "$dropdown_scroll_content_size": [ "100%", "200%" ]
+              }
+            },
+            { "storage_management_function_light_line@settings_common.light_line_panel": {} },
+            {
+              "clear_marketplace_cache_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+                "$clear_cache_button_text|default": "#none",
+                "controls": [
+                  {
+                    "button@settings_common.flat_action_button": {
+                      "size": [ "100%", 26 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+
+                      "$pressed_button_name": "button.clear_cache",
+                      "$text": "$clear_cache_button_text",
+                      "$icon_path": "textures/ui/icons/icon_delete"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "01_void_panel@common.empty_panel": {
+                "size": [ 0, 2 ]
+              }
+            },
+            {
+              "clear_download_cache_button_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c + 2px" ],
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$clear_download_button_text|default": "#none",
+                "controls": [
+                  {
+                    "clear_download_button@settings_common.flat_action_button": {
+                      "size": [ "100%", 26 ],
+                      "$pressed_button_name": "dev_clear_download_cache_button",
+                      "$text": "options.dev_clearDownloadeCache",
+                      "$icon_path": "textures/ui/icons/icon_delete"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "02_void_panel@common.empty_panel": {
+                "ignored": "$education_edition",
+                "size": [ 0, 2 ],
+                "bindings": [
+                  {
+                    "binding_name": "#screenshots_gallery_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "delete_local_screenshots_panel": {
+                "ignored": "$education_edition",
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$delete_local_screenshots_button_text|default": "#none",
+                "controls": [
+                  {
+                    "button@settings_common.flat_action_button": {
+                      "size": [ "100%", 26 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+
+                      "$pressed_button_name": "button.delete_local_screenshots",
+                      "$text": "$delete_local_screenshots_button_text",
+                      "$icon_path": "textures/ui/icons/icon_screenshots"
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#screenshots_gallery_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "03_void_panel@common.empty_panel": {
+                "ignored": "$education_edition",
+                "size": [ 0, 2 ],
+                "bindings": [
+                  {
+                    "binding_name": "#screenshots_showcase_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "clear_screenshots_cache_panel": {
+                "ignored": "$education_edition",
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$clear_screenshots_cache_button_text|default": "#none",
+                "controls": [
+                  {
+                    "button@settings_common.flat_action_button": {
+                      "size": [ "100%", 26 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+
+                      "$pressed_button_name": "button.clear_cache",
+                      "$text": "$clear_screenshots_cache_button_text",
+                      "$icon_path": "textures/ui/icons/icon_screenshots"
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#screenshots_showcase_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ]
   },
@@ -24,154 +254,6 @@
           "anchor_to": "top_middle",
           "controls": [
             {
-              "storage_management_options": {
-                "type": "stack_panel",
-                "size": [ "100%", "100%cm" ],
-                "orientation": "horizontal",
-                "controls": [
-                  {
-                    "file_storage_options_panel": {
-                      "type": "panel",
-                      "size": [ "fill", "100%c" ],
-                      "controls": [
-                        {
-                          "file_storage_dropdown@settings_common.ore_option_dropdown": {
-                            "ignored": "($is_holographic and $is_reality_mode)",
-                            "visible": "(not $gear_vr)",
-                            "$option_label": "options.filelocation.title",
-                            "enabled": "$storage_location_switch_enabled",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "$option_dropdown_size": [ "100%", 24 ],
-                            "$dropdown_content": "storage_management.file_storage_location_upgrade_dropdown_content",
-                            "$dropdown_area": "content_area",
-                            "$dropdown_name": "file_storage_location",
-                            "$option_enabled_binding_name": "#file_storage_location_enabled",
-                            "$options_dropdown_toggle_label_binding": "#file_storage_location_toggle_label",
-                            "$dropdown_scroll_content_size": [ "100%", "200%" ]
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  { "00_void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
-                  {
-                    "clear_marketplace_cache_panel": {
-                      "type": "panel",
-                      "size": [ "100%y", "100%sm" ],
-                      "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-                      "$focus_override_up": "FOCUS_OVERRIDE_STOP",
-                      "$clear_cache_button_text|default": "#none",
-                      "controls": [
-                        {
-                          "button@settings_common.ore_action_button": {
-                            "size": [ "100% - 4px", "100% - 4px" ],
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-
-                            "$button_type_panel": "button_content_preset.image_with_hover_text_content_panel",
-                            "$icon_size": [ "100% - 4px", "100% - 4px" ],
-                            "$icon_path": "textures/ui/ore/icon_clear_marketplace_cache",
-                            "$icon_color": [ 0.3, 0.3, 0.3 ],
-
-                            "$pressed_button_name": "button.clear_cache",
-                            "$button_text": "$clear_cache_button_text"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "01_void_panel@common.empty_panel": {
-                      "size": [ 4, 0 ],
-                      "bindings": [
-                        {
-                          "binding_name": "#screenshots_gallery_enabled",
-                          "binding_name_override": "#visible"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "delete_local_screenshots_panel": {
-                      "type": "panel",
-                      "size": [ "100%y", "100%sm" ],
-                      "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-                      "$focus_override_up": "FOCUS_OVERRIDE_STOP",
-                      "$delete_local_screenshots_button_text|default": "#none",
-                      "controls": [
-                        {
-                          "button@settings_common.ore_action_button": {
-                            "size": [ "100% - 4px", "100% - 4px" ],
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-
-                            "$button_type_panel": "button_content_preset.image_with_hover_text_content_panel",
-                            "$icon_size": [ "100% - 4px", "100% - 4px" ],
-                            "$icon_path": "textures/ui/ore/icon_delete_local_screenshots",
-                            "$icon_color": [ 0.3, 0.3, 0.3 ],
-
-                            "$pressed_button_name": "button.delete_local_screenshots",
-                            "$button_text": "$delete_local_screenshots_button_text"
-                          }
-                        }
-                      ],
-                      "bindings": [
-                        {
-                          "binding_name": "#screenshots_gallery_enabled",
-                          "binding_name_override": "#visible"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "02_void_panel@common.empty_panel": {
-                      "size": [ 4, 0 ],
-                      "bindings": [
-                        {
-                          "binding_name": "#screenshots_showcase_enabled",
-                          "binding_name_override": "#visible"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "clear_screenshots_cache_panel": {
-                      "type": "panel",
-                      "size": [ "100%y", "100%sm" ],
-                      "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-                      "$focus_override_up": "FOCUS_OVERRIDE_STOP",
-                      "$clear_screenshots_cache_button_text|default": "#none",
-                      "controls": [
-                        {
-                          "button@settings_common.ore_action_button": {
-                            "size": [ "100% - 4px", "100% - 4px" ],
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-
-                            "$button_type_panel": "button_content_preset.image_with_hover_text_content_panel",
-                            "$icon_size": [ "100% - 4px", "100% - 4px" ],
-                            "$icon_path": "textures/ui/ore/icon_delete_local_screenshots",
-                            "$icon_color": [ 0.3, 0.3, 0.3 ],
-
-                            "$pressed_button_name": "button.clear_cache",
-                            "$button_text": "$clear_screenshots_cache_button_text"
-                          }
-                        }
-                      ],
-                      "bindings": [
-                        {
-                          "binding_name": "#screenshots_showcase_enabled",
-                          "binding_name_override": "#visible"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            { "void_panel@common.empty_panel": { "size": [ 0, 4 ] } },
-            {
               "panel": {
                 "type": "panel",
                 "size": [ "100%", 32 ],
@@ -187,8 +269,8 @@
                       "$focus_override_right": "FOCUS_OVERRIDE_STOP",
 
                       "$default_texture": "textures/ui/ore/button_borderless_dark_toggle",
-                      "$hover_texture": "textures/ui/ore/button_borderless_dark_toggle",
-                      "$pressed_texture": "textures/ui/ore/button_borderless_darkpressed_toggle",
+                      "$hover_texture": "textures/ui/ore/button_borderless_darkpressed_toggle",
+                      "$pressed_texture": "textures/ui/ore/button_borderless_darkhover_toggle",
                       "$pressed_no_hover_texture": "textures/ui/ore/button_borderless_darkpressed_toggle",
                       "$locked_texture": "textures/ui/ore/disabledButtonNoBorder_toggle",
 
@@ -216,15 +298,15 @@
       {
         "visibleContent": {
           "type": "stack_panel",
+          "size": [ "100%", 26 ],
+          "anchor_from": "center",
+          "anchor_to": "center",
           "orientation": "horizontal",
-          "size": [ "100%", 32 ],
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
           "controls": [
             {
               "share_button@settings_common.ore_action_button": {
                 "ignored": true,
-                "size": [ "fill", "100% - 2px" ],
+                "size": [ "fill", "100%" ],
                 "anchor_from": "top_right",
                 "anchor_to": "top_right",
                 "$pressed_button_name": "button.shareResources",
@@ -245,7 +327,7 @@
                 "$pressed_button_name": "button.deleteResources",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "size": [ "fill", "100% - 2px" ],
+                "size": [ "fill", "100%" ],
                 "$button_text": "storageManager.multiselectDelete",
                 "$focus_override_right": "FOCUS_OVERRIDE_STOP",
                 "bindings": [
@@ -259,7 +341,6 @@
               }
             }
           ],
-
           "bindings": [
             {
               "binding_name": "#multiselectEnabled",
@@ -271,12 +352,186 @@
     ]
   },
 
-  "storage_scroll_pane/category_stack_panel": {
-    "size": [ "100%", "100%c" ]
+  "storage_scroll_pane": {
+    "type": "stack_panel",
+    "size": [ "100% - 2px", "100%c" ],
+    "offset": [ 2, 0 ],
+    "controls": [
+      {
+        "category_stack_panel": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "bindings": [
+            {
+              "binding_name": "#category_panel_visible",
+              "binding_name_override": "#visible"
+            }
+          ],
+
+          "controls": [
+            {
+              "stack_panel": {
+                "type": "stack_panel",
+                "size": [ "100% - 2px", "100%c" ],
+                "orientation": "vertical",
+
+                "factory": {
+                  "name": "category_items",
+                  "control_ids": {
+                    "world_panel": "@storage_management.world_controls",
+                    "world_template_panel": "@storage_management.world_template_controls",
+                    "resource_panel": "@storage_management.resource_controls",
+                    "behavior_panel": "@storage_management.behavior_controls",
+                    "skin_panel": "@storage_management.skin_controls",
+                    "cache_panel": "@storage_management.cached_controls"
+                  }
+                },
+
+                "collection_name": "storage_panel",
+                "bindings": [
+                  {
+                    "binding_name": "#storage_panel_length",
+                    "binding_name_override": "#collection_length",
+                    "binding_condition": "visible"
+                  }
+                ]
+              }
+            },
+            {
+              "legacy_world_stack_panel": {
+                "type": "stack_panel",
+                "size": [ "100% - 2px", "100%c" ],
+                "orientation": "vertical",
+
+                "controls": [
+                  {
+                    "legacy_world_controls@storage_management.storage_main_item_legacy_world_toggle": {
+                      "$button_texture": "textures/ui/WorldDemoScreen",
+                      "$name_text": "storageManager.contentType.legacy_worlds",
+
+                      "$item_template": "storage_management.world_sub_text",
+                      "$panel_prefix": "legacy_world"
+                    }
+                  }
+                ],
+
+                "bindings": [
+                  {
+                    "binding_name": "#legacy_world_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "retailtopreview_world_stack_panel": {
+                "type": "stack_panel",
+                "size": [ "100% - 2px", "100%c" ],
+                "orientation": "vertical",
+
+                "controls": [
+                  {
+                    "retailtopreview_world_controls@storage_management.storage_main_item_retailtopreview_world_toggle": {
+                      "$button_texture": "textures/ui/WorldDemoScreen",
+                      "$name_text": "storageManager.contentType.retailtopreview_worlds",
+
+                      "$item_template": "storage_management.world_sub_text",
+                      "$panel_prefix": "retailtopreview_world"
+                    }
+                  }
+                ],
+
+                "bindings": [
+                  {
+                    "binding_name": "#retailtopreview_world_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "multiselect_padding": {
+          "type": "panel",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "size": [ "100%", 32 ],
+          "bindings": [
+            {
+              "binding_name": "#multiselectEnabled",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
   },
 
-  "storage_scroll_pane/category_stack_panel/stack_panel": {
-    "size": [ "100%", "100%c" ]
+  "storage_main_item_toggle": {
+    "type": "stack_panel",
+    "size": [ "100%", "default" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "orientation": "vertical",
+    "controls": [
+      {
+        "main_item_toggle@common_toggles.light_ui_toggle": {
+          "$size_text": "('#' + $panel_prefix + _size)",
+
+          "size": [ "100%", 30 ],
+          "$button_content_size": [ "100% - 6px", "100%" ],
+          "$button_type_panel": "storage_management.main_item_text",
+
+          "$toggle_name": "('#' + $panel_prefix + _tab)",
+          "$toggle_state_binding_name": "#storage_dropdown",
+          "$toggle_binding_type": "collection",
+          "$toggle_grid_collection_name": "storage_panel",
+          "$toggle_group_default_selected": 1,
+          "$toggle_tts_name": "accessibility.dropdown.tts.title",
+
+          "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "contentPanel": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "visible": false,
+          "size": [ "100%", "default" ],
+          "$item_template|default": "storage_management.texture_icon_text",
+          "$panel_length": "('#' + $panel_prefix + _length)",
+
+          "factory": {
+            "name": "resource_item",
+            "control_name": "storage_management.resource_sub_item"
+          },
+
+          "collection_name": "($panel_prefix + _panel)",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "this_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible",
+              "resolve_sibling_scope": true
+            },
+            {
+              "binding_name": "$panel_length",
+              "binding_name_override": "#collection_length",
+              "binding_condition": "visible"
+            }
+          ]
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      }
+    ]
   },
 
 
@@ -409,18 +664,41 @@
 
 
   // Dropdown Content
-  "file_storage_location_upgrade_dropdown_content@settings_common.upgrade_option_radio_dropdown_group": {
+  "file_storage_location_ore_dropdown_content@settings_common.option_radio_dropdown_group": {
     "$radio_buttons": [
       {
-        "file_storage_location_option_external@settings_common.upgrade_radio_with_label": {
+        "file_storage_location_option_external@settings_common.ore_radio_with_label": {
           "$toggle_state_binding_name": "#storage_location_radio_external",
           "$radio_label_text": "options.filelocation.external"
         }
       },
       {
-        "file_storage_location_option_appdata@settings_common.upgrade_radio_with_label": {
+        "file_storage_location_option_appdata@settings_common.ore_radio_with_label": {
           "$toggle_state_binding_name": "#storage_location_radio_package",
           "$radio_label_text": "options.filelocation.appdata"
+        }
+      }
+    ]
+  },
+
+  "auto_update_mode_ore_dropdown_content@settings_common.option_radio_dropdown_group": {
+    "$radio_buttons": [
+      {
+        "off@settings_common.ore_radio_with_label": {
+          "$toggle_state_binding_name": "#auto_update_mode_off",
+          "$radio_label_text": "options.autoUpdateMode.off"
+        }
+      },
+      {
+        "wifi@settings_common.ore_radio_with_label": {
+          "$toggle_state_binding_name": "#auto_update_mode_on_wifi_only",
+          "$radio_label_text": "options.autoUpdateMode.on.withWifiOnly"
+        }
+      },
+      {
+        "cellular@settings_common.ore_radio_with_label": {
+          "$toggle_state_binding_name": "#auto_update_mode_on_with_cellular",
+          "$radio_label_text": "options.autoUpdateMode.on.withCellular"
         }
       }
     ]

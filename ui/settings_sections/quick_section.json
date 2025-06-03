@@ -12,7 +12,78 @@
     }
   },
 
+  "quick_setting_setting_section@facelift_setting_utils.facelift_content_panel_base": {
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "quick_setting_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "$show_content_background": false,
+    "$use_section_content_scrolling": false,
+    "$section_content_size": [ "100%", "100%" ],
+    "$section_content": "quick_section.quick_setting_section"
+  },
+
   "quick_setting_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "quick_setting_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "camera_option_stack_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "preview_thumbnail_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%" ],
+                "controls": [
+                  {
+                    "first_person@quick_section.camera_function_with_text_base": {
+                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_first_persona",
+                      "$camera_info_text": "quick_section.camera.first_person.info",
+                      "$camera_binding_name": "#thirdperson_radio_first"
+                    }
+                  },
+                  {
+                    "third_person_back@quick_section.camera_function_with_text_base": {
+                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_third_persona_back",
+                      "$camera_info_text": "quick_section.camera.third_person_back.info",
+                      "$camera_binding_name": "#thirdperson_radio_third_back"
+                    }
+                  },
+                  {
+                    "third_person_front@quick_section.camera_function_with_text_base": {
+                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_third_persona_front",
+                      "$camera_info_text": "quick_section.camera.third_person_front.info",
+                      "$camera_binding_name": "#thirdperson_radio_third_front"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "legacy_quick_setting_section": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
     "anchor_from": "top_left",
@@ -86,10 +157,40 @@
 
 
   // Camera Options
-  "camera_thumbnail_with_text_base": {
-    "layer": 10,
+  "camera_thumbnail_base": {
     "$camera_binding_name|default": "",
     "$camera_preview_thumbnail_image|default": "",
+
+    "visible": "($is_global_texture_packs_visible and not $include_world_section and not $include_realm_section)",
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "camera_preview_thumbnail": {
+          "layer": -1,
+          "type": "image",
+          "size": [ "125%", "125%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "fill": true,
+          "texture": "$camera_preview_thumbnail_image",
+          "color": [ 0.8, 0.8, 0.8 ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "$camera_binding_name" },
+      {
+        "binding_name": "$camera_binding_name",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "camera_function_with_text_base": {
+    "$camera_binding_name|default": "",
     "$camera_info_text|default": "",
 
     "type": "panel",
@@ -98,66 +199,62 @@
     "anchor_to": "center",
     "controls": [
       {
-        "camera_preview_thumbnail": {
-          "type": "image",
-          "size": [ "100%", "100%" ],
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "fill": true,
-          "texture": "$camera_preview_thumbnail_image"
-        }
-      },
-      {
-        "camera_perspective_options_panel": {
+        "camera_function_with_text_panel": {
           "layer": 12,
-          "type": "custom",
-          "size": [ "100%", "100%c + 12px" ],
+          "type": "image",
+          "size": [ "70%", "100%c" ],
+          "offset": [ 0, 2 ],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-
-          "renderer": "gradient_renderer",
-          "gradient_direction": "vertical",
-          "color1": [ 0.0, 0.0, 0.0, 0.7 ],
-          "color2": [ 0.0, 0.0, 0.0, 0.0 ],
-
+          "texture": "textures/ui/hud_tip_text_background",
+          "alpha": 0.65,
           "controls": [
             {
-              "perspective@quick_section.perspective_options": {
-                "size": [ "100% - 4px", "100%c + 4px" ],
-                "anchor_from": "top_middle",
-                "anchor_to": "top_middle"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "camera_info_text_panel": {
-          "layer": 12,
-          "type": "panel",
-          "size": [ "100%", "100%c + 6px" ],
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "controls": [
-            {
-              "info_text_cover": {
-                "type": "image",
-                "size": [ "100%c + 4px", "100%c + 4px" ],
-                "offset": [ 0, 2 ],
+              "function_panel": {
+                "layer": 12,
+                "type": "stack_panel",
+                "size": [ "100% - 8px", "100%c + 8px" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "texture": "textures/ui/Black",
-                "alpha": 0.7,
                 "controls": [
                   {
-                    "info_text": {
-                      "layer": 14,
-                      "type": "label",
-                      "size": [ "default", "default" ],
-                      "max_size": [ "default", "default" ],
-                      "text": "$camera_info_text",
-                      "text_alignment": "center",
-                      "shadow": true
+                    "camera_perspective_options_panel": {
+                      "layer": 12,
+                      "type": "panel",
+                      "size": [ "100%", "100%c + 8px" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "controls": [
+                        {
+                          "perspective@quick_section.perspective_options": {
+                            "size": [ "100% - 4px", "100%c + 4px" ],
+                            "anchor_from": "center",
+                            "anchor_to": "center"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "camera_info_text_panel": {
+                      "layer": 12,
+                      "type": "panel",
+                      "size": [ "100%", "100%c + 6px" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "controls": [
+                        {
+                          "info_text": {
+                            "layer": 14,
+                            "type": "label",
+                            "size": [ "100%", "default" ],
+                            "max_size": [ "100%", "default" ],
+                            "text": "$camera_info_text",
+                            "text_alignment": "center",
+                            "shadow": true
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -204,7 +301,7 @@
     "anchor_to": "top_left",
     "controls": [
       {
-        "perspective_dropdown@settings_common.ore_option_dropdown": {
+        "perspective_dropdown@settings_common.ore_upgrade_option_dropdown": {
           "$option_dropdown_size": [ "100%", 22 ],
           "$option_label": "options.thirdperson",
           "ignored": "($is_holographic and $is_reality_mode)",
@@ -663,7 +760,7 @@
           "size": [ "100%", "100%c + 4px" ],
           "controls": [
             {
-              "graphics_mode@settings_common.ore_option_dropdown": {
+              "graphics_mode@settings_common.ore_upgrade_option_dropdown": {
                 "$option_label": "options.graphicsMode",
                 "$dropdown_content": "graphics_section.graphics_mode_upgrade_dropdown_content",
                 "$dropdown_area": "content_area",
