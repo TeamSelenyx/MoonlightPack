@@ -92,25 +92,38 @@
             },
             { "00_padding@common.empty_panel": { "size": [ 0, 4 ] } },
             {
-              "device_with_minecraft_info_panel@facelift_setting_utils.settings_content_background_base": {
+              "deviceId_info_panel@facelift_setting_utils.settings_content_background_base": {
                 "$content_background_size": [ "100%", "100%c" ],
                 "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
                 "$content_controls": [
                   {
-                    "device_with_minecraft_info@account_section.device_with_minecraft_info_panel": {}
+                    "deviceId_info@account_section.deviceId_info_panel": {}
                   }
                 ]
               }
             },
             { "01_padding@common.empty_panel": { "size": [ 0, 4 ] } },
             {
-              "only_allow_trusted_skins_toggle@settings_common.facelift_option_toggle": {
-                "$option_label": "options.onlyTrustedSkinsAllowed",
-                "$option_binding_name": "#only_trusted_skins_allowed",
-                "$option_enabled_binding_name": "#only_trusted_skins_allowed_enabled",
-                "$toggle_name": "only_trusted_skins_allowed",
+              "minecraftAccountId_info_panel@facelift_setting_utils.settings_content_background_base": {
+                "$content_background_size": [ "100%", "100%c" ],
+                "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+                "$content_controls": [
+                  {
+                    "minecraftAccountId_info@account_section.minecraftAccountId_info_panel": {}
+                  }
+                ]
+              }
+            },
+            { "02_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+            {
+              "use_remote_connect_toggle@settings_common.facelift_option_toggle": {
+                "enabled": "(($google_os or $is_ios) and (not $education_edition))",
+                "$option_label": "options.useRemoteConnect",
+                "$option_binding_name": "#use_remote_connect",
+                "$option_enabled_binding_name": "#use_remote_connect_enabled",
+                "$toggle_name": "use_remote_connect",
 
-                "$icon_path": "textures/ui/glyph_skin_pack"
+                "$icon_path": "textures/ui/accessibility_glyph"
               }
             }
           ]
@@ -134,9 +147,10 @@
                 ]
               }
             },
-            { "00_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+            { "00_padding@common.empty_panel": { "ignored": "(not $is_pregame)", "size": [ 0, 4 ] } },
             {
               "account_function_buttons_panel@facelift_setting_utils.settings_content_background_base": {
+                "ignored": "(not $is_pregame)",
                 "$content_background_size": [ "100%", "100%c" ],
                 "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
                 "$content_controls": [
@@ -154,7 +168,7 @@
                 "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
                 "$content_controls": [
                   {
-                    "switch_accounts@general_section.switch_accounts_panel": {}
+                    "switch_accounts@account_section.switch_accounts_panel": {}
                   }
                 ]
               }
@@ -1188,11 +1202,6 @@
     ]
   },
 
-  "new_name_controls@account_section.name_controls": {
-    "size": [ "100%", "100%" ],
-    "$option_text_edit_control_size": [ "100%", "24px" ]
-  },
-
   "facelift_player_info_panel": {
     "type": "panel",
     "size": [ "100%cm", "100%" ],
@@ -1471,7 +1480,93 @@
     ]
   },
 
-  "device_with_minecraft_info_panel": {
+
+  "switch_accounts_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "name_label": {
+          "type": "label",
+          "color": "$main_header_text_color",
+          "localize": false,
+          "text": "#ad_account_name",
+          "bindings": [
+            {
+              "binding_name": "#ad_account_name"
+            }
+          ]
+        }
+      },
+      { "paddingSwitchAccounts@common.empty_panel": { "size": "$spatialPatternsPadding" } },
+      {
+        "switch_accounts@common_buttons.light_content_button": {
+          "size": [ "100%", "24px" ],
+          "enabled": "$is_pregame",
+          "$button_size_override": [ "100%", "100%" ],
+          "$button_content": "account_section.switch_accounts_button_content",
+          "$pressed_button_name": "button.switch_accounts",
+
+          "$button_offset": [ 0, -1 ],
+          "$button_pressed_offset": [ 0, 1 ],
+
+          "$default_state_border_visible": false,
+          "$hover_state_border_visible": false,
+          "$pressed_state_border_visible": false,
+          "$locked_state_border_visible": false,
+
+          "$default_button_texture": "textures/ui/ore/button_borderless_light",
+          "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+          "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+          "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder"
+        }
+      }
+    ]
+  },
+
+  "switch_accounts_button_content": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "padded_icon@common.empty_panel": {
+          "size": [ "100%c + 10px", "100%" ],
+          "controls": [
+            {
+              "icon": {
+                "type": "image",
+                "size": [ 29, 10 ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "textures/ui/switch_accounts"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padded_label@common.empty_panel": {
+          "size": [ "100%c + 6px", "100%" ],
+          "controls": [
+            {
+              "label": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "text": "accounts.switch",
+                "color": "$light_button_default_text_color"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  "deviceId_info_panel": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
     "anchor_from": "center",
@@ -1490,7 +1585,16 @@
             { "binding_name": "#device_id" }
           ]
         }
-      },
+      }
+    ]
+  },
+
+  "minecraftAccountId_info_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
       {
         "MinecraftAccount_id_label": {
           "type": "label",

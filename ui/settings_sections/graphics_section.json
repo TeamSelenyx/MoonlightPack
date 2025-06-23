@@ -270,7 +270,7 @@
       },
       {
         "msaa_slider@graphics_section.msaa_slider": {
-          "enabled": "(not $new_video_settings)"
+          "ignored": "$new_video_settings"
         }
       },
       {
@@ -449,7 +449,25 @@
         }
       },
       {
-        "advanced_grphics_void@common.empty_panel": { "size": [ 0, 4 ] }
+        "void_padding_00@common.empty_panel": { "size": [ 0, 4 ] }
+      },
+      {
+        "graphicsModeSwitch_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "graphics_mode_switch_toggle@settings_common.ore_option_toggle": {
+                "$option_label": "options.graphicsModeSwitch",
+                "$option_binding_name": "#graphics_mode_switch",
+                "$option_enabled_binding_name": "#graphics_mode_switch_enabled",
+                "$toggle_name": "graphics_mode_switch"
+              }
+            }
+          ],
+          "$options_2": []
+        }
+      },
+      {
+        "void_padding_01@common.empty_panel": { "size": [ 0, 4 ] }
       },
       {
         "advanced_graphics_options_panel": {
@@ -801,7 +819,7 @@
         }
       },
       {
-        "vsync_improvedInputResponse_options@settings_common.new_options_design_base": {
+        "improvedInputResponse_framePacing_options@settings_common.new_options_design_base": {
           "$options_1": [
             {
               "option_toggle_improved_input_response@settings_common.ore_option_toggle": {
@@ -818,7 +836,27 @@
               }
             }
           ],
-          "$options_2": []
+          "$options_2": [
+            {
+              "frame_pacing_toggle@settings_common.ore_option_toggle": {
+                "layer": 1,
+                "$option_label": "options.framePacing",
+                "$option_binding_name": "#frame_pacing",
+                "$option_enabled_binding_name": "#frame_pacing_enabled",
+                "$toggle_name": "frame_pacing",
+                "controls": [
+                  { "frame_pacing_option@general_section.frame_pacing_option": {} },
+                  { "option_generic_core@settings_common.option_generic_core": {} }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#frame_pacing_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
 
@@ -905,20 +943,10 @@
           "$options_2": [
             {
               "option_toggle_hidehand@settings_common.ore_option_toggle": {
-                "ignored": "($is_holographic)",
                 "$option_label": "options.hidehand",
                 "$option_binding_name": "#hide_hand",
                 "$option_enabled_binding_name": "#hide_hand_enabled",
                 "$toggle_name": "hide_hand"
-              }
-            },
-            {
-              "option_toggle_vrhidehand@settings_common.ore_option_toggle": {
-                "ignored": "(not $is_holographic)",
-                "$option_label": "options.vrHideHand",
-                "$option_binding_name": "#vr_hide_hand",
-                "$option_enabled_binding_name": "#vr_hide_hand_enabled",
-                "$toggle_name": "vr_hide_hand"
               }
             }
           ]
@@ -1307,7 +1335,7 @@
 
           "bindings": [
             {
-              "binding_name": "#graphics_mode_is_deferred",
+              "binding_name": "#graphics_mode_preset_is_visible",
               "binding_name_override": "#visible"
             }
           ]
@@ -1539,7 +1567,7 @@
 
 
   "max_framerate_slider@settings_common.ore_option_slider": {
-    "ignored": "($is_publish or $education_edition)",
+    "ignored": "$education_edition",
     "$option_label": "#max_framerate_slider_label",
     "$slider_name": "max_framerate",
     "$slider_value_binding_name": "#max_framerate",
@@ -1549,6 +1577,12 @@
     "$label_bindings": [
       {
         "binding_name": "$option_label"
+      }
+    ],
+    "bindings":[
+      {
+        "binding_name": "#max_framerate_slider_visible",
+        "binding_name_override": "#visible"
       }
     ],
     "controls": [

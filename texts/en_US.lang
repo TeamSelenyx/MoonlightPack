@@ -11,6 +11,7 @@ global.pack_info.build.title=Build:
 global.pack_info.editor.title=Editor:
 global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]
 global.pack_info.github=Github: https://github.com/TeamSelenyx/MoonlightPack
+global.pack_info.project_codename=Project CodeName: Moonlight Project
 global.pack_info.licenses=Licenses: AGPL 3.0
 global.pack_info.licenses.title=Licenses
 global.pack_info.licenses.1=* The resource pack is an open-source project by the Team Selenyx that can be modified and redistributed by anyone.
@@ -106,6 +107,9 @@ notification.pack_is_preview=Using the pre-experience pack
 notification.pack_is_custom=Using custom version
 notification.minecraft_version.no_problem=Using a compatible [ Minecraft Version ]
 notification.minecraft_version.problem=You are using an incompatible [ Minecraft Version ]
+notification.playScreen.disable=The modified design is not applied when [Ore UI] is applied to the play screen
+notification.patch_note=Patch Note
+notification.patch_note.unknow=There are currently no patch notes written
 
 
 ## Play Screen

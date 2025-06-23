@@ -99,6 +99,27 @@
   },
 
 
+  "screen_exit_animation_push_size_dynamic_r@anims_common.exit_animation_push_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "50%", "50%" ]
+  },
+
+  "screen_exit_animation_pop_size_dynamic_r@anims_common.exit_animation_pop_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "50%", "50%" ]
+  },
+
+  "screen_entrance_animation_push_size_dynamic_r@anims_common.entrance_animation_push_size_base": {
+    "$animation_from": [ "50%", "50%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+  "screen_entrance_animation_pop_size_dynamic_r@anims_common.entrance_animation_pop_size_base": {
+    "$animation_from": [ "50%", "50%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+
 
   // Offset
   "exit_animation_push_offset_base": {

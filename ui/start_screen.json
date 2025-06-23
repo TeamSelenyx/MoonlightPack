@@ -327,6 +327,18 @@
     "$button_icon": "start.achievements_icon"
   },
 
+  "realms_start_dynamic_button@start.start_dynamic_button_base": {
+    "$pressed_button_name": "button.menu_realms",
+    "$button_text": "menu.realmsServer",
+    "$button_icon": "start.realms_icon",
+    "bindings": [
+      {
+        "binding_name": "#realms_promo_visible",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
   "marketplace_start_dynamic_button@start.start_dynamic_button_base": {
     "$pressed_button_name": "button.menu_store",
     "$button_text": "menu.store",
@@ -1062,6 +1074,24 @@
         }
       },
       {
+        "login_button_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "login@start.login_start_dynamic_button": {
+                "bindings": [
+                  {
+                    "binding_name": "#sign_in_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "button_stack_1@start.start_dynamic_button_stack_base": {
           "$button_stack_controls": [
             { "settings@start.settings_start_dynamic_button": {} },
@@ -1086,20 +1116,9 @@
         }
       },
       {
-        "login_button_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-            {
-              "login@start.login_start_dynamic_button": {
-                "bindings": [
-                  {
-                    "binding_name": "#sign_in_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
+        "button_stack_4@start.start_dynamic_button_stack_base": {
+          "$button_stack_controls": [
+            { "realms@start.realms_start_dynamic_button": {} }
           ]
         }
       }
@@ -1246,13 +1265,35 @@
                       "controls": [
                         {
                           "player_skin_view_panel": {
-                            "type": "image",
+                            "type": "panel",
                             "size": [ "30%", "100%" ],
-                            "texture": "textures/ui/player_skin_border",
-                            "nineslice_size": [ 1, 1, 1, 1 ],
-                            "alpha": 0.6,
                             "controls": [
-                              { "player_skin@start.player_skin_panel": {} }
+                              {
+                                "player_skin_view_cover": {
+                                  "type": "image",
+                                  "size": [ "100%", "100%" ],
+                                  "texture": "textures/ui/player_skin_border",
+                                  "nineslice_size": [ 1, 1, 1, 1 ],
+                                  "alpha": 0.6,
+
+                                  "propagate_alpha": true,
+                                  "animation_reset_name": "screen_animation_reset",
+                                  "anims": [
+                                    "@anims_common.screen_exit_animation_push_size_dynamic_r",
+                                    "@anims_common.screen_exit_animation_pop_size_dynamic_r",
+                                    "@anims_common.screen_entrance_animation_push_size_dynamic_r",
+                                    "@anims_common.screen_entrance_animation_pop_size_dynamic_r",
+                                    "@common.screen_exit_animation_push_fade",
+                                    "@common.screen_exit_animation_pop_fade",
+                                    "@common.screen_entrance_animation_push_fade",
+                                    "@common.screen_entrance_animation_pop_fade"
+                                  ],
+
+                                  "controls": [
+                                    { "player_skin@start.player_skin_panel": {} }
+                                  ]
+                                }
+                              }
                             ]
                           }
                         },

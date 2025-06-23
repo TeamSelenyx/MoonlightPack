@@ -263,6 +263,17 @@
     "$locked_button_texture|default": "textures/ui/empty"
   },
 
+  "facelift_action_button@button_preset.facelift_button_base": {
+    "size": [ "100%", 30 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+
+    "$pressed_button_name|default": "unset_button_name",
+    "$button_type_panel|default": "button_content_preset.image_with_text_content_panel",
+    "$content_pressed": false,
+    "$use_fit_button_content": true
+  },
+
 
   // Ore UI Design Options
   "ore_action_button@common_buttons.light_text_button": {
@@ -344,6 +355,10 @@
     "$control_name": "settings_common.upgrade_option_dropdown_control"
   },
 
+  "facelift_option_dropdown_no_scroll@settings_common.option_generic": {
+    "$control_name": "settings_common.facelift_option_dropdown_control_no_scroll"
+  },
+
   "ore_option_toggle@settings_common.option_generic": {
     "$control_name": "settings_common.ore_option_toggle_control",
     "$option_label|default": "",
@@ -357,13 +372,28 @@
   },
 
   "facelift_option_toggle": {
-    "type": "panel",
-    "size": [ "100%", 26 ],
+    "$enabled|default": true,
+
     "$option_label|default": "",
-    "$toggle_tts_header": "$option_label",
+    "$option_enabled_binding_name|default": "",
+    "$option_tooltip_visible|default": false,
+    "$option_tooltip_controls|default": [],
+
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
     "controls": [
       {
         "toggle@settings_common.facelift_option_toggle_control": {}
+      },
+      {
+        "tooltip": {
+          "visible": "$option_tooltip_visible",
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": "$option_tooltip_controls"
+        }
       }
     ]
   },
@@ -581,20 +611,7 @@
 
   "ore_option_toggle_control@common.toggle": {
     "layer": 2,
-    "$toggle_state_binding_name|default": "$option_binding_name",
-    "$toggle_enabled_binding_name|default": "$option_enabled_binding_name",
-    "$toggle_enabled_binding_type|default": "global",
     "size": [ "100%", "100%c" ],
-    "$binding_type": "global",
-    "$binding_condition": "once",
-    "$unchecked_control": "common_ore.ore_option_toggle_off",
-    "$checked_control": "common_ore.ore_option_toggle_on",
-    "$unchecked_hover_control": "common_ore.ore_option_toggle_off_hover",
-    "$checked_hover_control": "common_ore.ore_option_toggle_on_hover",
-    "$unchecked_locked_control": "common_ore.ore_option_toggle_off_locked",
-    "$unchecked_locked_hover_control": "common_ore.ore_option_toggle_off_locked",
-    "$checked_locked_control": "common_ore.ore_option_toggle_on_locked",
-    "$checked_locked_hover_control": "common_ore.ore_option_toggle_on_locked",
 
     "$enable_directional_toggling": false,
 
@@ -605,93 +622,71 @@
         "$toggle_enabled_binding_name": "#not_data_bound",
         "$toggle_enabled_binding_type": "none"
       }
-    ]
+    ],
+
+    "$binding_type": "global",
+    "$binding_condition": "once",
+
+    "$toggle_state_binding_name|default": "$option_binding_name",
+    "$toggle_enabled_binding_name|default": "$option_enabled_binding_name",
+    "$toggle_enabled_binding_type|default": "global",
+
+    "$unchecked_control": "common_ore.ore_option_toggle_off",
+    "$checked_control": "common_ore.ore_option_toggle_on",
+    "$unchecked_hover_control": "common_ore.ore_option_toggle_off_hover",
+    "$checked_hover_control": "common_ore.ore_option_toggle_on_hover",
+    "$unchecked_locked_control": "common_ore.ore_option_toggle_off_locked",
+    "$unchecked_locked_hover_control": "common_ore.ore_option_toggle_off_locked",
+    "$checked_locked_control": "common_ore.ore_option_toggle_on_locked",
+    "$checked_locked_hover_control": "common_ore.ore_option_toggle_on_locked"
   },
 
-  "facelift_option_toggle_control@common.toggle": {
+  "facelift_option_toggle_control@button_preset.facelift_vertical_fit_toggle_base": {
     "layer": 2,
-    "size": [ "100%", 26 ],
-
-    "$unchecked_control|default": "common_toggles.toggle_unchecked",
-    "$checked_control|default": "common_toggles.toggle_checked",
-    "$unchecked_hover_control|default": "common_toggles.toggle_unchecked_hover",
-    "$checked_hover_control|default": "common_toggles.toggle_checked_hover",
-    "$unchecked_locked_control|default": "common_toggles.toggle_locked",
-    "$unchecked_locked_hover_control|default": "common_toggles.toggle_locked",
-    "$checked_locked_control|default": "common_toggles.toggle_locked",
-    "$checked_locked_hover_control|default": "common_toggles.toggle_locked",
-
-    "$default_texture|default": "textures/ui/facelift_button",
-    "$hover_texture|default": "textures/ui/facelift_button",
-    "$pressed_texture|default": "textures/ui/facelift_button",
-    "$pressed_no_hover_texture|default": "textures/ui/facelift_button",
-    "$locked_texture|default": "textures/ui/facelift_button",
-
-    "$default_texture_alpha|default": 0.6,
-    "$default_checked_texture_alpha|default": 0.6,
-    "$hover_texture_alpha|default": 0.6,
-    "$hover_checked_texture_alpha|default": 0.6,
-
-    "$default_texture_color|default": [ 0.0, 0.0, 0.0 ],
-    "$default_checked_texture_color|default": [ 0.0, 0.0, 0.0 ],
-    "$hover_texture_color|default": [ 0.4, 0.4, 0.4 ],
-    "$hover_checked_texture_color|default": [ 0.4, 0.4, 0.4 ],
-
-    "$default_text_color|default": "$light_toggle_hover_text_color",
-    "$hover_text_color|default": "$light_toggle_hover_text_color",
-    "$default_checked_text_color|default": "$light_toggle_hover_text_color",
-    "$hover_checked_text_color|default": "$light_toggle_hover_text_color",
-
-    "$default_glyph_color|default": "$light_glyph_toggle_default_color",
-    "$hover_glyph_color|default": "$light_glyph_toggle_hover_color",
-    "$default_checked_glyph_color|default": "$light_glyph_toggle_checked_default_color",
-    "$hover_checked_glyph_color|default": "$light_glyph_toggle_checked_hover_color",
-
-    "$checked_image|default": "common.empty_panel",
-    "$unchecked_image|default": "common.empty_panel",
-    "$default_border_visible|default": false,
-    "$hover_border_visible|default": false,
-    "$default_border_color": "$light_border_toggle_default_color",
-    "$hover_border_color": "$light_border_toggle_hover_color",
-    "$locked_alpha": 1,
-
-    "$toggle_unchecked|default": false,
-    "$toggle_unchecked_hover|default": false,
-    "$toggle_checked|default": false,
-    "$toggle_checked_hover|default": false,
-
-    "$default_state|default": false,
-    "$hover_state|default": false,
-    "$pressed_state|default": false,
-    "$locked_state|default": false,
-
-
-    "$button_image_size": [ "100%", "100%" ],
-    "$button_type_panel": "button_content_preset.facelift_toggle_content_panel",
-    "$text": "$option_label",
-
-    "$button_text_binding_type|default": "none",
-    "$button_text_grid_collection_name|default": "",
-    "$button_binding_condition|default": "none",
-
-
-    "$enable_directional_toggling": false,
+    "size": [ "100%", "100%c" ],
 
     "$binding_type": "global",
     "$binding_condition": "once",
     "$toggle_state_binding_name|default": "$option_binding_name",
     "$toggle_enabled_binding_name|default": "$option_enabled_binding_name",
     "$toggle_enabled_binding_type|default": "global",
-
     "variables": [
       {
         "requires": "(not $option_enabled_binding_name)",
         "$toggle_enabled_binding_name": "#not_data_bound",
         "$toggle_enabled_binding_type": "none"
       }
-    ]
+    ],
+
+    "$enable_directional_toggling": false,
+    "$text": "$option_label"
   },
 
+
+  "facelift_option_dropdown_control_no_scroll@settings_common.option_dropdown_control": {
+    "$option_dropdown_type": "settings_common.facelift_dropdown_no_scrollpanel"
+  },
+
+  "facelift_dropdown_no_scrollpanel@common.dropdown": {
+    "$dropdown_scroll_content_size": [ "100%", "100%c" ],
+    "$dropdown_scroll_content_offset|default": [ 0, 0 ],
+    "$dropdown_content_controls": [
+      {
+        "background@$dropdown_background": {
+          "layer": 1,
+          "size": "$dropdown_scroll_content_size",
+          "offset": "$dropdown_scroll_content_offset",
+          "controls": [
+            {
+              "content@$dropdown_content": {
+                "layer": 1
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
 
   "ore_option_dropdown_control": {
     "type": "panel",
@@ -1225,6 +1220,7 @@
     "bindings": "$label_bindings",
     "locked_alpha": 0.5
   },
+
 
   // Section Toggle
   "ore_section_toggle_base@settings_common.section_toggle_base": {
@@ -1820,7 +1816,7 @@
 
   "right_function_panel": {
     "type": "stack_panel",
-    "size": [ "100%c", "100% - 6px" ],
+    "size": [ "100%c", "100% - 4px" ],
     "offset": [ -4, 0 ],
     "anchor_from": "right_middle",
     "anchor_to": "right_middle",
@@ -1931,6 +1927,7 @@
           "controls": [
             {
               "quick_settings_background_panel": {
+                "ignored": "(not $is_pregame)",
                 "type": "panel",
                 "size": [ "100%", "100%" ],
                 "bindings": [

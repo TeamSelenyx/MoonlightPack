@@ -28,233 +28,131 @@
   },
 
   "quick_setting_section": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%" ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "$spatialPatternsPadding": [ "100%", 8 ],
-    "$paddingLineDivider": [ "100%", 16 ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "quick_setting_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
-    "controls": [
-      {
-        "camera_option_stack_panel": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%" ],
-          "controls": [
-            {
-              "preview_thumbnail_panel": {
-                "type": "panel",
-                "size": [ "100%", "100%" ],
-                "controls": [
-                  {
-                    "first_person@quick_section.camera_function_with_text_base": {
-                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_first_persona",
-                      "$camera_info_text": "quick_section.camera.first_person.info",
-                      "$camera_binding_name": "#thirdperson_radio_first"
-                    }
-                  },
-                  {
-                    "third_person_back@quick_section.camera_function_with_text_base": {
-                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_third_persona_back",
-                      "$camera_info_text": "quick_section.camera.third_person_back.info",
-                      "$camera_binding_name": "#thirdperson_radio_third_back"
-                    }
-                  },
-                  {
-                    "third_person_front@quick_section.camera_function_with_text_base": {
-                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_third_persona_front",
-                      "$camera_info_text": "quick_section.camera.third_person_front.info",
-                      "$camera_binding_name": "#thirdperson_radio_third_front"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "legacy_quick_setting_section": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "$spatialPatternsPadding": [ "100%", 8 ],
-    "$paddingLineDivider": [ "100%", 16 ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "quick_setting_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
-    "controls": [
-      {
-        "camera_title_header@settings_common.title_header": {
-          "$title": "quick_section.camera"
-        }
-      },
-      {
-        "camera_title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
-      },
-      {
-        "camera_option_stack_panel": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-            {
-              "preview_thumbnail_panel": {
-                "type": "panel",
-                "size": [ "100%", "35%x" ],
-                "controls": [
-                  {
-                    "first_person@quick_section.camera_thumbnail_with_text_base": {
-                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_first_persona",
-                      "$camera_info_text": "quick_section.camera.first_person.info",
-                      "$camera_binding_name": "#thirdperson_radio_first"
-                    }
-                  },
-                  {
-                    "third_person_back@quick_section.camera_thumbnail_with_text_base": {
-                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_third_persona_back",
-                      "$camera_info_text": "quick_section.camera.third_person_back.info",
-                      "$camera_binding_name": "#thirdperson_radio_third_back"
-                    }
-                  },
-                  {
-                    "third_person_front@quick_section.camera_thumbnail_with_text_base": {
-                      "$camera_preview_thumbnail_image": "textures/ui/camera/camera_third_persona_front",
-                      "$camera_info_text": "quick_section.camera.third_person_front.info",
-                      "$camera_binding_name": "#thirdperson_radio_third_front"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      { "spacer_00": { "type": "panel", "size": [ "100%", 8 ] } },
-      { "camera@quick_section.camera_options": {} },
-
-      {
-        "touch_controls@quick_section.touch_controls_options": {
-          "visible": "($touch)"
-        }
-      }
-    ]
-  },
-
-
-  // Camera Options
-  "camera_thumbnail_base": {
-    "$camera_binding_name|default": "",
-    "$camera_preview_thumbnail_image|default": "",
-
-    "visible": "($is_global_texture_packs_visible and not $include_world_section and not $include_realm_section)",
     "type": "panel",
     "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
-    "controls": [
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "bindings": [
       {
-        "camera_preview_thumbnail": {
-          "layer": -1,
-          "type": "image",
-          "size": [ "125%", "125%" ],
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "fill": true,
-          "texture": "$camera_preview_thumbnail_image",
-          "color": [ 0.8, 0.8, 0.8 ]
-        }
+        "binding_type": "view",
+        "source_control_name": "quick_setting_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
       }
     ],
-    "bindings": [
-      { "binding_name": "$camera_binding_name" },
+    "controls": [
       {
-        "binding_name": "$camera_binding_name",
-        "binding_name_override": "#visible"
+        "option_stack_panel": {
+          "type": "stack_panel",
+          "size": [ "70%", "100%c" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "controls": [
+            {
+              "camera_select_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "first_person@quick_section.camera_perspective_base": {
+                      "$camera_info_text": "quick_section.camera.first_person.info",
+                      "$camera_binding_name": "#thirdperson_radio_first"
+                    }
+                  },
+                  {
+                    "third_person_back@quick_section.camera_perspective_base": {
+                      "$camera_info_text": "quick_section.camera.third_person_back.info",
+                      "$camera_binding_name": "#thirdperson_radio_third_back"
+                    }
+                  },
+                  {
+                    "third_person_front@quick_section.camera_perspective_base": {
+                      "$camera_info_text": "quick_section.camera.third_person_front.info",
+                      "$camera_binding_name": "#thirdperson_radio_third_front"
+                    }
+                  }
+                ]
+              }
+            },
+            { "void_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+            {
+              "other_options_panel": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%cm" ],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "option_toggle_hidehud@settings_common.facelift_option_toggle": {
+                      "size": [ "50% - 2px", "100%c" ],
+                      "$option_label": "options.hidehud",
+                      "$option_binding_name": "#hide_hud",
+                      "$option_enabled_binding_name": "#hide_hud_enabled",
+                      "$toggle_name": "hide_hud",
+
+                      "$icon_path": "textures/ui/icons/icon_view"
+                    }
+                  },
+                  { "void_padding@common.empty_panel": { "size": [ 4, 0 ] } },
+                  {
+                    "option_toggle_hidehand@settings_common.facelift_option_toggle": {
+                      "size": [ "50% - 2px", "100%c" ],
+                      "$option_label": "options.hidehand",
+                      "$option_binding_name": "#hide_hand",
+                      "$option_enabled_binding_name": "#hide_hand_enabled",
+                      "$toggle_name": "hide_hand",
+
+                      "$icon_path": "textures/ui/profile_glyph"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ]
   },
 
-  "camera_function_with_text_base": {
+  "camera_perspective_base": {
     "$camera_binding_name|default": "",
     "$camera_info_text|default": "",
 
     "type": "panel",
-    "size": [ "100%", "100%" ],
+    "size": [ "100%", "100%c" ],
     "anchor_from": "center",
     "anchor_to": "center",
     "controls": [
       {
-        "camera_function_with_text_panel": {
+        "camera_perspective_background_image": {
           "layer": 12,
           "type": "image",
-          "size": [ "70%", "100%c" ],
-          "offset": [ 0, 2 ],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
+          "size": [ "100%", "100%c" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
           "texture": "textures/ui/hud_tip_text_background",
           "alpha": 0.65,
           "controls": [
             {
-              "function_panel": {
+              "perspective_panel": {
                 "layer": 12,
-                "type": "stack_panel",
+                "type": "panel",
                 "size": [ "100% - 8px", "100%c + 8px" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "controls": [
                   {
-                    "camera_perspective_options_panel": {
-                      "layer": 12,
-                      "type": "panel",
-                      "size": [ "100%", "100%c + 8px" ],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "controls": [
-                        {
-                          "perspective@quick_section.perspective_options": {
-                            "size": [ "100% - 4px", "100%c + 4px" ],
-                            "anchor_from": "center",
-                            "anchor_to": "center"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "camera_info_text_panel": {
-                      "layer": 12,
-                      "type": "panel",
-                      "size": [ "100%", "100%c + 6px" ],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "controls": [
-                        {
-                          "info_text": {
-                            "layer": 14,
-                            "type": "label",
-                            "size": [ "100%", "default" ],
-                            "max_size": [ "100%", "default" ],
-                            "text": "$camera_info_text",
-                            "text_alignment": "center",
-                            "shadow": true
-                          }
-                        }
-                      ]
+                    "perspective_dropdown@settings_common.ore_upgrade_option_dropdown": {
+                      "ignored": "($is_holographic and $is_reality_mode)",
+                      "$option_dropdown_size": [ "100%", 22 ],
+                      "$option_label": "options.thirdperson",
+                      "$dropdown_content": "quick_section.third_person_upgrade_dropdown_content",
+                      "$dropdown_area": "content_area",
+                      "$dropdown_name": "third_person_dropdown",
+                      "$option_enabled_binding_name": "#third_person_dropdown_enabled",
+                      "$options_dropdown_toggle_label_binding": "#third_person_dropdown_toggle_label",
+                      "$dropdown_scroll_content_size": [ "100%", "200%" ]
                     }
                   }
                 ]
@@ -292,503 +190,34 @@
     ]
   },
 
+  "camera_thumbnail_base": {
+    "$camera_binding_name|default": "",
+    "$camera_preview_thumbnail_image|default": "",
 
-  // Options
-  "perspective_options": {
+    "visible": "($is_global_texture_packs_visible and not $include_world_section and not $include_realm_section)",
     "type": "panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
     "controls": [
       {
-        "perspective_dropdown@settings_common.ore_upgrade_option_dropdown": {
-          "$option_dropdown_size": [ "100%", 22 ],
-          "$option_label": "options.thirdperson",
-          "ignored": "($is_holographic and $is_reality_mode)",
-          "$dropdown_content": "quick_section.third_person_upgrade_dropdown_content",
-          "$dropdown_area": "content_area",
-          "$dropdown_name": "third_person_dropdown",
-          "$option_enabled_binding_name": "#third_person_dropdown_enabled",
-          "$options_dropdown_toggle_label_binding": "#third_person_dropdown_toggle_label",
-          "$dropdown_scroll_content_size": [ "100%", "200%" ]
+        "camera_preview_thumbnail": {
+          "layer": -1,
+          "type": "image",
+          "size": [ "125%", "125%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "fill": true,
+          "texture": "$camera_preview_thumbnail_image",
+          "color": [ 0.8, 0.8, 0.8 ]
         }
       }
-    ]
-  },
-
-  "camera_options": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "controls": [
+    ],
+    "bindings": [
+      { "binding_name": "$camera_binding_name" },
       {
-        "camera_options_00@settings_common.new_options_design_base": {
-          "$options_1": [
-            {
-              "fov_slider@settings_common.ore_option_slider": {
-                "$ignored": "($is_holographic and $is_reality_mode and not $is_pregame)",
-                "$option_label": "#field_of_view_slider_label",
-                "$slider_tts_text_value": "#field_of_view_text_value",
-                "$slider_name": "field_of_view",
-                "$slider_value_binding_name": "#field_of_view",
-                "$option_enabled_binding_name": "#field_of_view_enabled",
-                "$label_bindings": [
-                  {
-                    "binding_name": "$option_label"
-                  }
-                ]
-              }
-            }
-          ],
-          "$options_2": [
-            {
-              "brightness_slider@settings_common.ore_option_slider": {
-                "ignored": "($is_holographic)",
-                "$option_label": "#gamma_slider_label",
-                "$slider_name": "gamma",
-                "$slider_value_binding_name": "#gamma",
-                "$slider_tts_text_value": "#gamma_text_value",
-                "$option_enabled_binding_name": "#gamma_enabled",
-                "$focus_override_up": "FOCUS_OVERRIDE_STOP",
-                "$label_bindings": [
-                  {
-                    "binding_name": "$option_label"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "camera_options_01@settings_common.new_options_design_base": {
-          "$options_1": [
-            {
-              "option_toggle_hidehud@settings_common.ore_option_toggle": {
-                "$option_label": "options.hidehud",
-                "$option_binding_name": "#hide_hud",
-                "$option_enabled_binding_name": "#hide_hud_enabled",
-                "$toggle_name": "hide_hud"
-              }
-            }
-          ],
-          "$options_2": [
-            {
-              "option_toggle_hidehand@settings_common.ore_option_toggle": {
-                "ignored": "($is_holographic)",
-                "$option_label": "options.hidehand",
-                "$option_binding_name": "#hide_hand",
-                "$option_enabled_binding_name": "#hide_hand_enabled",
-                "$toggle_name": "hide_hand"
-              }
-            },
-            {
-              "option_toggle_vrhidehand@settings_common.ore_option_toggle": {
-                "ignored": "(not $is_holographic)",
-                "$option_label": "options.vrHideHand",
-                "$option_binding_name": "#vr_hide_hand",
-                "$option_enabled_binding_name": "#vr_hide_hand_enabled",
-                "$toggle_name": "vr_hide_hand"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "camera_options_02@settings_common.new_options_design_base": {
-          "$options_1": [
-            {
-              "camera_shake_toggle@settings_common.ore_option_toggle": {
-                "ignored": "($is_holographic and $is_reality_mode and not $is_pregame)",
-                "$option_label": "options.screenShake",
-                "$option_binding_name": "#camera_shake",
-                "$option_enabled_binding_name": "#camera_shake_enabled",
-                "$toggle_name": "camera_shake"
-              }
-            }
-          ],
-          "$options_2": [
-            {
-              "view_bobbing_toggle@settings_common.ore_option_toggle": {
-                "ignored": "($is_holographic and $is_reality_mode and not $is_pregame)",
-                "$option_label": "options.viewBobbing",
-                "$option_binding_name": "#view_bobbing",
-                "$option_enabled_binding_name": "#view_bobbing_enabled",
-                "$toggle_name": "view_bobbing"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "touch_controls_options": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "controls": [
-      {
-        "touch_controls_light_line@settings_common.light_line_panel": {}
-      },
-      {
-        "touch_controls_stack_panel": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-			{
-			  "contorl_title_header@settings_common.title_header": {
-                "$title": "controls_section.contorl_title"
-			  }
-		    },
-		    {
-			  "control_title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
-		    },
-            {
-              "control_scheme_section": {
-                "type": "stack_panel",
-                "size": [ "100%", "100%c" ],
-                "controls": [
-                  {
-                    "section_label": {
-                      "type": "label",
-                      "color": "$body_text_color",
-                      "text": "options.controlMode.title"
-                    }
-                  },
-                  { "padding_0@common.empty_panel": { "size": [ 0, "5px" ] } },
-                  {
-                    "image_and_button": {
-                      "type": "stack_panel",
-                      "size": [ "100%", "100%cm" ],
-                      "orientation": "horizontal",
-                      "controls": [
-                        {
-                          "images": {
-                            "type": "panel",
-                            "size": [ "59%", "50%x" ],
-                            "controls": [
-                              {
-                                "touch_image": {
-                                  "type": "image",
-                                  "texture": "textures/ui/thumbnail_touch",
-                                  "bindings": [
-                                    {
-                                      "binding_name": "#touch_selected",
-                                      "binding_name_override": "#visible"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "crosshair_image": {
-                                  "type": "image",
-                                  "texture": "textures/ui/thumbnail_crosshair",
-                                  "bindings": [
-                                    {
-                                      "binding_name": "#crosshair_selected",
-                                      "binding_name_override": "#visible"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "classic_image": {
-                                  "type": "image",
-                                  "texture": "textures/ui/thumbnail_classic",
-                                  "bindings": [
-                                    {
-                                      "binding_name": "#classic_selected",
-                                      "binding_name_override": "#visible"
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        { "padding@common.empty_panel": { "size": [ "1%", "1px" ] } },
-                        {
-                          "scheme_button_section": {
-                            "type": "panel",
-                            "size": [ "40%", "100%sm" ],
-                            "controls": [
-                              {
-                                "caption": {
-                                  "type": "stack_panel",
-                                  "size": [ "100%", "100%c" ],
-                                  "anchor_to": "top_middle",
-                                  "anchor_from": "top_middle",
-                                  "controls": [
-                                    {
-                                      "selected_label": {
-                                        "type": "label",
-                                        "font_scale_factor": 1.2,
-                                        "color": "$body_text_color",
-                                        "text": "options.controlMode.Selected"
-                                      }
-                                    },
-                                    {
-                                      "selected_control": {
-                                        "type": "label",
-                                        "font_scale_factor": 1.0,
-                                        "size": [ "100%", "default" ],
-                                        "color": [ 0.7, 0.7, 0.7 ],
-                                        "text": "#selected_control_scheme",
-                                        "bindings": [
-                                          {
-                                            "binding_name": "#selected_control_scheme_name",
-                                            "binding_name_override": "#selected_control_scheme"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "control_panel": {
-                                  "type": "stack_panel",
-                                  "size": [ "100%", "100%c" ],
-                                  "anchor_to": "bottom_middle",
-                                  "anchor_from": "bottom_middle",
-                                  "controls": [
-                                    {
-                                      "select_control_mode@settings_common.ore_action_button": {
-                                        "$pressed_button_name": "button.select_control_mode",
-                                        "$button_text": "options.controlMode.selectControlMode",
-                                        "size": [ "100%", 24 ],
-                                        "anchor_to": "bottom_middle",
-                                        "anchor_from": "bottom_middle"
-                                      }
-                                    },
-                                    {
-                                      "modify_control_layout_section": {
-                                        "type": "stack_panel",
-                                        "size": [ "100%", 24 ],
-                                        "controls": [
-                                          {
-                                            "modify_control_layout_button@settings_common.ore_action_button": {
-                                              "$pressed_button_name": "button.modify_control_layout",
-                                              "$button_text": "hudScreen.controlCustomization.customiseControls",
-                                              "$focus_override_down": "FOCUS_OVERRIDE_STOP",
-                                              "size": [ "100%", "100%" ],
-                                              "bindings": [
-                                                {
-                                                  "binding_name": "#modify_layout_enabled",
-                                                  "binding_name_override": "#enabled"
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          {
-                                            "customize_tooltip_option@controls_section.customize_tooltip_option": {
-                                              "bindings": [
-                                                {
-                                                  "binding_name": "(not #modify_layout_enabled)",
-                                                  "binding_name_override": "#visible"
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        ],
-                                        "bindings": [
-                                          {
-                                            "binding_name": "#resizable_ui_active",
-                                            "binding_name_override": "#visible",
-                                            "binding_type": "global"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-		    { "resizable_ui_void@common.empty_panel": { "size": [ 0, 4 ] } },
-            {
-              "option_resizable_ui@settings_common.ore_option_toggle": {
-                "$option_label": "options.resizableUI",
-                "$option_binding_name": "#resizable_ui",
-                "$option_enabled_binding_name": "#resizable_ui_enabled",
-                "$toggle_name": "resizable_ui"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "rtx_options": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "controls": [
-      {
-        "light_line@settings_common.light_line_panel": {}
-      },
-      {
-        "title_header@settings_common.title_header": {
-          "$title": "graphics_section.rtx"
-        }
-      },
-      {
-        "title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
-      },
-      {
-        "upscaling_raytracing_options@settings_common.new_options_design_base": {
-          "$options_1": [
-            {
-              "raytracing_toggle@settings_common.ore_option_toggle": {
-                "ignored": "($is_holographic or $new_video_settings)",
-                "$option_label": "options.raytracing",
-                "$option_binding_name": "#raytracing",
-                "$option_enabled_binding_name": "#raytracing_enabled",
-                "$toggle_name": "raytracing",
-                "controls": [
-                  { "rtx_disabled_option_upsell@general_section.rtx_disabled_option_upsell": {} },
-                  { "option_generic_core@settings_common.option_generic_core": {} }
-                ]
-              }
-            },
-            {
-              "raytracing_render_distance_slider@settings_common.ore_option_slider": {
-                "ignored": "($is_holographic)",
-                "$option_label": "#raytracing_render_distance_slider_label",
-                "$slider_name": "raytracing_render_distance",
-                "$slider_value_binding_name": "#raytracing_render_distance",
-                "$slider_tts_text_value": "#raytracing_render_distance_text_value",
-                "$option_enabled_binding_name": "#raytracing_render_distance_enabled",
-                "$slider_steps_binding_name": "#raytracing_render_distance_steps",
-                "$label_bindings": [
-                  {
-                    "binding_name": "$option_label"
-                  }
-                ],
-                "controls": [
-                  { "rtx_render_distance_warning@general_section.rtx_render_distance_warning": {} },
-                  { "option_generic_core@settings_common.option_generic_core": {} }
-                ],
-                "bindings": [
-                  {
-                    "binding_name": "#show_raytracing_render_distance",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
-          ],
-          "$options_2": [
-            {
-              "upscaling_toggle@graphics_section.upscaling_toggle": {
-                "ignored": "$new_video_settings"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "render_dragon_options": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "controls": [
-      {
-        "light_line@settings_common.light_line_panel": {}
-      },
-      {
-        "title_header@settings_common.title_header": {
-          "$title": "graphics_section.render_dragon"
-        }
-      },
-      {
-        "title_void_panel@common.empty_panel": { "size": [ 0, 4 ] }
-      },
-      {
-        "info_text@settings_common.icon_with_text_border_base": {
-          "layer": 5,
-          "$border_color": [ 0.3, 0.3, 0.3 ],
-          "$border_icon": "textures/ui/render_dragon",
-          "$border_text": "graphics_section.render_dragon.info"
-        }
-      },
-      { "info_text_void@common.empty_panel": { "size": [ 0, 4 ] } },
-      {
-        "deferred_render_distance_slider@settings_common.ore_option_slider": {
-          "ignored": "($is_holographic)",
-          "$option_label": "#deferred_render_distance_slider_label",
-          "$slider_name": "deferred_render_distance",
-          "$slider_value_binding_name": "#deferred_render_distance",
-          "$slider_tts_text_value": "#deferred_render_distance_text_value",
-          "$option_enabled_binding_name": "#deferred_render_distance_enabled",
-          "$slider_steps_binding_name": "#deferred_render_distance_steps",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ],
-          "controls": [
-            { "option_generic_core@settings_common.option_generic_core": {} }
-          ],
-          "bindings": [
-            {
-              "binding_name": "#show_deferred_render_distance",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "advanced_graphics_options_panel": {
-          "type": "stack_panel",
-          "orientation": "vertical",
-          "size": [ "100%", "100%c + 4px" ],
-          "controls": [
-            {
-              "graphics_mode@settings_common.ore_upgrade_option_dropdown": {
-                "$option_label": "options.graphicsMode",
-                "$dropdown_content": "graphics_section.graphics_mode_upgrade_dropdown_content",
-                "$dropdown_area": "content_area",
-                "$dropdown_name": "graphics_mode_dropdown",
-                "$option_enabled_binding_name": "#graphics_mode_dropdown_enabled",
-                "$options_dropdown_toggle_label_binding": "#graphics_mode_dropdown_toggle_label",
-                "$dropdown_scroll_content_size": [ "100%", "255%" ]
-              }
-            },
-            {
-              "advanced_graphics_options_button@settings_common.ore_action_button": {
-                "size": [ "100%", 20 ],
-                "$button_content": "general_section.advanced_graphics_options_button_content",
-                "$pressed_button_name": "button.expand_advanced_graphics"
-              }
-            },
-            {
-              "advanced_graphics_options_section@graphics_section.advanced_graphics_options_section": {
-                "bindings": [
-                  {
-                    "binding_name": "#advanced_graphics_options_grid_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
-          ]
-        }
+        "binding_name": "$camera_binding_name",
+        "binding_name_override": "#visible"
       }
     ]
   },

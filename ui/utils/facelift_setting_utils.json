@@ -45,7 +45,7 @@
     "$show_background": false,
     "$scrolling_pane_size": [ "100% - 4px", "100% - 4px" ],
     "$scrolling_pane_offset": [ 2, 2 ],
-    "$scroll_size": [ 5, "100% - 4px" ],
+    "$scroll_size": [ 4, "100% - 4px" ],
     "$scroll_bar_right_padding_size": [ 0, 0 ]
   },
 
@@ -136,8 +136,8 @@
                       "$scrolling_content": "$section_content",
                       "$scrolling_pane_size": "$section_scrolling_pane_size",
                       "$scrolling_pane_offset": "$section_scrolling_pane_offset",
-                      "$scroll_bar_left_padding_size": [ 0, 0 ],
-                      "$scroll_bar_right_padding_size": [ 0, 0 ]
+                      "$scroll_size": [ 4, "100% - 4px" ],
+                      "$scroll_bar_right_padding_size": [ 1, 0 ]
                     }
                   }
                 ]

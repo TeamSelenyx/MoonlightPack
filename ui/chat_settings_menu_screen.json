@@ -411,7 +411,7 @@
     "$modal_contents": "chat_settings.chat_setting_scrolling_panel",
     "$screen_background_alpha": 0.4,
     "$dialog_background_texture": "textures/ui/control_gray",
-    "$fill_alpha": 1.0,
+    "$fill_alpha": 0.4,
     "$modal_contents_padding": [ 8, 6 ]
   }
 }

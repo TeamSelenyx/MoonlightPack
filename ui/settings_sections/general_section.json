@@ -22,121 +22,128 @@
         "target_property_name": "#visible"
       }
     ],
+    "$compact_mode": true,
+    "$show_content_background": false,
     "$section_content": "general_section.etc_section"
   },
 
   "etc_section": {
     "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "etc_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
+    "size": [ "100%", "100%cm" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "orientation": "horizontal",
     "$spatialPatternsPadding": [ "100%", 8 ],
     "$paddingLineDivider": [ "100%", 16 ],
     "controls": [
       {
-        "etc_title_header@settings_common.title_header": {
-          "$title": "general_section.etc"
-        }
-      },
-      {
-        "title_header_void@common.empty_panel": { "size": [ 0, 4 ] }
-      },
-      {
-        "mobile_data_option_toggle@settings_common.ore_option_toggle": {
-          "enabled": "(not ($is_console or $win10_edition or $osx_edition))",
-          "$option_label": "options.allowCellularData",
-          "$option_binding_name": "#allow_cellular_data",
-          "$option_enabled_binding_name": "#allow_cellular_data_enabled",
-          "$toggle_name": "allow_cellular_data",
-          "$has_option_description": true,
-          "$option_description": "options.allowCellularData.message"
-        }
-      },
-
-      {
-        "paddingFilterProfanity": {
-          "ignored": "(not $supports_profanity_filtering or $disable_toggle_filter_profanity)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-      {
-        "filter_profanity_toggle@settings_common.ore_option_toggle": {
-          "ignored": "(not $supports_profanity_filtering or $disable_toggle_filter_profanity)",
-          "$option_label": "options.filterProfanity",
-          "$option_binding_name": "#filter_profanity",
-          "$option_enabled_binding_name": "#filter_profanity_enabled",
-          "$toggle_name": "filter_profanity",
-          "layer": 1,
+        "left_stack_panel@common.vertical_stack_panel": {
+          "size": [ "fill", "100%c" ],
           "controls": [
-            { "filter_profanity_option@general_section.filter_profanity_option": {} },
-            { "option_generic_core@settings_common.option_generic_core": {} }
-          ]
-        }
-      },
-
-      {
-        "paddingWebsocket": { "type": "panel", "size": "$spatialPatternsPadding" }
-      },
-      {
-        "websockets_enabled_toggle@settings_common.ore_option_toggle": {
-          "ignored": "($console_edition)",
-          "$option_label": "options.websocketsEnabled",
-          "$option_binding_name": "#websockets_enabled",
-          "$option_enabled_binding_name": "#websockets_enabled_enabled",
-          "$toggle_name": "websockets_enabled"
-        }
-      },
-      {
-        "websocket_encryption_toggle@settings_common.ore_option_toggle": {
-          "ignored": "($console_edition)",
-          "$option_label": "options.websocketEncryption",
-          "$option_binding_name": "#websocket_encryption",
-          "$option_enabled_binding_name": "#websocket_encryption_enabled",
-          "$toggle_name": "websocket_encryption",
-          "bindings": [
             {
-              "binding_name": "#websocket_encryption_visible",
-              "binding_name_override": "#visible"
+              "mobile_data_option_toggle@settings_common.facelift_option_toggle": {
+                "enabled": "(not ($is_console or $win10_edition or $osx_edition))",
+                "$option_label": "options.allowCellularData",
+                "$option_binding_name": "#allow_cellular_data",
+                "$option_enabled_binding_name": "#allow_cellular_data_enabled",
+                "$toggle_name": "allow_cellular_data",
+                "$has_option_description": true,
+                "$option_description": "options.allowCellularData.message",
+
+                "$icon_path": "textures/ui/mobile_data_icon_ios"
+              }
+            },
+            { "00_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+            {
+              "ecomode_enabled_toggle@settings_common.facelift_option_toggle": {
+                "$option_label": "options.enableEcoMode",
+                "$option_binding_name": "#ecomode_toggle",
+                "$option_enabled_binding_name": "#ecomode_toggle_enabled",
+                "$toggle_name": "ecomode_toggle",
+
+                "$icon_path": "textures/ui/controller_glyph"
+              }
+            },
+            { "01_padding@common.empty_panel": { "ignored": "(not $supports_profanity_filtering or $disable_toggle_filter_profanity)", "size": [ 0, 4 ] } },
+            {
+              "filter_profanity_toggle@settings_common.facelift_option_toggle": {
+                "ignored": "(not $supports_profanity_filtering or $disable_toggle_filter_profanity)",
+                "$option_label": "options.filterProfanity",
+                "$option_binding_name": "#filter_profanity",
+                "$option_enabled_binding_name": "#filter_profanity_enabled",
+                "$toggle_name": "filter_profanity",
+                "$option_tooltip_visible": true,
+                "$option_tooltip_controls": [
+                  { "filter_profanity_option@general_section.facelift_filter_profanity_option": {} }
+                ],
+
+                "$icon_path": "textures/ui/mute_on"
+              }
+            },
+            { "02_padding@common.empty_panel": { "ignored": "(not $supports_cross_platform_play_toggle)", "size": [ 0, 4 ] } },
+            {
+              "cross_platform_enabled_toggle@settings_common.facelift_option_toggle": {
+                "ignored": "(not $supports_cross_platform_play_toggle)",
+                "$option_label": "options.crossPlatformPlay",
+                "$option_binding_name": "#crossplatform_toggle",
+                "$option_enabled_binding_name": "#crossplatform_toggle_enabled",
+                "$toggle_name": "crossplatform_toggle",
+
+                "$icon_path": "textures/ui/profile_glyph"
+              }
             }
           ]
         }
       },
+      { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+      {
+        "right_stack_panel@common.vertical_stack_panel": {
+          "size": [ "fill", "100%c" ],
+          "controls": [
+            {
+              "pause_toggle@settings_common.facelift_option_toggle": {
+                "$option_label": "options.pauseHint",
+                "$option_binding_name": "#pause_option_toggle",
+                "$toggle_name": "pause_option_toggle",
+                "bindings": [
+                  {
+                    "binding_name": "#pause_toggle_enabled",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
 
-      {
-        "paddingEcoMode": { "type": "panel", "size": "$spatialPatternsPadding" }
-      },
-      {
-        "ecomode_enabled_toggle@settings_common.ore_option_toggle": {
-          "$option_label": "options.enableEcoMode",
-          "$option_binding_name": "#ecomode_toggle",
-          "$option_enabled_binding_name": "#ecomode_toggle_enabled",
-          "$toggle_name": "ecomode_toggle"
-        }
-      },
+                "$icon_path": "textures/ui/icon_trailer"
+              }
+            },
+            { "00_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+            {
+              "only_allow_trusted_skins_toggle@settings_common.facelift_option_toggle": {
+                "$option_label": "options.onlyTrustedSkinsAllowed",
+                "$option_binding_name": "#only_trusted_skins_allowed",
+                "$option_enabled_binding_name": "#only_trusted_skins_allowed_enabled",
+                "$toggle_name": "only_trusted_skins_allowed",
 
-      {
-        "paddingCrossPlatform": {
-          "ignored": "(not $supports_cross_platform_play_toggle)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-      {
-        "cross_platform_enabled_toggle@settings_common.ore_option_toggle": {
-          "ignored": "(not $supports_cross_platform_play_toggle)",
-          "$option_label": "options.crossPlatformPlay",
-          "$option_binding_name": "#crossplatform_toggle",
-          "$option_enabled_binding_name": "#crossplatform_toggle_enabled",
-          "$toggle_name": "crossplatform_toggle"
+                "$icon_path": "textures/ui/glyph_skin_pack"
+              }
+            },
+            { "01_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+            {
+              "option_toggle_fail_realms_purchase_fulfillment@settings_common.facelift_option_toggle": {
+                "$option_label": "options.failRealmsPurchaseFulfillment",
+                "$option_binding_name": "#fail_realms_purchase_fulfillment",
+                "$option_enabled_binding_name": "#fail_realms_purchase_fulfillment_enabled",
+                "$toggle_name": "fail_realms_purchase_fulfillment",
+                "bindings": [
+                  {
+                    "binding_name": "#fail_realms_purchase_fulfillment_visible",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
+
+                "$icon_path": "textures/ui/icons/icon_world"
+              }
+            }
+          ]
         }
       }
     ]
@@ -180,22 +187,20 @@
     "controls": [
       {
         "selector_area": {
-          "type": "image",
+          "type": "panel",
           "size": [ "35%", "100%" ],
           "anchor_from": "center",
           "anchor_to": "center",
-          "texture": "textures/ui/hud_tip_text_background",
-          "alpha": 0.6,
           "controls": [
             {
               "section_scrolling_panel@common.scrolling_panel": {
-                "size": [ "100% - 4px", "100% - 4px" ],
+                "size": [ "100%", "100%" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "$show_background": false,
                 "$scrolling_content": "general_section.global_texture_pack_category_section",
-                "$scrolling_pane_size": [ "100% - 4px", "100% - 2px" ],
-                "$scrolling_pane_offset": [ 2, 1 ],
+                "$scrolling_pane_size": [ "100%", "100%" ],
+                "$scrolling_pane_offset": [ 0, 0 ],
                 "$scroll_size": [ 5, "100% - 4px" ],
                 "$scroll_bar_right_padding_size": [ 0, 0 ]
               }
@@ -1032,7 +1037,6 @@
   },
 
   "creator_setting_section@facelift_setting_utils.facelift_content_panel_base": {
-    "ignored": "$ignore_creator_section",
     "bindings": [
       {
         "binding_type": "view",
@@ -1041,10 +1045,141 @@
         "target_property_name": "#visible"
       }
     ],
+    "$compact_mode": true,
+    "$show_content_background": false,
     "$section_content": "general_section.creator_section"
   },
 
   "creator_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "$is_editor_ignored|default": false,
+    "variables": [
+      {
+        "requires": "(not $is_desktop or $is_publish)",
+        "$is_editor_ignored": true
+      }
+    ],
+    "controls": [
+      {
+        "content_log_content_panel@facelift_setting_utils.settings_content_background_base": {
+          "ignored": "$education_edition",
+          "$content_background_size": [ "100%", "100%c" ],
+          "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+          "$content_controls": [
+            {
+              "content_log_panel@general_section.content_log_panel": {
+                "ignored": "$education_edition"
+              }
+            }
+          ]
+        }
+      },
+      { "00_padding@common.empty_panel": { "ignored": "$is_editor_ignored", "size": [ 0, 4 ] } },
+      {
+        "editor_content_panel@facelift_setting_utils.settings_content_background_base": {
+          "ignored": "$is_editor_ignored",
+          "$content_background_size": [ "100%", "100%c" ],
+          "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+          "$content_controls": [
+            {
+              "editor_toggle@general_section.editor_toggle_panel": {}
+            }
+          ]
+        }
+      },
+      { "01_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "debugger_content_panel@facelift_setting_utils.settings_content_background_base": {
+          "$content_background_size": [ "100%", "100%c" ],
+          "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+          "$content_controls": [
+            {
+              "debugger_toggles_panel@general_section.debugger_toggles_panel": {}
+            }
+          ]
+        }
+      },
+      { "03_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "diagnostics_content_panel@facelift_setting_utils.settings_content_background_base": {
+          "$content_background_size": [ "100%", "100%c" ],
+          "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+          "$content_controls": [
+            {
+              "diagnostics_toggles_panel@general_section.diagnostics_toggles_panel": {}
+            }
+          ]
+        }
+      },
+      { "04_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "watchdog_content_panel@facelift_setting_utils.settings_content_background_base": {
+          "$content_background_size": [ "100%", "100%c" ],
+          "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+          "$content_controls": [
+            {
+              "watchdog_toggles_panel@general_section.watchdog_toggles_panel": {}
+            }
+          ]
+        }
+      },
+      { "05_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "device_info_content_panel@facelift_setting_utils.settings_content_background_base": {
+          "$content_background_size": [ "100%", "100%c" ],
+          "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+          "$content_controls": [
+            {
+              "device_info_toggles_panel@general_section.device_info_toggles_panel": {}
+            }
+          ]
+        }
+      },
+      { "06_padding@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "left_stack_panel@common.horizontal_stack_panel": {
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "left_stack_panel@common.vertical_stack_panel": {
+                "size": [ "fill", "100%c" ],
+                "controls": [
+                  {
+                    "copy_coordinate_ui_option@settings_common.facelift_option_toggle": {
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "$option_label": "options.copyCoordinateUI",
+                      "$option_binding_name": "#copy_coordinate_ui",
+                      "$toggle_name": "copy_coordinate_ui",
+
+                      "$icon_path": "textures/ui/icons/icon_coordinate"
+                    }
+                  },
+                  { "00_padding@common.empty_panel": { "size": [ 0, 4 ] } }
+                ]
+              }
+            },
+            { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+            {
+              "right_stack_panel@common.vertical_stack_panel": {
+                "size": [ "fill", "100%c" ],
+                "controls": [
+                  { "00_padding@common.empty_panel": { "size": [ 0, 4 ] } }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "legacy_creator_section": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
     "anchor_from": "top_left",
@@ -1840,6 +1975,8 @@
           "$slider_value_binding_name": "#darkness",
           "$slider_tts_text_value": "#darkness_text_value",
           "$option_enabled_binding_name": "#darkness_enabled",
+          "$has_option_description": true,
+          "$option_description": "options.darknessEffectModifier.message",
           "$label_bindings": [
             {
               "binding_name": "$option_label"
@@ -1847,18 +1984,10 @@
           ]
         }
       },
-      {
-        "darkness_slider_label_spacer_pre@common.empty_panel": { "size": [ 0, 2 ] }
-      },
-      {
-        "darkness_slider_label_wrapper@common.tts_label_focus_wrapper": {
-          "$tts_label_panel": "general_section.darkness_slider_label"
-        }
-      },
-      {
-        "darkness_slider_label_spacer_post@common.empty_panel": { "size": "$spatialPatternsPadding" }
-      },
 
+      {
+        "glint_strength_options_spacer_post@common.empty_panel": { "size": "$spatialPatternsPadding" }
+      },
       {
         "glint_strength_options_panel": {
           "type": "stack_panel",
@@ -1871,26 +2000,20 @@
                 "$slider_value_binding_name": "#glint_strength",
                 "$slider_tts_text_value": "#glint_strength_text_value",
                 "$option_enabled_binding_name": "#glint_strength_enabled",
+                "$has_option_description": true,
+                "$option_description": "options.glintStrength.message",
                 "$label_bindings": [
                   {
                     "binding_name": "$option_label"
                   }
                 ]
               }
-            },
-            {
-              "glint_strength_slider_label_spacer_pre@common.empty_panel": { "size": [ 0, 2 ] }
-            },
-            {
-              "glint_strength_slider_label_wrapper@common.tts_label_focus_wrapper": {
-                "$tts_label_panel": "general_section.glint_strength_slider_label"
-              }
             }
           ]
         }
       },
       {
-        "glint_options_spacer_post@common.empty_panel": { "size": "$spatialPatternsPadding" }
+        "glint_speed_options_spacer_post@common.empty_panel": { "size": "$spatialPatternsPadding" }
       },
       {
         "glint_speed_options_panel": {
@@ -1904,19 +2027,13 @@
                 "$slider_value_binding_name": "#glint_speed",
                 "$slider_tts_text_value": "#glint_speed_text_value",
                 "$option_enabled_binding_name": "#glint_speed_enabled",
+                "$has_option_description": true,
+                "$option_description": "options.glintSpeed.message",
                 "$label_bindings": [
                   {
                     "binding_name": "$option_label"
                   }
                 ]
-              }
-            },
-            {
-              "glint_speed_slider_label_spacer_pre@common.empty_panel": { "size": [ 0, 2 ] }
-            },
-            {
-              "glint_speed_slider_label_wrapper@common.tts_label_focus_wrapper": {
-                "$tts_label_panel": "general_section.glint_speed_slider_label"
               }
             }
           ]
@@ -1973,15 +2090,36 @@
         }
       },
       {
+        "hud_text_background_opacity_options_spacer_post@common.empty_panel": { "size": "$spatialPatternsPadding" }
+      },
+      {
+        "hud_text_background_opacity_slider@settings_common.ore_option_slider": {
+          "$option_label": "#hud_text_background_opacity_slider_label",
+          "$slider_name": "hud_text_background_opacity",
+          "$slider_value_binding_name": "#hud_text_background_opacity",
+          "$slider_tts_text_value": "#hud_text_background_opacity_text_value",
+          "$option_enabled_binding_name": "#hud_text_background_opacity_enabled",
+          "$has_option_description": true,
+          "$option_description": "options.hudTextBackgroundOpacity.description",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
         "text_background_opacity_options_spacer_post@common.empty_panel": { "size": "$spatialPatternsPadding" }
       },
       {
-        "text_background_opacity_slider@settings_common.ore_option_slider": {
-          "$option_label": "#text_background_opacity_slider_label",
-          "$slider_name": "text_background_opacity",
-          "$slider_value_binding_name": "#text_background_opacity",
-          "$slider_tts_text_value": "#text_background_opacity_text_value",
-          "$option_enabled_binding_name": "#text_background_opacity_enabled",
+        "chat_opacity_slider@settings_common.ore_option_slider": {
+          "$option_label": "#chat_background_opacity_slider_label",
+          "$slider_name": "chat_background_opacity",
+          "$slider_value_binding_name": "#chat_background_opacity",
+          "$slider_tts_text_value": "#chat_background_opacity_text_value",
+          "$option_enabled_binding_name": "#chat_background_opacity_enabled",
+          "$has_option_description": true,
+          "$option_description": "options.chatBackgroundOpacity.description",
           "$label_bindings": [
             {
               "binding_name": "$option_label"
@@ -1999,6 +2137,8 @@
           "$slider_value_binding_name": "#actionbar_text_background_opacity",
           "$slider_tts_text_value": "#actionbar_text_background_opacity_text_value",
           "$option_enabled_binding_name": "#actionbar_text_background_opacity_enabled",
+          "$has_option_description": true,
+          "$option_description": "options.actionBarTextBackgroundOpacity.description",
           "$label_bindings": [
             {
               "binding_name": "$option_label"
@@ -2706,6 +2846,62 @@
       {
         "automation_section@general_section.automation_section": { "ignored": "($test_infrastructure_disabled)", "visible": false }
       }
+    ]
+  },
+
+
+  // Filter Profanity Tooltip
+  "facelift_filter_profanity_image": {
+    "type": "image",
+    "size": [ 10, 14 ],
+    "texture": "textures/ui/infobulb"
+  },
+
+  "facelift_filter_profanity_option_popup@common.static_tooltip_popup_with_image_and_text": {
+    "size": [ "100% - 4px", "100%cm + 8px" ],
+    "anchor_from": "top_middle",
+    "anchor_to": "bottom_middle",
+    "$tooltip_panel_offset": [ 0, -10 ],
+    "$tooltip_popup_image": "textures/ui/infobulb",
+    "$tooltip_button_binding_type": "global",
+    "$tooltip_button_collection_name": "",
+    "$tooltip_popup_visible_binding|default": "#filter_profanity_option_tooltip_visible",
+    "$tooltip_text_binding_name": "#filter_profanity_option_tooltip_text",
+    "$tooltip_chevron_anchor": "bottom_right",
+    "$tooltip_popup_chevron_offset": [ "-30%x", "100%y - 3px" ]
+  },
+
+  "facelift_filter_profanity_option": {
+    "type": "panel",
+    "size": [ "100%", 0 ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "controls": [
+      {
+        "filter_profanity@general_section.facelift_filter_profanity_image": {
+          "layer": 15,
+          "offset": [ -12.5, 0 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "controls": [
+            {
+              "hover_detection_input_panel": {
+                "type": "input_panel",
+                "consume_hover_events": false,
+                "focus_enabled": true,
+                "tts_skip_message": true,
+                "button_mappings": [
+                  {
+                    "to_button_id": "button.filter_profanity_option_is_hovered",
+                    "mapping_type": "pressed"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "filter_profanity_option_popup@general_section.facelift_filter_profanity_option_popup": {} }
     ]
   },
 

@@ -23,17 +23,15 @@
           "controls": [
             {
               "sidebar_panel": {
-                "type": "image",
+                "type": "panel",
                 "size": [ "32.5%", "100%" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "texture": "textures/ui/hud_tip_text_background",
-                "alpha": 0.6,
                 "controls": [
                   {
                     "sidebar@facelift_setting_utils.facelift_content_panel_base": {
                       "$show_content_background": false,
-                      "$section_panel_size": [ "100% - 8px", "100% - 8px" ],
+                      "$section_panel_size": [ "100%", "100%" ],
                       "$section_content": "storage_management.storage_sidebar_panel"
                     }
                   }
@@ -94,20 +92,30 @@
           "anchor_to": "top_middle",
           "controls": [
             {
-              "file_storage_dropdown@settings_common.ore_option_dropdown": {
+              "file_storage_dropdown_panel@facelift_setting_utils.settings_content_background_base": {
                 "ignored": "($is_holographic and $is_reality_mode)",
                 "visible": "(not $gear_vr)",
-                "$option_label": "options.filelocation.title",
-                "enabled": "$storage_location_switch_enabled",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "$option_dropdown_size": [ "100%", 28 ],
-                "$dropdown_content": "storage_management.file_storage_location_ore_dropdown_content",
-                "$dropdown_area": "content_area",
-                "$dropdown_name": "file_storage_location",
-                "$option_enabled_binding_name": "#file_storage_location_enabled",
-                "$options_dropdown_toggle_label_binding": "#file_storage_location_toggle_label",
-                "$dropdown_scroll_content_size": [ "100%", "200%" ]
+                "$content_background_size": [ "100%", "100%c" ],
+                "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
+                "$content_controls": [
+                  {
+                    "file_storage_dropdown@settings_common.ore_option_dropdown": {
+                      "ignored": "($is_holographic and $is_reality_mode)",
+                      "visible": "(not $gear_vr)",
+                      "$option_label": "options.filelocation.title",
+                      "enabled": "$storage_location_switch_enabled",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$option_dropdown_size": [ "100%", 28 ],
+                      "$dropdown_content": "storage_management.file_storage_location_ore_dropdown_content",
+                      "$dropdown_area": "content_area",
+                      "$dropdown_name": "file_storage_location",
+                      "$option_enabled_binding_name": "#file_storage_location_enabled",
+                      "$options_dropdown_toggle_label_binding": "#file_storage_location_toggle_label",
+                      "$dropdown_scroll_content_size": [ "100%", "200%" ]
+                    }
+                  }
+                ]
               }
             },
             { "storage_management_function_light_line@settings_common.light_line_panel": {} },
@@ -120,7 +128,7 @@
                 "$clear_cache_button_text|default": "#none",
                 "controls": [
                   {
-                    "button@settings_common.flat_action_button": {
+                    "button@settings_common.facelift_action_button": {
                       "size": [ "100%", 26 ],
                       "anchor_from": "center",
                       "anchor_to": "center",
@@ -146,7 +154,7 @@
                 "$clear_download_button_text|default": "#none",
                 "controls": [
                   {
-                    "clear_download_button@settings_common.flat_action_button": {
+                    "clear_download_button@settings_common.facelift_action_button": {
                       "size": [ "100%", 26 ],
                       "$pressed_button_name": "dev_clear_download_cache_button",
                       "$text": "options.dev_clearDownloadeCache",
@@ -177,7 +185,7 @@
                 "$delete_local_screenshots_button_text|default": "#none",
                 "controls": [
                   {
-                    "button@settings_common.flat_action_button": {
+                    "button@settings_common.facelift_action_button": {
                       "size": [ "100%", 26 ],
                       "anchor_from": "center",
                       "anchor_to": "center",
@@ -217,7 +225,7 @@
                 "$clear_screenshots_cache_button_text|default": "#none",
                 "controls": [
                   {
-                    "button@settings_common.flat_action_button": {
+                    "button@settings_common.facelift_action_button": {
                       "size": [ "100%", 26 ],
                       "anchor_from": "center",
                       "anchor_to": "center",
