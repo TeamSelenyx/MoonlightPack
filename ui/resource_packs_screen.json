@@ -1,7 +1,14 @@
 {
   "namespace": "resource_packs",
 
-  "resource_packs_content_category_toggle@button_preset.facelift_toggle_base": {},
+  "resource_packs_content_category_toggle@button_preset.facelift_toggle_base": {
+    "size": [ "fill", 28 ],
+
+    "$radio_toggle_group": true,
+    "$toggle_name": "resource_pack_category",
+    "$default_selector_toggle_index|default": 0,
+    "$toggle_group_default_selected": "$default_selector_toggle_index"
+  },
 
   "old_resource_packs_content_category_toggle@common_toggles.dark_content_toggle": {
     "$button_image_size": [ "100%", "100%" ],
@@ -16,55 +23,55 @@
   },
 
   "selected_packs_title_category_toggle@resource_packs.resource_packs_content_category_toggle": {
-    "size": [ "fill", 28 ],
     "$button_content": "resource_packs.selected_packs_title_category_content",
 
-    "$radio_toggle_group": true,
-    "$toggle_name": "resource_pack_category",
-    "$default_selector_toggle_index|default": 0,
-    "$toggle_group_default_selected": "$default_selector_toggle_index",
-
     "$toggle_group_forced_index": 0,
-    "$toggle_view_binding_name": "selected_packs_visible"
+    "$toggle_view_binding_name": "selected_packs_visible",
+
+    "$default_texture": "textures/ui/facelift/facelift_button_top",
+    "$hover_texture": "textures/ui/facelift/facelift_button_top",
+    "$pressed_texture": "textures/ui/facelift/facelift_button_top",
+    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_top",
+    "$locked_texture": "textures/ui/facelift/facelift_button_top"
   },
 
   "available_packs_title_category_toggle@resource_packs.resource_packs_content_category_toggle": {
-    "size": [ "fill", 28 ],
     "$button_content": "resource_packs.available_packs_title_category_content",
 
-    "$radio_toggle_group": true,
-    "$toggle_name": "resource_pack_category",
-    "$default_selector_toggle_index|default": 0,
-    "$toggle_group_default_selected": "$default_selector_toggle_index",
-
     "$toggle_group_forced_index": 1,
-    "$toggle_view_binding_name": "available_packs_visible"
+    "$toggle_view_binding_name": "available_packs_visible",
+
+    "$default_texture": "textures/ui/facelift/facelift_button_full",
+    "$hover_texture": "textures/ui/facelift/facelift_button_full",
+    "$pressed_texture": "textures/ui/facelift/facelift_button_full",
+    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_full",
+    "$locked_texture": "textures/ui/facelift/facelift_button_full"
   },
 
   "realms_packs_title_category_toggle@resource_packs.resource_packs_content_category_toggle": {
-    "size": [ "fill", 28 ],
     "$button_content": "resource_packs.realms_packs_title_category_content",
 
-    "$radio_toggle_group": true,
-    "$toggle_name": "resource_pack_category",
-    "$default_selector_toggle_index|default": 0,
-    "$toggle_group_default_selected": "$default_selector_toggle_index",
-
     "$toggle_group_forced_index": 2,
-    "$toggle_view_binding_name": "realms_packs_visible"
+    "$toggle_view_binding_name": "realms_packs_visible",
+
+    "$default_texture": "textures/ui/facelift/facelift_button_full",
+    "$hover_texture": "textures/ui/facelift/facelift_button_full",
+    "$pressed_texture": "textures/ui/facelift/facelift_button_full",
+    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_full",
+    "$locked_texture": "textures/ui/facelift/facelift_button_full"
   },
 
   "unowned_packs_title_category_toggle@resource_packs.resource_packs_content_category_toggle": {
-    "size": [ "fill", 28 ],
     "$button_content": "resource_packs.unowned_packs_title_category_content",
 
-    "$radio_toggle_group": true,
-    "$toggle_name": "resource_pack_category",
-    "$default_selector_toggle_index|default": 0,
-    "$toggle_group_default_selected": "$default_selector_toggle_index",
-
     "$toggle_group_forced_index": 3,
-    "$toggle_view_binding_name": "unowned_packs_visible"
+    "$toggle_view_binding_name": "unowned_packs_visible",
+
+    "$default_texture": "textures/ui/facelift/facelift_button_bottom",
+    "$hover_texture": "textures/ui/facelift/facelift_button_bottom",
+    "$pressed_texture": "textures/ui/facelift/facelift_button_bottom",
+    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_bottom",
+    "$locked_texture": "textures/ui/facelift/facelift_button_bottom"
   },
 
 
@@ -312,9 +319,7 @@
                 ]
               }
             },
-            {
-              "void_padding_00@common.empty_panel": { "size": [ 0, 2 ] }
-            },
+            { "available_divider@facelift_setting_utils.content_divider_base": { "$divider_size": [ "75%", 1 ] } },
             {
               "available_packs_title_panel": {
                 "type": "stack_panel",
@@ -362,9 +367,7 @@
                 ]
               }
             },
-            {
-              "void_padding_01@common.empty_panel": { "size": [ 0, 2 ] }
-            },
+            { "realms_divider@facelift_setting_utils.content_divider_base": { "$divider_size": [ "75%", 1 ] } },
             {
               "realms_packs_title_panel": {
                 "type": "stack_panel",
@@ -377,9 +380,7 @@
                 ]
               }
             },
-            {
-              "void_padding_02@common.empty_panel": { "size": [ 0, 2 ] }
-            },
+            { "unowned_divider@facelift_setting_utils.content_divider_base": { "$divider_size": [ "75%", 1 ] } },
             {
               "unowned_packs_title_panel": {
                 "type": "stack_panel",
@@ -395,50 +396,34 @@
           ]
         }
       },
-      { "auto_update_function_light_line@settings_common.light_line_panel": {} },
       {
-        "auto_update_panel@facelift_setting_utils.settings_content_background_base": {
-          "$content_background_size": [ "100%", "100%c" ],
-          "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
-          "$content_controls": [
-            {
-              "auto_update_options_panel": {
-                "type": "stack_panel",
-                "size": [ "100%", "100%cm" ],
-                "controls": [
-                  {
-                    "auto_update_mode_dropdown@settings_common.ore_option_dropdown": {
-                      "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition)",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "$option_label": "options.autoUpdateMode",
-                      "$dropdown_content": "storage_management.auto_update_mode_ore_dropdown_content",
-                      "$dropdown_area": "content_area",
-                      "$dropdown_name": "auto_update_mode_dropdown",
-                      "$options_dropdown_toggle_label_binding": "#auto_update_mode_dropdown_toggle_label",
-                      "$dropdown_scroll_content_size": [ "100%", "200%" ]
-                    }
-                  },
-                  {
-                    "auto_update_enabled_toggle_padding@common.empty_panel": {
-                      "ignored": "((not $is_console and not $is_settopbox and not $win10_edition and not $osx_edition) or $nx_os)",
-                      "size": [ 0, 2 ]
-                    }
-                  },
-                  {
-                    "auto_update_enabled_toggle@settings_common.ore_option_toggle": {
-                      "ignored": "((not $is_console and not $is_settopbox and not $win10_edition and not $osx_edition) or $nx_os)",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "$option_label": "options.autoUpdateEnabled",
-                      "$option_binding_name": "#auto_update_enabled",
-                      "$toggle_name": "auto_update_enabled"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
+        "auto_update_function_padding@common.empty_panel": {
+          "size": [ 0, 4 ]
+        }
+      },
+      {
+        "auto_update_radio_option@settings_common.facelift_option_dropdown": {
+          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition)",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$option_label": "options.autoUpdateMode",
+          "$dropdown_content": "storage_management.auto_update_mode_facelift_dropdown_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "auto_update_mode_dropdown",
+          "$options_dropdown_toggle_label_binding": "#auto_update_mode_dropdown_toggle_label",
+          "$dropdown_scroll_content_size": [ "100%", "200%" ]
+        }
+      },
+      {
+        "auto_update_enabled_toggle@settings_common.facelift_option_toggle": {
+          "ignored": "((not $is_console and not $is_settopbox and not $win10_edition and not $osx_edition) or $nx_os)",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$option_label": "options.autoUpdateEnabled",
+          "$option_binding_name": "#auto_update_enabled",
+          "$toggle_name": "auto_update_enabled",
+
+          "$icon_path": "textures/ui/icons/icon_download"
         }
       }
     ]
@@ -2943,11 +2928,16 @@
   },
 
   "ore_icon_resource_packs_section_toggle_base@common_toggles.dark_text_toggle": {
-    "size": [ "100%", 24 ],
+    "size": [ "100%y", 34 ],
+
+    "$unchecked_locked_control": "button_preset.toggle_locked",
+    "$unchecked_locked_hover_control": "button_preset.toggle_locked",
+    "$checked_locked_control": "button_preset.toggle_checked_locked",
+    "$checked_locked_hover_control": "button_preset.toggle_checked_locked",
 
     "$button_type_panel": "resource_packs.ore_icon_resource_packs_toggle_button_control",
 
-    "$button_image_size": [ "100%", "100%" ],
+    "$button_image_size": [ "100%", "100% + 1px" ],
 
     "$radio_toggle_group": true,
     "$toggle_name": "navigation_tab",
@@ -2965,14 +2955,22 @@
     "$default_border_visible": false,
     "$hover_border_visible": false,
 
-    "$default_text_color": "$f_color_format",
-    "$hover_text_color": "$f_color_format",
-    "$default_checked_text_color": "$f_color_format",
-    "$hover_checked_text_color": "$f_color_format",
+    "$default_texture_alpha": 0.6,
+    "$default_checked_texture_alpha": 0.6,
+    "$hover_texture_alpha": 0.6,
+    "$hover_checked_texture_alpha": 0.6,
+    "$locked_texture_alpha": 0.6,
 
-    "$default_texture": "textures/ui/empty",
-    "$hover_texture": "textures/ui/ore/button_flat_darkpressednohover",
-    "$pressed_texture": "textures/ui/ore/button_flat_darkhover",
-    "$pressed_no_hover_texture": "textures/ui/ore/button_flat_darkpressed"
+    "$default_texture_color": [ 0.0, 0.0, 0.0 ],
+    "$default_checked_texture_color": [ 0.0, 0.0, 0.0 ],
+    "$hover_texture_color": [ 0.4, 0.4, 0.4 ],
+    "$hover_checked_texture_color": [ 0.4, 0.4, 0.4 ],
+    "$locked_texture_color": [ 0.2, 0.2, 0.2 ],
+
+    "$default_texture": "textures/ui/facelift/facelift_button_full",
+    "$hover_texture": "textures/ui/facelift/facelift_button_full",
+    "$pressed_texture": "textures/ui/facelift/facelift_button_full",
+    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_full",
+    "$locked_texture": "textures/ui/facelift/facelift_button_full"
   }
 }

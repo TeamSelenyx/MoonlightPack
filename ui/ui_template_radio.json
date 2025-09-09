@@ -140,6 +140,7 @@
   },
 
   "upgrade_radio_unchecked@common_radios.upgrade_radio_template": {
+    "$default_state": true,
     "$button_texture": "$default_button_texture",
     "$radio_label_color": "$unchecked_radio_label_color",
     "$border_color": "$light_border_default_color",
@@ -148,6 +149,7 @@
   },
 
   "upgrade_radio_checked@common_radios.upgrade_radio_template": {
+    "$default_state": true,
     "$button_texture": "$pressed_no_hover_button_texture",
     "$radio_label_color": "$checked_radio_label_color",
     "$border_color": "$light_border_default_color",
@@ -174,6 +176,7 @@
   },
 
   "upgrade_radio_unchecked_locked@common_radios.upgrade_radio_template": {
+    "$locked_state": true,
     "$button_texture": "$locked_button_texture",
     "$radio_label_color": "$unchecked_locked_radio_label_color",
     "$border_color": "$light_border_locked_color",
@@ -182,6 +185,7 @@
   },
 
   "upgrade_radio_checked_locked@common_radios.upgrade_radio_template": {
+    "$locked_state": true,
     "$button_texture": "$pressed_locked_button_texture",
     "$radio_label_color": "$checked_locked_radio_label_color",
     "$border_color": "$light_border_locked_color",

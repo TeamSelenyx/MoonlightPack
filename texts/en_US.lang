@@ -83,13 +83,13 @@ graphics_section.graphic_and_rendering_title=Graphic & Rendering
 graphics_section.vr=VR
 graphics_section.play=Play
 graphics_section.uiAgui_title=UI & GUI
-graphics_section.splitscreen_title=Splitscreen
+graphics_section.splitscreen=Splitscreen
 
 info_section.info=Info
 info_section.packInfo=Pack Info
 info_section.minecraftInfo=Minecraft Info
 info_section.minecraftInfo.detail=Minecraft Info Detail
-info_section.packNotification=Pack Notification
+info_section.precautions=Precautions
 
 settingScreen.creator.warning_text=If you turn on the content log after applying that resource pack, you might see various error logs.
 
@@ -100,16 +100,19 @@ experimental.export_template=The template feature is experimental and may result
 
 ## Notification
 notification.title=Notification
-notification.title.bug=Bug
-notification.pack_is_developer=Using the development version pack(external leak prohibited)
-notification.pack_is_beta=Using BETA version pack
-notification.pack_is_preview=Using the pre-experience pack
-notification.pack_is_custom=Using custom version
+notification.minecraft_version=Minecraft version compatible
 notification.minecraft_version.no_problem=Using a compatible [ Minecraft Version ]
 notification.minecraft_version.problem=You are using an incompatible [ Minecraft Version ]
-notification.playScreen.disable=The modified design is not applied when [Ore UI] is applied to the play screen
-notification.patch_note=Patch Note
-notification.patch_note.unknow=There are currently no patch notes written
+notification.pack_is_developer=Using the development version pack
+notification.pack_is_developer.lore=This is a resource pack currently in development. External leaks are strictly prohibited.
+notification.pack_is_beta=Using BETA version pack
+notification.pack_is_beta.lore=This is a very unstable resource pack. If you encounter any issues or have any suggestions while using it, please let me know!
+notification.pack_is_preview=Using the pre-experience pack
+notification.pack_is_preview.lore=This is a resource pack for testing before the official release. Please report any bugs you find!
+notification.pack_is_custom=Using custom version
+notification.pack_is_custom.lore=This is a resource pack with additional customization applied to the official version. Conflicts may occur due to incompatibility between functions.
+notification.pack_is_incomplete=Incomplete resource pack
+notification.pack_is_incomplete.lore=This is an unfinished resource pack. It may have many bugs or may not work properly.
 
 
 ## Play Screen

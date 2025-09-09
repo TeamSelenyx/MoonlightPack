@@ -83,13 +83,13 @@ graphics_section.graphic_and_rendering_title=그래픽 & 렌더링
 graphics_section.vr=VR
 graphics_section.play=플레이
 graphics_section.uiAgui_title=UI & GUI
-graphics_section.splitscreen_title=분할 화면
+graphics_section.splitscreen=분할 화면
 
 info_section.info=정보
 info_section.packInfo=팩 정보
 info_section.minecraftInfo=Minecraft 정보
 info_section.minecraftInfo.detail=Minecraft 세부 정보
-info_section.packNotification=팩 알림
+info_section.precautions=주의 사항
 
 settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.
 
@@ -100,16 +100,19 @@ experimental.export_template=템플릿 기능은 실험적이며, 문제가 생�
 
 ## Notification
 notification.title=알림
-notification.title.bug=알려진 버그
-notification.pack_is_developer=개발 버전 팩 사용 중(외부 유출 금지)
-notification.pack_is_beta=BETA 버전 팩 사용 중
-notification.pack_is_preview=사전 체험 팩 사용 중
-notification.pack_is_custom=커스텀 버전 사용 중
+notification.minecraft_version=Minecraft 버전 호환 여부
 notification.minecraft_version.no_problem=호환되는 [ Minecraft 버전 ] 사용 중
 notification.minecraft_version.problem=호환되지 않는 [ Minecraft 버전 ] 사용 중
-notification.playScreen.disable=플레이 화면에 [ Ore UI ]가 적용되면서 수정된 디자인이 적용되지 않습니다
-notification.patch_note=패치 노트
-notification.patch_note.unknow=현재 작성된 패치 노트가 없습니다
+notification.pack_is_developer=개발 버전 팩 사용 중
+notification.pack_is_developer.lore=현재 개발 중인 리소스 팩 입니다. 외부 유출을 엄격히 금지합니다.
+notification.pack_is_beta=BETA 버전 팩 사용 중
+notification.pack_is_beta.lore=매우 불안정한 리소스 팩 입니다. 사용해보시면서 보이는 문제점이나 의견이 있으시면 연락해주세요!
+notification.pack_is_preview=사전 체험 팩 사용 중
+notification.pack_is_preview.lore=정식 버전 공개 전 테스트 하는 리소스 팩 입니다. 발견된 버그가 있다면 제보해주세요!
+notification.pack_is_custom=커스텀 버전 사용 중
+notification.pack_is_custom.lore=정식 버전에서 추가로 커스텀이 적용된 리소스 팩 입니다. 기능이 서로 맞지 않아 충돌이 발생될 수 있습니다.
+notification.pack_is_incomplete=미완성된 리소스 팩
+notification.pack_is_incomplete.lore=아직 완성되지 않은 리소스 팩 입니다. 버그가 많거나 제대로 동작하지 않을 수 있습니다.
 
 
 ## Play Screen

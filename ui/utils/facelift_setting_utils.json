@@ -7,30 +7,87 @@
     "controls": []
   },
 
+  "content_divider_base": {
+    "$divider_panel_size|default": [ "100%", "100%c" ],
+    "$divider_background_size|default": [ "100%", "100%c + 1px" ],
+    "$divider_size|default": [ "65%", 1 ],
+
+    "type": "panel",
+    "size": "$divider_panel_size",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "facelift_background": {
+          "type": "image",
+          "size": "$divider_background_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "texture": "textures/ui/Black",
+          "alpha": 0.6,
+          "controls": [
+            {
+              "divider": {
+                "type": "image",
+                "size": "$divider_size",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "textures/ui/list_item_divider_line_light",
+                "color": [ 0.7, 0.7, 0.7 ],
+                "alpha": 0.6
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "content_background_base": {
     "type": "image",
     "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
-    "texture": "textures/ui/hud_tip_text_background",
+    "texture": "textures/ui/facelift/facelift_button",
+    "color": [ 0.0, 0.0, 0.0 ],
     "alpha": 0.6
   },
 
-  "settings_content_background_base@facelift_setting_utils.content_background_base": {
-    "$content_background_size|default": [ "100%", "100%c" ],
-    "$content_panel_size|default": [ "100% - 8px", "100%c + 12px" ],
+  "settings_content_background_base": {
+    "$content_background_size": [ "100%", "100%c + 8px" ],
+    "$content_panel_size|default": [ "100% - 8px", "100%c" ],
+    "$content_use_stack_panel|default": false,
+    "$content_stack_panel_orientation|default": "vertical",
     "$content_controls|default": [],
     "$content_bindings|default": [],
 
+    "type": "image",
     "size": "$content_background_size",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "texture": "textures/ui/hud_tip_text_background",
+    "alpha": 0.6,
     "controls": [
       {
         "settings_content": {
           "layer": 5,
+          "ignored": "($content_use_stack_panel)",
           "type": "panel",
           "size": "$content_panel_size",
           "anchor_from": "center",
           "anchor_to": "center",
+          "controls": "$content_controls"
+        }
+      },
+      {
+        "settings_content_stack": {
+          "layer": 5,
+          "ignored": "(not $content_use_stack_panel)",
+          "type": "stack_panel",
+          "size": "$content_panel_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "$content_stack_panel_orientation",
           "controls": "$content_controls"
         }
       }
@@ -47,6 +104,77 @@
     "$scrolling_pane_offset": [ 2, 2 ],
     "$scroll_size": [ 4, "100% - 4px" ],
     "$scroll_bar_right_padding_size": [ 0, 0 ]
+  },
+
+  "settings_horizontal_section_content_base": {
+    "$section_size|default": [ "100%", "100%" ],
+
+    "$selector_area_size|default": [ "fill", "100%" ],
+    "$selector_area_scrolling_size|default": [ "100%", "100%" ],
+    "$selector_area_scrolling_panel_size|default": [ "100%", "100%" ],
+    "$selector_area_scrolling_panel_offset|default": [ 0, 0 ],
+    "$selector_area_content|default": "common.empty_panel",
+
+    "$content_area_size|default": [ "fill", "100%" ],
+    "$content_area_scrolling_size|default": [ "100%", "100%" ],
+    "$content_area_scrolling_panel_size|default": [ "100%", "100%" ],
+    "$content_area_scrolling_panel_offset|default": [ 0, 0 ],
+    "$content_area_content|default": "common.empty_panel",
+
+    "type": "stack_panel",
+    "size": "$section_size",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "selector_area": {
+          "type": "panel",
+          "size": "$selector_area_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "section_scrolling_panel@common.scrolling_panel": {
+                "size": "$selector_area_scrolling_size",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "$show_background": false,
+                "$scrolling_content": "$selector_area_content",
+                "$scrolling_pane_size": "$selector_area_scrolling_panel_size",
+                "$scrolling_pane_offset": "$selector_area_scrolling_panel_offset",
+                "$scroll_size": [ 5, "100% - 4px" ],
+                "$scroll_bar_right_padding_size": [ 0, 0 ]
+              }
+            }
+          ]
+        }
+      },
+      { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+      {
+        "content_area": {
+          "type": "panel",
+          "size": "$content_area_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "section_scrolling_panel@common.scrolling_panel": {
+                "size": "$content_area_scrolling_size",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "$show_background": false,
+                "$scrolling_content": "$content_area_content",
+                "$scrolling_pane_size": "$content_area_scrolling_panel_size",
+                "$scrolling_pane_offset": "$content_area_scrolling_panel_offset",
+                "$scroll_size": [ 5, "100% - 4px" ],
+                "$scroll_bar_right_padding_size": [ 0, 0 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
 
   "facelift_content_panel_base": {

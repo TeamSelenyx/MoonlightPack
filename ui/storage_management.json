@@ -95,18 +95,17 @@
               "file_storage_dropdown_panel@facelift_setting_utils.settings_content_background_base": {
                 "ignored": "($is_holographic and $is_reality_mode)",
                 "visible": "(not $gear_vr)",
-                "$content_background_size": [ "100%", "100%c" ],
-                "$content_panel_size": [ "100% - 8px", "100%c + 8px" ],
                 "$content_controls": [
                   {
                     "file_storage_dropdown@settings_common.ore_option_dropdown": {
                       "ignored": "($is_holographic and $is_reality_mode)",
                       "visible": "(not $gear_vr)",
-                      "$option_label": "options.filelocation.title",
                       "enabled": "$storage_location_switch_enabled",
                       "anchor_from": "center",
                       "anchor_to": "center",
-                      "$option_dropdown_size": [ "100%", 28 ],
+                      "$option_dropdown_size": [ "100%", 24 ],
+                      "$option_dropdown_radio_size": [ "100%", 20 ],
+                      "$option_label": "options.filelocation.title",
                       "$dropdown_content": "storage_management.file_storage_location_ore_dropdown_content",
                       "$dropdown_area": "content_area",
                       "$dropdown_name": "file_storage_location",
@@ -118,7 +117,7 @@
                 ]
               }
             },
-            { "storage_management_function_light_line@settings_common.light_line_panel": {} },
+            { "storage_management_function_padding@common.empty_panel": { "size": [ 0, 4 ] } },
             {
               "clear_marketplace_cache_panel": {
                 "type": "panel",
@@ -130,26 +129,24 @@
                   {
                     "button@settings_common.facelift_action_button": {
                       "size": [ "100%", 26 ],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-
                       "$pressed_button_name": "button.clear_cache",
                       "$text": "$clear_cache_button_text",
-                      "$icon_path": "textures/ui/icons/icon_delete"
+                      "$icon_path": "textures/ui/icons/icon_delete",
+
+                      "$default_button_texture": "textures/ui/facelift/facelift_button_top",
+                      "$hover_button_texture": "textures/ui/facelift/facelift_button_top",
+                      "$pressed_button_texture": "textures/ui/facelift/facelift_button_top",
+                      "$locked_button_texture": "textures/ui/facelift/facelift_button_top"
                     }
                   }
                 ]
               }
             },
-            {
-              "01_void_panel@common.empty_panel": {
-                "size": [ 0, 2 ]
-              }
-            },
+            { "01_divider@facelift_setting_utils.content_divider_base": { "$divider_size": [ "75%", 1 ] } },
             {
               "clear_download_cache_button_panel": {
                 "type": "panel",
-                "size": [ "100%", "100%c + 2px" ],
+                "size": [ "100%", "100%c" ],
                 "$focus_override_right": "FOCUS_OVERRIDE_STOP",
                 "$clear_download_button_text|default": "#none",
                 "controls": [
@@ -158,16 +155,21 @@
                       "size": [ "100%", 26 ],
                       "$pressed_button_name": "dev_clear_download_cache_button",
                       "$text": "options.dev_clearDownloadeCache",
-                      "$icon_path": "textures/ui/icons/icon_delete"
+                      "$icon_path": "textures/ui/icons/icon_delete",
+
+                      "$default_button_texture": "textures/ui/facelift/facelift_button_full",
+                      "$hover_button_texture": "textures/ui/facelift/facelift_button_full",
+                      "$pressed_button_texture": "textures/ui/facelift/facelift_button_full",
+                      "$locked_button_texture": "textures/ui/facelift/facelift_button_full"
                     }
                   }
                 ]
               }
             },
             {
-              "02_void_panel@common.empty_panel": {
+              "02_divider@facelift_setting_utils.content_divider_base": {
                 "ignored": "$education_edition",
-                "size": [ 0, 2 ],
+                "$divider_size": [ "75%", 1 ],
                 "bindings": [
                   {
                     "binding_name": "#screenshots_gallery_enabled",
@@ -187,12 +189,14 @@
                   {
                     "button@settings_common.facelift_action_button": {
                       "size": [ "100%", 26 ],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-
                       "$pressed_button_name": "button.delete_local_screenshots",
                       "$text": "$delete_local_screenshots_button_text",
-                      "$icon_path": "textures/ui/icons/icon_screenshots"
+                      "$icon_path": "textures/ui/icons/icon_screenshots",
+
+                      "$default_button_texture": "textures/ui/facelift/facelift_button_full",
+                      "$hover_button_texture": "textures/ui/facelift/facelift_button_full",
+                      "$pressed_button_texture": "textures/ui/facelift/facelift_button_full",
+                      "$locked_button_texture": "textures/ui/facelift/facelift_button_full"
                     }
                   }
                 ],
@@ -205,9 +209,9 @@
               }
             },
             {
-              "03_void_panel@common.empty_panel": {
+              "03_divider@facelift_setting_utils.content_divider_base": {
                 "ignored": "$education_edition",
-                "size": [ 0, 2 ],
+                "$divider_size": [ "75%", 1 ],
                 "bindings": [
                   {
                     "binding_name": "#screenshots_showcase_enabled",
@@ -227,12 +231,14 @@
                   {
                     "button@settings_common.facelift_action_button": {
                       "size": [ "100%", 26 ],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-
                       "$pressed_button_name": "button.clear_cache",
                       "$text": "$clear_screenshots_cache_button_text",
-                      "$icon_path": "textures/ui/icons/icon_screenshots"
+                      "$icon_path": "textures/ui/icons/icon_screenshots",
+
+                      "$default_button_texture": "textures/ui/facelift/facelift_button_bottom",
+                      "$hover_button_texture": "textures/ui/facelift/facelift_button_bottom",
+                      "$pressed_button_texture": "textures/ui/facelift/facelift_button_bottom",
+                      "$locked_button_texture": "textures/ui/facelift/facelift_button_bottom"
                     }
                   }
                 ],
@@ -684,6 +690,49 @@
         "file_storage_location_option_appdata@settings_common.ore_radio_with_label": {
           "$toggle_state_binding_name": "#storage_location_radio_package",
           "$radio_label_text": "options.filelocation.appdata"
+        }
+      }
+    ]
+  },
+
+  "auto_update_mode_facelift_dropdown_content@settings_common.facelift_option_radio_dropdown_group": {
+    "$radio_buttons": [
+      {
+        "off@settings_common.facelift_radio_with_label": {
+          "$default_texture": "textures/ui/facelift/facelift_button_top_right",
+          "$hover_texture": "textures/ui/facelift/facelift_button_top_right",
+          "$pressed_texture": "textures/ui/facelift/facelift_button_top_right",
+          "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_top_right",
+          "$locked_texture": "textures/ui/facelift/facelift_button_top_right",
+
+          "$toggle_state_binding_name": "#auto_update_mode_off",
+          "$radio_label_text": "options.autoUpdateMode.off"
+        }
+      },
+      { "wifi_divider@facelift_setting_utils.content_divider_base": { "$divider_size": [ "75%", 1 ] } },
+      {
+        "wifi@settings_common.facelift_radio_with_label": {
+          "$default_texture": "textures/ui/facelift/facelift_button_full",
+          "$hover_texture": "textures/ui/facelift/facelift_button_full",
+          "$pressed_texture": "textures/ui/facelift/facelift_button_full",
+          "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_full",
+          "$locked_texture": "textures/ui/facelift/facelift_button_full",
+
+          "$toggle_state_binding_name": "#auto_update_mode_on_wifi_only",
+          "$radio_label_text": "options.autoUpdateMode.on.withWifiOnly"
+        }
+      },
+      { "cellular_divider@facelift_setting_utils.content_divider_base": { "$divider_size": [ "75%", 1 ] } },
+      {
+        "cellular@settings_common.facelift_radio_with_label": {
+          "$default_texture": "textures/ui/facelift/facelift_button_bottom",
+          "$hover_texture": "textures/ui/facelift/facelift_button_bottom",
+          "$pressed_texture": "textures/ui/facelift/facelift_button_bottom",
+          "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button_bottom",
+          "$locked_texture": "textures/ui/facelift/facelift_button_bottom",
+
+          "$toggle_state_binding_name": "#auto_update_mode_on_with_cellular",
+          "$radio_label_text": "options.autoUpdateMode.on.withCellular"
         }
       }
     ]

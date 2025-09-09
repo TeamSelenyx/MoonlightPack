@@ -118,7 +118,7 @@
                 "controls": [
                   {
                     "touch@controls_section.touch_ore_tab_button": {
-                      "enabled": "(not $is_holographic or $touch_supported or not $nx_os)",
+                      "enabled": "($touch_supported or not $nx_os)",
                       "size": [ "fill", 24 ],
                       "$panel_title": "controls_section.touch.title",
                       "$toggle_group_forced_index": 0,
@@ -293,21 +293,6 @@
           "$slider_value_binding_name": "#spyglass_mouse_dampening",
           "$slider_tts_text_value": "#spyglass_mouse_dampening_text_value",
           "$option_enabled_binding_name": "#keyboard_mouse_sensitivity_enabled",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ]
-        }
-      },
-      {
-        "option_slider_1@settings_common.ore_option_slider": {
-          "ignored": "(not $is_holographic)",
-          "$option_label": "#vr_ui_mouse_sensitivity_slider_label",
-          "$slider_name": "vr_ui_mouse_sensitivity",
-          "$slider_value_binding_name": "#vr_ui_mouse_sensitivity",
-          "$slider_tts_text_value": "#vr_ui_mouse_sensitivity_text_value",
-          "$option_enabled_binding_name": "#vr_ui_mouse_sensitivity_enabled",
           "$label_bindings": [
             {
               "binding_name": "$option_label"
@@ -559,7 +544,7 @@
       },
       {
         "option_slider_0@settings_common.ore_option_slider": {
-          "ignored": "($is_holographic and not $is_living_room_mode)",
+          "ignored": "(not $is_living_room_mode)",
           "$option_label": "#controller_sensitivity_slider_label",
           "$slider_name": "controller_sensitivity",
           "$slider_value_binding_name": "#controller_sensitivity",
@@ -588,42 +573,6 @@
         }
       },
       {
-        "option_slider_1@settings_common.ore_option_slider": {
-          "ignored": "($is_living_room_mode or not $is_holographic)",
-          "$option_label": "#vr_sensitivity_slider_label",
-          "$slider_name": "vr_sensitivity",
-          "$slider_value_binding_name": "#vr_sensitivity",
-          "$slider_tts_text_value": "#vr_sensitivity_text_value",
-          "$option_enabled_binding_name": "#vr_sensitivity_enabled",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ]
-        }
-      },
-      {
-        "option_slider_2@settings_common.ore_option_slider": {
-          "$option_label": "#vr_roll_turn_sensitivity_slider_label",
-          "$slider_name": "vr_roll_turn_sensitivity",
-          "$slider_value_binding_name": "#vr_roll_turn_sensitivity",
-          "$slider_tts_text_value": "#vr_roll_turn_sensitivity_text_value",
-          "$option_enabled_binding_name": "#vr_roll_turn_sensitivity_enabled",
-          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ],
-          "bindings": [
-            {
-              "binding_name": "#vr_roll_turn_sensitivity_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
         "option_toggle_invert_y_axis@settings_common.ore_option_toggle": {
           "$option_label": "options.invertYAxis",
           "$option_binding_name": "#controller_invert_y_axis",
@@ -634,7 +583,6 @@
       },
       {
         "option_toggle_auto_jump@settings_common.ore_option_toggle": {
-          "ignored": "($is_holographic and not $is_living_room_mode)",
           "$option_label": "options.autojump",
           "$option_binding_name": "#controller_autojump",
           "$option_enabled_binding_name": "#controller_autojump_enabled",
@@ -648,16 +596,6 @@
           "$option_binding_name": "#controller_clear_hotbar",
           "$option_enabled_binding_name": "#controller_clear_hotbar_enabled",
           "$toggle_name": "controller_clear_hotbar",
-          "$focus_override_right": "FOCUS_OVERRIDE_STOP"
-        }
-      },
-      {
-        "option_toggle_vr_auto_jump@settings_common.ore_option_toggle": {
-          "ignored": "($is_living_room_mode or not $is_holographic)",
-          "$option_label": "options.vrAutojump",
-          "$option_binding_name": "#vr_autojump",
-          "$option_enabled_binding_name": "#vr_autojump_enabled",
-          "$toggle_name": "vr_autojump",
           "$focus_override_right": "FOCUS_OVERRIDE_STOP"
         }
       },

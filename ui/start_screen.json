@@ -168,6 +168,7 @@
     "$anchor": "center",
     "$button_offset": [ 0, 0 ],
     "$button_pressed_offset": [ 0, 0 ],
+    "$button_image_size": [ "100%", "100%" ],
 
     "$button_type_panel": "start.redesign_start_dynamic_button_content",
 
@@ -209,7 +210,7 @@
           "size": [ "100%", "100%" ],
           "anchor_from": "center",
           "anchor_to": "center",
-          "texture": "textures/ui/facelift_button",
+          "texture": "textures/ui/facelift/facelift_button",
           "alpha": 0.85,
           "color": "$function_background_color"
         }
@@ -1033,7 +1034,7 @@
           "controls": [
             {
               "scrolling_panel@common.scrolling_panel": {
-                "size": [ "100% - 4px", "100% - 4px" ],
+                "size": [ "100%", "100%" ],
                 "anchor_to": "center",
                 "anchor_from": "center",
                 "$show_background": false,

@@ -7,6 +7,8 @@
     "anchor_from": "center",
     "anchor_to": "center",
     "ttsSectionContainer": true,
+    "$default_selector_toggle_index": 0,
+    "$spatialPatternsPadding": [ "100%", 25 ],
     "controls": [
       {
         "realm_selector_pane@realms_settings.selector_panel": {

@@ -209,8 +209,10 @@
   },
 
   "ore_radio_visuals": {
+    "$option_dropdown_radio_size|default": [ "100%", 26 ],
+
     "type": "panel",
-    "size": [ "100%", 26 ],
+    "size": "$option_dropdown_radio_size",
     "$alpha|default": 1.0,
     "$radio_label_bindings|default": [],
     "$radio_label_color|default": "$main_header_text_color",
@@ -520,6 +522,11 @@
     "texture": "textures/ui/ore/slider_progress_hover"
   },
 
+  "ore_slider_progress_locked": {
+    "type": "image",
+    "texture": "textures/ui/ore/slider_progress_hover"
+  },
+
   "ore_slider_border": {
     "type": "image",
     "texture": "textures/ui/ore/slider_border"
@@ -559,11 +566,11 @@
       },
       {
         "transparent_grey": {
-          "type": "image",
+          "layer": 4,
           "ignored": "$is_holographic",
+          "type": "image",
           "texture": "textures/ui/ore/slider_locked_transparent_fade",
           "alpha": 0.5,
-          "layer": 4,
           "bindings": [
             {
               "binding_type": "$slider_enabled_binding_type",
@@ -588,11 +595,11 @@
   },
 
   "ore_slider_step": {
-    "type": "image",
-    "texture": "textures/ui/ore/slider_step_background",
-    "size": [ 2, 2 ],
     "layer": 4,
-    "offset": "$step_offset"
+    "type": "image",
+    "size": [ 2, 2 ],
+    "offset": "$step_offset",
+    "texture": "textures/ui/ore/slider_step_background"
   },
 
   "ore_slider_step_hover@common_ore.ore_slider_step": {

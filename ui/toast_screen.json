@@ -120,7 +120,7 @@
     "anchor_to": "$toast_anchor_to",
     "offset": [ 0, 0 ],
     "anims": "$offset_anims",
-    "$toast_background_texture|default": "textures/ui/toast/toast_background_blue",
+    "$toast_background_texture|default": "textures/ui/facelift/facelift_button",
     "$toast_text_stack_content|default": "toast_screen.text_stack_panel",
     "button_mappings": [
       {
@@ -138,7 +138,9 @@
           "offset": "$toast_content_offset",
           "anchor_from": "center",
           "anchor_to": "center",
-          "texture": "$toast_background_texture"
+          "texture": "$toast_background_texture",
+          "color": [ 0.0, 0.0, 0.0 ],
+          "alpha": 0.8
         }
       },
       {
@@ -194,7 +196,7 @@
             },
             {
               "text_padding@common.empty_panel": {
-                "size": [ 4, 0 ],
+                "size": [ 6, 0 ],
                 "bindings": [
                   {
                     "binding_name": "#text_padding_visible",
@@ -240,6 +242,7 @@
                 "$toast_label_offset": [ 0, 0 ],
                 "text": "#toast_title",
                 "color": "$toast_text_color",
+                "shadow": true,
                 "bindings": [
                   {
                     "binding_name": "#toast_title"
@@ -293,7 +296,8 @@
                       "max_size": [ "default", "100%" ],
                       "$toast_label_offset": [ 0, 0 ],
                       "text": "#toast_subtitle",
-                      "color": "$f_color_format",
+                      "color": "$7_color_format",
+                      "shadow": true,
                       "bindings": [
                         {
                           "binding_name": "#toast_subtitle"
@@ -492,7 +496,8 @@
           "anchor_from": "center",
           "text": "#toast_title",
           "text_alignment": "center",
-          "color": [ 0.4, 0.4, 0.4 ],
+          "color": [ 1.0, 1.0, 1.0 ],
+          "shadow": true,
           "bindings": [
             {
               "binding_name": "#toast_title"
@@ -509,6 +514,6 @@
     "$toast_anchor_from": "top_middle",
     "$toast_anchor_to": "top_middle",
     "$toast_text_stack_content": "toast_screen.chat_text_stack_panel",
-    "$toast_background_texture": "textures/ui/toast/toast_background_light_gray_cut"
+    "$toast_background_texture": "textures/ui/facelift/facelift_button"
   }
 }
