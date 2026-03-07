@@ -2,60 +2,6 @@
   "namespace": "button_preset",
 
   //---------------------------------------------------------------------------
-  // Back Button
-  //---------------------------------------------------------------------------
-  "back_button@button_preset.dynamic_button_base": {
-    "size": [ "100%c", "100%c" ],
-
-    "$button_state_panel": "button_preset.new_ui_dynamic_button_panel",
-    "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
-    "$button_content": "button_content_preset.back_button_content",
-
-    "$button_tts_header|default": "accessibility.button.back",
-    "$back_button_pressed_button_name|default": "button.menu_exit",
-
-    "$default_border_visible": false,
-    "$hover_border_visible": false,
-    "$pressed_border_visible": false,
-    "$locked_border_visible": false,
-
-    "$default_button_texture": "textures/ui/facelift/facelift_button",
-    "$hover_button_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_button_texture": "textures/ui/facelift/facelift_button",
-    "$locked_button_texture": "textures/ui/facelift/facelift_button",
-
-    "$default_button_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$hover_button_texture_color": [ 0.4, 0.4, 0.4 ],
-    "$pressed_button_texture_color": [ 0.2, 0.2, 0.2 ],
-    "$locked_button_texture_color": [ 0.1, 0.1, 0.1 ],
-
-    "$default_button_alpha": 0.6,
-    "$hover_button_alpha": 0.6,
-    "$pressed_button_alpha": 0.6,
-    "$locked_button_alpha": 0.6,
-
-    "bindings": [
-      {
-        "binding_name": "(not #is_using_gamepad)",
-        "binding_name_override": "#visible"
-      }
-    ],
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "$back_button_pressed_button_name",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "$back_button_pressed_button_name",
-        "mapping_type": "focused"
-      }
-    ]
-  },
-
-
-  //---------------------------------------------------------------------------
   // Dynamic Button Base
   //---------------------------------------------------------------------------
   "dynamic_button_base@common_buttons.light_button_assets": {
@@ -124,7 +70,7 @@
       },
       {
         "hover@$button_state_panel": {
-          "layer": 2,
+          "layer": 1,
           "$hover_state": true,
           "$new_ui_button_texture": "$hover_button_texture",
           "$glyph_color": "$light_glyph_hover_color",
@@ -140,7 +86,7 @@
       },
       {
         "pressed@$button_state_panel": {
-          "layer": 3,
+          "layer": 1,
           "$pressed_state": true,
           "$new_ui_button_texture": "$pressed_button_texture",
           "$glyph_color": "$light_glyph_pressed_color",
@@ -216,7 +162,7 @@
           "controls": [
             {
               "$button_type_panel@$button_type_panel": {
-                "layer": 3
+                "layer": 1
               }
             }
           ]
@@ -236,35 +182,89 @@
 
 
   //---------------------------------------------------------------------------
+  // Back Button
+  //---------------------------------------------------------------------------
+  "back_button@button_preset.dynamic_button_base": {
+    "size": [ "100%c", "100%c" ],
+
+    "$button_state_panel": "button_preset.new_ui_dynamic_button_panel",
+    "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
+    "$button_content": "button_content_preset.back_button_content",
+
+    "$button_tts_header|default": "accessibility.button.back",
+    "$back_button_pressed_button_name|default": "button.menu_exit",
+
+    "$default_border_visible": false,
+    "$hover_border_visible": false,
+    "$pressed_border_visible": false,
+    "$locked_border_visible": false,
+
+    "$default_button_texture": "$facelift_texture",
+    "$hover_button_texture": "$facelift_texture",
+    "$pressed_button_texture": "$facelift_texture",
+    "$locked_button_texture": "$facelift_texture",
+
+    "$default_button_texture_color": "$facelift_texture_default_color",
+    "$hover_button_texture_color": "$facelift_texture_hover_color",
+    "$pressed_button_texture_color": "$facelift_texture_pressed_color",
+    "$locked_button_texture_color": "$facelift_texture_locked_color",
+
+    "$default_button_alpha": "$facelift_texture_alpha",
+    "$hover_button_alpha": "$facelift_texture_alpha",
+    "$pressed_button_alpha": "$facelift_texture_alpha",
+    "$locked_button_alpha": "$facelift_texture_alpha",
+
+    "bindings": [
+      {
+        "binding_name": "(not #is_using_gamepad)",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$back_button_pressed_button_name",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$back_button_pressed_button_name",
+        "mapping_type": "focused"
+      }
+    ]
+  },
+
+
+  //---------------------------------------------------------------------------
   // Facelift Button & Toggle Base
   //---------------------------------------------------------------------------
   "facelift_button_base@button_preset.dynamic_button_base": {
     "size": [ "100%", 26 ],
 
     "$button_image_size": [ "100%", "100%" ],
-    "$button_type_panel|default": "button_content_preset.facelift_button_icon_with_text_content_panel",
+    "$button_type_panel|default": "button_content_preset.facelift_button_text_content_panel",
 
     "$button_text_binding_type|default": "none",
     "$button_text_grid_collection_name|default": "",
     "$button_binding_condition|default": "none",
 
-    "$pressed_alpha|default": 0.6,
-    "$locked_alpha|default": 0.6,
+    "$pressed_alpha|default": "$facelift_texture_alpha",
+    "$locked_alpha|default": "$facelift_texture_alpha",
 
-    "$default_button_texture": "textures/ui/facelift/facelift_button",
-    "$hover_button_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_button_texture": "textures/ui/facelift/facelift_button",
-    "$locked_button_texture": "textures/ui/facelift/facelift_button",
+    "$default_button_texture": "$facelift_texture",
+    "$hover_button_texture": "$facelift_texture",
+    "$pressed_button_texture": "$facelift_texture",
+    "$locked_button_texture": "$facelift_texture",
 
-    "$default_button_alpha": 0.6,
-    "$hover_button_alpha": 0.6,
-    "$pressed_button_alpha": 0.6,
-    "$locked_button_alpha": 0.6,
+    "$default_button_texture_color": "$facelift_texture_default_color",
+    "$hover_button_texture_color": "$facelift_texture_hover_color",
+    "$pressed_button_texture_color": "$facelift_texture_pressed_color",
+    "$locked_button_texture_color": "$facelift_texture_locked_color",
 
-    "$default_button_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$hover_button_texture_color": [ 0.4, 0.4, 0.4 ],
-    "$pressed_button_texture_color": [ 0.2, 0.2, 0.2 ],
-    "$locked_button_texture_color": [ 0.0, 0.0, 0.0 ],
+    "$default_button_alpha": "$facelift_texture_alpha",
+    "$hover_button_alpha": "$facelift_texture_alpha",
+    "$pressed_button_alpha": "$facelift_texture_alpha",
+    "$locked_button_alpha": "$facelift_texture_alpha",
 
     "$default_border_visible": false,
     "$hover_border_visible": false,
@@ -281,31 +281,31 @@
     "$button_image_size": [ "100%", "100%" ],
 
     "$unchecked_control": "common_toggles.toggle_unchecked",
-    "$checked_control": "common_toggles.toggle_checked",
-    "$unchecked_hover_control": "common_toggles.toggle_unchecked_hover",
-    "$checked_hover_control": "common_toggles.toggle_checked_hover",
+    "$checked_control": "button_preset.toggle_checked",
+    "$unchecked_hover_control": "button_preset.toggle_unchecked_hover",
+    "$checked_hover_control": "button_preset.toggle_checked_hover",
     "$unchecked_locked_control": "button_preset.toggle_locked",
     "$unchecked_locked_hover_control": "button_preset.toggle_locked",
     "$checked_locked_control": "button_preset.toggle_checked_locked",
     "$checked_locked_hover_control": "button_preset.toggle_checked_locked",
 
-    "$default_texture": "textures/ui/facelift/facelift_button",
-    "$hover_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button",
-    "$locked_texture": "textures/ui/facelift/facelift_button",
+    "$default_texture": "$facelift_texture",
+    "$hover_texture": "$facelift_texture",
+    "$pressed_texture": "$facelift_texture",
+    "$pressed_no_hover_texture": "$facelift_texture",
+    "$locked_texture": "$facelift_texture",
 
-    "$default_texture_alpha": 0.6,
-    "$default_checked_texture_alpha": 0.6,
-    "$hover_texture_alpha": 0.6,
-    "$hover_checked_texture_alpha": 0.6,
-    "$locked_texture_alpha": 0.6,
+    "$default_texture_alpha": "$facelift_texture_alpha",
+    "$default_checked_texture_alpha": "$facelift_texture_alpha",
+    "$hover_texture_alpha": "$facelift_texture_alpha",
+    "$hover_checked_texture_alpha": "$facelift_texture_alpha",
+    "$locked_texture_alpha": "$facelift_texture_alpha",
 
-    "$default_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$default_checked_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$hover_texture_color": [ 0.4, 0.4, 0.4 ],
-    "$hover_checked_texture_color": [ 0.4, 0.4, 0.4 ],
-    "$locked_texture_color": [ 0.2, 0.2, 0.2 ],
+    "$default_texture_color": "$facelift_texture_default_color",
+    "$default_checked_texture_color": "$facelift_texture_default_color",
+    "$hover_texture_color": "$facelift_texture_hover_color",
+    "$hover_checked_texture_color": "$facelift_texture_hover_color",
+    "$locked_texture_color": "$facelift_texture_pressed_color",
 
     "$default_border_visible": false,
     "$hover_border_visible": false,
@@ -337,9 +337,9 @@
 
   "facelift_template_toggle@common.toggle": {
     "$unchecked_control|default": "common_toggles.toggle_unchecked",
-    "$checked_control|default": "common_toggles.toggle_checked",
-    "$unchecked_hover_control|default": "common_toggles.toggle_unchecked_hover",
-    "$checked_hover_control|default": "common_toggles.toggle_checked_hover",
+    "$checked_control|default": "button_preset.toggle_checked",
+    "$unchecked_hover_control|default": "button_preset.toggle_unchecked_hover",
+    "$checked_hover_control|default": "button_preset.toggle_checked_hover",
     "$unchecked_locked_control|default": "button_preset.toggle_locked",
     "$unchecked_locked_hover_control|default": "button_preset.toggle_locked",
     "$checked_locked_control|default": "button_preset.toggle_checked_locked",
@@ -351,14 +351,14 @@
     "$pressed_no_hover_texture|default": "textures/ui/facelift/facelift_button",
     "$locked_texture|default": "textures/ui/facelift/facelift_button",
 
-    "$default_texture_alpha|default": 0.6,
-    "$default_checked_texture_alpha|default": 0.6,
-    "$hover_texture_alpha|default": 0.6,
-    "$hover_checked_texture_alpha|default": 0.6,
-    "$locked_texture_alpha|default": 0.6,
+    "$default_texture_alpha|default": 0.75,
+    "$default_checked_texture_alpha|default": 0.75,
+    "$hover_texture_alpha|default": 0.75,
+    "$hover_checked_texture_alpha|default": 0.75,
+    "$locked_texture_alpha|default": 0.75,
 
-    "$default_texture_color|default": [ 0.0, 0.0, 0.0 ],
-    "$default_checked_texture_color|default": [ 0.0, 0.0, 0.0 ],
+    "$default_texture_color|default": [ 0.15, 0.15, 0.15 ],
+    "$default_checked_texture_color|default": [ 0.15, 0.15, 0.15 ],
     "$hover_texture_color|default": [ 0.4, 0.4, 0.4 ],
     "$hover_checked_texture_color|default": [ 0.4, 0.4, 0.4 ],
     "$locked_texture_color": [ 0.2, 0.2, 0.2 ],
@@ -391,6 +391,51 @@
     "$hover_state|default": false,
     "$pressed_state|default": false,
     "$locked_state|default": false
+  },
+
+  "toggle_checked@common_toggles.toggle_state_panel": {
+    "$new_ui_button_texture": "$hover_texture",
+    "$content_alpha": "$default_checked_texture_alpha",
+    "$button_image_color": "$default_checked_texture_color",
+    "$text_color": "$default_checked_text_color",
+    "$glyph_color": "$default_checked_glyph_color",
+    "$toggle_image": "$checked_image",
+    "$border_layer": 1,
+    "$border_visible": "$default_border_visible",
+    "$border_color": "$default_border_color",
+    "$toggle_checked": true,
+    "$pressed_state": true,
+    "layer": 1
+  },
+
+  "toggle_unchecked_hover@common_toggles.toggle_state_panel": {
+    "$new_ui_button_texture": "$pressed_texture",
+    "$content_alpha": "$hover_texture_alpha",
+    "$button_image_color": "$hover_texture_color",
+    "$text_color": "$hover_text_color",
+    "$glyph_color": "$hover_glyph_color",
+    "$toggle_image": "$unchecked_image",
+    "$border_layer": 1,
+    "$border_visible": "$hover_border_visible",
+    "$border_color": "$hover_border_color",
+    "$toggle_unchecked_hover": true,
+    "$hover_state": true,
+    "layer": 1
+  },
+
+  "toggle_checked_hover@common_toggles.toggle_state_panel": {
+    "$new_ui_button_texture": "$pressed_no_hover_texture",
+    "$content_alpha": "$hover_checked_texture_alpha",
+    "$button_image_color": "$hover_checked_texture_color",
+    "$text_color": "$hover_checked_text_color",
+    "$glyph_color": "$hover_checked_glyph_color",
+    "$toggle_image": "$checked_image",
+    "$border_layer": 1,
+    "$border_visible": "$hover_border_visible",
+    "$border_color": "$hover_border_color",
+    "$toggle_checked_hover": true,
+    "$pressed_state": true,
+    "layer": 1
   },
 
   "toggle_locked@common_toggles.toggle_state_panel": {
@@ -497,58 +542,6 @@
     ]
   },
 
-  "facelift_ui_height_fitting_button_panel": {
-    "type": "panel",
-    "layer": 1,
-    "$button_size_override|default": [ "100%", "100%c" ],
-    "size": "$button_size_override",
-    "$button_min_size_override|default": [ "100%", "100%c" ],
-    "min_size": "$button_min_size_override",
-    "$content_alpha|default": 1,
-    "$anchor|default": "center",
-    "anchor_from": "$anchor",
-    "anchor_to": "$anchor",
-    "controls": [
-      {
-        "border@common_buttons.focus_border": {
-          "color": "$border_color",
-          "layer": "$border_layer",
-          "size": [ "100%", "100%c" ],
-          "$button_border_min_size_override|default": [ "100%", "100%c" ],
-          "min_size": "$button_border_min_size_override",
-          "$button_image|default": "common_buttons.button_image",
-          "controls": [
-            {
-              "$button_image@$button_image": {
-                "size": [ "100%", "100%c" ],
-                "$button_image_min_size_override|default": [ "100%", "100%c" ],
-                "min_size": "$button_image_min_size_override",
-                "layer": 1,
-                "$button_image_color|default": [ 1.0, 1.0, 1.0 ],
-                "color": "$button_image_color",
-                "controls": [
-                  {
-                    "button_content": {
-                      "type": "panel",
-                      "size": [ "100% - 6px", "100%c + 6px" ],
-                      "controls": [
-                        {
-                          "$button_type_panel@$button_type_panel": {
-                            "layer": 3
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
 
   //---------------------------------------------------------------------------
   // Ore Button Base
@@ -584,7 +577,8 @@
 
     "$default_text_color": "$light_button_hover_text_color",
     "$hover_text_color": "$light_button_hover_text_color",
-    "$pressed_text_color": "$light_button_hover_text_color"
+    "$pressed_text_color": "$light_button_hover_text_color",
+    "$locked_text_color": "$light_button_hover_text_color"
   },
 
   "color_ore_button@button_preset.ore_button_base": {

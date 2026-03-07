@@ -2,13 +2,37 @@
   "namespace": "quick_section",
 
   // Quick Settings Button & Section
-  "quick_setting_ore_button@settings_common.ore_section_toggle_base": {
+  "quick_setting_top_facelift_button@settings_common.ore_section_toggle_base": {
     "$toggle_view_binding_name": "quick_setting_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_quick_settings",
-    "$glyph_size": [ 17, 17 ],
-    "$button_text": "quick_section.quick_setting",
+ 
+    "$button_type_panel": "button_content_preset.image_content_panel",
+    "$content_pressed": false,
+    "$text": "quick_section.quick_setting",
+    "$icon_size": [ "95%", "95%" ],
+    "$icon_offset": [ 0.25, 0.25 ],
+    "$icon_path": "textures/ui/settings_glyph_2x",
+
+    "$default_border_visible": false,
+    "$hover_border_visible": false,
+
+    "$default_texture": "$facelift_texture",
+    "$hover_texture": "$facelift_texture",
+    "$pressed_texture": "$facelift_texture",
+    "$pressed_no_hover_texture": "$facelift_texture",
+    "$locked_texture": "$facelift_texture",
+
+    "$default_texture_alpha": "$facelift_texture_alpha",
+    "$default_checked_texture_alpha": "$facelift_texture_alpha",
+    "$hover_texture_alpha": "$facelift_texture_alpha",
+    "$hover_checked_texture_alpha": "$facelift_texture_alpha",
+
+    "$default_texture_color": "$facelift_texture_default_color",
+    "$default_checked_texture_color": "$facelift_texture_default_checked_color",
+    "$hover_texture_color": "$facelift_texture_hover_color",
+    "$hover_checked_texture_color": "$facelift_texture_hover_checked_color",
+
     "$toggle_property_bag": {
-      "#panel_title": "$button_text"
+      "#panel_title": "$text"
     }
   },
 
@@ -46,9 +70,10 @@
       {
         "option_stack_panel": {
           "type": "stack_panel",
-          "size": [ "70%", "100%c" ],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
+          "size": [ "65%", "100%c" ],
+          "offset": [ -2, 2 ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
           "controls": [
             {
               "camera_select_panel": {
@@ -128,17 +153,18 @@
         "camera_perspective_background_image": {
           "layer": 12,
           "type": "image",
-          "size": [ "100%", "100%c" ],
+          "size": [ "100%", "100%c + 8px" ],
           "anchor_from": "center",
           "anchor_to": "center",
-          "texture": "textures/ui/hud_tip_text_background",
-          "alpha": 0.65,
+          "texture": "$facelift_texture",
+          "color": "$facelift_texture_default_color",
+          "alpha": "$facelift_texture_alpha",
           "controls": [
             {
               "perspective_panel": {
                 "layer": 12,
                 "type": "panel",
-                "size": [ "100% - 8px", "100%c + 8px" ],
+                "size": [ "100% - 8px", "100%c + 4px" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "controls": [

@@ -1,7 +1,289 @@
 {
   "namespace": "settings",
 
+  // Facelift Design
   "selector_stack_panel": {
+    "type": "stack_panel",
+    "size": [ "100%c", "100%cm + 2px" ],
+    "offset": [ 0, 1 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "orientation": "horizontal",
+    "ttsSectionContainer": true,
+    "$default_selector_toggle_index": 0,
+    "$spatialPatternsPadding": [ "100%", 25 ],
+    "$world_toggle_index": "$world_forced_index",
+    "$members_toggle_index": "$members_forced_index",
+    "$subscription_toggle_index": "$subscription_forced_index",
+    "$backup_toggle_index": "$backup_forced_index",
+    "$dev_options_toggle_index": "$dev_options_forced_index",
+    "$invite_links_toggle_index": "$invite_links_forced_index",
+    "$general_toggle_index": "$general_invite_link_forced_index",
+    "$advanced_toggle_index": "$advanced_invite_link_forced_index",
+    "controls": [
+      {
+        "account@preview_section.account_ore_icon_button": {
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "$toggle_group_forced_index": "$account_forced_index",
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "account_padding@common.empty_panel": {
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "size": [ 4, 0 ],
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+
+      {
+        "world_category@preview_section.world_category_ore_icon_button": {
+          "ignored": "(not $include_world_section)",
+          "$toggle_group_forced_index": "$game_forced_index"
+        }
+      },
+      {
+        "world_category_padding@common.empty_panel": {
+          "ignored": "(not $include_world_section)",
+          "size": [ 4, 0 ]
+        }
+      },
+
+      {
+        "realms@realms_settings.realms_function_icon_button": {
+          "ignored": "(not $include_realm_section)",
+          "$toggle_group_forced_index": "$world_toggle_index"
+        }
+      },
+      {
+        "realms_padding@common.empty_panel": {
+          "ignored": "(not $include_realm_section)",
+          "size": [ 4, 0 ]
+        }
+      },
+
+      {
+        "accessibility@preview_section.accessibility_ore_icon_button": {
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "$toggle_group_forced_index": "$accessibility_forced_index"
+        }
+      },
+      {
+        "controls_and_settings_selector_panel": {
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "type": "stack_panel",
+          "size": [ "100%c", "100%cm" ],
+          "orientation": "horizontal",
+          "$controls_section_header": "options.group.input",
+          "$social_section_header": "options.social",
+          "$general_section_header": "stat.generalButton",
+          "$debug_section_header": "options.debug",
+          "$spatialPatternsPadding": [ "100%", 25 ],
+          "controls": [
+            {
+              "graphics@preview_section.graphics_ore_icon_button": {
+                "$toggle_group_forced_index": 800
+              }
+            },
+            {
+              "controls@preview_section.controls_ore_icon_button": {
+                "$toggle_group_forced_index": "$touch_forced_index"
+              }
+            },
+            {
+              "sound_language_category@preview_section.sound_language_category_ore_icon_button": {
+                "$toggle_group_forced_index": 600
+              }
+            },
+            {
+              "etc@preview_section.etc_ore_icon_button": {
+                "$toggle_group_forced_index": 610
+              }
+            },
+            {
+              "global_texture_pack@preview_section.global_texture_pack_ore_icon_button": {
+                "ignored": "$ignore_global_resources_section",
+                "visible": "($is_global_texture_packs_visible)",
+                "$toggle_group_forced_index": "$global_texture_pack_forced_index"
+              }
+            },
+            {
+              "storage_management@preview_section.storage_management_ore_icon_button": {
+                "$toggle_group_forced_index": "$storage_management_forced_index"
+              }
+            },
+            {
+              "creator@preview_section.creator_ore_icon_button": {
+                "$toggle_group_forced_index": "$creator_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "view_subscriptions@preview_section.view_subscriptions_ore_icon_button": {
+                "ignored": "$is_editor_mode_enabled",
+                "$toggle_group_forced_index": "$view_subscriptions_forced_index",
+                "$tts_section_header": "$general_section_header",
+                "bindings": [
+                  {
+                    "binding_name": "#should_show_subscription_tab",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "how_to_play@preview_section.how_to_play_ore_icon_button": {
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "$toggle_group_forced_index": "$how_to_play_index"
+        }
+      },
+
+      {
+        "preview_padding@common.empty_panel": {
+          "ignored": "(not $show_preview_button)",
+          "size": [ 4, 0 ]
+        }
+      },
+      {
+        "preview@preview_section.preview_ore_icon_button": {
+          "ignored": "(not $show_preview_button)",
+          "$toggle_group_forced_index": "$preview_forced_index",
+          "$tts_section_header": "$general_section_header"
+        }
+      },
+
+      {
+        "debug_category_padding@common.empty_panel": {
+          "ignored": "($is_publish)",
+          "size": [ 4, 0 ]
+        }
+      },
+      {
+        "debug_category@preview_section.debug_category_ore_icon_button": {
+          "ignored": "($is_publish)",
+          "$toggle_group_forced_index": 760
+        }
+      }
+    ]
+  },
+
+  "section_content_panels": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "offset": [ 0, 0 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "world_category@world_section.world_category_setting_section": {
+          "ignored": "(not $include_world_section)"
+        }
+      },
+      {
+        "realms@realms_settings.realms_settings_section": {
+          "ignored": "(not $include_realm_section)"
+        }
+      },
+      {
+        "realm_invite_link_settings_content_panels@realms_invite_link_settings.realms_invite_link_setting_section": {
+          "ignored": "(not $include_realm_invite_link_settings)"
+        }
+      },
+      {
+        "general_and_controls_sections": {
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "type": "stack_panel",
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "account@account_section.account_setting_section": {}
+            },
+            {
+              "quick_setting@quick_section.quick_setting_setting_section": {
+                "ignored": "($is_pregame)"
+              }
+            },
+            {
+              "info@info_section.info_setting_section": {}
+            },
+            {
+              "sound_language_category@general_section.sound_language_category_setting_section": {}
+            },
+            {
+              "graphics@graphics_section.graphics_setting_section": {}
+            },
+            {
+              "etc@general_section.etc_setting_section": {}
+            },
+
+            {
+              "accessibility_section@general_section.accessibility_setting_section": {}
+            },
+            {
+              "controls@controls_section.controls_setting_section": {}
+            },
+            {
+              "creator@general_section.creator_setting_section": {}
+            },
+            {
+              "storage_management@storage_management.storage_management_setting_section": {}
+            },
+            {
+              "global_texture_pack@general_section.global_texture_pack_setting_section": {}
+            },
+            {
+              "view_subscriptions_prerelease@general_section.view_subscriptions_prerelease_setting_section": {
+                "ignored": "($education_edition or $is_editor_mode_enabled or not $pre_release)"
+              }
+            },
+            {
+              "view_subscriptions@general_section.view_subscriptions_setting_section": {
+                "ignored": "($education_edition or $is_editor_mode_enabled or $pre_release)"
+              }
+            },
+            {
+              "how_to_play@general_section.how_to_play_setting_section": {}
+            },
+
+            {
+              "debug_category@general_section.debug_category_setting_section": {
+                "ignored": "($is_publish)"
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "popup_dialog_factory": {
+          "type": "factory",
+          "size": [ 2, 2 ],
+          "control_ids": {
+            "no_connection": "@resource_pack_purchase.popup_dialog__no_connection",
+            "purchase_failed": "@resource_pack_purchase.popup_dialog__purchase_failed",
+            "purchase_in_progress": "@skin_pack_purchase.popup_dialog__purchase_in_progress"
+          }
+        }
+      }
+    ]
+  },
+
+
+  // Realm
+  "realm_selector_stack_panel": {
     "type": "stack_panel",
     "size": [ "100%", "100%c + 4px" ],
     "anchor_from": "center",
@@ -31,8 +313,7 @@
     ]
   },
 
-
-  "section_content_panels": {
+  "realm_section_content_panels": {
     "type": "panel",
     "size": [ "100% - 4px", "100%c + 4px" ],
     "offset": [ 0, 0 ],
@@ -49,6 +330,7 @@
           "ignored": "(not $include_realm_section)"
         }
       },
+
       {
         "popup_dialog_factory": {
           "type": "factory",
@@ -63,6 +345,8 @@
     ]
   },
 
+
+  // Origin
   "section_header_panels": {
     "size": [ "100% - 4px", "100%c + 4px" ],
     "anchor_from": "center",

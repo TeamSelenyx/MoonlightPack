@@ -1,5 +1,6 @@
 {
   "ui_defs": [
+    "ui/ui_template_element.json",
     "ui/ui_template_radio.json",
     "ui/ui_template_ore.json",
 
@@ -8,6 +9,7 @@
     "ui/settings_sections/quick_section.json",
     "ui/settings_sections/info_section.json",
     "ui/settings_sections/preview_section.json",
+    "ui/settings_sections/debug_section.json",
 
     "ui/utils/anims_common.json",
     "ui/utils/button_preset.json",

@@ -344,6 +344,27 @@
 
 
   //---------------------------------------------------------------------------
+  // Screen Background
+  //---------------------------------------------------------------------------
+  "chat_screen_background": {
+    "layer": -10,
+    "type": "image",
+    "size": [ "200%", "200%" ], // Full screen fit
+    "texture": "textures/ui/screen_background",
+    "$screen_background_alpha|default": 0.75,
+    "alpha": "$screen_background_alpha"
+  },
+
+  "chat_setting_scrolling_background_image": {
+    "layer": 3,
+    "type": "image",
+    "size": [ 3, "100%" ],
+    "texture": "textures/ui/ScrollRail",
+    "alpha": 0.5
+  },
+
+
+  //---------------------------------------------------------------------------
   // Main Content
   //---------------------------------------------------------------------------
   "chat_settings_scrolling_content": {
@@ -402,13 +423,14 @@
     "$scroll_bar_left_padding_size": [ 3.5, 0 ],
     "$scroll_bar_right_padding_size": [ 2.5, 0 ],
     "$scrolling_content": "chat_settings.chat_settings_scrolling_content",
-    "$show_background": false
+    "$scroll_background_image_control": "chat_settings.chat_setting_scrolling_background_image"
   },
 
   "chat_settings_popup@popup_dialog.form_fit_modal_dialog_popup": {
     "$modal_title": "chat.settings",
-    "$popup_dialog_escape_button_name": "button.close_chat_settings",
+    "$modal_background": "chat_settings.chat_screen_background",
     "$modal_contents": "chat_settings.chat_setting_scrolling_panel",
+    "$popup_dialog_escape_button_name": "button.close_chat_settings",
     "$screen_background_alpha": 0.4,
     "$dialog_background_texture": "textures/ui/control_gray",
     "$fill_alpha": 0.4,

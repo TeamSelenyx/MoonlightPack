@@ -107,7 +107,7 @@
   "popup@common.input_panel": {
     "$toast_anchor_from|default": "top_middle",
     "$toast_anchor_to|default": "top_middle",
-    "$toast_content_offset|default": [ 0, -30 ],
+    "$toast_content_offset|default": [ 0, -31 ],
     "$alpha_anims|default": [],
     "$offset_anims|default": [
       "@toast_screen.popup_anim"
@@ -120,7 +120,7 @@
     "anchor_to": "$toast_anchor_to",
     "offset": [ 0, 0 ],
     "anims": "$offset_anims",
-    "$toast_background_texture|default": "textures/ui/facelift/facelift_button",
+    "$toast_background_texture|default": "$facelift_texture",
     "$toast_text_stack_content|default": "toast_screen.text_stack_panel",
     "button_mappings": [
       {
@@ -139,7 +139,7 @@
           "anchor_from": "center",
           "anchor_to": "center",
           "texture": "$toast_background_texture",
-          "color": [ 0.0, 0.0, 0.0 ],
+          "color": "$facelift_texture_default_color",
           "alpha": 0.8
         }
       },
@@ -370,15 +370,15 @@
   },
 
   "recipe_unlocked_popup": {
-    "$toast_anchor_from|default": "top_middle",
-    "$toast_anchor_to|default": "top_middle",
-    "$toast_size|default": [ "100%cm + 6px", "100%cm + 6px" ],
+    "$toast_anchor_from|default": "top_right",
+    "$toast_anchor_to|default": "top_right",
+    "$toast_size|default": [ "100%cm + 12px", "100%cm" ],
     "$toast_offset|default": [ 0, 0 ],
     "$alpha_anims|default": [],
     "$offset_anims|default": [
       "@toast_screen.recipe_popup_anim"
     ],
-    "$toast_content_offset|default": [ 0, -26 ],
+    "$toast_content_offset|default": [ 3, -30 ],
 
     "layer": 20,
     "type": "image",
@@ -514,6 +514,6 @@
     "$toast_anchor_from": "top_middle",
     "$toast_anchor_to": "top_middle",
     "$toast_text_stack_content": "toast_screen.chat_text_stack_panel",
-    "$toast_background_texture": "textures/ui/facelift/facelift_button"
+    "$toast_background_texture": "$facelift_texture"
   }
 }

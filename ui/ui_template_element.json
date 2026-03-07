@@ -1,0 +1,37 @@
+{
+  "namespace": "common_element",
+
+  "panel": {
+    "$size|default": [ "100%", "100%" ],
+    "$anchor|default": "center",
+    "$bindings|default": [],
+    "$panel_controls|default": [],
+
+    "type": "panel",
+    "size": "$size",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "controls": "$panel_controls",
+    "bindings": "$bindings"
+  },
+
+  "label": {
+    "$size|default": [ "100%", "default" ],
+    "$anchor|default": "center",
+    "$bindings|default": [],
+    "$label_text_alignment|default": "left",
+    "$label_font_type|default": "default",
+    "$label_font_scale_factor|default": 1.0,
+    "$label_shadow|default": true,
+
+    "type": "label",
+    "size": "$size",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "font_type": "$label_font_type",
+    "font_scale_factor": "$label_font_scale_factor",
+    "text_alignment": "$label_text_alignment",
+    "shadow": "$label_shadow",
+    "bindings": "$bindings"
+  }
+}

@@ -2,44 +2,34 @@
   "namespace": "info_section",
 
   // Info Settings Button & Section
-  "info_ore_button@settings_common.ore_section_toggle_base": {
-    "$toggle_view_binding_name": "info_button_toggle",
-    "$glyph_texture": "textures/ui/ore/icon_border",
-    "$glyph_color_texture": "textures/ui/ore/icon_info",
-    "$glyph_size": [ 17, 17 ],
-    "$button_text": "info_section.info",
-    "$toggle_property_bag": {
-      "#panel_title": "$button_text"
-    }
-  },
-
-  "info_top_ore_button@settings_common.ore_section_toggle_base": {
+  "info_top_facelift_button@settings_common.ore_section_toggle_base": {
     "$toggle_view_binding_name": "info_button_toggle",
  
     "$button_type_panel": "button_content_preset.image_content_panel",
     "$content_pressed": false,
     "$text": "info_section.info",
     "$icon_size": [ "95%", "95%" ],
+    "$icon_offset": [ 0.25, 0.25 ],
     "$icon_path": "textures/ui/icons/icon_info",
 
     "$default_border_visible": false,
     "$hover_border_visible": false,
 
-    "$default_texture": "textures/ui/facelift/facelift_button",
-    "$hover_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button",
-    "$locked_texture": "textures/ui/facelift/facelift_button",
+    "$default_texture": "$facelift_texture",
+    "$hover_texture": "$facelift_texture",
+    "$pressed_texture": "$facelift_texture",
+    "$pressed_no_hover_texture": "$facelift_texture",
+    "$locked_texture": "$facelift_texture",
 
-    "$default_texture_alpha": 0.6,
-    "$default_checked_texture_alpha": 0.6,
-    "$hover_texture_alpha": 0.6,
-    "$hover_checked_texture_alpha": 0.6,
+    "$default_texture_alpha": "$facelift_texture_alpha",
+    "$default_checked_texture_alpha": "$facelift_texture_alpha",
+    "$hover_texture_alpha": "$facelift_texture_alpha",
+    "$hover_checked_texture_alpha": "$facelift_texture_alpha",
 
-    "$default_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$default_checked_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$hover_texture_color": [ 0.4, 0.4, 0.4 ],
-    "$hover_checked_texture_color": [ 0.4, 0.4, 0.4 ],
+    "$default_texture_color": "$facelift_texture_default_color",
+    "$default_checked_texture_color": "$facelift_texture_default_checked_color",
+    "$hover_texture_color": "$facelift_texture_hover_color",
+    "$hover_checked_texture_color": "$facelift_texture_hover_checked_color",
 
     "$toggle_property_bag": {
       "#panel_title": "$text"
@@ -55,14 +45,15 @@
         "target_property_name": "#visible"
       }
     ],
-    "$compact_mode": true,
-    "$show_content_background": false,
-    "$section_content": "info_section.info_section"
+    "$compact_mode_v2": true,
+    "$use_section_content_scrolling": true,
+    "$section_content": "info_section.info_section",
+    "$section_footer_content": "info_section.info_section_footer"
   },
 
   "info_section": {
     "type": "stack_panel",
-    "size": [ "100%", "100%cm" ],
+    "size": [ "100% - 2px", "100%cm" ],
     "anchor_from": "center",
     "anchor_to": "center",
     "orientation": "horizontal",
@@ -84,8 +75,6 @@
               }
             },
             { "00_padding@common.empty_panel": { "size": [ 0, 4 ] } },
-            { "minecraft_version@info_section.minecraft_version_notification": {} },
-            { "01_padding@common.empty_panel": { "size": [ 0, 4 ] } },
             { "minecraft_other_info@info_section.minecraft_other_info_content_panel": {} }
           ]
         }
@@ -127,20 +116,42 @@
                   }
                 ]
               }
-            },
-            { "02_void_panel@common.empty_panel": { "size": [ 0, 4 ] } },
-            { "pack_is_incomplete@info_section.pack_is_incomplete": { "visible": "$pack_is_incomplete" } },
-            { "03_void_panel@common.empty_panel": { "visible": "$pack_is_developer_mode", "size": [ 0, 4 ] } },
-            { "pack_is_developer@info_section.pack_is_developer": { "visible": "$pack_is_developer_mode" } },
-            { "04_void_panel@common.empty_panel": { "visible": "$pack_is_custom", "size": [ 0, 4 ] } },
-            { "pack_is_custom@info_section.pack_is_custom": { "visible": "$pack_is_custom" } },
-            { "05_void_panel@common.empty_panel": { "visible": "($pack_type = 'Preview')", "size": [ 0, 4 ] } },
-            { "pack_is_preview@info_section.pack_is_preview": { "visible": "($pack_type = 'Preview')" } },
-            { "06_void_panel@common.empty_panel": { "visible": "($pack_type = 'BETA')", "size": [ 0, 4 ] } },
-            { "pack_is_beta@info_section.pack_is_beta": { "visible": "($pack_type = 'BETA')" } }
+            }
           ]
         }
       }
+    ]
+  },
+
+  "info_section_footer": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "content_stack_panel": {
+          "type": "stack_panel",
+          "size": [ "100%c", "100%cm" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "horizontal",
+          "controls": [
+            { "minecraft_version@info_section.minecraft_version_notification_short": {} },
+            { "00_void_padding@common.empty_panel": { "size": [ 4, 0 ] } },
+            { "pack_is_incomplete@info_section.pack_is_incomplete_short": { "visible": "$pack_is_incomplete" } },
+            { "01_void_padding@common.empty_panel": { "visible": "$pack_is_developer_mode", "size": [ 4, 0 ] } },
+            { "pack_is_developer@info_section.pack_is_developer_short": { "visible": "$pack_is_developer_mode" } },
+            { "02_void_padding@common.empty_panel": { "visible": "$pack_is_custom", "size": [ 4, 0 ] } },
+            { "pack_is_custom@info_section.pack_is_custom_short": { "visible": "$pack_is_custom" } },
+            { "03_void_padding@common.empty_panel": { "visible": "($pack_type = 'Preview')", "size": [ 4, 0 ] } },
+            { "pack_is_preview@info_section.pack_is_preview_short": { "visible": "($pack_type = 'Preview')" } },
+            { "04_void_padding@common.empty_panel": { "visible": "($pack_type = 'BETA')", "size": [ 4, 0 ] } },
+            { "pack_is_beta@info_section.pack_is_beta_short": { "visible": "($pack_type = 'BETA')" } }
+          ]
+        }
+      },
+      { "void_padding@common.empty_panel": { "size": [ 0, 4 ] } }
     ]
   },
 
@@ -159,17 +170,102 @@
       { "paddingDetailInfo@common.empty_panel": { "size": [ 0, 4 ] } },
 
       {
+        "pack_version_stack_panel": {
+          "type": "stack_panel",
+          "size": [ "100%c", "100%cm" ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "pack_version_title": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "text": "global.pack_info.version.title",
+                "color": "$7_color_format",
+                "shadow": true
+              }
+            },
+            {
+              "void_text": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "text": " ",
+                "color": "$7_color_format",
+                "shadow": true
+              }
+            },
+            {
+              "pack_version": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "text": "$pack_version",
+                "color": "$7_color_format",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      },
+      {
+        "pack_build_stack_panel": {
+          "type": "stack_panel",
+          "size": [ "100%c", "100%cm" ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "pack_build_title": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "text": "global.pack_info.build.title",
+                "color": "$7_color_format",
+                "shadow": true
+              }
+            },
+            {
+              "void_text": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "text": " ",
+                "color": "$7_color_format",
+                "shadow": true
+              }
+            },
+            {
+              "pack_build": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "$pack_type_text|default": "$pack_type",
+                "$pack_type_text_color|default": "$pack_type_color",
+                "variables": [
+                  {
+                    "requires": "($pack_is_developer_mode",
+                    "$pack_type_text": "Developer",
+                    "$pack_type_text_color": [ 0.698, 0.867, 0.937 ]
+                  }
+                ],
+                "text": "$pack_type_text",
+                "color": "$pack_type_text_color",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      },
+      {
         "pack_licenses@info_section.info_text_base": {
           "text": "global.pack_info.licenses"
         }
       },
-      { "pack_project_codename_text_void_panel@common.empty_panel": { "size": "$defaultLabelPadding" } },
       {
         "pack_project_codename@info_section.info_text_base": {
           "text": "global.pack_info.project_codename"
         }
       },
-      { "pack_github_text_void_panel@common.empty_panel": { "size": "$defaultLabelPadding" } },
       {
         "pack_github@info_section.info_text_base": {
           "text": "global.pack_info.github"
@@ -310,7 +406,7 @@
       {
         "pack_info_stack_panel": {
           "type": "stack_panel",
-          "size": [ "100%", 60 ],
+          "size": [ "100%", 40 ],
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",
           "orientation": "horizontal",
@@ -362,101 +458,6 @@
                       "text_alignment": "left"
                     }
                   },
-                  { "void_panel@common.empty_panel": { "size": [ 0, 2 ] } },
-                  {
-                    "pack_version_build_stack_panel@common.vertical_stack_panel": {
-                      "size": [ "100%", "100%c" ],
-                      "controls": [
-                        {
-                          "pack_version_stack_panel": {
-                            "type": "stack_panel",
-                            "size": [ "100%c", "100%cm" ],
-                            "orientation": "horizontal",
-                            "controls": [
-                              {
-                                "pack_version_title": {
-                                  "type": "label",
-                                  "size": [ "default", "default" ],
-                                  "max_size": [ "default", "default" ],
-                                  "text": "global.pack_info.version.title",
-                                  "color": "$7_color_format",
-                                  "shadow": true
-                                }
-                              },
-                              {
-                                "void_text": {
-                                  "type": "label",
-                                  "size": [ "default", "default" ],
-                                  "max_size": [ "default", "default" ],
-                                  "text": " ",
-                                  "color": "$7_color_format",
-                                  "shadow": true
-                                }
-                              },
-                              {
-                                "pack_version": {
-                                  "type": "label",
-                                  "size": [ "default", "default" ],
-                                  "max_size": [ "default", "default" ],
-                                  "text": "$pack_version",
-                                  "color": "$7_color_format",
-                                  "shadow": true
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "pack_build_stack_panel": {
-                            "type": "stack_panel",
-                            "size": [ "100%c", "100%cm" ],
-                            "orientation": "horizontal",
-                            "controls": [
-                              {
-                                "pack_build_title": {
-                                  "type": "label",
-                                  "size": [ "default", "default" ],
-                                  "max_size": [ "default", "default" ],
-                                  "text": "global.pack_info.build.title",
-                                  "color": "$7_color_format",
-                                  "shadow": true
-                                }
-                              },
-                              {
-                                "void_text": {
-                                  "type": "label",
-                                  "size": [ "default", "default" ],
-                                  "max_size": [ "default", "default" ],
-                                  "text": " ",
-                                  "color": "$7_color_format",
-                                  "shadow": true
-                                }
-                              },
-                              {
-                                "pack_build": {
-                                  "type": "label",
-                                  "size": [ "default", "default" ],
-                                  "max_size": [ "default", "default" ],
-                                  "$pack_type_text|default": "$pack_type",
-                                  "$pack_type_text_color|default": "$pack_type_color",
-                                  "variables": [
-                                    {
-                                      "requires": "($pack_is_developer_mode",
-                                      "$pack_type_text": "Developer",
-                                      "$pack_type_text_color": [ 0.698, 0.867, 0.937 ]
-                                    }
-                                  ],
-                                  "text": "$pack_type_text",
-                                  "color": "$pack_type_text_color",
-                                  "shadow": true
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  },
                   { "end_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } }
                 ]
               }
@@ -498,7 +499,7 @@
     "controls": [
       {
         "minecraft_info_stack_panel@common.horizontal_stack_panel": {
-          "size": [ "100%", 60 ],
+          "size": [ "100%", 40 ],
           "controls": [
             {
               "logo_panel": {
@@ -515,7 +516,7 @@
                 ]
               }
             },
-            { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+            { "void_padding@common.empty_panel": { "size": [ 4, 0 ] } },
             {
               "other_stack_panel@common.vertical_stack_panel": {
                 "size": [ "fill", "100%" ],
@@ -542,34 +543,6 @@
                       ]
                     }
                   },
-                  { "void_panel@common.empty_panel": { "size": [ 0, 2 ] } },
-                  {
-                    "version_info_text_stack_panel@common.vertical_stack_panel": {
-                      "size": [ "100%", "100%c" ],
-                      "controls": [
-                        {
-                          "version_text@info_section.info_text_base": {
-                            "text": "#version",
-                            "bindings": [
-                              {
-                                "binding_name": "#version"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "protocol_text@info_section.info_text_base": {
-                            "text": "#protocol_version",
-                            "bindings": [
-                              {
-                                "binding_name": "#protocol_version"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  },
                   { "end_void_panel@common.empty_panel": { "size": [ "100%", "fill" ] } }
                 ]
               }
@@ -577,50 +550,182 @@
           ]
         }
       },
-      { "minecraft_build_info_void_panel@common.empty_panel": { "size": [ "100%", 4 ] } },
+      { "minecraft_build_info_padding@common.empty_panel": { "size": [ "100%", 4 ] } },
       {
-        "build_id_text@info_section.info_text_base": {
-          "text": "#build_id",
-          "bindings": [
+        "build_id_text@info_section.info_button_text_base": {
+          "$info_text": "#build_information",
+          "$info_text_bindings": [
             {
-              "binding_name": "#build_id"
+              "binding_name": "#build_information"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "minecraft_other_info_content_panel": {
+    "layer": 10,
+    "type": "stack_panel",
+    "size": [ "100% - 4px", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "$defaultLabelPadding": [ 0, 2 ],
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "controls": [
+      {
+        "termsNConditions_title_header_cover": {
+          "type": "image",
+          "size": [ "100%c + 10px", "100%c + 6px" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "texture": "textures/ui/facelift/facelift_button_top",
+          "color": "$facelift_texture_default_color",
+          "alpha": "$facelift_texture_alpha",
+          "controls": [
+            {
+              "termsNConditions_title_header@settings_common.option_title_header": {
+                "$title": "options.creditsHeader"
+              }
             }
           ]
         }
       },
-      { "build_date_text_void_panel@common.empty_panel": { "visible": false, "size": "$defaultLabelPadding" } },
       {
-        "build_date_text@info_section.info_text_base": {
-          "visible": false,
-          "text": "#build_date",
-          "bindings": [
+        "termsNConditions_stack_panel@common.horizontal_stack_panel": {
+          "size": [ "100%", 26 ],
+          "controls": [
             {
-              "binding_name": "#build_date"
-            }
-          ]
-        }
-      },
-      {
-        "network_info_text_void_panel@common.empty_panel": {
-          "size": "$defaultLabelPadding",
-          "bindings": [
-            {
-              "binding_name": "#network_info_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "network_info_text@info_section.info_text_base": {
-          "text": "#network_info",
-          "bindings": [
-            {
-              "binding_name": "#network_info"
+              "credits_button@settings_common.facelift_action_button": {
+                "size": [ "fill", "100%" ],
+                "$pressed_button_name": "button.credits",
+                "$button_text": "options.credits",
+
+                "$button_type_panel": "button_content_preset.text_content_panel",
+
+                "$default_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline",
+                "$hover_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline",
+                "$pressed_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline",
+                "$locked_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline"
+              }
             },
+            { "divider@facelift_setting_utils.content_divider_base": { "$divider_type": "vertical" } },
             {
-              "binding_name": "#network_info_visible",
-              "binding_name_override": "#visible"
+              "attribution_link_button@settings_common.facelift_link_button": {
+                "size": [ "fill", "100%" ],
+                "$button_text": "options.attribution",
+                "variables": [
+                  {
+                    "requires": "(not $nx_os)",
+                    "$attribution_button_url": "https://www.minecraft.net/attribution/?hideChrome"
+                  },
+                  {
+                    "requires": "($nx_os)",
+                    "$attribution_button_url": "https://aka.ms/switchattribution"
+                  }
+                ],
+                "property_bag": {
+                  "#hyperlink": "$attribution_button_url"
+                },
+          
+                "$default_button_texture": "textures/ui/facelift/facelift_button_right",
+                "$hover_button_texture": "textures/ui/facelift/facelift_button_right",
+                "$pressed_button_texture": "textures/ui/facelift/facelift_button_right",
+                "$locked_button_texture": "textures/ui/facelift/facelift_button_right"
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "paddinglicenses@common.empty_panel": { "size": [ 0, 4 ] }
+      },
+      {
+        "licenses_title_header_cover": {
+          "type": "image",
+          "size": [ "100%c + 10px", "100%c + 6px" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "texture": "textures/ui/facelift/facelift_button_top",
+          "color": "$facelift_texture_default_color",
+          "alpha": "$facelift_texture_alpha",
+          "controls": [
+            {
+              "licenses_title_header@settings_common.option_title_header": {
+                "$title": "options.licenses"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "licenses_stack_panel@common.horizontal_stack_panel": {
+          "size": [ "100%", 26 ],
+          "controls": [
+            {
+              "licensed_content_link_button@settings_common.facelift_link_button": {
+                "ignored": "($education_edition)",
+                "size": [ "fill", "100%" ],
+                "$button_text": "options.licensed_content",
+                "variables": [
+                  {
+                    "requires": "(not $nx_os)",
+                    "$licensed_content_button_url": "https://www.minecraft.net/licensed-content/?hideChrome"
+                  },
+                  {
+                    "requires": "($nx_os)",
+                    "$licensed_content_button_url": "https://aka.ms/switchcontent"
+                  }
+                ],
+                "property_bag": {
+                  "#hyperlink": "$licensed_content_button_url"
+                },
+          
+                "$default_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline",
+                "$hover_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline",
+                "$pressed_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline",
+                "$locked_button_texture": "textures/ui/facelift/outline/facelift_button_bottom_left_outline"
+              }
+            },
+            { "divider@facelift_setting_utils.content_divider_base": { "$divider_type": "vertical" } },
+            {
+              "font_license_popup_button@settings_common.facelift_action_button": {
+                "size": [ "fill", "100%" ],
+                "$pressed_button_name": "button.font_license_popup",
+                "$button_text": "options.font_license",
+                "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+
+                "$button_type_panel": "button_content_preset.text_content_panel",
+          
+                "$default_button_texture": "textures/ui/facelift/facelift_button_right",
+                "$hover_button_texture": "textures/ui/facelift/facelift_button_right",
+                "$pressed_button_texture": "textures/ui/facelift/facelift_button_right",
+                "$locked_button_texture": "textures/ui/facelift/facelift_button_right"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "minecraft_other_info_toggle@button_preset.button_with_checkbox_toggle": {
+          "ignored": true, // Not Used
+          "size": [ "100%", 24 ],
+          "$button_text": "info_section.minecraftInfo.detail",
+          "$toggle_name": "minecraft_other_info_visible_toggle",
+          "$toggle_view_binding_name": "other_info"
+        }
+      },
+      {
+        "minecraft_other_info@info_section.minecraft_other_info_stack_panel": {
+          "ignored": true, // Not Used
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "other_info",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
             }
           ]
         }
@@ -714,199 +819,7 @@
             }
           ]
         }
-      },
-
-      { "paddingMinecraftOtherInfo@common.empty_panel": { "ignored": true, "size": [ 0, 4 ] } },
-      {
-        "minecraft_other_info_toggle@button_preset.button_with_checkbox_toggle": {
-          "ignored": true,
-          "size": [ "100%", 24 ],
-          "$button_text": "info_section.minecraftInfo.detail",
-          "$toggle_name": "minecraft_other_info_visible_toggle",
-          "$toggle_view_binding_name": "other_info"
-        }
-      },
-      {
-        "minecraft_other_info@info_section.minecraft_other_info_stack_panel": {
-          "ignored": true,
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "other_info",
-              "source_property_name": "#toggle_state",
-              "target_property_name": "#visible"
-            }
-          ]
-        }
       }
-    ]
-  },
-
-  "minecraft_other_info_content_panel": {
-    "layer": 10,
-    "type": "stack_panel",
-    "size": [ "100% - 4px", "100%c" ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "$defaultLabelPadding": [ 0, 2 ],
-    "$spatialPatternsPadding": [ "100%", 8 ],
-    "$paddingLineDivider": [ "100%", 16 ],
-    "controls": [
-      {
-        "termsNConditions_title_header_cover": {
-          "type": "image",
-          "size": [ "100%c + 10px", "100%c + 6px" ],
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "texture": "textures/ui/facelift/facelift_button_top",
-          "color": [ 0, 0, 0 ],
-          "alpha": 0.6,
-          "controls": [
-            {
-              "termsNConditions_title_header@settings_common.option_title_header": {
-                "$title": "options.creditsHeader"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "termsNConditions_stack_panel@common.horizontal_stack_panel": {
-          "size": [ "100%", "100%cm" ],
-          "controls": [
-            {
-              "credits_button@settings_common.facelift_action_button": {
-                "size": [ "fill", 26 ],
-                "$pressed_button_name": "button.credits",
-                "$button_text": "options.credits",
-
-                "$button_type_panel": "button_content_preset.text_content_panel",
-
-                "$default_button_texture": "textures/ui/facelift/facelift_button_bottom_left",
-                "$hover_button_texture": "textures/ui/facelift/facelift_button_bottom_left",
-                "$pressed_button_texture": "textures/ui/facelift/facelift_button_bottom_left",
-                "$locked_button_texture": "textures/ui/facelift/facelift_button_bottom_left"
-              }
-            },
-            { "void_padding@common.empty_panel": { "size": [ 0.1, 0 ] } },
-            {
-              "attribution_link_button@settings_common.facelift_link_button": {
-                "size": [ "fill", 26 ],
-                "$button_text": "options.attribution",
-                "variables": [
-                  {
-                    "requires": "(not $nx_os)",
-                    "$attribution_button_url": "https://www.minecraft.net/attribution/?hideChrome"
-                  },
-                  {
-                    "requires": "($nx_os)",
-                    "$attribution_button_url": "https://aka.ms/switchattribution"
-                  }
-                ],
-                "property_bag": {
-                  "#hyperlink": "$attribution_button_url"
-                },
-          
-                "$default_button_texture": "textures/ui/facelift/facelift_button_right",
-                "$hover_button_texture": "textures/ui/facelift/facelift_button_right",
-                "$pressed_button_texture": "textures/ui/facelift/facelift_button_right",
-                "$locked_button_texture": "textures/ui/facelift/facelift_button_right"
-              }
-            }
-          ]
-        }
-      },
-
-      {
-        "paddinglicenses@common.empty_panel": { "size": [ 0, 4 ] }
-      },
-      {
-        "licenses_title_header_cover": {
-          "type": "image",
-          "size": [ "100%c + 10px", "100%c + 6px" ],
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "texture": "textures/ui/facelift/facelift_button_top",
-          "color": [ 0, 0, 0 ],
-          "alpha": 0.6,
-          "controls": [
-            {
-              "licenses_title_header@settings_common.option_title_header": {
-                "$title": "options.licenses"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "licenses_stack_panel@common.horizontal_stack_panel": {
-          "size": [ "100%", "100%cm" ],
-          "controls": [
-            {
-              "licensed_content_link_button@settings_common.facelift_link_button": {
-                "ignored": "($education_edition)",
-                "size": [ "fill", 26 ],
-                "$button_text": "options.licensed_content",
-                "variables": [
-                  {
-                    "requires": "(not $nx_os)",
-                    "$licensed_content_button_url": "https://www.minecraft.net/licensed-content/?hideChrome"
-                  },
-                  {
-                    "requires": "($nx_os)",
-                    "$licensed_content_button_url": "https://aka.ms/switchcontent"
-                  }
-                ],
-                "property_bag": {
-                  "#hyperlink": "$licensed_content_button_url"
-                },
-          
-                "$default_button_texture": "textures/ui/facelift/facelift_button_bottom_left",
-                "$hover_button_texture": "textures/ui/facelift/facelift_button_bottom_left",
-                "$pressed_button_texture": "textures/ui/facelift/facelift_button_bottom_left",
-                "$locked_button_texture": "textures/ui/facelift/facelift_button_bottom_left"
-              }
-            },
-            {
-              "font_license_popup_button@settings_common.facelift_action_button": {
-                "size": [ "fill", 26 ],
-                "$pressed_button_name": "button.font_license_popup",
-                "$button_text": "options.font_license",
-                "$focus_override_down": "FOCUS_OVERRIDE_STOP",
-
-                "$button_type_panel": "button_content_preset.text_content_panel",
-          
-                "$default_button_texture": "textures/ui/facelift/facelift_button_right",
-                "$hover_button_texture": "textures/ui/facelift/facelift_button_right",
-                "$pressed_button_texture": "textures/ui/facelift/facelift_button_right",
-                "$locked_button_texture": "textures/ui/facelift/facelift_button_right"
-              }
-            }
-          ]
-        }
-      }
-      /*
-      {
-        "minecraft_other_info_toggle@button_preset.button_with_checkbox_toggle": {
-          "size": [ "100%", 24 ],
-          "$button_text": "info_section.minecraftInfo.detail",
-          "$toggle_name": "minecraft_other_info_visible_toggle",
-          "$toggle_view_binding_name": "other_info"
-        }
-      },
-      {
-        "minecraft_other_info@info_section.minecraft_other_info_stack_panel": {
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "other_info",
-              "source_property_name": "#toggle_state",
-              "target_property_name": "#visible"
-            }
-          ]
-        }
-      }
-      */
     ]
   },
 
@@ -1200,36 +1113,37 @@
 
 
   // Notification
-  "notification_design_base": {
+  "notification_short_design_base": {
     "$notification_icon_path|default": "",
+    "$notification_color|default": [ 1.0, 1.0, 1.0 ],
     "$notification_title|default": "",
     "$notification_text|default": "",
 
     "layer": 4,
     "type": "image",
-    "size": [ "100%", "100%c + 8px" ],
-    "texture": "textures/ui/facelift/facelift_button",
-    "color": [ 0.0, 0.0, 0.0 ],
-    "alpha": 0.6,
+    "size": [ "100%cm + 12px", "100%cm + 12px" ],
+    "texture": "textures/ui/hud_text_background_white",
+    "color": "$notification_color",
+    "alpha": 0.65,
     "controls": [
       {
         "content_stack_panel@common.horizontal_stack_panel": {
           "layer": 5,
-          "size": [ "100% - 8px", "100%cm" ],
+          "size": [ "100%c", "100%cm" ],
           "anchor_from": "center",
           "anchor_to": "center",
           "controls": [
             {
               "notification_icon_panel": {
                 "type": "panel",
-                "size": [ 30, "100%sm" ],
+                "size": [ "100%y", "100%sm" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "controls": [
                   {
                     "notification_icon": {
                       "type": "image",
-                      "size": [ "90%", "100%x" ],
+                      "size": [ "75%", "75%" ],
                       "anchor_from": "center",
                       "anchor_to": "center",
                       "texture": "$notification_icon_path"
@@ -1238,40 +1152,66 @@
                 ]
               }
             },
-            { "void_padding@common.empty_panel": { "size": [ 6, 0 ] } },
+            { "void_padding@common.empty_panel": { "size": [ 4, 0 ] } },
             {
               "notification_texts_panel": {
                 "type": "panel",
-                "size": [ "fill", "100%c + 6px" ],
+                "size": [ "100%cm", "100%cm + 6px" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "controls": [
                   {
-                    "notification_texts@common.vertical_stack_panel": {
-                      "size": [ "100%", "100%c" ],
+                    "notification_title": {
+                      "layer": 5,
+                      "type": "label",
+                      "size": [ "default", "default" ],
                       "anchor_from": "center",
                       "anchor_to": "center",
+                      "text": "$notification_title",
+                      "shadow": true,
+                      "font_scale_factor": 1.2
+                    }
+                  }
+                ]
+              }
+            },
+            { "end_void_padding@common.empty_panel": { "size": [ 4, 0 ] } }
+          ]
+        }
+      },
+      {
+        "notification_hover_texts": {
+          "type": "button",
+          "size": [ "100%sm", "100%sm" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "hover_control": "hover",
+          "controls": [
+            {
+              "hover": {
+                "type": "panel",
+                "size": [ "100%", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "hover_text_design": {
+                      "layer": 15,
+                      "type": "image",
+                      "size": [ "100%c + 8px", "100%c + 8px" ],
+                      "offset": [ 0, -28 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "texture": "$facelift_texture",
+                      "color": "$facelift_texture_default_color",
+                      "alpha": "$facelift_texture_alpha",
+                      "allow_clipping": false,
                       "controls": [
-                        {
-                          "notification_title": {
-                            "layer": 5,
+                        { 
+                          "hover_text": {
+                            "layer": 17,
                             "type": "label",
-                            "size": [ "100%", "default" ],
-                            "max_size": [ "100%", "default" ],
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "text": "$notification_title",
-                            "shadow": true,
-                            "font_scale_factor": 1.2
-                          }
-                        },
-                        { "void_padding@common.empty_panel": { "size": [ 0, 2 ] } },
-                        {
-                          "notification_text": {
-                            "layer": 5,
-                            "type": "label",
-                            "size": [ "100%", "default" ],
-                            "max_size": [ "100%", "default" ],
+                            "size": [ "default", "default" ],
                             "anchor_from": "center",
                             "anchor_to": "center",
                             "text": "$notification_text",
@@ -1290,65 +1230,65 @@
     ]
   },
 
-  "pack_is_developer@info_section.notification_design_base": {
+  "pack_is_developer_short@info_section.notification_short_design_base": {
     "$notification_icon_path": "textures/ui/icon_iron_pickaxe",
-    "$notification_title": "notification.pack_is_developer",
-    "$notification_text": "notification.pack_is_developer.lore"
+    "$notification_title": "notification.pack_is_developer.short",
+    "$notification_text": "notification.pack_is_developer"
   },
 
-  "pack_is_beta@info_section.notification_design_base": {
+  "pack_is_beta_short@info_section.notification_short_design_base": {
     "$notification_icon_path": "textures/ui/WarningGlyph",
-    "$notification_title": "notification.pack_is_beta",
-    "$notification_text": "notification.pack_is_beta.lore"
+    "$notification_title": "notification.pack_is_beta.short",
+    "$notification_text": "notification.pack_is_beta"
   },
 
-  "pack_is_preview@info_section.notification_design_base": {
+  "pack_is_preview_short@info_section.notification_short_design_base": {
     "$notification_icon_path": "textures/ui/icons/icon_unlocked",
-    "$notification_title": "notification.pack_is_preview",
-    "$notification_text": "notification.pack_is_preview.lore"
+    "$notification_title": "notification.pack_is_preview.short",
+    "$notification_text": "notification.pack_is_preview"
   },
 
-  "pack_is_custom@info_section.notification_design_base": {
+  "pack_is_custom_short@info_section.notification_short_design_base": {
     "$notification_icon_path": "textures/ui/icons/icon_star",
-    "$notification_title": "notification.pack_is_custom",
-    "$notification_text": "notification.pack_is_custom.lore"
+    "$notification_title": "notification.pack_is_custom.short",
+    "$notification_text": "notification.pack_is_custom"
   },
 
-  "pack_is_incomplete@info_section.notification_design_base": {
+  "pack_is_incomplete_short@info_section.notification_short_design_base": {
     "$notification_icon_path": "textures/ui/icons/icon_star",
-    "$notification_title": "notification.pack_is_incomplete",
-    "$notification_text": "notification.pack_is_incomplete.lore"
+    "$notification_title": "notification.pack_is_incomplete.short",
+    "$notification_text": "notification.pack_is_incomplete"
   },
 
-  "minecraft_version_notification": {
+  "minecraft_version_notification_short": {
     "type": "panel",
-    "size": [ "100%", "100%c" ],
+    "size": [ "100%c", "100%c" ],
     "controls": [
       {
-        "no_problem@info_section.notification_design_base": {
+        "no_problem@info_section.notification_short_design_base": {
           "layer": 5,
           "$notification_icon_path": "textures/ui/check",
-          "$notification_title": "notification.minecraft_version",
+          "$notification_title": "notification.minecraft_version.no_problem.short",
           "$notification_text": "notification.minecraft_version.no_problem",
           "bindings": [
-            { "binding_name": "#protocol_version" },
+            { "binding_name": "#build_information" },
             {
-              "binding_name": "((not ((#protocol_version - $pack_support_protocol) = #protocol_version)))",
+              "binding_name": "((not ((#build_information - $pack_support_protocol) = #build_information)))",
               "binding_name_override": "#visible"
             }
           ]
         }
       },
       {
-        "problem@info_section.notification_design_base": {
+        "problem@info_section.notification_short_design_base": {
           "layer": 5,
           "$notification_icon_path": "textures/ui/cancel",
-          "$notification_title": "notification.minecraft_version",
+          "$notification_title": "notification.minecraft_version.problem.short",
           "$notification_text": "notification.minecraft_version.problem",
           "bindings": [
-            { "binding_name": "#protocol_version" },
+            { "binding_name": "#build_information" },
             {
-              "binding_name": "((((#protocol_version - $pack_support_protocol) = #protocol_version)))",
+              "binding_name": "((((#build_information - $pack_support_protocol) = #build_information)))",
               "binding_name_override": "#visible"
             }
           ]
@@ -1359,60 +1299,43 @@
 
 
   // Info Text Base
+  "info_button_text_base": {
+    "$info_text|default": "",
+    "$info_text_bindings|default": [],
+
+    "type": "button",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.copy_build_info",
+        "mapping_type": "pressed"
+      }
+    ],
+    "controls": [
+      {
+        "info_text": {
+          "type": "label",
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "text": "$info_text",
+          "text_alignment": "left",
+          "color": "$7_color_format",
+          "shadow": true,
+          "bindings": "$info_text_bindings"
+        }
+      }
+    ]
+  },
+
   "info_text_base": {
     "type": "label",
     "size": [ "100%", "default" ],
     "max_size": [ "100%", "default" ],
     "text_alignment": "left",
     "color": "$7_color_format"
-  },
-
-  "stack_data_label_base": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "$title_text|default": "unknow",
-    "$title_text_alignment|default": "left",
-    "$panel_size|default": [ "100%", "100%c" ],
-    "$panel_anchor|default": "center",
-    "$panel_orientation|default": "vertical",
-    "$data_texts|default": [
-      { "data_label@data_label_base": {} }
-    ],
-    "controls": [
-      {
-        "title_label": {
-          "type": "label",
-          "size": [ "100%", "default" ],
-          "max_size": [ "100%", "default" ],
-          "text": "$title_text",
-          "text_alignment": "$title_text_alignment",
-          "font_scale_factor": 1.3
-        }
-      },
-      {
-        "data_text_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-            {
-              "data_texts": {
-                "type": "stack_panel",
-                "size": "$panel_size",
-                "anchor_from": "$panel_anchor",
-                "anchor_to": "$panel_anchor",
-                "orientation": "$panel_orientation",
-                "controls": "$data_texts"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "void_panel": { "type": "panel", "size": [ "100%", 6 ] }
-      }
-    ]
   },
 
   "icon_with_text_base": {

@@ -2,8 +2,8 @@
   /// Pack Info ///
   "$pack_type": "Alpha",
   "$pack_type_color": [ 0.882, 0.816, 0.969 ],
-  "$pack_version": "v2.4",
-  "$pack_support_protocol": "827", // v1.21.100
+  "$pack_version": "v2.5",
+  "$pack_support_protocol": "924", // v26.0
 
 
   /// Pack Option ///
@@ -12,6 +12,19 @@
   "$pack_is_developer_mode": false, // 개발 버전일 경우
 
   "$show_hud_function_items": true, // Hud에서 나침반, 시계 표시 여부
+
+
+  /// Facelift Theme ///
+  "$facelift_texture": "textures/ui/facelift/facelift_button",
+
+  "$facelift_texture_alpha": 0.75,
+  "$facelift_texture_default_color": [ 0.15, 0.15, 0.15 ],
+  "$facelift_texture_hover_color": [ 0.4, 0.4, 0.4 ],
+  "$facelift_texture_pressed_color": [ 0.05, 0.05, 0.05 ],
+  "$facelift_texture_locked_color": [ 0.15, 0.15, 0.15 ],
+
+  "$facelift_texture_default_checked_color": [ 0.15, 0.15, 0.15 ],
+  "$facelift_texture_hover_checked_color": [ 0.4, 0.4, 0.4 ],
 
 
   /// Pack Type Text Color Base ///

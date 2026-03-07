@@ -14,8 +14,8 @@ global.pack_info.github=Github: https://github.com/TeamSelenyx/MoonlightPack
 global.pack_info.project_codename=프로젝트 코드네임: Moonlight Project
 global.pack_info.licenses=라이선스: AGPL 3.0
 global.pack_info.licenses.title=라이선스
-global.pack_info.licenses.1=* 해당 리소스 팩은 Team Selenyx의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.
-global.pack_info.licenses.2=* 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.
+global.pack_info.licenses.1=* 해당 리소스 팩은 Team Selenyx의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다
+global.pack_info.licenses.2=* 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다
 
 
 ## Setting Screen
@@ -31,25 +31,34 @@ options.category.world=월드
 options.category.debug=디버그
 
 options.particleRenderDistance=파티클 렌더링 거리
-options.crossPlatformPlay=크로스 플렛폼 플레이
 options.creditsHeader=제작진 & 권한 정보
 options.advanced_video_options=고급 비디오
 options.myResourcePacks=나의 리소스 팩
 options.creator.copyCoordinate=좌표 복사 설정
+options.playerSearch.name=플레이어 검색
 
+options.copyCoordinateUI.description=채팅창, 명령 블록에서 좌표 복사 기능을 이용할 수 있습니다
+options.crossPlatformToggle.description=다양한 플렛폼과 멀티 플레이를 할 수 있습니다
+options.enableEcoMode.description=게임이 유휴 상태일 때 전력 소모를 낮추는 실험적 절전 설정입니다
+options.onlyTrustedSkinsAllowed.description=Mojang 및 파트너가 제작하여 신뢰할 수 있는 스킨만 게임 내에서 사용 및 표시할 수 있도록 허용하며, 그 외 모든 스킨은 제외합니다
+
+
+controls_section.contorl_title=조작
 controls_section.controls=조작
 controls_section.controls.classic=조작 - 클래식
 controls_section.controls.touch=조작 - 터치
 controls_section.controls.crosshair=조작 - 포인터
-controls_section.contorl_title=조작
+controls_section.contorls.category=기능 & 조작
+controls_section.contorl_mode.selected=조작 방식:
 controls_section.controller=컨트롤러
 controls_section.sensitivity_title=감도
 controls_section.sensitivity_and_control_title=감도 & 조작
 controls_section.sensitivity_and_vibration_title=감도 & 진동
 controls_section.button_title=버튼
 controls_section.drag.title=드래그
-controls_section.drag.drag_dwell.info=아이템 분할 후 해당 아이템을 움직일 수 있는 딜레이를 설정할 수 있습니다.
-controls_section.drag.stack_splitting.info=아이템 분할 기능이 작동되는 딜레이를 설정할 수 있습니다.
+controls_section.drag.drag_dwell.info=아이템 분할 후 해당 아이템을 움직일 수 있는 딜레이를 설정할 수 있습니다
+controls_section.drag.stack_splitting.info=아이템 분할 기능이 작동되는 딜레이를 설정할 수 있습니다
+controls_section.switch=Switch 컨트롤러
 
 general_section.effect_title=효과
 general_section.text_title=텍스트
@@ -64,15 +73,22 @@ world_section.general=일반
 world_section.advanced=고급
 world_section.cheats=치트
 world_section.experimental_features=실험 기능
+world_section.file_export=파일 내보내기
+world_section.file_export.lore.1= * 파일을 내보낼 때 .mctemplate 파일로 내보내집니다
+world_section.file_export.lore.2= * 이 파일을 Minecraft에 적용하면, '새로운 월드 만들기 화면'에서 '보유중' 메뉴에서 '모두 보기'를 누르고 '가져옴'으로 설정해주면 내보냈던 월드 템플릿을 찾으실 수 있습니다
+world_section.file_export.lore.3= * 해당 기능은 언제든지 막힐 수 있으며, 안정적인 월드 파일 내보내기를 보장하지 않습니다
+world_section.file_export.lore.4= * iOS/iPadOS, Windows에서는 안정적으로 월드 파일을 추출할 수 있는 방법이 있으니 그 방법을 우선적으로 시도해보시기 바랍니다
+world_section.file_export.file_name=파일 이름: 
+world_section.editor_mode=에디터 모드
 
 quick_section.quick_setting=빠른 설정
 quick_section.camera=카메라
 quick_section.camera.first_person=1인칭
-quick_section.camera.first_person.info=본인의 손만 보이는 시점으로, 건축이나 PVP에서 주로 최적화된 시점입니다.
+quick_section.camera.first_person.info=본인의 손만 보이는 시점으로, 건축이나 PVP에서 주로 최적화된 시점입니다
 quick_section.camera.third_person_back=3인칭 후방
-quick_section.camera.third_person_back.info=더 넓은 시야로 건축물의 사이즈를 가늠할 때 주로 사용합니다.
+quick_section.camera.third_person_back.info=더 넓은 시야로 건축물의 사이즈를 가늠할 때 주로 사용합니다
 quick_section.camera.third_person_front=3인칭 전방
-quick_section.camera.third_person_front.info=더 넓은 시야를 유지하면서 촬영하거나 방송할 때 최적화된 시점입니다.
+quick_section.camera.third_person_front.info=더 넓은 시야를 유지하면서 촬영하거나 방송할 때 최적화된 시점입니다
 
 graphics_section.graphics=그래픽
 graphics_section.graphicsTitle=그래픽 설정
@@ -85,34 +101,44 @@ graphics_section.play=플레이
 graphics_section.uiAgui_title=UI & GUI
 graphics_section.splitscreen=분할 화면
 
+search_section.search=검색
+search_section.search_result=검색 결과
+
 info_section.info=정보
 info_section.packInfo=팩 정보
 info_section.minecraftInfo=Minecraft 정보
 info_section.minecraftInfo.detail=Minecraft 세부 정보
 info_section.precautions=주의 사항
 
-settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.
+settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다
 
 
 ## Experimental
-experimental.export_template=템플릿 기능은 실험적이며, 문제가 생길 수 있습니다.
+experimental.export_template=템플릿 기능은 실험적이며, 문제가 생길 수 있습니다
 
 
 ## Notification
 notification.title=알림
 notification.minecraft_version=Minecraft 버전 호환 여부
+notification.minecraft_version.no_problem.short=호환됨
 notification.minecraft_version.no_problem=호환되는 [ Minecraft 버전 ] 사용 중
+notification.minecraft_version.problem.short=호환되지 않음
 notification.minecraft_version.problem=호환되지 않는 [ Minecraft 버전 ] 사용 중
 notification.pack_is_developer=개발 버전 팩 사용 중
-notification.pack_is_developer.lore=현재 개발 중인 리소스 팩 입니다. 외부 유출을 엄격히 금지합니다.
+notification.pack_is_developer.short=개발
+notification.pack_is_developer.lore=현재 개발 중인 리소스 팩 입니다. 외부 유출을 엄격히 금지합니다
 notification.pack_is_beta=BETA 버전 팩 사용 중
+notification.pack_is_beta.short=BETA
 notification.pack_is_beta.lore=매우 불안정한 리소스 팩 입니다. 사용해보시면서 보이는 문제점이나 의견이 있으시면 연락해주세요!
 notification.pack_is_preview=사전 체험 팩 사용 중
+notification.pack_is_preview.short=Preview
 notification.pack_is_preview.lore=정식 버전 공개 전 테스트 하는 리소스 팩 입니다. 발견된 버그가 있다면 제보해주세요!
 notification.pack_is_custom=커스텀 버전 사용 중
-notification.pack_is_custom.lore=정식 버전에서 추가로 커스텀이 적용된 리소스 팩 입니다. 기능이 서로 맞지 않아 충돌이 발생될 수 있습니다.
+notification.pack_is_custom.short=커스텀
+notification.pack_is_custom.lore=정식 버전에서 추가로 커스텀이 적용된 리소스 팩 입니다. 기능이 서로 맞지 않아 충돌이 발생될 수 있습니다
 notification.pack_is_incomplete=미완성된 리소스 팩
-notification.pack_is_incomplete.lore=아직 완성되지 않은 리소스 팩 입니다. 버그가 많거나 제대로 동작하지 않을 수 있습니다.
+notification.pack_is_incomplete.short=미완성
+notification.pack_is_incomplete.lore=아직 완성되지 않은 리소스 팩 입니다. 버그가 많거나 제대로 동작하지 않을 수 있습니다
 
 
 ## Play Screen
@@ -128,20 +154,20 @@ playScreen.server.news=뉴스
 playScreen.server.games=게임
 playScreen.server.screenshots=스크린샷
 playScreen.server.warning.high_ping.title=높은 지연 시간 경고
-playScreen.server.warning.high_ping.text=이 서버는 지연 시간이 높습니다. 플레이에 영향이 있을 수 있습니다.
+playScreen.server.warning.high_ping.text=이 서버는 지연 시간이 높습니다. 플레이에 영향이 있을 수 있습니다
 playScreen.server.warning.very_high_ping.title=매우 높은 지연 시간 경고
-playScreen.server.warning.very_high_ping.text=이 서버는 지연 시간이 매우 높습니다. 플레이가 어려울 수 있습니다.
+playScreen.server.warning.very_high_ping.text=이 서버는 지연 시간이 매우 높습니다. 플레이가 어려울 수 있습니다
 
 playScreen.search_world.place_holder=월드 이름 검색...
 playScreen.search_world.warning=현재 월드 검색이 제대로 되지 않는 버그가 있습니다.
 
 playScreen.not_local_world.title=생성된 월드가 없습니다.
-playScreen.not_local_world.lore='새로운 월드 만들기' 또는 '빠른 플레이' 버튼을 눌러서 새로운 월드를 생성해보세요.
+playScreen.not_local_world.lore='새로운 월드 만들기' 또는 '빠른 플레이' 버튼을 눌러서 새로운 월드를 생성해보세요
 
 playScreen.friends.title=친구
 playScreen.friends.player_search=플레이어 검색
 playScreen.friends.not_friends.title=앗! 현재 플레이 중인 친구가 없습니다...
-playScreen.friends.not_friends.lore=친구에게 같이 플레이 하자고 하거나, '플레이어 검색' 기능을 이용해서 새로운 친구를 찾아보세요!
+playScreen.friends.not_friends.lore=친구에게 같이 플레이 하자고 하거나, '플레이어 검색' 기능을 이용해서 새로운 친구를 찾아보세요
 
 playScreen.category.realms_plus.title=Realms Plus
 playScreen.category.lan.title=LAN 서버
@@ -149,20 +175,20 @@ playScreen.category.lan.not_lan_list=열려있는 LAN 서버를 찾을 수 없�
 
 playScreen.switch_to_new_ui=새 UI로 전환
 
-playScreen.additional_server.lore=외부 서버는 Mojang이 제공하는 공식 서버와는 다른 사람들이 운영하는 서버입니다. 외부 서버에서는 여러 사람들과 같이 다양한 장르를 즐기실 수 있습니다.
+playScreen.additional_server.lore=외부 서버는 Mojang이 제공하는 공식 서버와는 다른 사람들이 운영하는 서버입니다. 외부 서버에서는 여러 사람들과 같이 다양한 장르를 즐기실 수 있습니다
 
 
 ## Other
 chat.text_edit_box.description=보낼 내용을 입력해주세요.
 
-addExternalServerScreen.add_warning_text=외부 서버는 안정적인 플레이 환경을 보장할 수 없습니다. 항상 이 점을 유의하면서 플레이하세요.
+addExternalServerScreen.add_warning_text=외부 서버는 안정적인 플레이 환경을 보장할 수 없습니다. 항상 이 점을 유의하면서 플레이하세요
 
 createWorldScreen.beta.settings=베타 설정
-createWorldScreen.classroom.settings=클래스 설정
+createWorldScreen.classroom.settings=교실 설정
 
 networkWorld.join_network_server=외부 서버 접속
 networkWorld.join_third_party_server=추천 서버 접속
-networkWorld.no_lan_game=현재 같은 네트워크에서 Minecraft를 플레이 중인 플레이어가 없습니다.
+networkWorld.no_lan_game=현재 같은 네트워크에서 Minecraft를 플레이 중인 플레이어가 없습니다
 
 selectWorld.import=월드 불러오기
 selectWorld.quick_play=빠른 플레이

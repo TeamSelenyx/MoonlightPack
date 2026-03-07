@@ -120,6 +120,49 @@
   },
 
 
+  // Size(Super Dynamic)
+  "screen_exit_animation_push_size_super_dynamic@anims_common.exit_animation_push_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "175%", "175%" ]
+  },
+
+  "screen_exit_animation_pop_size_super_dynamic@anims_common.exit_animation_pop_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "175%", "175%" ]
+  },
+
+  "screen_entrance_animation_push_size_super_dynamic@anims_common.entrance_animation_push_size_base": {
+    "$animation_from": [ "175%", "175%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+  "screen_entrance_animation_pop_size_super_dynamic@anims_common.entrance_animation_pop_size_base": {
+    "$animation_from": [ "175%", "175%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+
+  "screen_exit_animation_push_size_super_dynamic_r@anims_common.exit_animation_push_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "25%", "25%" ]
+  },
+
+  "screen_exit_animation_pop_size_super_dynamic_r@anims_common.exit_animation_pop_size_base": {
+    "$animation_from": [ "100%", "100%" ],
+    "$animation_to": [ "25%", "25%" ]
+  },
+
+  "screen_entrance_animation_push_size_super_dynamic_r@anims_common.entrance_animation_push_size_base": {
+    "$animation_from": [ "25%", "25%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+  "screen_entrance_animation_pop_size_super_dynamic_r@anims_common.entrance_animation_pop_size_base": {
+    "$animation_from": [ "25%", "25%" ],
+    "$animation_to": [ "100%", "100%" ]
+  },
+
+
 
   // Offset
   "exit_animation_push_offset_base": {

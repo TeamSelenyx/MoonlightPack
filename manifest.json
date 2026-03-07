@@ -2,15 +2,15 @@
     "format_version": 3,
     "header": {
         "name": "Moonlight Pack",
-        "description": "§7버전: §hv2.4§r\n§f편리한 기능을 좀 더 추가해서 더 업그레이드 되었습니다.\n§7Made by §f[NeroLuna §7with §hTeam Selenyx§f]",
+        "description": "§7버전: §hv2.5§r\n§f편리한 기능을 좀 더 추가해서 더 업그레이드 되었습니다.\n§7Made by §f[NeroLuna §7with §hTeam Selenyx§f]",
         "uuid": "a8236cb6-84f6-4e16-944f-a79bd8d3bde6",
         "version": {
             "major": 2,
-            "minor": 4,
+            "minor": 5,
             "patch": 0,
             "buildMeta": "stable"
         },
-        "min_engine_version": "1.21.100"
+        "min_engine_version": "1.26.0"
     },
     "modules": [
         {
@@ -18,7 +18,7 @@
             "uuid": "73b5c5e2-6aff-11ea-bc55-0242ac134737",
             "version": {
                 "major": 2,
-                "minor": 4,
+                "minor": 5,
                 "patch": 0,
                 "buildMeta": "stable"
             }

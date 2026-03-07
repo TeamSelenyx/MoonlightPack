@@ -184,25 +184,15 @@
           "anchor_to": "center",
           "controls": [
             {
-              "progress_image_border": {
-                "layer": 4,
-                "type": "image",
-                "size": [ "100%sm", "100%sm" ],
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "texture": "textures/ui/border_line",
-                "color": [ 0.0, 0.0, 0.0 ]
-              }
-            },
-            {
               "progress_image": {
                 "layer": 3,
                 "type": "image",
                 "size": [ "55% - 24px", "100%c + 24px" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "texture": "textures/ui/White",
-                "color": [ 0.3, 0.3, 0.3 ],
+                "texture": "$facelift_texture",
+                "color": "$facelift_texture_default_color",
+                "alpha": "$facelift_texture_alpha",
                 "controls": [
                   {
                     "content": {
@@ -473,13 +463,14 @@
 
 
   // Canel Button
-  "new_cancel_button@button_preset.dark_ore_button": {
+  "new_cancel_button@button_preset.facelift_button_base": {
     "size": [ 100, 26 ],
     "anchor_from": "center",
     "anchor_to": "center",
 
-    "$button_text": "gui.cancel",
+    "$text": "gui.cancel",
     "$pressed_button_name": "button.menu_exit",
+    "$button_type_panel": "button_content_preset.text_content_panel",
 
     "bindings": [
       {

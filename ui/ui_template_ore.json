@@ -5,7 +5,7 @@
   "icon_highlight": {
     "layer": 3,
     "type": "image",
-    "texture": "textures/ui/ore/icon_highlight_spritesheet",
+    "texture": "textures/ui/ore/icons/icon_highlight_spritesheet",
     "size": [ 12, 12 ],
     "uv_size": [ 24, 24 ],
     "uv": "@common_ore.icon_highlight_uv_animation",
@@ -80,16 +80,17 @@
           "$toggle_tts_name": "accessibility.dropdown.tts.title",
           "$toggle_tts_toggle_on_text": "",
           "$toggle_tts_toggle_off_text": "",
-          "tts_control_type_order_priority": -1 // This should happen before labels whose default starts at 0
+          "tts_control_type_order_priority": -1
         }
       },
       {
         "dropdown_content": {
+          "$dropdown_content_offset|default": [ 0, 0 ],
+
           "type": "input_panel",
-          // we really want this on top of everything
           "layer": 42,
           "size": "$dropdown_scroll_content_size",
-          "offset": [ -2, 0 ],
+          "offset": [ 0, 0 ],
           "$anchor_dropdown_content_from|default": "top_left",
           "$anchor_dropdown_content_to|default": "top_left",
           "anchor_from": "$anchor_dropdown_content_from",
@@ -104,7 +105,7 @@
               "scroll@common.scrolling_panel": {
                 "layer": 2,
                 "size": [ "100%", "100%" ],
-                "offset": [ 0, -3 ],
+                "offset": "$dropdown_content_offset",
                 "$scrolling_pane_size": [ "100%", "100%" ],
                 "$scrolling_content": "$dropdown_content",
                 "$scroll_view_port_size": [ "100% - 4px", "100% - 4px" ],

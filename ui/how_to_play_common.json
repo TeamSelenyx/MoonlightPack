@@ -1,0 +1,80 @@
+{
+  "namespace": "how_to_play_common",
+
+  "how_to_play_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "header@how_to_play_common.how_to_play_header": {
+          "size": [ "100%", "23px" ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+        }
+      },
+      {
+        "container": {
+          "type": "panel",
+          "size": "$store_screen_size",
+          "controls": [
+            { "$dialog_content@$dialog_content": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "dialog_content": {
+    "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "selector_area@how_to_play_common.selector_area": {} },
+      { "content_area@how_to_play_common.content_area_wrapper": {} },
+      { "section_divider@how_to_play_common.section_divider": {} }
+    ]
+  },
+
+
+  // Screen
+  "dynamic_dialog_screen@common.base_screen": {
+    "type": "screen",
+    "size": [ "100%", "100%" ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.menu_tab_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.menu_tab_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+    "$screen_content": "how_to_play_common.how_to_play_content",
+    "$screen_background_control": "how_to_play_common.screen_background"
+  },
+
+  "screen_background": {
+    "type": "image",
+    "texture": "textures/ui/White",
+    "color": [ 0.192, 0.196, 0.2 ],
+    "layer": -1
+  },
+
+  "top_bar": {
+    "type": "image",
+    "texture": "textures/ui/StoreTopBar"
+  },
+
+  "screen_base@how_to_play_common.dynamic_dialog_screen": {
+    "$dialog_content": "how_to_play_common.dialog_content"
+  }
+}

@@ -1,263 +1,6 @@
 {
   "namespace": "preview_section",
 
-  // Facelift Setting Screen
-  "setting_selector_panel": {
-    "type": "stack_panel",
-    "size": [ "100%c", "100%cm + 2px" ],
-    "offset": [ 0, 1 ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "orientation": "horizontal",
-    "ttsSectionContainer": true,
-    "$default_selector_toggle_index": 0,
-    "$spatialPatternsPadding": [ "100%", 25 ],
-    "$setting_category_button_size|default": [ 30, 30 ],
-    "controls": [
-      {
-        "account@preview_section.account_ore_icon_button": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "size": "$setting_category_button_size",
-          "$toggle_group_forced_index": "$account_forced_index",
-          "bindings": [
-            {
-              "binding_name": "#not_logged_in",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "account_padding@common.empty_panel": {
-          "size": [ 4, 0 ],
-          "bindings": [
-            {
-              "binding_name": "#not_logged_in",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-
-      {
-        "world_category@preview_section.world_category_ore_icon_button": {
-          "ignored": "(not $include_world_section)",
-          "size": "$setting_category_button_size",
-          "$toggle_group_forced_index": "$game_forced_index"
-        }
-      },
-      {
-        "world_category_padding@common.empty_panel": {
-          "ignored": "(not $include_world_section)",
-          "size": [ 4, 0 ]
-        }
-      },
-
-      {
-        "quick_setting@preview_section.quick_setting_ore_icon_button": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "size": "$setting_category_button_size",
-          "$toggle_group_forced_index": "$accessibility_forced_index"
-        }
-      },
-      {
-        "accessibility@preview_section.accessibility_ore_icon_button": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "size": "$setting_category_button_size",
-          "$toggle_group_forced_index": 230 // $accessibility_forced_index
-        }
-      },
-      {
-        "controls_and_settings_selector_panel": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "type": "stack_panel",
-          "size": [ "100%c", "100%cm" ],
-          "orientation": "horizontal",
-          "$controls_section_header": "options.group.input",
-          "$social_section_header": "options.social",
-          "$general_section_header": "stat.generalButton",
-          "$debug_section_header": "options.debug",
-          "$spatialPatternsPadding": [ "100%", 25 ],
-          "controls": [
-            {
-              "graphics@preview_section.graphics_ore_icon_button": {
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": 800
-              }
-            },
-            {
-              "controls@preview_section.controls_ore_icon_button": {
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": "$touch_forced_index"
-              }
-            },
-            {
-              "sound_language_category@preview_section.sound_language_category_ore_icon_button": {
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": 600
-              }
-            },
-            {
-              "etc@preview_section.etc_ore_icon_button": {
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": 610
-              }
-            },
-            {
-              "global_texture_pack@preview_section.global_texture_pack_ore_icon_button": {
-                "ignored": "$ignore_global_resources_section",
-                "visible": "($is_global_texture_packs_visible)",
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": "$global_texture_pack_forced_index"
-              }
-            },
-            {
-              "storage_management@preview_section.storage_management_ore_icon_button": {
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": "$storage_management_forced_index"
-              }
-            },
-            {
-              "creator@preview_section.creator_ore_icon_button": {
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": "$creator_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "view_subscriptions@preview_section.view_subscriptions_ore_icon_button": {
-                "ignored": "$is_editor_mode_enabled",
-                "size": "$setting_category_button_size",
-                "$toggle_group_forced_index": "$view_subscriptions_forced_index",
-                "$tts_section_header": "$general_section_header",
-                "bindings": [
-                  {
-                    "binding_name": "#should_show_subscription_tab",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "how_to_play@preview_section.how_to_play_ore_icon_button": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "size": "$setting_category_button_size",
-          "$toggle_group_forced_index": "$how_to_play_index"
-        }
-      },
-
-      {
-        "preview_padding@common.empty_panel": {
-          "ignored": "(not $show_preview_button)",
-          "size": [ 4, 0 ]
-        }
-      },
-      {
-        "preview@preview_section.preview_ore_icon_button": {
-          "ignored": "(not $show_preview_button)",
-          "size": "$setting_category_button_size",
-          "$toggle_group_forced_index": "$preview_forced_index",
-          "$tts_section_header": "$general_section_header"
-        }
-      },
-
-      {
-        "debug_category_padding@common.empty_panel": {
-          "ignored": "($is_publish)",
-          "size": [ 4, 0 ]
-        }
-      },
-      {
-        "debug_category@preview_section.debug_category_ore_icon_button": {
-          "ignored": "($is_publish)",
-          "size": "$setting_category_button_size",
-          "$toggle_group_forced_index": 760
-        }
-      }
-    ]
-  },
-
-  "setting_content_panel": {
-    "type": "panel",
-    "size": [ "100%", "100%" ],
-    "offset": [ 0, 0 ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "controls": [
-      {
-        "world_category@world_section.world_category_setting_section": {
-          "ignored": "(not $include_world_section)"
-        }
-      },
-      {
-        "general_and_controls_sections": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "type": "stack_panel",
-          "size": [ "100%", "100%" ],
-          "controls": [
-            {
-              "account@account_section.account_setting_section": {}
-            },
-            {
-              "quick_setting@quick_section.quick_setting_setting_section": {}
-            },
-            {
-              "info@info_section.info_setting_section": {}
-            },
-            {
-              "sound_language_category@general_section.sound_language_category_setting_section": {}
-            },
-            {
-              "graphics@graphics_section.graphics_setting_section": {}
-            },
-            {
-              "etc@general_section.etc_setting_section": {}
-            },
-
-            {
-              "accessibility_section@general_section.accessibility_setting_section": {}
-            },
-            {
-              "controls@controls_section.controls_setting_section": {}
-            },
-            {
-              "creator@general_section.creator_setting_section": {}
-            },
-            {
-              "storage_management@storage_management.storage_management_setting_section": {}
-            },
-            {
-              "global_texture_pack@general_section.global_texture_pack_setting_section": {}
-            },
-            {
-              "view_subscriptions_prerelease@general_section.view_subscriptions_prerelease_setting_section": {
-                "ignored": "($education_edition or $is_editor_mode_enabled or not $pre_release)"
-              }
-            },
-            {
-              "view_subscriptions@general_section.view_subscriptions_setting_section": {
-                "ignored": "($education_edition or $is_editor_mode_enabled or $pre_release)"
-              }
-            },
-            {
-              "how_to_play@general_section.how_to_play_setting_section": {}
-            },
-
-            {
-              "debug_category@general_section.debug_category_setting_section": {
-                "ignored": "($is_publish)"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-
   // Ore Icon Button
   "show_setting_selector_toggle@common_toggles.light_text_toggle": {
     "size": [ "100%", "100%" ],
@@ -270,21 +13,21 @@
     "$default_border_visible": false,
     "$hover_border_visible": false,
 
-    "$default_texture": "textures/ui/facelift/facelift_button",
-    "$hover_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_texture": "textures/ui/facelift/facelift_button",
-    "$pressed_no_hover_texture": "textures/ui/facelift/facelift_button",
-    "$locked_texture": "textures/ui/facelift/facelift_button",
+    "$default_texture": "$facelift_texture",
+    "$hover_texture": "$facelift_texture",
+    "$pressed_texture": "$facelift_texture",
+    "$pressed_no_hover_texture": "$facelift_texture",
+    "$locked_texture": "$facelift_texture",
 
-    "$default_texture_alpha": 0.6,
-    "$default_checked_texture_alpha": 0.6,
-    "$hover_texture_alpha": 0.6,
-    "$hover_checked_texture_alpha": 0.6,
+    "$default_texture_alpha": "$facelift_texture_alpha",
+    "$default_checked_texture_alpha": "$facelift_texture_alpha",
+    "$hover_texture_alpha": "$facelift_texture_alpha",
+    "$hover_checked_texture_alpha": "$facelift_texture_alpha",
 
-    "$default_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$default_checked_texture_color": [ 0.0, 0.0, 0.0 ],
-    "$hover_texture_color": [ 0.4, 0.4, 0.4 ],
-    "$hover_checked_texture_color": [ 0.4, 0.4, 0.4 ]
+    "$default_texture_color": "$facelift_texture_default_color",
+    "$default_checked_texture_color": "$facelift_texture_default_checked_color",
+    "$hover_texture_color": "$facelift_texture_hover_color",
+    "$hover_checked_texture_color": "$facelift_texture_hover_checked_color"
   },
 
   "show_setting_selector_toggle_content_panel": {
@@ -304,6 +47,7 @@
         "icon": {
           "type": "image",
           "size": [ "95%", "95%" ],
+          "offset": [ 0.25, 0.25 ],
           "anchor_from": "center",
           "anchor_to": "center",
           "texture": "$toggle_icon"
@@ -313,9 +57,10 @@
   },
 
   "account_ore_icon_button@settings_common.facelift_section_toggle_base": {
+    "size": [ 30, 30 ],
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "account_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_account",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_account",
     "$button_text": "options.account",
     "$toggle_property_bag": {
       "#panel_title": "options.accountTitle"
@@ -323,10 +68,10 @@
   },
 
   "quick_setting_ore_icon_button@settings_common.facelift_section_toggle_base": {
-    "$facelift_button_type_left": true,
+    "size": [ 30, 30 ],
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "quick_setting_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_quick_settings",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_quick_settings",
     "$button_text": "quick_section.quick_setting",
     "$toggle_property_bag": {
       "#panel_title": "$button_text"
@@ -334,10 +79,11 @@
   },
 
   "accessibility_ore_icon_button@settings_common.facelift_section_toggle_base": {
-    "$facelift_button_type_full": true,
+    "size": [ 30, 30 ],
+    "$facelift_button_type_left": true,
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "accessibility_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_accessibility",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_accessibility",
     "$button_text": "options.accessibility",
     "$toggle_property_bag": {
       "#panel_title": "options.accessibility.title"
@@ -345,10 +91,11 @@
   },
 
   "graphics_ore_icon_button@settings_common.facelift_section_toggle_base": {
-    "$facelift_button_type_full": true,
+    "size": [ 30, 30 ],
+    "$facelift_button_type_full_horizontal": true,
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "graphics_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_graphics",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_graphics",
     "$button_text": "graphics_section.graphics",
     "$toggle_property_bag": {
       "#panel_title": "graphics_section.graphicsTitle"
@@ -356,32 +103,34 @@
   },
 
   "etc_ore_icon_button@settings_common.facelift_section_toggle_base": {
-    "$facelift_button_type_full": true,
+    "size": [ 30, 30 ],
+    "$facelift_button_type_full_horizontal": true,
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "etc_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_general",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_general",
     "$button_text": "general_section.etc",
     "$toggle_property_bag": {
       "#panel_title": "general_section.etcTitle"
     }
   },
 
-  "controls_ore_icon_button@settings_common.facelift_section_toggle_full_base": {
+  "controls_ore_icon_button@settings_common.facelift_section_toggle_full_horizontal_base": {
+    "size": [ 30, 30 ],
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "controls_button_toggle",
     "$glyph_color_texture": "textures/ui/empty",
     "variables": [
       {
         "requires": "($touch)",
-        "$glyph_color_texture": "textures/ui/ore/icon_touch"
+        "$glyph_color_texture": "textures/ui/ore/icons/icon_touch"
       },
       {
         "requires": "($mouse)",
-        "$glyph_color_texture": "textures/ui/ore/icon_keyborad_and_mouse"
+        "$glyph_color_texture": "textures/ui/ore/icons/icon_keyborad_and_mouse"
       },
       {
         "requires": "($game_pad)",
-        "$glyph_color_texture": "textures/ui/ore/icon_gamepad"
+        "$glyph_color_texture": "textures/ui/ore/icons/icon_gamepad"
       }
     ],
     "$button_text": "controls_section.controls",
@@ -391,6 +140,7 @@
   },
 
   "global_texture_pack_ore_icon_button@resource_packs.ore_icon_resource_packs_section_toggle_base": {
+    "size": [ 30, 30 ],
     "$toggle_view_binding_name": "global_texture_pack_button_toggle",
     "$cycling_icon_path": "#cycling_icon_path_global",
     "$cycling_icon_zip": "#cycling_icon_zip_global",
@@ -401,12 +151,13 @@
     }
   },
 
-  "storage_management_ore_icon_button@settings_common.facelift_section_toggle_full_base": {
+  "storage_management_ore_icon_button@settings_common.facelift_section_toggle_full_horizontal_base": {
+    "size": [ 30, 30 ],
     "enabled": "(not $trial)",
     "visible": "($is_pregame)",
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "storage_management_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_storage",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_storage",
     "variables": [
       {
         "requires": "$education_edition",
@@ -426,11 +177,12 @@
   },
 
   "creator_ore_icon_button@settings_common.facelift_section_toggle_base": {
-    "$facelift_button_type_full": true,
+    "size": [ 30, 30 ],
+    "$facelift_button_type_full_horizontal": true,
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "ignored": "$ignore_creator_section",
     "$toggle_view_binding_name": "creator_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_creator",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_creator",
     "$button_text": "options.creator",
     "$toggle_property_bag": {
       "#panel_title": "options.creatorTitle"
@@ -438,11 +190,12 @@
   },
 
   "view_subscriptions_ore_icon_button@settings_common.facelift_section_toggle_base": {
-    "$facelift_button_type_full": true,
+    "size": [ 30, 30 ],
+    "$facelift_button_type_full_horizontal": true,
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "enabled": "(not $trial)",
     "$toggle_view_binding_name": "view_subscriptions_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_subscriptions",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_subscriptions",
     "$button_text": "options.viewSubscriptions",
     "$toggle_property_bag": {
       "#panel_title": "options.viewSubscriptions"
@@ -450,10 +203,11 @@
   },
 
   "sound_language_category_ore_icon_button@settings_common.facelift_section_toggle_base": {
-    "$facelift_button_type_full": true,
+    "size": [ 30, 30 ],
+    "$facelift_button_type_full_horizontal": true,
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "sound_language_category_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_sound_language",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_sound_language",
     "$button_text": "options.category.sound_language",
     "$toggle_property_bag": {
       "#panel_title": "$button_text"
@@ -461,10 +215,11 @@
   },
 
   "how_to_play_ore_icon_button@settings_common.facelift_section_toggle_base": {
+    "size": [ 30, 30 ],
     "$facelift_button_type_right": true,
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "how_to_play_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_how_to_play",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_how_to_play",
     "$button_text": "menu.howToPlay",
     "$toggle_property_bag": {
       "#panel_title": "menu.howToPlay"
@@ -472,10 +227,11 @@
   },
 
   "preview_ore_icon_button@settings_common.facelift_section_toggle_base": {
+    "size": [ 30, 30 ],
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "ignored": "(not $show_preview_button)",
     "$toggle_view_binding_name": "preview_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_debug",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_debug",
     "$button_text": "offer.preview",
     "$toggle_property_bag": {
       "#panel_title": "$button_text"
@@ -483,9 +239,10 @@
   },
 
   "world_category_ore_icon_button@settings_common.facelift_section_toggle_base": {
+    "size": [ 30, 30 ],
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "world_category_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_world_tab_alt_02",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_world_tab_alt_02",
     "$button_text": "options.category.world",
     "$toggle_property_bag": {
       "#panel_title": "createWorldScreen.worldSettings"
@@ -493,9 +250,10 @@
   },
 
   "debug_category_ore_icon_button@settings_common.facelift_section_toggle_base": {
+    "size": [ 30, 30 ],
     "$button_type_panel": "button_content_preset.facelift_icon_button_content",
     "$toggle_view_binding_name": "debug_category_button_toggle",
-    "$glyph_color_texture": "textures/ui/ore/icon_debug",
+    "$glyph_color_texture": "textures/ui/ore/icons/icon_debug",
     "$button_text": "options.category.debug",
     "$toggle_property_bag": {
       "#panel_title": "$button_text"
